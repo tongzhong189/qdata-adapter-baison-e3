@@ -62,9 +62,9 @@ all = [
 [project.urls]
 Homepage = "https://www.qeasy.cloud"
 Documentation = "https://github.com/qeasy/qdata-adapter-baison-e3#readme"
-Repository = "https://github.com/qeasy/qdata-adapter-baison-e3"
-"Bug Tracker" = "https://github.com/qeasy/qdata-adapter-baison-e3/issues"
-Changelog = "https://github.com/qeasy/qdata-adapter-baison-e3/blob/main/CHANGELOG.md"
+Repository = "https://github.com/vincent067/qdata-adapter-baison-e3"
+"Bug Tracker" = "https://github.com/vincent067/qdata-adapter-baison-e3/issues"
+Changelog = "https://github.com/vincent067/qdata-adapter-baison-e3/blob/main/CHANGELOG.md"
 
 # Entry points for adapter discovery
 [project.entry-points."qdata.adapters"]
