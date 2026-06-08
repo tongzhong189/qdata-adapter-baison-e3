@@ -13,7 +13,7 @@ from typing import Any, AsyncIterator
 
 from qdata_adapter import BaseAppAdapter
 from qdata_adapter.context import ConnectorContext
-from qdata_adapter.exceptions import TestConnectionResult
+from qdata_adapter.results import TestConnectionResult
 
 from qdata_adapter_baison_e3.interfaces.base import BaseInterface
 from qdata_adapter_baison_e3.interfaces.standard import BaisonE3AdapterStandardInterface

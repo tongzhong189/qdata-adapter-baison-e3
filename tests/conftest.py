@@ -105,14 +105,13 @@ def standard_auth_config() -> dict[str, str]:
     """
     standard 接口认证配置
 
+    百胜E3 使用 AppKey + AppSecret + MD5 签名认证。
     优先从环境变量读取，使用默认值作为 fallback。
-    如需真实测试，请在 .env 文件中配置真实凭据。
     """
     prefix = ADAPTER_NAME.upper()
     return {
-        "client_id": os.getenv(f"{prefix}_CLIENT_ID", "test-client-id"),
-        "client_secret": os.getenv(f"{prefix}_CLIENT_SECRET", "test-client-secret"),
-        "token_url": os.getenv(f"{prefix}_TOKEN_URL", f"{BASE_URL}/oauth/token"),
+        "app_key": os.getenv(f"{prefix}_APP_KEY", "test-app-key"),
+        "app_secret": os.getenv(f"{prefix}_APP_SECRET", "test-app-secret"),
     }
 
 
