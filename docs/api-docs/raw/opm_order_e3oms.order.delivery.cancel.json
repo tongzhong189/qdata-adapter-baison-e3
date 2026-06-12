@@ -1,0 +1,173 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.delivery.cancel"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "订单取消发货",
+      "desc": "第三方要向系统取消订单发货，可调用此API",
+      "method": "e3oms.order.delivery.cancel",
+      "request_params": [
+        {
+          "code": "order_sn",
+          "type": "string",
+          "required": true,
+          "desc": "订单号",
+          "example": "18062200008278"
+        },
+        {
+          "code": "deal_code",
+          "type": "string",
+          "required": true,
+          "desc": "交易单号",
+          "example": "85694731231231"
+        },
+        {
+          "code": "ly_type",
+          "type": "string",
+          "required": true,
+          "desc": "来源类型",
+          "example": "houtai=后台； taobao=淘宝；paipai=拍拍； openshop=OS主站；jingdong= 京东；amazon=亚马逊；yihaodian=一号店；dangdang= 当当；newegg=新蛋；vjia=v+； yougou=优购；yintai=银泰； lefeng=乐蜂网；jumei=聚美优品；weigou=微购物；suning=苏宁易购；m18=麦考林；koudaitong=有赞；feiniu=飞牛商城商家；suning_hwg=苏宁海外购；jingdong_qqg=京东全球购；weimeng=微盟旺铺；feiniu_zd= 飞牛转单厂商；wangyi=网易秀品；baidu=百度MALL；hichao= 明星衣橱；chuchujie=楚楚街； cbc=建行善融商城；guomei=国美在线；mia=蜜芽宝贝；icbc=工行融e购；beibei=贝贝网； mogujie=蘑菇街；cpj=诚品佳； alibaba=1688；okbuy=好乐买； juanpi=卷皮网；mengdian=萌店；renren=人人店；xiaodian=蘑菇街小店；aliexpress=速卖通； youhuo=有货；pinduoduo=拼多多；qiake=洽客；kaola=网易考拉；zhe800=折800；shangpin= 尚品；zhenpin=珍品网；yunji=云集；haiziwang=孩子王；siku=寺\r\n库；shimao=世贸； suning_temai=苏宁特卖；yike=驿氪；xiaohongshu=小红书； suning_ziying=苏宁自营； jingdongziying=京东自营； davdian=大v店；aikucun=爱库存；zhaoshang=招商； jingdong_jos=京东自营批发； tianhong=天虹商城；wphmp=唯品会MP；bushou=环球捕手；\r\nhaoyiku=好衣库；shangpinzf=尚品网直发；ibailian=i百联； qoo10=趣天；wphjitx=唯品会 JITX；fenqile=分期乐； yunjipop=云集POP；kukeduo= 酷客多；jiuxian=酒仙网； kaolazhiying=网易考拉自营； weimeng_ec=微盟智慧零售； daling=达令家；yitao=每日一淘；\r\ndouyinxiaodian=抖音小店；lst= 零售通；shangfan=商帆； kuaishou=快手小店； youzan_retail=有赞新零售； caodong=草动；微店=vdian,小米有品=xiaomiyoupin,饿了么=ele,天猫超市接口=tmmarket,天猫国际品牌站接口=tmall_global,腾讯汇聚=tencent_huiju,京东到家接口=jddj,得物=dewu,美团闪购=mtsg"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-server-exception"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "status",
+              "type": "boolean",
+              "required": true,
+              "desc": "状态",
+              "example": false
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": true,
+              "desc": "信息",
+              "example": "订单不存在"
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.cancel.delivery"
+    }
+  },
+  "message": "success"
+}

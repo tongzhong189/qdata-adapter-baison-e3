@@ -1,0 +1,243 @@
+{
+  "code": "e3oms.goods.skus.add",
+  "name": "商品SKU档案添加",
+  "category": "商品API/goods_info",
+  "method": "GET/POST",
+  "description": "商品SKU档案添加",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品编码",
+      "_parent_node": null
+    },
+    {
+      "field": "color_code",
+      "name": "color_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "颜色代码",
+      "_parent_node": null
+    },
+    {
+      "field": "color_name",
+      "name": "color_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "颜色名称",
+      "_parent_node": null
+    },
+    {
+      "field": "size_code",
+      "name": "size_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "尺码代码",
+      "_parent_node": null
+    },
+    {
+      "field": "size_name",
+      "name": "size_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "尺码名称",
+      "_parent_node": null
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品 SKU",
+      "_parent_node": null
+    },
+    {
+      "field": "barcode",
+      "name": "barcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "条码多条码用逗号分隔",
+      "_parent_node": null
+    },
+    {
+      "field": "sta_barcode",
+      "name": "sta_barcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "国标码多国标码用逗号分隔",
+      "_parent_node": null
+    },
+    {
+      "field": "market_price",
+      "name": "market_price",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "市场价",
+      "_parent_node": null
+    },
+    {
+      "field": "six_nine_code",
+      "name": "six_nine_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "69码69码传入时作为条码的属性",
+      "_parent_node": null
+    },
+    {
+      "field": "bzsj",
+      "name": "bzsj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准售价",
+      "_parent_node": null
+    },
+    {
+      "field": "cbj",
+      "name": "cbj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "成本价",
+      "_parent_node": null
+    },
+    {
+      "field": "zjf",
+      "name": "zjf",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "助记符",
+      "_parent_node": null
+    },
+    {
+      "field": "sj_mxs",
+      "name": "sj_mxs",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "散件明细",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

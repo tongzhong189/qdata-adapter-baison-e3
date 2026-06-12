@@ -1,0 +1,453 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.return.custom.field.update"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "退单自定义字段更新",
+      "desc": "第三方要向系统退单更新自定义字段，可调用此API（数据保存在退单自定义字段中间表）",
+      "method": "e3oms.order.return.custom.field.update",
+      "request_params": [
+        {
+          "code": "return_order_sn",
+          "type": "string",
+          "required": true,
+          "desc": "E3退单号",
+          "example": "9333312"
+        },
+        {
+          "code": "dealCode",
+          "type": "string",
+          "required": false,
+          "desc": "平台交易号",
+          "example": "D202505200001(与return_order_sn不能同时为空,不支持拆合单)"
+        },
+        {
+          "code": "check",
+          "type": "string",
+          "required": true,
+          "desc": "默认为0,直接更新订单;当为1时，校验订单状态,未确认状态才可更新",
+          "example": "0"
+        },
+        {
+          "code": "zdy_zd1",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段1",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd2",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段2",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd3",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段3",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd4",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段4",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd5",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段5",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd6",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段6",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd7",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段7",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd8",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段8",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd9",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段9",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd10",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段10",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd11",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段11",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd12",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段12",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd13",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段13",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd14",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段14",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd15",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段15",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd16",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段16",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd17",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段17",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd18",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段18",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd19",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段19",
+          "example": "111"
+        },
+        {
+          "code": "zdy_zd20",
+          "type": "string",
+          "required": false,
+          "desc": "自定义字段20",
+          "example": "111"
+        },
+        {
+          "code": "items",
+          "type": "array[object]",
+          "required": false,
+          "desc": "明细",
+          "example": "[{\"id\":\"xxx\",\"zdy_zd1\":\"11\"},{\"id\":\"xxx\",\"zdy_zd1\":\"22\"}]",
+          "children": [
+            {
+              "code": "id",
+              "type": "string",
+              "required": true,
+              "desc": "订单商品ID（order_goods表的ID）",
+              "example": "11"
+            },
+            {
+              "code": "zdy_mx_zd1",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段1",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd2",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段2",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd3",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段3",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd4",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段4",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd5",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段5",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd6",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段6",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd7",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段7",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd8",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段8",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd9",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段9",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd10",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段10",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd11",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段11",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd12",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段12",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd13",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段13",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd14",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段14",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd15",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段15",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd16",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段16",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd17",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段17",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd18",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段18",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd19",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段19",
+              "example": "111"
+            },
+            {
+              "code": "zdy_mx_zd20",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段20",
+              "example": "111"
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": ""
+    }
+  },
+  "message": "success"
+}

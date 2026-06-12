@@ -1,0 +1,405 @@
+{
+  "code": "e3oms.base.kehu.list.get",
+  "name": "获取客户列表",
+  "category": "基础API/shop",
+  "method": "GET/POST",
+  "description": "获取客户列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数; ",
+      "_parent_node": null
+    },
+    {
+      "field": "khdm",
+      "name": "khdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "khListGet",
+      "name": "khListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "客户列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "id",
+      "name": "id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户id",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "khdm",
+      "name": "khdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "代码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "khmc",
+      "name": "khmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "名称",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "lb_id",
+      "name": "lb_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户类别ID",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "khlb",
+      "name": "khlb",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户类别",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "xsms",
+      "name": "xsms",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "性质代码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "xz",
+      "name": "xz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "性质",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "qd_id",
+      "name": "qd_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道ID",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "qd_mc",
+      "name": "qd_mc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道名称",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "qd_dm",
+      "name": "qd_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道代码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "khck",
+      "name": "khck",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户仓库",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "kh_ckmc",
+      "name": "kh_ckmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户仓库名称",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "kh_ckdm",
+      "name": "kh_ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户仓库代码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "qy_id",
+      "name": "qy_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域ID",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "qy_mc",
+      "name": "qy_mc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域名称",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "zq",
+      "name": "zq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账期",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "jzrq",
+      "name": "jzrq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务截止日期",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "is_ty",
+      "name": "is_ty",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "停止使用",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "deliver_center_id",
+      "name": "deliver_center_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "外部编码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "not_sync_pfdj",
+      "name": "not_sync_pfdj",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "不同步批发单据至ERP（内部API）",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "distributor",
+      "name": "distributor",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "经销商",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "brand_id",
+      "name": "brand_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "品牌id",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "brand_name",
+      "name": "brand_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "品牌",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "ydm",
+      "name": "ydm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "原代码",
+      "_parent_node": "khListGet"
+    },
+    {
+      "field": "jsxz",
+      "name": "jsxz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "结算性质",
+      "_parent_node": "khListGet"
+    }
+  ],
+  "error_codes": []
+}

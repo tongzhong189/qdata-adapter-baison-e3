@@ -7,7 +7,7 @@
 | 资源 | 地址 | 说明 |
 |------|------|------|
 | 官方文档中心 | <https://openapi.baison.net/index.html#/doc> | 百胜E3 开放平台接口文档 |
-| 本目录接口清单 | `apis_list.json` | 139 个接口清单 |
+| 本目录接口清单 | `apis_list.json` | 156 个接口清单 |
 | 认证与签名指南 | `../docs/auth-guide.md` | 已验证的 MD5 签名算法与连接器信息 |
 | 开发规范 | `../docs/prompt.md` | 适配器开发任务说明 |
 
@@ -16,7 +16,7 @@
 ```
 api-docs/
 ├── README.md                      # 本文件（文档入口）
-├── apis_list.json                 # 139 个 API 清单
+├── apis_list.json                 # 156 个 API 清单
 ├── postman-collection.json        # Postman 测试集合
 ├── postman-pre-request-script.js  # Postman 自动签名脚本
 └── openapi.yaml                   # OpenAPI/Swagger 定义（待补充）
@@ -26,7 +26,7 @@ api-docs/
 
 ## 接口概览
 
-截至文档更新时，百胜E3 开放平台共提供 **139 个接口**，分为以下大类：
+截至文档更新时，百胜E3 开放平台共提供 **156 个接口**，分为以下大类：
 
 | 大类 | 涉及子模块 | 常见用途 |
 |------|-----------|---------|

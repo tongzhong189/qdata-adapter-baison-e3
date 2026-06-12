@@ -1,0 +1,297 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.purchase.cgtzd.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "采购通知单添加",
+      "desc": "采购通知单添加",
+      "method": "e3oms.purchase.cgtzd.add",
+      "request_params": [
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": true,
+          "desc": "单号",
+          "example": ""
+        },
+        {
+          "code": "ydjh",
+          "type": "string",
+          "required": false,
+          "desc": "原单号",
+          "example": ""
+        },
+        {
+          "code": "warehouseCode",
+          "type": "string",
+          "required": true,
+          "desc": "仓库代码",
+          "example": "warehouseCode和ckCode 二选一"
+        },
+        {
+          "code": "ckCode",
+          "type": "string",
+          "required": false,
+          "desc": "仓库档案中设置的对接 ERP 外部编码",
+          "example": "warehouseCode和ckCode 二选一"
+        },
+        {
+          "code": "ghsCode",
+          "type": "string",
+          "required": false,
+          "desc": "供货商代码",
+          "example": ""
+        },
+        {
+          "code": "contract_no",
+          "type": "string",
+          "required": false,
+          "desc": "合同编号",
+          "example": ""
+        },
+        {
+          "code": "created",
+          "type": "string",
+          "required": false,
+          "desc": "创建时间Y-m-d H:i:s",
+          "example": ""
+        },
+        {
+          "code": "zdr",
+          "type": "string",
+          "required": false,
+          "desc": "制单人",
+          "example": ""
+        },
+        {
+          "code": "zdrq",
+          "type": "number",
+          "required": false,
+          "desc": "制单日期",
+          "example": ""
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": ""
+        },
+        {
+          "code": "type",
+          "type": "string",
+          "required": false,
+          "desc": "单据类型",
+          "example": ""
+        },
+        {
+          "code": "djzt",
+          "type": "number",
+          "required": false,
+          "desc": "单据状态 默认2自动确认审核； 如果传1 就是未确认，需要人工审核；如果传2 单据就自动确认审核",
+          "example": "1"
+        },
+        {
+          "code": "requireQcFlag",
+          "type": "number",
+          "required": false,
+          "desc": "是否免检",
+          "example": ""
+        },
+        {
+          "code": "sub_type(或者是jhlx)",
+          "type": "string",
+          "required": false,
+          "desc": "进货类型代码",
+          "example": ""
+        },
+        {
+          "code": "zdy_zd1",
+          "type": "string",
+          "required": true,
+          "desc": "自定义字段zdy_zd1~zdy_zd10",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "array[object]",
+          "required": false,
+          "desc": "SKU 信息(sku)",
+          "example": "",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "Sku 编码",
+              "example": ""
+            },
+            {
+              "code": "dj",
+              "type": "number",
+              "required": true,
+              "desc": "单价",
+              "example": ""
+            },
+            {
+              "code": "sl(或者 number)",
+              "type": "number",
+              "required": true,
+              "desc": "数量",
+              "example": ""
+            },
+            {
+              "code": "goods_sn",
+              "type": "string",
+              "required": false,
+              "desc": "商品货号",
+              "example": ""
+            },
+            {
+              "code": "color_code",
+              "type": "string",
+              "required": false,
+              "desc": "颜色代码",
+              "example": ""
+            },
+            {
+              "code": "size_code",
+              "type": "string",
+              "required": false,
+              "desc": "尺码代码",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd1",
+              "type": "string",
+              "required": true,
+              "desc": "自定义字段zdy_zd1~ zdy_zd10",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "desc": "状态码",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "desc": "响应数据",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "返回消息结果",
+          "example": "成功"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "cgtzd.add"
+    }
+  },
+  "message": "success"
+}

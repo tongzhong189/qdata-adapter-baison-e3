@@ -1,0 +1,333 @@
+{
+  "code": "e3oms.order.custom.field.update",
+  "name": "销售订单自定义字段更新",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "第三方要向系统更新自定义字段，可调用此API（数据保存在OS中间表）",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3订单号",
+      "_parent_node": null
+    },
+    {
+      "field": "dealCode",
+      "name": "dealCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "平台交易号",
+      "_parent_node": null
+    },
+    {
+      "field": "check",
+      "name": "check",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "默认为0,直接更新订单;当为1时，校验订单状态,未通知配货才允许更改(shipping_status:0,1,2允许更新成功)",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd1",
+      "name": "zdy_zd1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd2",
+      "name": "zdy_zd2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd3",
+      "name": "zdy_zd3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd4",
+      "name": "zdy_zd4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd5",
+      "name": "zdy_zd5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd6",
+      "name": "zdy_zd6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd7",
+      "name": "zdy_zd7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd8",
+      "name": "zdy_zd8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd9",
+      "name": "zdy_zd9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd10",
+      "name": "zdy_zd10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd11",
+      "name": "zdy_zd11",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段11",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd12",
+      "name": "zdy_zd12",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段12",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd13",
+      "name": "zdy_zd13",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段13",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd14",
+      "name": "zdy_zd14",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段14",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd15",
+      "name": "zdy_zd15",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段15",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd16",
+      "name": "zdy_zd16",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段16",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd17",
+      "name": "zdy_zd17",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段17",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd18",
+      "name": "zdy_zd18",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段18",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd19",
+      "name": "zdy_zd19",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段19",
+      "_parent_node": null
+    },
+    {
+      "field": "zdy_zd20",
+      "name": "zdy_zd20",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段20",
+      "_parent_node": null
+    },
+    {
+      "field": "items",
+      "name": "items",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "明细",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

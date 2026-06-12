@@ -1,0 +1,430 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.wholesale.pfxhd.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "批发销货单添加",
+      "desc": "批发销货单添加",
+      "method": "e3oms.wholesale.pfxhd.add",
+      "request_params": [
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单号",
+          "example": ""
+        },
+        {
+          "code": "warehouseCode或者是ckCode",
+          "type": "string",
+          "required": false,
+          "desc": "仓库代码或者是仓库档案中对接ERP外部编码",
+          "example": ""
+        },
+        {
+          "code": "khCode",
+          "type": "string",
+          "required": false,
+          "desc": "客户代码",
+          "example": ""
+        },
+        {
+          "code": "kh_id",
+          "type": "string",
+          "required": true,
+          "desc": "客户 ID",
+          "example": ""
+        },
+        {
+          "code": "ck_id",
+          "type": "string",
+          "required": true,
+          "desc": "仓库 ID",
+          "example": ""
+        },
+        {
+          "code": "kw_id",
+          "type": "string",
+          "required": true,
+          "desc": "库位 ID",
+          "example": ""
+        },
+        {
+          "code": "qd_id",
+          "type": "string",
+          "required": true,
+          "desc": "渠道 ID",
+          "example": ""
+        },
+        {
+          "code": "rq",
+          "type": "string",
+          "required": true,
+          "desc": "创建时间",
+          "example": ""
+        },
+        {
+          "code": "zdr",
+          "type": "string",
+          "required": true,
+          "desc": "制单人",
+          "example": ""
+        },
+        {
+          "code": "zdrq",
+          "type": "number",
+          "required": true,
+          "desc": "制单日期",
+          "example": ""
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": true,
+          "desc": "备注",
+          "example": ""
+        },
+        {
+          "code": "created",
+          "type": "number",
+          "required": true,
+          "desc": "下单日期",
+          "example": ""
+        },
+        {
+          "code": "is_js",
+          "type": "string",
+          "required": true,
+          "desc": "是否允许结算",
+          "example": ""
+        },
+        {
+          "code": "zk",
+          "type": "string",
+          "required": true,
+          "desc": "折扣",
+          "example": ""
+        },
+        {
+          "code": "jgsd",
+          "type": "string",
+          "required": true,
+          "desc": "价格设定",
+          "example": ""
+        },
+        {
+          "code": "fhlx_id",
+          "type": "string",
+          "required": true,
+          "desc": "发货类型",
+          "example": ""
+        },
+        {
+          "code": "jhrq",
+          "type": "number",
+          "required": true,
+          "desc": "计划交货日期",
+          "example": ""
+        },
+        {
+          "code": "ywy_id",
+          "type": "string",
+          "required": true,
+          "desc": "业务员 id",
+          "example": ""
+        },
+        {
+          "code": "fkqx",
+          "type": "number",
+          "required": true,
+          "desc": "付款期限日期",
+          "example": ""
+        },
+        {
+          "code": "is_ys",
+          "type": "string",
+          "required": true,
+          "desc": "是否验收",
+          "example": ""
+        },
+        {
+          "code": "sl",
+          "type": "string",
+          "required": true,
+          "desc": "执行数量",
+          "example": ""
+        },
+        {
+          "code": "je",
+          "type": "string",
+          "required": true,
+          "desc": "金额",
+          "example": ""
+        },
+        {
+          "code": "is_dx",
+          "type": "string",
+          "required": true,
+          "desc": "是否代销",
+          "example": ""
+        },
+        {
+          "code": "source",
+          "type": "string",
+          "required": true,
+          "desc": "来源",
+          "example": ""
+        },
+        {
+          "code": "po_no",
+          "type": "string",
+          "required": true,
+          "desc": "PO 单号",
+          "example": ""
+        },
+        {
+          "code": "pick_no",
+          "type": "string",
+          "required": true,
+          "desc": "jit 拣货单编号",
+          "example": ""
+        },
+        {
+          "code": "storage_no",
+          "type": "string",
+          "required": true,
+          "desc": "入库单编号",
+          "example": ""
+        },
+        {
+          "code": "shdz_cyfs",
+          "type": "string",
+          "required": true,
+          "desc": "承运方式",
+          "example": ""
+        },
+        {
+          "code": "shdz_cydh",
+          "type": "string",
+          "required": true,
+          "desc": "承运单号",
+          "example": ""
+        },
+        {
+          "code": "zdy_zd1",
+          "type": "string",
+          "required": true,
+          "desc": "自定义字段zdy_zd1~zdy_zd10",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "array[object]",
+          "required": false,
+          "desc": "SKU 信息(sku)",
+          "example": "",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": false,
+              "desc": "Sku 编码",
+              "example": ""
+            },
+            {
+              "code": "dj",
+              "type": "string",
+              "required": false,
+              "desc": "单价",
+              "example": ""
+            },
+            {
+              "code": "sl",
+              "type": "string",
+              "required": false,
+              "desc": "数量",
+              "example": ""
+            },
+            {
+              "code": "goods_sn",
+              "type": "string",
+              "required": false,
+              "desc": "商品货号",
+              "example": ""
+            },
+            {
+              "code": "color_code",
+              "type": "string",
+              "required": false,
+              "desc": "颜色代码",
+              "example": ""
+            },
+            {
+              "code": "size_code",
+              "type": "string",
+              "required": false,
+              "desc": "尺码代码",
+              "example": ""
+            },
+            {
+              "code": "batchCode",
+              "type": "string",
+              "required": true,
+              "desc": "批次号",
+              "example": ""
+            },
+            {
+              "code": "productDate",
+              "type": "number",
+              "required": true,
+              "desc": "生产日期",
+              "example": ""
+            },
+            {
+              "code": "expireDate",
+              "type": "number",
+              "required": true,
+              "desc": "到期日",
+              "example": ""
+            },
+            {
+              "code": "yxq",
+              "type": "string",
+              "required": true,
+              "desc": "有效期",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd1",
+              "type": "string",
+              "required": true,
+              "desc": "自定义字段zdy_zd1~ zdy_zd10",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "desc": "状态码",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "desc": "响应数据",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "返回消息结果",
+          "example": "成功"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "pfxhd.add"
+    }
+  },
+  "message": "success"
+}

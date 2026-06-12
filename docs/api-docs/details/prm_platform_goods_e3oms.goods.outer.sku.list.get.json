@@ -1,0 +1,360 @@
+{
+  "code": "e3oms.goods.outer.sku.list.get",
+  "name": "获取平台商品列表",
+  "category": "商品API/platform_goods",
+  "method": "GET/POST",
+  "description": "获取平台商品列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "fields",
+      "name": "fields",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "指定字段",
+      "_parent_node": null
+    },
+    {
+      "field": "add_time_start",
+      "name": "add_time_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "add_time_end",
+      "name": "add_time_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "创建结束时间",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "指定页码",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "描述",
+      "_parent_node": "data"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "否",
+      "description": "返回值",
+      "_parent_node": "data"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "分页详情",
+      "_parent_node": "data"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "总数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页数量",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "当前页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "outerSkuListGet",
+      "name": "outerSkuListGet",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "数据结果",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lylx",
+      "name": "lylx",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "来源类型",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "goods_sku",
+      "name": "goods_sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品编码",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "goods_barcode",
+      "name": "goods_barcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品条码",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_id",
+      "name": "outer_goods_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "商品id",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_sku_id",
+      "name": "outer_goods_sku_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "商品skuid",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_name",
+      "name": "outer_goods_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "平台商品名称",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_url",
+      "name": "outer_goods_url",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "图片地址",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_je",
+      "name": "outer_goods_je",
+      "type": "float",
+      "length": "",
+      "required": "否",
+      "description": "平台商品售价",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_sl",
+      "name": "outer_goods_sl",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单商品数量",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_sku",
+      "name": "outer_goods_sku",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "平台商品sku",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "outer_goods_sku_name",
+      "name": "outer_goods_sku_name",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "平台商品sku名称(颜色尺码)",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "add_time",
+      "name": "add_time",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "添加时间",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "khmc",
+      "name": "khmc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户名称",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "khdm",
+      "name": "khdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": "outerSkuListGet"
+    },
+    {
+      "field": "sj_time",
+      "name": "sj_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "上架时间",
+      "_parent_node": "outerSkuListGet"
+    }
+  ],
+  "error_codes": []
+}

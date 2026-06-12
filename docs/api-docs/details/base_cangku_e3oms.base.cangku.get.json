@@ -1,0 +1,369 @@
+{
+  "code": "e3oms.base.cangku.get",
+  "name": "仓库获取接口",
+  "category": "基础API/cangku",
+  "method": "GET/POST",
+  "description": "仓库获取接口",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100 ",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "ckListGet",
+      "name": "ckListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "仓库信息列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "address",
+      "name": "address",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "地址",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "biaoshi",
+      "name": "biaoshi",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "标识",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库代码",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "ckmc",
+      "name": "ckmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库名称",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "ckxz",
+      "name": "ckxz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库性质",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "id",
+      "name": "id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "仓库id",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "is_delete",
+      "name": "is_delete",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "软删除,0 否,1 是软删除了",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "is_share",
+      "name": "is_share",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否允许共享 1共享 0不共享",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "is_stc",
+      "name": "is_stc",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否是 stc 生成仓 1是 0不是",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "lb_id",
+      "name": "lb_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "类别id",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "lxr",
+      "name": "lxr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "联系人",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "outer_code",
+      "name": "outer_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "外部编码",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "p_ck",
+      "name": "p_ck",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "宿主仓库",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "p_ck_kw",
+      "name": "p_ck_kw",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "宿主仓库库位,默认为ID=1 的默认库位",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "qd_id",
+      "name": "qd_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "渠道id",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "qy_id",
+      "name": "qy_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "区域id",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "tel",
+      "name": "tel",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "联系电话",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "ty",
+      "name": "ty",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否停用(0-未停用 1-停用)",
+      "_parent_node": "ckListGet"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    }
+  ],
+  "error_codes": []
+}

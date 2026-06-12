@@ -1,0 +1,334 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.outer.sku.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取平台商品列表",
+      "desc": "获取平台商品列表",
+      "method": "e3oms.goods.outer.sku.list.get",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "fields",
+          "type": "string",
+          "required": false,
+          "desc": "指定字段",
+          "example": "lylx,goods_sku,goods_barcode,outer_goods_id,outer_goods_sku_id,outer_goods_name,outer_goods_url,outer_goods_je,outer_goods_sl,outer_goods_sku,outer_goods_sku_name,add_time,approve_status,sj_time"
+        },
+        {
+          "code": "add_time_start",
+          "type": "string",
+          "required": false,
+          "desc": "开始时间",
+          "example": "2021-11-25 12:00:12"
+        },
+        {
+          "code": "add_time_end",
+          "type": "string",
+          "required": false,
+          "desc": "创建结束时间",
+          "example": "2021-12-25 12:00:12"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数",
+          "example": "20"
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "指定页码",
+          "example": "2"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "{\"status\":\"api-success\",\"message\":\"success\",\"data\":{\"page\":{\"totalResult\":2,\"pageSize\":1,\"pageNo\":1,\"pageTotal\":2},\"bzdwListGet\":[{\"dwCode\":\"ge\",\"dwName\":\"\\u4e2a\",\"dwXs\":\"0\",\"dwBarcode\":\"\",\"dwNote\":\"\",\"modified\":\"2021-01-25 10:40:25\"}]}}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "success"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "分页详情",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总数",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总页数",
+                      "example": "1"
+                    }
+                  ]
+                },
+                {
+                  "code": "outerSkuListGet",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "lylx",
+                      "type": "string",
+                      "required": false,
+                      "desc": "来源类型",
+                      "example": "1"
+                    },
+                    {
+                      "code": "goods_sku",
+                      "type": "string",
+                      "required": false,
+                      "desc": "商品编码",
+                      "example": "sku0001"
+                    },
+                    {
+                      "code": "goods_barcode",
+                      "type": "string",
+                      "required": false,
+                      "desc": "商品条码",
+                      "example": "sku0001"
+                    },
+                    {
+                      "code": "outer_goods_id",
+                      "type": "number",
+                      "required": false,
+                      "desc": "商品id",
+                      "example": "1000000001"
+                    },
+                    {
+                      "code": "outer_goods_sku_id",
+                      "type": "number",
+                      "required": false,
+                      "desc": "商品skuid",
+                      "example": "100000000101"
+                    },
+                    {
+                      "code": "outer_goods_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "平台商品名称",
+                      "example": "百胜测试商品"
+                    },
+                    {
+                      "code": "outer_goods_url",
+                      "type": "string",
+                      "required": false,
+                      "desc": "图片地址",
+                      "example": "https:\\/\\/item.taobao.com\\/item.htm?id=1000000001&spm=2019.12440355.0.0"
+                    },
+                    {
+                      "code": "outer_goods_je",
+                      "type": "float",
+                      "required": false,
+                      "desc": "平台商品售价",
+                      "example": "12.00"
+                    },
+                    {
+                      "code": "outer_goods_sl",
+                      "type": "number",
+                      "required": false,
+                      "desc": "订单商品数量",
+                      "example": "2"
+                    },
+                    {
+                      "code": "outer_goods_sku",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "平台商品sku",
+                      "example": "1627207:392764661;20509:28313"
+                    },
+                    {
+                      "code": "outer_goods_sku_name",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "平台商品sku名称(颜色尺码)",
+                      "example": "1627207:392764661:颜色分类:泳池蓝;20509:28313:尺码:XS"
+                    },
+                    {
+                      "code": "add_time",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "添加时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "khmc",
+                      "type": "string",
+                      "required": false,
+                      "desc": "客户名称",
+                      "example": "大客户"
+                    },
+                    {
+                      "code": "khdm",
+                      "type": "string",
+                      "required": false,
+                      "desc": "客户代码",
+                      "example": "xxx"
+                    },
+                    {
+                      "code": "sj_time",
+                      "type": "string",
+                      "required": false,
+                      "desc": "上架时间",
+                      "example": "2021-01-25 10:40:25"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "outer.sku.list.get"
+    }
+  },
+  "message": "success"
+}

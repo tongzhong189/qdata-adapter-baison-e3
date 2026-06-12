@@ -1,0 +1,158 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.store.delivery.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "外卖平台骑手信息获取",
+      "desc": "外卖平台骑手信息获取",
+      "method": "e3oms.store.delivery.get",
+      "request_params": [
+        {
+          "code": "order_id",
+          "type": "string",
+          "required": true,
+          "desc": "平台交易号",
+          "example": ""
+        },
+        {
+          "code": "lylx",
+          "type": "number",
+          "required": true,
+          "desc": "E3 订单来源类型",
+          "example": "1淘宝，154饿了么，157京东到家，160美团闪购"
+        },
+        {
+          "code": "ywbs",
+          "type": "string",
+          "required": false,
+          "desc": "业务标识",
+          "example": "仅针对淘宝试用，不传默认，定时送和极速达 传 tcg 同城购/完美履约"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": false,
+          "desc": "可以查看各个平台返回信息，淘宝小时达：https://open.taobao.com/api.htm?spm=a219a.7386797.0.0.3e06669atMH8hz&source=search&docId=36949&docType=2 淘宝同城：https://open.taobao.com/api.htm?spm=a219a.7386797.0.0.54fe669apvXZUN&source=search&docId=52635&docType=2 饿了么：https://open-retail.ele.me/#/apidoc/me.ele.retail:order.delivery.get-3?aopApiCategory=order_delivery&type=order_all ,京东到家 https://opendj.jd.com/staticnew/widgets/resources.html?id=3001, 美团闪购 https://tscc.meituan.com/home/doc/market/143",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order_delivery_get"
+    }
+  },
+  "message": "success"
+}

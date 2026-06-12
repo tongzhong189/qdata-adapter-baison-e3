@@ -1,0 +1,243 @@
+{
+  "code": "e3oms.store.md.cangku.get",
+  "name": "获取门店仓库档案",
+  "category": "门店API/cangku",
+  "method": "GET/POST",
+  "description": "获取门店仓库档案",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "返回信息",
+      "_parent_node": null
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "门店仓库代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ckmc",
+      "name": "ckmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "门店仓库名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lxr",
+      "name": "lxr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "联系人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "district",
+      "name": "district",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "区",
+      "_parent_node": "data"
+    },
+    {
+      "field": "province",
+      "name": "province",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "省",
+      "_parent_node": "data"
+    },
+    {
+      "field": "city",
+      "name": "city",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "市",
+      "_parent_node": "data"
+    },
+    {
+      "field": "address",
+      "name": "address",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "地址",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tel",
+      "name": "tel",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "电话",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zipcode",
+      "name": "zipcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "邮编",
+      "_parent_node": "data"
+    },
+    {
+      "field": "jd",
+      "name": "jd",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商店代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "wd",
+      "name": "wd",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "最后更新时间",
+      "_parent_node": "data"
+    }
+  ],
+  "error_codes": []
+}

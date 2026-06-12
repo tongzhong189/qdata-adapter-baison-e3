@@ -1,0 +1,272 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.taocan.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "添加套餐",
+      "desc": "添加套餐",
+      "method": "e3oms.goods.taocan.add",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "tc_sn",
+          "type": "string",
+          "required": true,
+          "desc": "套餐编码",
+          "example": ""
+        },
+        {
+          "code": "tc_name",
+          "type": "string",
+          "required": true,
+          "desc": "套餐名称",
+          "example": ""
+        },
+        {
+          "code": "tc_sku",
+          "type": "string",
+          "required": true,
+          "desc": "套餐sku",
+          "example": ""
+        },
+        {
+          "code": "tc_sku_name",
+          "type": "string",
+          "required": false,
+          "desc": "套餐规格名称",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "string",
+          "required": true,
+          "desc": "商品SKU(*商品货号+颜色CODE+尺码CODE为空时必填)",
+          "example": ""
+        },
+        {
+          "code": "  goods_sn",
+          "type": "string",
+          "required": false,
+          "desc": "商品货号(*商品SKU为空时必填)",
+          "example": ""
+        },
+        {
+          "code": "color_code",
+          "type": "string",
+          "required": false,
+          "desc": "尺寸code",
+          "example": ""
+        },
+        {
+          "code": "size_code",
+          "type": "string",
+          "required": false,
+          "desc": "颜色code",
+          "example": ""
+        },
+        {
+          "code": "sl",
+          "type": "string",
+          "required": true,
+          "desc": "数量(必填)",
+          "example": ""
+        },
+        {
+          "code": "price",
+          "type": "string",
+          "required": false,
+          "desc": "标准价",
+          "example": ""
+        },
+        {
+          "code": "price_zj",
+          "type": "string",
+          "required": false,
+          "desc": "标准总价",
+          "example": ""
+        },
+        {
+          "code": "shop_codes",
+          "type": "string",
+          "required": false,
+          "desc": "店铺代码",
+          "example": ""
+        },
+        {
+          "code": "tc_cate_code",
+          "type": "string",
+          "required": false,
+          "desc": "套餐分类代码",
+          "example": ""
+        },
+        {
+          "code": "jgsd",
+          "type": "string",
+          "required": true,
+          "desc": "价格设定(*必填)(标准售价/标准进价/售价1/售价2/售价3...)",
+          "example": ""
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": ""
+        },
+        {
+          "code": " zj",
+          "type": "string",
+          "required": false,
+          "desc": "总价",
+          "example": ""
+        },
+        {
+          "code": "is_join_share",
+          "type": "string",
+          "required": false,
+          "desc": "是否参与优惠分摊(默认是，1是，2否)",
+          "example": ""
+        },
+        {
+          "code": "enable",
+          "type": "string",
+          "required": true,
+          "desc": "是否启用1启用,2停用,默认启用",
+          "example": ""
+        },
+        {
+          "code": "is_gift",
+          "type": "string",
+          "required": true,
+          "desc": "是否赠品(1是，0或空为否)",
+          "example": "0"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        }
+      ],
+      "response_demo": "{\r\n        “status”:”api-success”, “message”:”success”, “data”:{}\r\n        }\r\n        ",
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "taocan.add"
+    }
+  },
+  "message": "success"
+}

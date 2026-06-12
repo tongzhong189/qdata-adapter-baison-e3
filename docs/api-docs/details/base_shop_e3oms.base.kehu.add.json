@@ -1,0 +1,261 @@
+{
+  "code": "e3oms.base.kehu.add",
+  "name": "添加客户档案",
+  "category": "基础API/shop",
+  "method": "GET/POST",
+  "description": "添加客户档案",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "khdm",
+      "name": "khdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户代码",
+      "_parent_node": null
+    },
+    {
+      "field": "khmc",
+      "name": "khmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户名称 ",
+      "_parent_node": null
+    },
+    {
+      "field": "lb_dm",
+      "name": "lb_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户类别",
+      "_parent_node": null
+    },
+    {
+      "field": "xsms",
+      "name": "xsms",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "销售模式 0-非代销 1-代销",
+      "_parent_node": null
+    },
+    {
+      "field": "qd_dm",
+      "name": "qd_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道代码",
+      "_parent_node": null
+    },
+    {
+      "field": "khck_dm",
+      "name": "khck_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "客户仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "qy_dm",
+      "name": "qy_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域代码",
+      "_parent_node": null
+    },
+    {
+      "field": "zq",
+      "name": "zq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "账期，默认30",
+      "_parent_node": null
+    },
+    {
+      "field": "jzrq",
+      "name": "jzrq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "业务截止日期",
+      "_parent_node": null
+    },
+    {
+      "field": "is_ty",
+      "name": "is_ty",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否停用（0-未停用 1-停用）",
+      "_parent_node": null
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "备注",
+      "_parent_node": null
+    },
+    {
+      "field": "wbbm",
+      "name": "wbbm",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "外部编码",
+      "_parent_node": null
+    },
+    {
+      "field": "not_sync_pfdj",
+      "name": "not_sync_pfdj",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "不同步当前客户的批发单据至ERP（1不同步，0同步）",
+      "_parent_node": null
+    },
+    {
+      "field": "distributor",
+      "name": "distributor",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "经销商名称",
+      "_parent_node": null
+    },
+    {
+      "field": "brand_dm",
+      "name": "brand_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "品牌代码",
+      "_parent_node": null
+    },
+    {
+      "field": "ydm",
+      "name": "ydm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原代码",
+      "_parent_node": null
+    },
+    {
+      "field": "jsxz",
+      "name": "jsxz",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "结算性质 0-不结算 1-销售结算 2-零售结算",
+      "_parent_node": null
+    },
+    {
+      "field": "fxcl",
+      "name": "fxcl",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "分销策略",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

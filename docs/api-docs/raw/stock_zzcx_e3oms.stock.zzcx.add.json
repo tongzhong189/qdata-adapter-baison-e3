@@ -1,0 +1,252 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.zzcx.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "组装(拆卸)添加接口",
+      "desc": "组装(拆卸)添加接口",
+      "method": "e3oms.stock.zzcx.add",
+      "request_params": [
+        {
+          "code": "type",
+          "type": "string",
+          "required": true,
+          "desc": "组装拆卸类型(1,2)",
+          "example": "1 组装，2拆卸"
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "required": true,
+          "desc": "请求参数",
+          "example": "[{\"djbh\":DJBH2023081600001,\"warehouseCode\":\"000\",\"created\":\"2023-08-16\",\"zdr\":\"openapi\",\"zdrq\":\"2023-08-16\",\"bz\":\"bz\",\"zzItems\":[{\"combo_sku\":\"GJFSP1231001\",\"sl\":1,\"bz\":\"bz1\",\"sjItems\":[{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz2\"},{\"sl\":1,\"sku\":\"MC7208-HB\",\"bz\":\"bz3\"},{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz4\"}]}]}]",
+          "children": [
+            {
+              "code": "djbh",
+              "type": "string",
+              "required": true,
+              "desc": "单据编号",
+              "example": "DJBH2023081600001"
+            },
+            {
+              "code": "warehouseCode",
+              "type": "string",
+              "required": true,
+              "desc": "仓库代码",
+              "example": "CKDM000"
+            },
+            {
+              "code": "created",
+              "type": "datetime",
+              "required": false,
+              "desc": "下单日期",
+              "example": "2023-08-16"
+            },
+            {
+              "code": "zdr",
+              "type": "string",
+              "required": false,
+              "desc": "制单人",
+              "example": "openApi"
+            },
+            {
+              "code": "zdrq",
+              "type": "datetime",
+              "required": false,
+              "desc": "制单日期",
+              "example": "2023-08-16"
+            },
+            {
+              "code": "bz",
+              "type": "string",
+              "required": false,
+              "desc": "备注",
+              "example": "客户着急xxx"
+            },
+            {
+              "code": "zzItems",
+              "type": "array",
+              "required": true,
+              "desc": "组装件明细",
+              "example": "[{\"combo_sku\":\"GJFSP1231001\",\"sl\":1,\"bz\":\"bz1\",\"sjItems\":[{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz2\"},{\"sl\":1,\"sku\":\"MC7208-HB\",\"bz\":\"bz3\"},{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz4\"}]}]",
+              "children": [
+                {
+                  "code": "combo_sku",
+                  "type": "string",
+                  "required": true,
+                  "desc": "组装件SKU编码",
+                  "example": "GJFSP1231001"
+                },
+                {
+                  "code": "sl",
+                  "type": "number",
+                  "required": true,
+                  "desc": "数量",
+                  "example": "1"
+                },
+                {
+                  "code": "bz",
+                  "type": "string",
+                  "required": false,
+                  "desc": "备注",
+                  "example": "客户着急xxx"
+                },
+                {
+                  "code": "sjItems",
+                  "type": "array",
+                  "required": true,
+                  "desc": "散件明细",
+                  "example": "[{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz2\"},{\"sl\":1,\"sku\":\"MC7208-HB\",\"bz\":\"bz3\"},{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz4\"}]",
+                  "children": [
+                    {
+                      "code": "sku",
+                      "type": "string",
+                      "required": true,
+                      "desc": "散件SKU编码",
+                      "example": "MC6156-1DL"
+                    },
+                    {
+                      "code": "sl",
+                      "type": "number",
+                      "required": true,
+                      "desc": "数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": false,
+                      "desc": "备注",
+                      "example": "客户着急xxx"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "desc": "状态码",
+          "example": "success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "返回消息结果",
+          "example": "成功"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "desc": "响应数据",
+          "example": "[{\"djbh\":DJBH2023081600001,\"warehouseCode\":\"000\",\"created\":\"2023-08-16\",\"zdr\":\"openapi\",\"zdrq\":\"2023-08-16\",\"bz\":\"bz\",\"zzItems\":[{\"combo_sku\":\"GJFSP1231001\",\"sl\":1,\"bz\":\"bz1\",\"sjItems\":[{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz2\"},{\"sl\":1,\"sku\":\"MC7208-HB\",\"bz\":\"bz3\"},{\"sl\":1,\"sku\":\"MC6156-1DL\",\"bz\":\"bz4\"}]}]}]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "zzcx.add"
+    }
+  },
+  "message": "success"
+}

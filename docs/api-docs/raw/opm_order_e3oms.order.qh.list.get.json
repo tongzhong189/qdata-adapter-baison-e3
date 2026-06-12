@@ -1,0 +1,237 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.qh.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取订单缺货列表",
+      "desc": "获取订单缺货列表",
+      "method": "e3oms.order.qh.list.get",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "string",
+          "required": false,
+          "desc": "开始时间",
+          "example": "2001-01-01 00:00:00"
+        },
+        {
+          "code": "endModified",
+          "type": "string",
+          "required": false,
+          "desc": "结束时间",
+          "example": "2001-01-01 23:59:59"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": true,
+          "desc": "每页数量",
+          "example": "20"
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": true,
+          "desc": "页数",
+          "example": "1"
+        },
+        {
+          "code": "fields",
+          "type": "string",
+          "required": false,
+          "desc": "字段",
+          "example": "order_sn,deal_code,lylx,total_amount,shipping_fee,pay_time"
+        },
+        {
+          "code": "time_type",
+          "type": "string",
+          "required": false,
+          "desc": "时间类型",
+          "example": "1:最后一次修改时间，2：下单时间，3：支付时间，4：通知配货时间，5：发货时间，6：确认时间，7：出库时间,不传或0 则默认为最后一次修改时间"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": "",
+          "children": [
+            {
+              "code": "goods_sn",
+              "type": "string",
+              "required": true,
+              "desc": "商品货号",
+              "example": false
+            },
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "SKU",
+              "example": false
+            },
+            {
+              "code": "size_name",
+              "type": "string",
+              "required": true,
+              "desc": "规格名称",
+              "example": ""
+            },
+            {
+              "code": "size_code",
+              "type": "string",
+              "required": true,
+              "desc": "规格编码",
+              "example": ""
+            },
+            {
+              "code": "color_name",
+              "type": "string",
+              "required": true,
+              "desc": "颜色名称",
+              "example": ""
+            },
+            {
+              "code": "color_code",
+              "type": "string",
+              "required": true,
+              "desc": "颜色编码",
+              "example": ""
+            },
+            {
+              "code": "yfpqh",
+              "type": "string",
+              "required": true,
+              "desc": "预分配缺货数量",
+              "example": ""
+            },
+            {
+              "code": "pfhqh",
+              "type": "string",
+              "required": true,
+              "desc": "实物缺货数量",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.qh.list.get"
+    }
+  },
+  "message": "success"
+}

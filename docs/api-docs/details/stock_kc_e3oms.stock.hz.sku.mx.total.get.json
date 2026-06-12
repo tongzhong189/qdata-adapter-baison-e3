@@ -1,0 +1,243 @@
+{
+  "code": "e3oms.stock.hz.sku.mx.total.get",
+  "name": "汇总仓库存列表",
+  "category": "库存API/kc",
+  "method": "GET/POST",
+  "description": "获得仓库库存列表商品级别",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单页最大数据量",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页码",
+      "_parent_node": null
+    },
+    {
+      "field": "hz_ck_code",
+      "name": "hz_ck_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "汇总仓档案编码(多个逗号分割)",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "goods_sn(多个逗号分割)",
+      "_parent_node": null
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "SKU(多个逗号分割)",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "",
+      "name": "",
+      "type": "number",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "",
+      "name": "",
+      "type": "number",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "",
+      "name": "",
+      "type": "number",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "",
+      "name": "",
+      "type": "number",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "仓库库存列表(stockListGet)",
+      "_parent_node": "data"
+    },
+    {
+      "field": "SKU",
+      "name": "SKU",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "SKU",
+      "_parent_node": "data"
+    },
+    {
+      "field": "color_id_name",
+      "name": "color_id_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "颜色",
+      "_parent_node": "data"
+    },
+    {
+      "field": "size_id_name",
+      "name": "size_id_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "尺码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "v_sl",
+      "name": "v_sl",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "在库库存",
+      "_parent_node": "data"
+    },
+    {
+      "field": "v_sl2",
+      "name": "v_sl2",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "锁定库存",
+      "_parent_node": "data"
+    },
+    {
+      "field": "v_sl_ky",
+      "name": "v_sl_ky",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "可用库存",
+      "_parent_node": "data"
+    }
+  ],
+  "error_codes": []
+}

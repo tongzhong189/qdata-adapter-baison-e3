@@ -1,0 +1,179 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.seasons.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "添加季节档案",
+      "desc": "添加季节档案",
+      "method": "e3oms.goods.seasons.add",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "season_code",
+          "type": "string",
+          "required": false,
+          "desc": "季节代码",
+          "example": ""
+        },
+        {
+          "code": "season_name",
+          "type": "string",
+          "required": false,
+          "desc": "季节名称",
+          "example": ""
+        },
+        {
+          "code": "season_note",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": "描述"
+        }
+      ],
+      "request_demo": "[\r\n                {\r\n                \"season_code\": \"A00001\", \"season_name\": \"lkck\", \"season_note\": \"note\"\r\n                }\r\n                ]\r\n        ",
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": false,
+          "desc": "状态",
+          "example": "api-server-exception"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "描述",
+          "example": "描述"
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "required": false,
+          "desc": "返回值",
+          "example": "[]",
+          "children": [
+            [
+              {
+                "code": "status",
+                "type": "boolean",
+                "required": false,
+                "desc": "false",
+                "example": "true  成功，false 失败"
+              },
+              {
+                "code": "message",
+                "type": "string",
+                "required": false,
+                "desc": "描述",
+                "example": "描述"
+              }
+            ]
+          ]
+        }
+      ],
+      "response_demo": "{\r\n        “status”:”api-success”, “message”:”success”, “data”:{}\r\n        }\r\n        ",
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "seasons.add"
+    }
+  },
+  "message": "success"
+}

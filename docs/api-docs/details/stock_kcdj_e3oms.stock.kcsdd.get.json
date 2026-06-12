@@ -1,0 +1,405 @@
+{
+  "code": "e3oms.stock.kcsdd.get",
+  "name": "库存",
+  "category": "库存API/kcdj",
+  "method": "GET/POST",
+  "description": "库存锁定单查询",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据级别当前页码",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据级别每页最大数量",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_start",
+      "name": "rq_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开始日期",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_end",
+      "name": "rq_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "结束日期",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "描述",
+      "_parent_node": "data"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "否",
+      "description": "返回值",
+      "_parent_node": "data"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "查询条件",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "当前页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页数量",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计结果数量",
+      "_parent_node": "page"
+    },
+    {
+      "field": "kcsddGet",
+      "name": "kcsddGet",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "数据结果",
+      "_parent_node": "data"
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "制单人",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "zdrq",
+      "name": "zdrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "制单日期",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sd",
+      "name": "sd",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否锁定",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sdr",
+      "name": "sdr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "锁定人",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sdrq",
+      "name": "sdrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "锁定日期",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sf",
+      "name": "sf",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否释放",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sfr",
+      "name": "sfr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "释放人",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "sfrq",
+      "name": "sfrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "释放日期",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "zf",
+      "name": "zf",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否作废",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "zfr",
+      "name": "zfr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废人",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "zfrq",
+      "name": "zfrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "作废日期",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "状态",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "qd_id_name",
+      "name": "qd_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道名称",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "ck_id_name",
+      "name": "ck_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库名称",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "mx_list",
+      "name": "mx_list",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "列表",
+      "_parent_node": "kcsddGet"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "货号",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "sku",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sl",
+      "name": "sl",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "数量",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sl1",
+      "name": "sl1",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "已释放的库存数量",
+      "_parent_node": "mx_list"
+    }
+  ],
+  "error_codes": []
+}

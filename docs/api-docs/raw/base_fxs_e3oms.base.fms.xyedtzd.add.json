@@ -1,0 +1,192 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.fms.xyedtzd.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "添加分销商账户额度调整单接口",
+      "desc": "添加分销商账户额度调整单接口",
+      "method": "e3oms.base.fms.xyedtzd.add",
+      "request_params": [
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "EDTZ2019031201"
+        },
+        {
+          "code": "rq",
+          "type": "string",
+          "required": true,
+          "desc": "业务日期",
+          "example": "2019-4-13 10:00:00"
+        },
+        {
+          "code": "khdm",
+          "type": "string",
+          "required": true,
+          "desc": "分销商代码",
+          "example": "FXS001"
+        },
+        {
+          "code": "xyjetzje",
+          "type": "string",
+          "required": false,
+          "desc": "信用额度调整金额，为正则是增加， 为负则是减少",
+          "example": "1000"
+        },
+        {
+          "code": "bzjtzje",
+          "type": "string",
+          "required": false,
+          "desc": "保证金调整金额，为正则是增加，为负则是减少，且 xyjetzje 和bzjtzje 必须填一个，不能同时为空",
+          "example": "-403.33"
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": false,
+          "desc": "单据备注",
+          "example": "单据的备注"
+        },
+        {
+          "code": "tz_type",
+          "type": "string",
+          "required": false,
+          "desc": "1 信用额度调整 2 保证金调整",
+          "example": "1"
+        },
+        {
+          "code": "tz_way",
+          "type": "number",
+          "required": false,
+          "desc": "1 普通调整 2 临时调整",
+          "example": "1"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "fms.xyedtzd.add"
+    }
+  },
+  "message": "success"
+}

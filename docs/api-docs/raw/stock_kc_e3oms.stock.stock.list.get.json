@@ -1,0 +1,279 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.stock.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获得仓库库存列表",
+      "desc": "获得仓库库存列表",
+      "method": "e3oms.stock.stock.list.get",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询起始时间：2011-09-01 00:00:00",
+          "example": ""
+        },
+        {
+          "code": "endModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询内结束时间： 2000-11-30 23:59:59",
+          "example": ""
+        },
+        {
+          "code": "pageNo",
+          "type": "string",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": ""
+        },
+        {
+          "code": "pageSize",
+          "type": "string",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+          "example": ""
+        },
+        {
+          "code": "warehouseCode",
+          "type": "string",
+          "required": false,
+          "desc": "仓库外部编码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "string",
+          "required": false,
+          "desc": "商品 SKU(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "ckCode",
+          "type": "string",
+          "required": false,
+          "desc": "仓库代码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "kyslGt",
+          "type": "number",
+          "required": false,
+          "desc": "可用库存大于X",
+          "example": "0及以上的正整数"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "desc": "分页信息",
+              "children": [
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": "20"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": ""
+                },
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "stockListGet",
+              "type": "array[object]",
+              "desc": "仓库库存列表(stockListGet)",
+              "example": "",
+              "children": [
+                {
+                  "code": "sku",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品 SKU",
+                  "example": ""
+                },
+                {
+                  "code": "sl",
+                  "type": "string",
+                  "required": true,
+                  "desc": "在库数量",
+                  "example": ""
+                },
+                {
+                  "code": "sl2",
+                  "type": "string",
+                  "required": true,
+                  "desc": "锁定数量",
+                  "example": ""
+                },
+                {
+                  "code": "sl7",
+                  "type": "string",
+                  "required": true,
+                  "desc": "预警库存",
+                  "example": ""
+                },
+                {
+                  "code": "kysl",
+                  "type": "string",
+                  "required": true,
+                  "desc": "可用数量",
+                  "example": ""
+                },
+                {
+                  "code": "ckCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库代码",
+                  "example": ""
+                },
+                {
+                  "code": "warehouseCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库外部编码",
+                  "example": ""
+                },
+                {
+                  "code": "lastchanged",
+                  "type": "string",
+                  "required": true,
+                  "desc": "最后更新时间",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "stock.list.get"
+    }
+  },
+  "message": "success"
+}

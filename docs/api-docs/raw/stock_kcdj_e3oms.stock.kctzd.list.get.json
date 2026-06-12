@@ -1,0 +1,777 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.kctzd.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "库存",
+      "desc": "库存调整单查询",
+      "method": "e3oms.stock.kctzd.list.get",
+      "request_params": [
+        {
+          "code": "page",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别当前页码",
+          "example": "1"
+        },
+        {
+          "code": "page_size",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别每页最大数量",
+          "example": "1"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "KCTZD2022022200001"
+        },
+        {
+          "code": "lxdj",
+          "type": "string",
+          "required": false,
+          "desc": "原单据",
+          "example": ""
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": false,
+          "desc": "开始日期",
+          "example": "2020-01-03 22:00:15"
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": false,
+          "desc": "结束日期",
+          "example": "2020-01-03 22:00:15"
+        },
+        {
+          "code": "ysrq_start",
+          "type": "string",
+          "required": false,
+          "desc": "验收日期开始",
+          "example": "2020-01-03 22:00:15"
+        },
+        {
+          "code": "ysrq_end",
+          "type": "string",
+          "required": false,
+          "desc": "验收日期结束",
+          "example": "2020-01-03 22:00:15"
+        },
+        {
+          "code": "djzt",
+          "type": "number",
+          "required": false,
+          "desc": "单据状态",
+          "example": ""
+        },
+        {
+          "code": "tzxz",
+          "type": "string",
+          "required": false,
+          "desc": "单据调整类型",
+          "example": "根据客户维护的调整类型"
+        },
+        {
+          "code": "qd_code",
+          "type": "string",
+          "required": false,
+          "desc": "渠道编码",
+          "example": "000"
+        },
+        {
+          "code": "sd_id_search",
+          "type": "string",
+          "required": false,
+          "desc": "商店编码",
+          "example": "000"
+        },
+        {
+          "code": "ck_id_view",
+          "type": "string",
+          "required": false,
+          "desc": "仓库编码",
+          "example": "000"
+        },
+        {
+          "code": "sku",
+          "type": "string",
+          "required": false,
+          "desc": "sku",
+          "example": "000"
+        },
+        {
+          "code": "keywords",
+          "type": "string",
+          "required": false,
+          "desc": "关键字",
+          "example": "000"
+        },
+        {
+          "code": "brand_code",
+          "type": "string",
+          "required": false,
+          "desc": "品牌编码",
+          "example": "000"
+        },
+        {
+          "code": "goods_sn",
+          "type": "string",
+          "required": false,
+          "desc": "商品编码",
+          "example": "000"
+        },
+        {
+          "code": "has_tags",
+          "type": "number",
+          "required": false,
+          "desc": "是否标记",
+          "example": "1"
+        },
+        {
+          "code": "tag_code",
+          "type": "string",
+          "required": false,
+          "desc": "标签编码",
+          "example": "tag_001"
+        },
+        {
+          "code": "sync_status",
+          "type": "number",
+          "required": false,
+          "desc": "同步状态0未同步；1已同步",
+          "example": "0"
+        },
+        {
+          "code": "zdr",
+          "type": "string",
+          "required": false,
+          "desc": "制单人",
+          "example": "制单人"
+        },
+        {
+          "code": "sku_page_size",
+          "type": "number",
+          "required": false,
+          "desc": "SKU级别每页最大数量 不超过100",
+          "example": "50"
+        },
+        {
+          "code": "sku_page",
+          "type": "number",
+          "required": false,
+          "desc": "sku级别当前页码",
+          "example": "1"
+        },
+        {
+          "code": "from_wms",
+          "type": "number",
+          "required": false,
+          "desc": "是否来源wms 如果不需要是否wms单据不要传，0 否；1：是",
+          "example": "1"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "{\"status\":\"api-success\",\"data\":{\"filter\":{\"page\":1,\"page_size\":1,\"page_count\":218,\"record_count\":218},\"data\":[{\"id\":\"262\",\"djbh\":\"KCTZD2022110900008\",\"rq\":\"2022-11-09 14:21:41\",\"lxdj\":\"RETURN202211090000000008\",\"lxdj_id\":\"25\",\"tzxz\":\"2\",\"hz_id\":\"0\",\"ck_id\":\"5\",\"kw_id\":\"1\",\"kq_id\":null,\"yg_id\":null,\"zk\":null,\"jgsd\":\"2\",\"je\":\"0.00\",\"je1\":null,\"je2\":null,\"je3\":null,\"sl\":\"1\",\"sl1\":\"0\",\"sl2\":\"0\",\"zxsl\":\"0\",\"zdr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"zdrq\":\"2022-11-09 14:21:41\",\"sp\":\"1\",\"spr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"sprq\":\"2022-11-09 14:21:41\",\"ys\":\"1\",\"ysr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"ysrq\":\"2022-11-09 14:21:41\",\"zf\":null,\"zfr\":null,\"zfrq\":null,\"zz\":null,\"zzr\":null,\"zzrq\":null,\"djzt\":\"4\",\"bz\":\"\\u5305\\u88f9\\u5355\\uff1aRETURN202211090000000008\\u5165\\u5e93\\u751f\\u6210\",\"sync_status\":\"0\",\"err_num\":\"0\",\"err_msg\":null,\"sync_msg\":\"\",\"byzd1\":\"\",\"byzd2\":\"\",\"source\":\"0\",\"tags_id\":\"0\",\"sync_bstyle\":\"0\",\"is_sc_pf_cg_tzd\":\"0\",\"relating_order\":\"\",\"bmlx_id\":\"\",\"ck_tzd_id\":\"0\",\"cl_sync_status\":\"0\",\"cl_sync_num\":\"0\",\"from_wms\":\"0\",\"ckdm\":\"005\",\"ckmc\":\"\\u91cd\\u5e86\\u4ed3\",\"tzxz_name\":\"\\u666e\\u901a\\u8c03\\u6574\",\"sku_list\":{\"data\":{\"filter\":{\"dj_id\":\"262\",\"page\":1,\"page_size\":50,\"page_count\":1,\"record_count\":1},\"data\":[{\"id\":\"249\",\"p_id\":\"0\",\"dj_id\":\"262\",\"cw_id\":\"0\",\"sku\":\"6941475898577\",\"is_batch\":\"0\",\"batch_no\":\"\",\"create_date\":null,\"safedays\":\"0\",\"expiration_date\":null,\"threshold_date\":null,\"sku_id\":\"322755\",\"goods_id\":\"24\",\"goods_sn\":\"6540911\",\"color_id\":\"9\",\"color_code\":\"101\",\"size_id\":\"8\",\"size_code\":\"183\",\"sl\":\"1\",\"sl1\":\"1\",\"sl2\":\"0\",\"cbj\":\"0.0000\",\"bz\":null,\"sl3\":\"0\",\"bzj\":\"0.00\",\"zk\":\"1.00\",\"dj\":\"0.00\",\"je\":\"0.00\",\"je1\":\"0.00\",\"je2\":null,\"je3\":null,\"je4\":null,\"zj_code\":\"0\",\"barcode\":\"6941475898577\",\"sjsl\":null,\"zmsl\":null,\"yksl\":null,\"sl4\":\"0\",\"sl5\":\"0\",\"sl6\":\"0\",\"sl7\":\"0\",\"six_nine_code\":null,\"fjsx6_name\":\"\\u8584\",\"color_id_name\":\"\\u68b5\\u9ad8\\u7eff\",\"size_id_name\":\"H5,\\u6807\\u51c6\\u7248,\\u6210\\u54c1\",\"goods_id_name\":\"HOTSUIT\\u540e\\u79c0\\u8fd0\\u52a8\\u98ce\\u8863\\u7537\\u8fde\\u5e3d\\u62c9\\u94fe\\u4fee\\u8eab\\u8dd1\\u6b65\\u9632\\u98ce\\u68ad\\u7ec7\\u5916\\u5957\\u901f\\u5e72\\u51b2\\u950b\\u8863\",\"no\":1,\"kysl\":2}]}}}]},\"message\":\"\\u67e5\\u8be2\\u6210\\u529f\"}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "success"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "filter",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "查询条件",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "page",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "djbh",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据编号",
+                      "example": "1"
+                    },
+                    {
+                      "code": "has_tags",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是有标记",
+                      "example": "1"
+                    },
+                    {
+                      "code": "zdr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "制单人",
+                      "example": "制单人"
+                    },
+                    {
+                      "code": "page_size",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "page_count",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计页数",
+                      "example": "20"
+                    },
+                    {
+                      "code": "record_count",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计结果数量",
+                      "example": "20"
+                    }
+                  ]
+                },
+                {
+                  "code": "data",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "djbh",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据编号",
+                      "example": "auto_taocan01"
+                    },
+                    {
+                      "code": "rq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "下单日期",
+                      "example": "2022-01-02 22:20:10"
+                    },
+                    {
+                      "code": "lxdj",
+                      "type": "float",
+                      "required": false,
+                      "desc": "原单据号",
+                      "example": "LXDJ\r\n                                00001"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": false,
+                      "desc": "描述",
+                      "example": "包裹单：RETURN202211090000000008入库生成"
+                    },
+                    {
+                      "code": "zdr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "制单人",
+                      "example": "张三"
+                    },
+                    {
+                      "code": "zdrq",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "制单时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "sp",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否审批",
+                      "example": "1"
+                    },
+                    {
+                      "code": "spr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "审批人",
+                      "example": "张三"
+                    },
+                    {
+                      "code": "sprq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "审核时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "ys",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否验收",
+                      "example": "1"
+                    },
+                    {
+                      "code": "ysr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "验收人",
+                      "example": "张三"
+                    },
+                    {
+                      "code": "ysrq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "验收时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "zf",
+                      "type": "number",
+                      "required": false,
+                      "desc": "作废",
+                      "example": "1"
+                    },
+                    {
+                      "code": "zfr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "作废人",
+                      "example": "张三"
+                    },
+                    {
+                      "code": "zfrq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "作废日期",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "zz",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否终止",
+                      "example": "1"
+                    },
+                    {
+                      "code": "zzr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "终止人",
+                      "example": "张三"
+                    },
+                    {
+                      "code": "zzrq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "终止日期",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "djzt",
+                      "type": "number",
+                      "required": false,
+                      "desc": "单据状态",
+                      "example": ""
+                    },
+                    {
+                      "code": "ckdm",
+                      "type": "string",
+                      "required": false,
+                      "desc": "仓库代码",
+                      "example": "CK001"
+                    },
+                    {
+                      "code": "zk",
+                      "type": "float",
+                      "required": false,
+                      "desc": "折扣",
+                      "example": "1.00"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": false,
+                      "desc": "备注",
+                      "example": ""
+                    },
+                    {
+                      "code": "ckmc",
+                      "type": "string",
+                      "required": false,
+                      "desc": "仓库名称",
+                      "example": "重庆仓"
+                    },
+                    {
+                      "code": "tzxz",
+                      "type": "number",
+                      "required": false,
+                      "desc": "单据类型",
+                      "example": "2"
+                    },
+                    {
+                      "code": "tzxz_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据类型名称",
+                      "example": "普通调整"
+                    },
+                    {
+                      "code": "sku_list",
+                      "type": "array[array[object]]",
+                      "required": false,
+                      "desc": "列表",
+                      "example": "[]",
+                      "children": [
+                        {
+                          "code": "data",
+                          "type": "array[array[object]]",
+                          "required": false,
+                          "desc": "列表",
+                          "example": "[]",
+                          "children": [
+                            {
+                              "code": "filter",
+                              "type": "array[array[object]]",
+                              "required": false,
+                              "desc": "查询条件内含分页信息",
+                              "example": "",
+                              "children": [
+                                {
+                                  "code": "dj_id",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "单据主键",
+                                  "example": "1"
+                                },
+                                {
+                                  "code": "page",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "当前页码",
+                                  "example": "1"
+                                },
+                                {
+                                  "code": "page_size",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "每页数量",
+                                  "example": "20"
+                                },
+                                {
+                                  "code": "page_count",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "合计页数",
+                                  "example": "20"
+                                },
+                                {
+                                  "code": "record_count",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "合计数量",
+                                  "example": "20"
+                                }
+                              ]
+                            },
+                            {
+                              "code": "data",
+                              "type": "array[array[object]]",
+                              "required": false,
+                              "desc": "sku级别数据",
+                              "example": "",
+                              "children": [
+                                {
+                                  "code": "sku",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "SKU",
+                                  "example": "1"
+                                },
+                                {
+                                  "code": "goods_sn",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "货号",
+                                  "example": "6540911"
+                                },
+                                {
+                                  "code": "barcode",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "商品条码",
+                                  "example": "6941475898577"
+                                },
+                                {
+                                  "code": "six_nine_code",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "商品69码",
+                                  "example": "1"
+                                },
+                                {
+                                  "code": "color_id_name",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "颜色名称",
+                                  "example": "红色"
+                                },
+                                {
+                                  "code": "size_id_name",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "规格名称",
+                                  "example": "小码"
+                                },
+                                {
+                                  "code": "goods_id_name",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "商品名称",
+                                  "example": "测试商品"
+                                },
+                                {
+                                  "code": "kysl",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "可用数量",
+                                  "example": "2"
+                                },
+                                {
+                                  "code": "sl",
+                                  "type": "number",
+                                  "required": false,
+                                  "desc": "数量",
+                                  "example": "1"
+                                },
+                                {
+                                  "code": "zk",
+                                  "type": "float",
+                                  "required": false,
+                                  "desc": "折扣",
+                                  "example": "1.00"
+                                },
+                                {
+                                  "code": "dj",
+                                  "type": "float",
+                                  "required": false,
+                                  "desc": "单价",
+                                  "example": "0.01"
+                                },
+                                {
+                                  "code": "je",
+                                  "type": "string",
+                                  "required": false,
+                                  "desc": "金额",
+                                  "example": "0.01"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": "batchs",
+                      "type": "array[object]",
+                      "required": false,
+                      "desc": "批次信息",
+                      "example": "",
+                      "children": [
+                        {
+                          "code": "sl",
+                          "type": "string",
+                          "required": false,
+                          "desc": "批次数量",
+                          "example": "1"
+                        },
+                        {
+                          "code": "sku",
+                          "type": "string",
+                          "required": false,
+                          "desc": "SKU",
+                          "example": "sku001"
+                        },
+                        {
+                          "code": "goods_sn",
+                          "type": "string",
+                          "required": false,
+                          "desc": "商品货号",
+                          "example": "001"
+                        },
+                        {
+                          "code": "batch_no",
+                          "type": "string",
+                          "required": false,
+                          "desc": "批次号",
+                          "example": "202405201"
+                        },
+                        {
+                          "code": "safedays",
+                          "type": "string",
+                          "required": false,
+                          "desc": "有效期",
+                          "example": "180"
+                        },
+                        {
+                          "code": "create_date",
+                          "type": "string",
+                          "required": false,
+                          "desc": "生成日期",
+                          "example": "2024-08-06 00:00:00"
+                        },
+                        {
+                          "code": "expiration_date",
+                          "type": "string",
+                          "required": false,
+                          "desc": "到期日",
+                          "example": "2025-02-07 00:00:00"
+                        },
+                        {
+                          "code": "threshold_date",
+                          "type": "string",
+                          "required": false,
+                          "desc": "临期日",
+                          "example": "2025-01-06 00:00:00"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "kctzd.list.get"
+    }
+  },
+  "message": "success"
+}

@@ -1,0 +1,355 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.zzcx.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "组装(拆卸)查询接口",
+      "desc": "组装(拆卸)查询接口",
+      "method": "e3oms.stock.zzcx.get",
+      "request_params": [
+        {
+          "code": "ghsdm",
+          "type": "string",
+          "required": false,
+          "desc": "供货商代码",
+          "example": "wode"
+        },
+        {
+          "code": "type",
+          "type": "string",
+          "required": true,
+          "desc": "组装拆卸类型(1,2)",
+          "example": "1 组装，2拆卸"
+        },
+        {
+          "code": "pageNo",
+          "type": "string",
+          "required": false,
+          "desc": "页数查询",
+          "example": "1,2,3,4"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "ODdddQ123d2"
+        },
+        {
+          "code": "qd_code",
+          "type": "string",
+          "required": false,
+          "desc": "渠道代码",
+          "example": "000"
+        },
+        {
+          "code": "ckdm",
+          "type": "string",
+          "required": false,
+          "desc": "仓库代码",
+          "example": "000"
+        },
+        {
+          "code": "djzt",
+          "type": "number",
+          "required": false,
+          "desc": "单据状态",
+          "example": "(0：全部；1、未确认；2：已确认；3：已验收；4：已作废；5：已终止)"
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": false,
+          "desc": "开始日期，单据创建日期",
+          "example": "2022-01-01 11:17:23"
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": false,
+          "desc": "结束日期，单据创建日期",
+          "example": "2022-12-01 11:17:23"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "desc": "状态码",
+          "example": "success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "返回消息结果",
+          "example": "成功"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "djrq",
+              "type": "string",
+              "required": false,
+              "desc": "单据日期",
+              "example": "2022-01-01 11:17:23"
+            },
+            {
+              "code": "qrrq",
+              "type": "string",
+              "required": false,
+              "desc": "确认日期",
+              "example": "2022-01-01 11:17:23"
+            },
+            {
+              "code": "ysrq",
+              "type": "string",
+              "required": false,
+              "desc": "验收日期",
+              "example": "2022-01-01 11:17:23"
+            },
+            {
+              "code": "zfrq",
+              "type": "string",
+              "required": false,
+              "desc": "作废日期",
+              "example": "2022-01-01 11:17:23"
+            },
+            {
+              "code": "ghsdm",
+              "type": "string",
+              "required": false,
+              "desc": "供货商代码",
+              "example": "wode"
+            },
+            {
+              "code": "djbh",
+              "type": "string",
+              "required": false,
+              "desc": "单据编号",
+              "example": "ODdddQ123d2"
+            },
+            {
+              "code": "qd_code",
+              "type": "string",
+              "required": false,
+              "desc": "渠道代码",
+              "example": "000"
+            },
+            {
+              "code": "ckdm",
+              "type": "string",
+              "required": false,
+              "desc": "仓库代码",
+              "example": "000"
+            },
+            {
+              "code": "bz",
+              "type": "string",
+              "required": false,
+              "desc": "备注",
+              "example": "xxx"
+            },
+            {
+              "code": "mx_list",
+              "type": "array[object]",
+              "desc": "组装明细",
+              "example": "",
+              "children": [
+                {
+                  "code": "combo_goods_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "货号",
+                  "example": "122121"
+                },
+                {
+                  "code": "combo_sku",
+                  "type": "string",
+                  "required": false,
+                  "desc": "组装sku",
+                  "example": "sku001"
+                },
+                {
+                  "code": "sl",
+                  "type": "string",
+                  "required": false,
+                  "desc": "组装通知数",
+                  "example": "10"
+                },
+                {
+                  "code": "zx_sl",
+                  "type": "string",
+                  "required": false,
+                  "desc": "组装执行数",
+                  "example": "10"
+                },
+                {
+                  "code": "cy_sl",
+                  "type": "string",
+                  "required": false,
+                  "desc": "组装差异数",
+                  "example": "0"
+                },
+                {
+                  "code": "sj_list",
+                  "type": "array[object]",
+                  "desc": "散件明细",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "goods_sn",
+                      "type": "string",
+                      "required": false,
+                      "desc": "货号",
+                      "example": "122121"
+                    },
+                    {
+                      "code": "sku",
+                      "type": "string",
+                      "required": false,
+                      "desc": "散件sku",
+                      "example": "sku001"
+                    },
+                    {
+                      "code": "sl",
+                      "type": "string",
+                      "required": false,
+                      "desc": "散件通知数",
+                      "example": "10"
+                    },
+                    {
+                      "code": "zx_sl",
+                      "type": "string",
+                      "required": false,
+                      "desc": "散件执行数",
+                      "example": "10"
+                    },
+                    {
+                      "code": "cy_sl",
+                      "type": "string",
+                      "required": false,
+                      "desc": "散件差异数",
+                      "example": "0"
+                    },
+                    {
+                      "code": "pb_sl",
+                      "type": "string",
+                      "required": false,
+                      "desc": "配比数量",
+                      "example": "2"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "zzcx.get"
+    }
+  },
+  "message": "success"
+}

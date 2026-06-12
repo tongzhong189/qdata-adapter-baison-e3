@@ -1,0 +1,259 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.sku.fjsx.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取 sku 级附加属性列表",
+      "desc": "获取 sku 级附加属性列表",
+      "method": "e3oms.goods.sku.fjsx.list.get",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "开始时间",
+          "example": "2021-01-09 17:18:10"
+        },
+        {
+          "code": "endModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "结束时间",
+          "example": "2021-02-09 17:18:10"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数",
+          "example": "100"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "{\"status\":\"api-success\",\"message\":\"success\",\"data\":{\"page\":{\"totalResult\":2,\"pageSize\":1,\"pageNo\":1,\"pageTotal\":2},\"bzdwListGet\":[{\"dwCode\":\"ge\",\"dwName\":\"\\u4e2a\",\"dwXs\":\"0\",\"dwBarcode\":\"\",\"dwNote\":\"\",\"modified\":\"2021-01-25 10:40:25\"}]}}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "描述"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "状态",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总数",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总页数",
+                      "example": "1"
+                    }
+                  ]
+                },
+                {
+                  "code": "skufjsxListGet",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "结果",
+                  "example": "[]",
+                  "children": [
+                    [
+                      {
+                        "code": "fjsx_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "附加属性编码",
+                        "example": "skufjsx01"
+                      },
+                      {
+                        "code": "fjsx_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "附加属性名称",
+                        "example": "个"
+                      },
+                      {
+                        "code": "fjsx_note",
+                        "type": "string",
+                        "required": false,
+                        "desc": "附加属性描述",
+                        "example": "1"
+                      },
+                      {
+                        "code": "fjsx_type",
+                        "type": "number",
+                        "required": false,
+                        "desc": "附加属性分类",
+                        "example": "1"
+                      },
+                      {
+                        "code": "lastchanged",
+                        "type": "datetime",
+                        "required": false,
+                        "desc": "附加属性最后更新时间",
+                        "example": "2021-01-25 10:40:25"
+                      },
+                      {
+                        "code": "fjsx_type_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "附加属性分类名称",
+                        "example": "fjsx1"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "sku.fjsx.list.get"
+    }
+  },
+  "message": "success"
+}

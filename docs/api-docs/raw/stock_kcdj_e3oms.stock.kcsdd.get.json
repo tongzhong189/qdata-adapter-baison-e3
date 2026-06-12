@@ -1,0 +1,370 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.kcsdd.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "库存",
+      "desc": "库存锁定单查询",
+      "method": "e3oms.stock.kcsdd.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别当前页码",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别每页最大数量",
+          "example": "1"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "KCSDD2022022200001"
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": false,
+          "desc": "开始日期",
+          "example": "2020-01-03 22:00:15"
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": false,
+          "desc": "结束日期",
+          "example": "2020-01-03 22:00:15"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "success"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "{\"page\":{\"totalResult\":1,\"pageSize\":100,\"pageNo\":1,\"pageTotal\":1},\"kcsddGet\":[{\"id\":\"32\",\"djbh\":\"KCSDD2022110200002\",\"qd_id\":\"1\",\"ck_id\":\"1\",\"lastchanged\":\"0000-00-00 00:00:00\",\"zdr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"zdrq\":\"1667356520\",\"sd\":\"1\",\"sdr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"sdrq\":\"1668414622\",\"sf\":\"0\",\"sfr\":\"\",\"sfrq\":\"0\",\"zf\":null,\"zfr\":null,\"zfrq\":null,\"status\":\"1\",\"ck_id_name\":\"\\u603b\\u4ed3\",\"qd_id_name\":\"\\u603b\\u90e8\",\"mx_list\":[{\"goods_sn\":\"autotest_goods_010\",\"sku\":\"8801073102538\",\"sl\":\"10\",\"sl1\":\"0\"}]}]}",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "查询条件",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计页数",
+                      "example": "20"
+                    },
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计结果数量",
+                      "example": "20"
+                    }
+                  ]
+                },
+                {
+                  "code": "kcsddGet",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "djbh",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据编号",
+                      "example": "KCSDD2022022200001"
+                    },
+                    {
+                      "code": "zdr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "制单人",
+                      "example": "admin"
+                    },
+                    {
+                      "code": "zdrq",
+                      "type": "number",
+                      "required": false,
+                      "desc": "制单日期",
+                      "example": "1679470005"
+                    },
+                    {
+                      "code": "sd",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否锁定",
+                      "example": "0:未锁定，1:锁定"
+                    },
+                    {
+                      "code": "sdr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "锁定人",
+                      "example": "admin"
+                    },
+                    {
+                      "code": "sdrq",
+                      "type": "number",
+                      "required": false,
+                      "desc": "锁定日期",
+                      "example": "1679470005"
+                    },
+                    {
+                      "code": "sf",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否释放",
+                      "example": "0:未释放，1:释放"
+                    },
+                    {
+                      "code": "sfr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "释放人",
+                      "example": "admin"
+                    },
+                    {
+                      "code": "sfrq",
+                      "type": "number",
+                      "required": false,
+                      "desc": "释放日期",
+                      "example": "1679470005"
+                    },
+                    {
+                      "code": "zf",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否作废",
+                      "example": "0:未作废，1:作废"
+                    },
+                    {
+                      "code": "zfr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "作废人",
+                      "example": "admin"
+                    },
+                    {
+                      "code": "zfrq",
+                      "type": "number",
+                      "required": false,
+                      "desc": "作废日期",
+                      "example": "1679470005"
+                    },
+                    {
+                      "code": "status",
+                      "type": "string",
+                      "required": false,
+                      "desc": "状态",
+                      "example": "0初始1锁定3释放"
+                    },
+                    {
+                      "code": "qd_id_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "渠道名称",
+                      "example": "渠道1"
+                    },
+                    {
+                      "code": "ck_id_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "仓库名称",
+                      "example": "总仓"
+                    },
+                    {
+                      "code": "mx_list",
+                      "type": "array[array[object]]",
+                      "required": false,
+                      "desc": "列表",
+                      "example": "[]",
+                      "children": [
+                        {
+                          "code": "goods_sn",
+                          "type": "string",
+                          "required": false,
+                          "desc": "货号",
+                          "example": "autotest_goods_010"
+                        },
+                        {
+                          "code": "sku",
+                          "type": "string",
+                          "required": false,
+                          "desc": "sku",
+                          "example": "8801073102538"
+                        },
+                        {
+                          "code": "sl",
+                          "type": "number",
+                          "required": false,
+                          "desc": "数量",
+                          "example": 10
+                        },
+                        {
+                          "code": "sl1",
+                          "type": "number",
+                          "required": false,
+                          "desc": "已释放的库存数量",
+                          "example": 5
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": ""
+    }
+  },
+  "message": "success"
+}

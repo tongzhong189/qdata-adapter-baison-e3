@@ -1,0 +1,378 @@
+{
+  "code": "e3oms.order.return.detail.get",
+  "name": "获取退单详细信息",
+  "category": "订单API/order_refund",
+  "method": "GET/POST",
+  "description": "获取退单详细信息",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "refund_deal_code",
+      "name": "refund_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单交易号",
+      "_parent_node": null
+    },
+    {
+      "field": "refund_code",
+      "name": "refund_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "平台退单编号，平台退单编号或退单交易号只传1个",
+      "_parent_node": null
+    },
+    {
+      "field": "return_shipping_sn",
+      "name": "return_shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单物流单号(传退单物流单号则以物流单号获取，否则以退单交易号或平台退单编号获取)",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "返回信息",
+      "_parent_node": null
+    },
+    {
+      "field": "e3_return_order_sn",
+      "name": "e3_return_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单编号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "refund_deal_code",
+      "name": "refund_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单交易号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "refund_code",
+      "name": "refund_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "平台退单编号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sub_deal_code",
+      "name": "sub_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原始子交易号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "original_refund_code",
+      "name": "original_refund_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原始平台退单编号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "original_deal_code",
+      "name": "original_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原始交易号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订单交易号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "return_order_status",
+      "name": "return_order_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退单状态：0 未确定、1 已确认、3 无效、10 已完成",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pos_code",
+      "name": "pos_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "关联订单支付方式",
+      "_parent_node": "data"
+    },
+    {
+      "field": "fhck",
+      "name": "fhck",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "原发货仓库",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lylx_name",
+      "name": "lylx_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "来源类型",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pay_code",
+      "name": "pay_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "关联订单支付方式编码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pay_name",
+      "name": "pay_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "关联订单支付方式名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "warehousingTime",
+      "name": "warehousingTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单入库时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tk_refund_status",
+      "name": "tk_refund_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "平台退款状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pt_tk_status",
+      "name": "pt_tk_status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "平台退款状态描述",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd1",
+      "name": "zdy_zd1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd2",
+      "name": "zdy_zd2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd3",
+      "name": "zdy_zd3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd4",
+      "name": "zdy_zd4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd5",
+      "name": "zdy_zd5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd6",
+      "name": "zdy_zd6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd7",
+      "name": "zdy_zd7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd8",
+      "name": "zdy_zd8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd9",
+      "name": "zdy_zd9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdy_zd10",
+      "name": "zdy_zd10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": "data"
+    }
+  ],
+  "error_codes": []
+}

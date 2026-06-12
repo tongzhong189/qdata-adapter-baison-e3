@@ -1,0 +1,431 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.qudao.yetzd.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取分销商余额调整单接口",
+      "desc": "获取分销商余额调整单接口",
+      "method": "e3oms.base.qudao.yetzd.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; ",
+          "example": "20"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "CS_ISHOP"
+        },
+        {
+          "code": "djzt",
+          "type": "string",
+          "required": false,
+          "desc": "单据状态",
+          "example": "0 初始 1审批 2生效 3作废"
+        },
+        {
+          "code": "djlx",
+          "type": "string",
+          "required": false,
+          "desc": "单据类型",
+          "example": "1增加 2减少"
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": false,
+          "desc": "生效日期起",
+          "example": "2023-07-11"
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": false,
+          "desc": "生效日期止",
+          "example": "2023-07-11"
+        },
+        {
+          "code": "khmc",
+          "type": "string",
+          "required": false,
+          "desc": "客户名称",
+          "example": "多个英文逗号隔开"
+        },
+        {
+          "code": "khdm",
+          "type": "string",
+          "required": false,
+          "desc": "客户代码",
+          "example": "多个英文逗号隔开"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "required": true,
+              "desc": "返回页码信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总条数",
+                  "example": "1000"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "每页条数",
+                  "example": "100"
+                },
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": "10"
+                }
+              ]
+            },
+            {
+              "code": "list",
+              "type": "array[array[object]]",
+              "required": true,
+              "desc": "列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "ID",
+                  "example": "11"
+                },
+                {
+                  "code": "djbh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "单据编号",
+                  "example": ""
+                },
+                {
+                  "code": "ydh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "原单号",
+                  "example": ""
+                },
+                {
+                  "code": "cj_time",
+                  "type": "string",
+                  "required": true,
+                  "desc": "创建时间",
+                  "example": ""
+                },
+                {
+                  "code": "sx_time",
+                  "type": "string",
+                  "required": true,
+                  "desc": "生效时间",
+                  "example": ""
+                },
+                {
+                  "code": "djlx",
+                  "type": "string",
+                  "required": true,
+                  "desc": "单据类型",
+                  "example": "调整类型 1增加 2减少"
+                },
+                {
+                  "code": "je",
+                  "type": "string",
+                  "required": true,
+                  "desc": "调整金额",
+                  "example": ""
+                },
+                {
+                  "code": "djzt",
+                  "type": "string",
+                  "required": true,
+                  "desc": "单据状态",
+                  "example": "单据状态  0初始，1审批，2生效，3作废"
+                },
+                {
+                  "code": "zdr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "制单人",
+                  "example": ""
+                },
+                {
+                  "code": "zdrq",
+                  "type": "string",
+                  "required": true,
+                  "desc": "制单日期",
+                  "example": ""
+                },
+                {
+                  "code": "sp",
+                  "type": "string",
+                  "required": true,
+                  "desc": "审批",
+                  "example": ""
+                },
+                {
+                  "code": "spr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "审批人",
+                  "example": ""
+                },
+                {
+                  "code": "sprq",
+                  "type": "string",
+                  "required": true,
+                  "desc": "审批日期",
+                  "example": ""
+                },
+                {
+                  "code": "zx",
+                  "type": "string",
+                  "required": true,
+                  "desc": "执行",
+                  "example": ""
+                },
+                {
+                  "code": "zxr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "执行人",
+                  "example": ""
+                },
+                {
+                  "code": "zxrq",
+                  "type": "string",
+                  "required": true,
+                  "desc": "执行日期",
+                  "example": ""
+                },
+                {
+                  "code": "zf",
+                  "type": "string",
+                  "required": true,
+                  "desc": "作废单据",
+                  "example": ""
+                },
+                {
+                  "code": "zfr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "作废单据操作人",
+                  "example": ""
+                },
+                {
+                  "code": "zfrq",
+                  "type": "string",
+                  "required": true,
+                  "desc": "作废单据日期",
+                  "example": ""
+                },
+                {
+                  "code": "bz",
+                  "type": "string",
+                  "required": true,
+                  "desc": "备注",
+                  "example": ""
+                },
+                {
+                  "code": "mx",
+                  "type": "string",
+                  "required": true,
+                  "desc": "明细",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "kh_id",
+                      "type": "string",
+                      "required": true,
+                      "desc": "渠道Id",
+                      "example": "11"
+                    },
+                    {
+                      "code": "khmc",
+                      "type": "string",
+                      "required": true,
+                      "desc": "渠道名称",
+                      "example": "11"
+                    },
+                    {
+                      "code": "distributor_ye",
+                      "type": "string",
+                      "required": true,
+                      "desc": "渠道原始余额",
+                      "example": "11"
+                    },
+                    {
+                      "code": "rq",
+                      "type": "string",
+                      "required": true,
+                      "desc": "日期",
+                      "example": "11"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": true,
+                      "desc": "备注",
+                      "example": "11"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "qudao.yetzd.get"
+    }
+  },
+  "message": "success"
+}

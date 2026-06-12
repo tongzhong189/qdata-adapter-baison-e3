@@ -26,7 +26,7 @@
 项目根目录/
 ├── api-docs/                    # API 文档入口
 │   ├── README.md
-│   ├── apis_list.json           # 139 个接口清单
+│   ├── apis_list.json           # 156 个接口清单
 │   ├── README.md                # 文档入口（含错误码参考）
 │   ├── postman-collection.json
 │   └── postman-pre-request-script.js
@@ -41,7 +41,7 @@
 
 ### 关键参考文件
 
-1. **接口清单**: `api-docs/apis_list.json` - 完整的 139 个接口定义和参数
+1. **接口清单**: `api-docs/apis_list.json` - 完整的 156 个接口定义和参数
 2. **环境配置**: `.env.example` - 测试配置模板
 3. **认证与签名**: `docs/auth-guide.md` - 已验证的签名算法
 4. **认证与连接**: `docs/auth-guide.md` - 平台代码、认证方式、响应格式

@@ -1,0 +1,244 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.shipping.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获得快递列表",
+      "desc": "获得快递列表",
+      "method": "e3oms.base.shipping.list.get",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询起始时间2020-09-01 00:00:00",
+          "example": "2020-09-01 00:00:00"
+        },
+        {
+          "code": "endModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询内结束时间2020-10-01 00:00:00",
+          "example": "2020-10-01 00:00:00"
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100 ",
+          "example": "20"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "shippingListGet",
+              "type": "array[object]",
+              "desc": "快递列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "modified",
+                  "type": "datetime",
+                  "required": true,
+                  "desc": "修改时间",
+                  "example": "2021-05-21 00:00:00"
+                },
+                {
+                  "code": "shippingCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "代码",
+                  "example": "sf"
+                },
+                {
+                  "code": "shippingName",
+                  "type": "string",
+                  "required": true,
+                  "desc": "名称",
+                  "example": "顺丰速运"
+                },
+                {
+                  "code": "shippingNote",
+                  "type": "string",
+                  "required": true,
+                  "desc": "备注",
+                  "example": "江、浙、沪地区首重15元/KG，续重2元/KG，其余城市首重20元/KG"
+                },
+                {
+                  "code": "shippingTel",
+                  "type": "string",
+                  "required": true,
+                  "desc": "电话",
+                  "example": "4008111111"
+                }
+              ]
+            },
+            {
+              "code": "page",
+              "type": "array[object]",
+              "desc": "分页信息",
+              "children": [
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": "20"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": "1"
+                },
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "shipping.list.get"
+    }
+  },
+  "message": "success"
+}

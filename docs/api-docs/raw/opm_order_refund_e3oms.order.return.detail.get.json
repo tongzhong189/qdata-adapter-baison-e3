@@ -1,0 +1,342 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.return.detail.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取退单详细信息",
+      "desc": "获取退单详细信息",
+      "method": "e3oms.order.return.detail.get",
+      "request_params": [
+        {
+          "code": "refund_deal_code",
+          "type": "string",
+          "required": true,
+          "desc": "退单交易号",
+          "example": "15455486548654"
+        },
+        {
+          "code": "refund_code",
+          "type": "string",
+          "required": false,
+          "desc": "平台退单编号，平台退单编号或退单交易号只传1个",
+          "example": "15455486548654"
+        },
+        {
+          "code": "return_shipping_sn",
+          "type": "string",
+          "required": true,
+          "desc": "退单物流单号(传退单物流单号则以物流单号获取，否则以退单交易号或平台退单编号获取)",
+          "example": "sf000000001"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "required": false,
+          "desc": "返回信息",
+          "example": "",
+          "children": [
+            {
+              "code": "e3_return_order_sn",
+              "type": "string",
+              "required": true,
+              "desc": "退单编号",
+              "example": "194554654451554"
+            },
+            {
+              "code": "refund_deal_code",
+              "type": "string",
+              "required": true,
+              "desc": "退单交易号",
+              "example": "15455486548654"
+            },
+            {
+              "code": "refund_code",
+              "type": "string",
+              "required": true,
+              "desc": "平台退单编号",
+              "example": "15455486548654"
+            },
+            {
+              "code": "sub_deal_code",
+              "type": "string",
+              "required": false,
+              "desc": "原始子交易号",
+              "example": "8946575524"
+            },
+            {
+              "code": "original_refund_code",
+              "type": "string",
+              "required": false,
+              "desc": "原始平台退单编号",
+              "example": "8946575524"
+            },
+            {
+              "code": "original_deal_code",
+              "type": "string",
+              "required": false,
+              "desc": "原始交易号",
+              "example": "8946575524"
+            },
+            {
+              "code": "order_sn",
+              "type": "string",
+              "required": true,
+              "desc": "订单交易号",
+              "example": "1549889489489494"
+            },
+            {
+              "code": "return_order_status",
+              "type": "number",
+              "required": true,
+              "desc": "退单状态：0 未确定、1 已确认、3 无效、10 已完成",
+              "example": "0"
+            },
+            {
+              "code": "pos_code",
+              "type": "string",
+              "required": true,
+              "desc": "关联订单支付方式",
+              "example": "pos1"
+            },
+            {
+              "code": "fhck",
+              "type": "string",
+              "required": true,
+              "desc": "原发货仓库",
+              "example": "ck001"
+            },
+            {
+              "code": "lylx_name",
+              "type": "string",
+              "required": true,
+              "desc": "来源类型",
+              "example": "淘宝"
+            },
+            {
+              "code": "pay_code",
+              "type": "string",
+              "required": true,
+              "desc": "关联订单支付方式编码",
+              "example": "alipay"
+            },
+            {
+              "code": "pay_name",
+              "type": "string",
+              "required": true,
+              "desc": "关联订单支付方式名称",
+              "example": "支付宝"
+            },
+            {
+              "code": "warehousingTime",
+              "type": "string",
+              "required": true,
+              "desc": "退单入库时间",
+              "example": "2011-09-01 00:00:00"
+            },
+            {
+              "code": "tk_refund_status",
+              "type": "number",
+              "required": true,
+              "desc": "平台退款状态",
+              "example": "0"
+            },
+            {
+              "code": "pt_tk_status",
+              "type": "string",
+              "required": true,
+              "desc": "平台退款状态描述",
+              "example": "退货退款，待商家处理"
+            },
+            {
+              "code": "zdy_zd1",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段1",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd2",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段2",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd3",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段3",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd4",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段4",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd5",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段5",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd6",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段6",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd7",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段7",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd8",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段8",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd9",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段9",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd10",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段10",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "return.detail.get"
+    }
+  },
+  "message": "success"
+}

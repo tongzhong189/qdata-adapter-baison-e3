@@ -1,0 +1,261 @@
+{
+  "code": "e3oms.order.tb.refund.get",
+  "name": "获取淘宝退单中间表信息",
+  "category": "订单API/order_refund",
+  "method": "GET/POST",
+  "description": "获取淘宝退单中间表信息",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "tid",
+      "name": "tid",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "淘宝交易号",
+      "_parent_node": null
+    },
+    {
+      "field": "sid",
+      "name": "sid",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "退货运单号",
+      "_parent_node": null
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "退款状态。可选值 WAIT_SELLER_AGREE(买家已经申请退款，等待卖家同意) WAIT_BUYER_RETURN_GOODS(卖家已经同意退款，等待买家退货) WAIT_SELLER_CONFIRM_GOODS(买家已经退货，等待卖家确认收货) SELLER_REFUSE_BUYER(卖家拒绝退款) CLOSED(退款关闭) SUCCESS(退款成功)",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_start",
+      "name": "rq_start",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_end",
+      "name": "rq_end",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "查询结束时间",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "返回信息",
+      "_parent_node": null
+    },
+    {
+      "field": "tb_refunds_list",
+      "name": "tb_refunds_list",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "是",
+      "description": "退单明细列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "mx_list",
+      "name": "mx_list",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "退单明细",
+      "_parent_node": "tb_refunds_list"
+    },
+    {
+      "field": "id",
+      "name": "id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "taobao_refunds_trade_items的主键",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "trid",
+      "name": "trid",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "taobao_refunds_trade的主键",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "refund_id",
+      "name": "refund_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退款单号",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "num_iid",
+      "name": "num_iid",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品编码",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "price",
+      "name": "price",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单明细",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "num",
+      "name": "num",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "商品数量",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "outer_id",
+      "name": "outer_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "外部编码",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "sku",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "lastchanged",
+      "name": "lastchanged",
+      "type": "datetime",
+      "length": "",
+      "required": "是",
+      "description": "变动时间",
+      "_parent_node": "mx_list"
+    }
+  ],
+  "error_codes": []
+}

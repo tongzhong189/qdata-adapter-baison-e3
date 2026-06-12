@@ -1,0 +1,362 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.kehu.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "添加客户档案",
+      "desc": "添加客户档案",
+      "method": "e3oms.base.kehu.add",
+      "request_params": [
+        {
+          "code": "khdm",
+          "type": "string",
+          "required": true,
+          "desc": "客户代码",
+          "example": "1"
+        },
+        {
+          "code": "khmc",
+          "type": "string",
+          "required": true,
+          "desc": "客户名称 ",
+          "example": "商店名称"
+        },
+        {
+          "code": "lb_dm",
+          "type": "string",
+          "required": true,
+          "desc": "客户类别",
+          "example": "lb_001"
+        },
+        {
+          "code": "xsms",
+          "type": "number",
+          "required": true,
+          "desc": "销售模式 0-非代销 1-代销",
+          "example": "0"
+        },
+        {
+          "code": "qd_dm",
+          "type": "string",
+          "required": true,
+          "desc": "渠道代码",
+          "example": "qd_00001"
+        },
+        {
+          "code": "khck_dm",
+          "type": "string",
+          "required": true,
+          "desc": "客户仓库代码",
+          "example": "khck_00001"
+        },
+        {
+          "code": "qy_dm",
+          "type": "string",
+          "required": true,
+          "desc": "区域代码",
+          "example": "qy_001"
+        },
+        {
+          "code": "zq",
+          "type": "number",
+          "required": true,
+          "desc": "账期，默认30",
+          "example": "22"
+        },
+        {
+          "code": "jzrq",
+          "type": "string",
+          "required": false,
+          "desc": "业务截止日期",
+          "example": "2030-01-01 22:00:01"
+        },
+        {
+          "code": "is_ty",
+          "type": "number",
+          "required": false,
+          "desc": "是否停用（0-未停用 1-停用）",
+          "example": "0"
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": "备注信息"
+        },
+        {
+          "code": "wbbm",
+          "type": "number",
+          "required": false,
+          "desc": "外部编码",
+          "example": "wb_00001"
+        },
+        {
+          "code": "not_sync_pfdj",
+          "type": "number",
+          "required": false,
+          "desc": "不同步当前客户的批发单据至ERP（1不同步，0同步）",
+          "example": "1"
+        },
+        {
+          "code": "distributor",
+          "type": "number",
+          "required": false,
+          "desc": "经销商名称",
+          "example": "经销商名称"
+        },
+        {
+          "code": "brand_dm",
+          "type": "string",
+          "required": false,
+          "desc": "品牌代码",
+          "example": "brand_code_001"
+        },
+        {
+          "code": "ydm",
+          "type": "string",
+          "required": false,
+          "desc": "原代码",
+          "example": "ydm111"
+        },
+        {
+          "code": "jsxz",
+          "type": "number",
+          "required": false,
+          "desc": "结算性质 0-不结算 1-销售结算 2-零售结算",
+          "example": "0"
+        },
+        {
+          "code": "fxcl",
+          "type": "array[object]",
+          "required": false,
+          "desc": "分销策略",
+          "example": "fxcl:{\"lsd_jsj\":\"1\",\"lsd_zk\":\"0.8\",\"lsd_gd_fee\":\"100\",\"lsd_fw_fee\":\"200\",\"lsd_ck_fee\":\"300\",\"lsd_db_fee\":\"400\",\"lsd_wl_type\":\"1\",\"lsd_wl_fee\":\"10\",\"lst_jsj\":\"2\",\"lst_zk\":\"1.2\",\"pfxh_jsj\":\"3\",\"pfxh_zk\":\"1.1\",\"pfxh_gd_fee\":\"100\",\"pfxh_ck_fee\":\"200\",\"pfth_jsj\":\"4\",\"pfth_zk\":\"0.9\"}",
+          "children": [
+            {
+              "code": "lsd_jsj",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-结算价格项 1:市场价；2:标准售价；3:标准进价；4:成本价；5:售价1；6:售价2；7:售价3；8:售价4；9:进价1；10:进价2",
+              "example": "1"
+            },
+            {
+              "code": "lsd_zk",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-结算折扣(大于0，小于等于1)",
+              "example": 0.9
+            },
+            {
+              "code": "lsd_gd_fee",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-固定费用",
+              "example": 20
+            },
+            {
+              "code": "lsd_fw_fee",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-服务费",
+              "example": 10
+            },
+            {
+              "code": "lsd_ck_fee",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-仓储费",
+              "example": 100
+            },
+            {
+              "code": "lsd_db_fee",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-拆包费",
+              "example": 5
+            },
+            {
+              "code": "lsd_wl_type",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-物流费用类型 0：按运费设置计算运费；1：固定运费",
+              "example": 1
+            },
+            {
+              "code": "lsd_wl_fee",
+              "type": "number",
+              "required": false,
+              "desc": "零售订单-物流费（零售订单-物流费为【固定运费】时可传）",
+              "example": 10
+            },
+            {
+              "code": "lst_jsj",
+              "type": "number",
+              "required": false,
+              "desc": "零售退单-结算价格项(选项同：零售订单-结算价格项)",
+              "example": 2
+            },
+            {
+              "code": "lst_zk",
+              "type": "number",
+              "required": false,
+              "desc": "零售退单-结算折扣(大于0，小于等于1)",
+              "example": 0.9
+            },
+            {
+              "code": "pfxh_jsj",
+              "type": "number",
+              "required": false,
+              "desc": "批发销货-结算价格项(选项同：零售订单-结算价格项)",
+              "example": 3
+            },
+            {
+              "code": "pfxh_zk",
+              "type": "number",
+              "required": false,
+              "desc": "批发销货-结算折扣(大于0，小于等于1)",
+              "example": 0
+            },
+            {
+              "code": "pfxh_gd_fee",
+              "type": "number",
+              "required": false,
+              "desc": "批发销货-固定费用",
+              "example": 100
+            },
+            {
+              "code": "pfxh_ck_fee",
+              "type": "number",
+              "required": false,
+              "desc": "批发销货-仓储费",
+              "example": 10
+            },
+            {
+              "code": "pfth_jsj",
+              "type": "number",
+              "required": false,
+              "desc": "批发退货-结算价格项(选项同：零售订单-结算价格项)",
+              "example": 3
+            },
+            {
+              "code": "pfth_zk",
+              "type": "number",
+              "required": false,
+              "desc": "批发退货-结算折扣(大于0，小于等于1)",
+              "example": 0.8
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "kehu_add"
+    }
+  },
+  "message": "success"
+}

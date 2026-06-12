@@ -1,0 +1,62 @@
+{
+  "status": 1,
+  "data": [
+    {
+      "code": "INVALID_PARAMS",
+      "desc": "参数不完整"
+    },
+    {
+      "code": "INVALID_REQUEST",
+      "desc": "非法请求"
+    },
+    {
+      "code": "INVALID_KEY",
+      "desc": "无效 KEY"
+    },
+    {
+      "code": "INVALID_SIGNATURE",
+      "desc": "无效签名"
+    },
+    {
+      "code": "INVALID_SERVICE_TYPE",
+      "desc": "不支持的接口请求"
+    },
+    {
+      "code": "api-success",
+      "desc": "请求成功"
+    },
+    {
+      "code": "api-invalid-parameter-startModified",
+      "desc": "起始时间格式错误"
+    },
+    {
+      "code": "api-invalid-parameter-startModified-range",
+      "desc": "起始时间错误"
+    },
+    {
+      "code": "api-invalid-parameter-endModified",
+      "desc": "结束时间格式错误"
+    },
+    {
+      "code": "api-invalid-parameter-endModified-range",
+      "desc": "结束时间错误"
+    },
+    {
+      "code": "api-invalid-parameter-startModified-endModified-value",
+      "desc": "起始时间大于结束时间"
+    },
+    {
+      "code": "api-invalid-parameter-pageSize",
+      "desc": "每页数量错误"
+    },
+    {
+      "code": "api-server-error",
+      "desc": "其它错误"
+    },
+    {
+      "code": "api-server-exception",
+      "desc": "系统级别异常"
+    }
+  ],
+  "message": "success"
+}

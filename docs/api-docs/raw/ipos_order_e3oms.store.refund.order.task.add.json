@@ -1,0 +1,202 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.store.refund.order.task.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "新增退款任务",
+      "desc": "新增退款任务",
+      "method": "e3oms.store.refund.order.task.add",
+      "request_params": [
+        {
+          "code": "deal_code",
+          "type": "string",
+          "required": true,
+          "desc": "订单编号(网店交易号)",
+          "example": ""
+        },
+        {
+          "code": "refund_tklx",
+          "type": "string",
+          "required": true,
+          "desc": "退款类型：为 e3 退款类型的代码",
+          "example": ""
+        },
+        {
+          "code": "refund_tkbz",
+          "type": "number",
+          "required": true,
+          "desc": "退款备注：1 补偿款, 2 补差价, 3 退货退款, 4 退运费, 5 退定金, 6 仅退款, 7 返现",
+          "example": ""
+        },
+        {
+          "code": "refund_tkje",
+          "type": "string",
+          "required": true,
+          "desc": "退款金额",
+          "example": ""
+        },
+        {
+          "code": "refund_reason",
+          "type": "string",
+          "required": true,
+          "desc": "退款原因",
+          "example": ""
+        },
+        {
+          "code": "items",
+          "type": "array[object]",
+          "required": false,
+          "desc": "退款任务单明细，如果不传入 默认取订单第一个明细",
+          "example": "",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "明细账sku",
+              "example": "sku1"
+            },
+            {
+              "code": "sl",
+              "type": "number",
+              "required": true,
+              "desc": "sku退的数量",
+              "example": "1"
+            },
+            {
+              "code": "ewth",
+              "type": "number",
+              "required": true,
+              "desc": "明细行退款金额",
+              "example": "100"
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "add.refund.order.task"
+    }
+  },
+  "message": "success"
+}

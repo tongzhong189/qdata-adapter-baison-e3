@@ -1,0 +1,711 @@
+{
+  "code": "e3oms.order.detail.add",
+  "name": "销售订单添加",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "第三方要向系统添加销售订单，可调用此API（数据保存在OS中间表）",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "add_time",
+      "name": "add_time",
+      "type": "datetime",
+      "length": "",
+      "required": "是",
+      "description": "添加时间",
+      "_parent_node": null
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订单编号",
+      "_parent_node": null
+    },
+    {
+      "field": "sd_code",
+      "name": "sd_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "店铺代码",
+      "_parent_node": null
+    },
+    {
+      "field": "order_status",
+      "name": "order_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "订单状态(0，未确认；1，已确认； 2，已取消；3，无效；4，退货；5，锁定；6，解锁；7，完成；8，拒收；9，已合并；10，已拆分；)",
+      "_parent_node": null
+    },
+    {
+      "field": "pay_status",
+      "name": "pay_status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "付款状态(0，未付款；1，付款中；2，已付款；3，已结算)",
+      "_parent_node": null
+    },
+    {
+      "field": "consignee",
+      "name": "consignee",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人",
+      "_parent_node": null
+    },
+    {
+      "field": "province_name",
+      "name": "province_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "省",
+      "_parent_node": null
+    },
+    {
+      "field": "city_name",
+      "name": "city_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "市",
+      "_parent_node": null
+    },
+    {
+      "field": "district_name",
+      "name": "district_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区",
+      "_parent_node": null
+    },
+    {
+      "field": "street_name",
+      "name": "street_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人街道",
+      "_parent_node": null
+    },
+    {
+      "field": "address",
+      "name": "address",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "详细地址",
+      "_parent_node": null
+    },
+    {
+      "field": "user_name",
+      "name": "user_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "会员名",
+      "_parent_node": null
+    },
+    {
+      "field": "email",
+      "name": "email",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "电子邮件",
+      "_parent_node": null
+    },
+    {
+      "field": "mobile",
+      "name": "mobile",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "手机号码",
+      "_parent_node": null
+    },
+    {
+      "field": "tel",
+      "name": "tel",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "电话号码",
+      "_parent_node": null
+    },
+    {
+      "field": "zipcode",
+      "name": "zipcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "邮政编码",
+      "_parent_node": null
+    },
+    {
+      "field": "pos_code",
+      "name": "pos_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "O2O 门店代码",
+      "_parent_node": null
+    },
+    {
+      "field": "saleShopCode",
+      "name": "saleShopCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "下单门店代码",
+      "_parent_node": null
+    },
+    {
+      "field": "salerEmployeeNo",
+      "name": "salerEmployeeNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "下单店员编号",
+      "_parent_node": null
+    },
+    {
+      "field": "pay_code",
+      "name": "pay_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "支付方式代码:bank:银行汇款/转帐，balance:余额支付，alipay:支付宝，tenpay:财付通，chinabank:网银在线，cod:货到付款，kuaiqian:快钱人民币网关，paypal:paypal，paypalcn:贝宝，yeepay:YeePay易宝，xpay:易付通，cash:现金支付，xsptzf:销售平台支付，flkzf:返利款支付，yez_flk:余额帐+返利款支付，alipay_surety:支付宝担保交易，alipay_chain:分账交易，prepay:预存款，immediately:即时到账，weixin:微信支付，peerpay:代付，baidupay:百度钱包支付，dinpay:智惠支付",
+      "_parent_node": null
+    },
+    {
+      "field": "vip_no",
+      "name": "vip_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "会员编号",
+      "_parent_node": null
+    },
+    {
+      "field": "shipping_code",
+      "name": "shipping_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "快递公司代码",
+      "_parent_node": null
+    },
+    {
+      "field": "shipping_fee",
+      "name": "shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "运费",
+      "_parent_node": null
+    },
+    {
+      "field": "order_amount",
+      "name": "order_amount",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "买家应付金额",
+      "_parent_node": null
+    },
+    {
+      "field": "payment",
+      "name": "payment",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "买家已付金额",
+      "_parent_node": null
+    },
+    {
+      "field": "receiver_tel",
+      "name": "receiver_tel",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人电话",
+      "_parent_node": null
+    },
+    {
+      "field": "receiver_zip",
+      "name": "receiver_zip",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货邮政编码",
+      "_parent_node": null
+    },
+    {
+      "field": "os_user_id",
+      "name": "os_user_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "分销商账号",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_kind",
+      "name": "inv_kind",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开票类型 电子发票相关，发票类型(0 不开电子发票 1 开电子发票 2 换成纸质发票 )",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_bank",
+      "name": "inv_bank",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票开户行",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_account",
+      "name": "inv_account",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票开户账号",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_addr",
+      "name": "inv_addr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票地址",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_phone",
+      "name": "inv_phone",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票电话",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_count",
+      "name": "inv_count",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票数量",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_number",
+      "name": "inv_number",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票号",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_payee",
+      "name": "inv_payee",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开票抬头",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_tax_no",
+      "name": "inv_tax_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "税号",
+      "_parent_node": null
+    },
+    {
+      "field": "inv_email",
+      "name": "inv_email",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开票邮箱",
+      "_parent_node": null
+    },
+    {
+      "field": "invoice_lxr_tel",
+      "name": "invoice_lxr_tel",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票联系人电话",
+      "_parent_node": null
+    },
+    {
+      "field": "invoice_lxr_mobile",
+      "name": "invoice_lxr_mobile",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票联系人手机",
+      "_parent_node": null
+    },
+    {
+      "field": "seller_msg",
+      "name": "seller_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商家备注",
+      "_parent_node": null
+    },
+    {
+      "field": "storage_message",
+      "name": "storage_message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库留言",
+      "_parent_node": null
+    },
+    {
+      "field": "order_msg",
+      "name": "order_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单备注",
+      "_parent_node": null
+    },
+    {
+      "field": "postscript",
+      "name": "postscript",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "买家留言",
+      "_parent_node": null
+    },
+    {
+      "field": "md_name",
+      "name": "md_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "门店名称",
+      "_parent_node": null
+    },
+    {
+      "field": "dg_name",
+      "name": "dg_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "导购名称",
+      "_parent_node": null
+    },
+    {
+      "field": "default_ck_code",
+      "name": "default_ck_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "默认仓库编码",
+      "_parent_node": null
+    },
+    {
+      "field": "fahuo_ck_code",
+      "name": "fahuo_ck_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发货仓库编码",
+      "_parent_node": null
+    },
+    {
+      "field": "seller_flag",
+      "name": "seller_flag",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单旗帜",
+      "_parent_node": null
+    },
+    {
+      "field": "order_pay_sn",
+      "name": "order_pay_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支付单号",
+      "_parent_node": null
+    },
+    {
+      "field": "id_card",
+      "name": "id_card",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "证件号",
+      "_parent_node": null
+    },
+    {
+      "field": "card_type",
+      "name": "card_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "证件类型0身份证,1护照,2其他",
+      "_parent_node": null
+    },
+    {
+      "field": "buyer_name",
+      "name": "buyer_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "买家姓名",
+      "_parent_node": null
+    },
+    {
+      "field": "currency",
+      "name": "currency",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "本位币种",
+      "_parent_node": null
+    },
+    {
+      "field": "shipping_type",
+      "name": "shipping_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "用户指定的配送方式code",
+      "_parent_node": null
+    },
+    {
+      "field": "xskf_code",
+      "name": "xskf_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "销售客服编码",
+      "_parent_node": null
+    },
+    {
+      "field": "cs_number",
+      "name": "cs_number",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单客服编码",
+      "_parent_node": null
+    },
+    {
+      "field": "is_pre_sell",
+      "name": "is_pre_sell",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "预售阶段",
+      "_parent_node": null
+    },
+    {
+      "field": "est_con_time",
+      "name": "est_con_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "预计发货时间",
+      "_parent_node": null
+    },
+    {
+      "field": "auto_trans",
+      "name": "auto_trans",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否立即转入到OMS销售订单",
+      "_parent_node": null
+    },
+    {
+      "field": "order_type",
+      "name": "order_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "零售订单类型",
+      "_parent_node": null
+    },
+    {
+      "field": "tags_code",
+      "name": "tags_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单标签code,多个英文逗号分割",
+      "_parent_node": null
+    },
+    {
+      "field": "global_info",
+      "name": "global_info",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "跨境信息",
+      "_parent_node": null
+    },
+    {
+      "field": "items",
+      "name": "items",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "商品信息",
+      "_parent_node": null
+    },
+    {
+      "field": "promotions",
+      "name": "promotions",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "优惠信息",
+      "_parent_node": null
+    },
+    {
+      "field": "custom_fields",
+      "name": "custom_fields",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段信息",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

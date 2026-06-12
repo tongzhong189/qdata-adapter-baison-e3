@@ -1,0 +1,255 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.tb.refund.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取淘宝退单中间表信息",
+      "desc": "获取淘宝退单中间表信息",
+      "method": "e3oms.order.tb.refund.get",
+      "request_params": [
+        {
+          "code": "tid",
+          "type": "string",
+          "required": false,
+          "desc": "淘宝交易号",
+          "example": "1212312312"
+        },
+        {
+          "code": "sid",
+          "type": "string",
+          "required": false,
+          "desc": "退货运单号",
+          "example": "23423622"
+        },
+        {
+          "code": "status",
+          "type": "string",
+          "required": false,
+          "desc": "退款状态。可选值 WAIT_SELLER_AGREE(买家已经申请退款，等待卖家同意) WAIT_BUYER_RETURN_GOODS(卖家已经同意退款，等待买家退货) WAIT_SELLER_CONFIRM_GOODS(买家已经退货，等待卖家确认收货) SELLER_REFUSE_BUYER(卖家拒绝退款) CLOSED(退款关闭) SUCCESS(退款成功)",
+          "example": "SUCCESS"
+        },
+        {
+          "code": "rq_start",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询起始时间",
+          "example": "2011-08-01 00:00:00"
+        },
+        {
+          "code": "rq_end",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询结束时间",
+          "example": "2011-09-01 00:00:00"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "required": true,
+          "desc": "返回信息",
+          "example": "",
+          "children": [
+            {
+              "code": "tb_refunds_list",
+              "type": "array[array[object]]",
+              "required": true,
+              "desc": "退单明细列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "mx_list",
+                  "type": "array[object]",
+                  "required": true,
+                  "desc": "退单明细",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "id",
+                      "type": "number",
+                      "required": true,
+                      "desc": "taobao_refunds_trade_items的主键",
+                      "example": "1"
+                    },
+                    {
+                      "code": "trid",
+                      "type": "number",
+                      "required": true,
+                      "desc": "taobao_refunds_trade的主键",
+                      "example": "1"
+                    },
+                    {
+                      "code": "refund_id",
+                      "type": "string",
+                      "required": true,
+                      "desc": "退款单号",
+                      "example": "1231234"
+                    },
+                    {
+                      "code": "num_iid",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品编码",
+                      "example": "1231"
+                    },
+                    {
+                      "code": "price",
+                      "type": "string",
+                      "required": true,
+                      "desc": "退单明细",
+                      "example": "11"
+                    },
+                    {
+                      "code": "num",
+                      "type": "number",
+                      "required": true,
+                      "desc": "商品数量",
+                      "example": "2"
+                    },
+                    {
+                      "code": "outer_id",
+                      "type": "string",
+                      "required": true,
+                      "desc": "外部编码",
+                      "example": "546"
+                    },
+                    {
+                      "code": "sku",
+                      "type": "string",
+                      "required": true,
+                      "desc": "sku",
+                      "example": "sku001"
+                    },
+                    {
+                      "code": "lastchanged",
+                      "type": "datetime",
+                      "required": true,
+                      "desc": "变动时间",
+                      "example": "2021-01-01 23:01:02"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "tb.refund.get"
+    }
+  },
+  "message": "success"
+}

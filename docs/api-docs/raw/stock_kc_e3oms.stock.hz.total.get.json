@@ -1,0 +1,299 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.hz.total.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "汇总仓库存列表",
+      "desc": "获得仓库库存列表商品级别",
+      "method": "e3oms.stock.hz.total.get",
+      "request_params": [
+        {
+          "code": "pageSize",
+          "type": "string",
+          "required": false,
+          "desc": "单页最大数据量",
+          "example": ""
+        },
+        {
+          "code": "pageNo",
+          "type": "string",
+          "required": false,
+          "desc": "页码",
+          "example": ""
+        },
+        {
+          "code": "hz_ck_code",
+          "type": "string",
+          "required": false,
+          "desc": "汇总仓档案编码(多个逗号分割)",
+          "example": "ck1,ck2"
+        },
+        {
+          "code": "goods_sn",
+          "type": "string",
+          "required": false,
+          "desc": "goods_sn(多个逗号分割)",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "string",
+          "required": false,
+          "desc": "SKU(多个逗号分割)",
+          "example": ""
+        },
+        {
+          "code": "category_code",
+          "type": "string",
+          "required": false,
+          "desc": "分类编码(不支持单多个)",
+          "example": ""
+        },
+        {
+          "code": "brand_code",
+          "type": "string",
+          "required": false,
+          "desc": "品牌编码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "year_code",
+          "type": "number",
+          "required": false,
+          "desc": "年份编码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "season_code",
+          "type": "number",
+          "required": false,
+          "desc": "季节编码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "series_code",
+          "type": "number",
+          "required": false,
+          "desc": "系列编码(传多个时以逗号间隔)",
+          "example": ""
+        },
+        {
+          "code": "sku_ids",
+          "type": "number",
+          "required": false,
+          "desc": "1:模糊查询,0:精确查询",
+          "example": ""
+        },
+        {
+          "code": "zk_kc",
+          "type": "number",
+          "required": false,
+          "desc": "在库库存展示 0:全部,1:只显示大于0;2:只显示等于0,3:只显示小于0",
+          "example": ""
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "totalResult": "page",
+              "type": "number",
+              "desc": "分页信息"
+            },
+            {
+              "totalResult": "pageSize",
+              "type": "number",
+              "desc": "分页信息"
+            },
+            {
+              "totalResult": "pageNo",
+              "type": "number",
+              "desc": "分页信息"
+            },
+            {
+              "totalResult": "pageTotal",
+              "type": "number",
+              "desc": "分页信息"
+            },
+            {
+              "code": "data",
+              "type": "array[object]",
+              "desc": "仓库库存列表(stockListGet)",
+              "example": "",
+              "children": [
+                {
+                  "code": "ck_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库id",
+                  "example": ""
+                },
+                {
+                  "code": "goods_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品id",
+                  "example": ""
+                },
+                {
+                  "code": "goods_sn",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品编码",
+                  "example": ""
+                },
+                {
+                  "code": "goods_id_name",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品名称",
+                  "example": ""
+                },
+                {
+                  "code": "c_ckdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "汇总仓库代码",
+                  "example": ""
+                },
+                {
+                  "code": "c_ckmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "汇总仓库名称",
+                  "example": ""
+                },
+                {
+                  "code": "v_sl",
+                  "type": "string",
+                  "required": true,
+                  "desc": "在库库存",
+                  "example": ""
+                },
+                {
+                  "code": "v_sl2",
+                  "type": "string",
+                  "required": true,
+                  "desc": "锁定库存",
+                  "example": ""
+                },
+                {
+                  "code": "v_sl_ky",
+                  "type": "string",
+                  "required": true,
+                  "desc": "可用库存",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "e3oms.stock.hz.total.get"
+    }
+  },
+  "message": "success"
+}

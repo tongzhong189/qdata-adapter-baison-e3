@@ -1,0 +1,636 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.ext.refund.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "根据商品货号查询商品订单",
+      "desc": "根据商品货号查询商品订单",
+      "method": "e3oms.order.ext.refund.get",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询起始时间",
+          "example": "2011-09-01 00:00:00"
+        },
+        {
+          "code": "endModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询结束时间",
+          "example": "2000-11-30 23:59:59"
+        },
+        {
+          "code": "pageNo",
+          "type": "string",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数;默认值",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "string",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+          "example": "20"
+        },
+        {
+          "code": "djzt",
+          "type": "string",
+          "required": false,
+          "desc": "结算单状态",
+          "example": "2"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "refundListGet",
+          "type": "array[object]",
+          "required": false,
+          "desc": "零售结算单列表(refundListGet)",
+          "example": "",
+          "children": [
+            {
+              "code": "djbh",
+              "type": "string",
+              "required": true,
+              "desc": "单据编号",
+              "example": "123123123"
+            },
+            {
+              "code": "rq",
+              "type": "number",
+              "required": true,
+              "desc": "日期（时间戳）",
+              "example": "1547431057"
+            },
+            {
+              "code": "ydjh",
+              "type": "string",
+              "required": true,
+              "desc": "原单编号",
+              "example": "1231"
+            },
+            {
+              "code": "bcdd",
+              "type": "string",
+              "required": true,
+              "desc": "补差订单编号",
+              "example": "23423"
+            },
+            {
+              "code": "bcdh",
+              "type": "string",
+              "required": true,
+              "desc": "补差结算单号",
+              "example": "123123"
+            },
+            {
+              "code": "djlx",
+              "type": "number",
+              "required": true,
+              "desc": "单据类型:1=>普通订单收款,2=>货到付款,3=>补差收款,4=>差价补拍收款,5=>订单退款,6=>退单退款,7=>无效单退款,8=>仅额外退款中的退款,9=>分销订单收款,10=>分销退单退款,11=>仅退款",
+              "example": "1"
+            },
+            {
+              "code": "qd_id",
+              "type": "number",
+              "required": true,
+              "desc": "渠道 id",
+              "example": "12"
+            },
+            {
+              "code": "sd_id",
+              "type": "number",
+              "required": true,
+              "desc": "商店 id",
+              "example": "1"
+            },
+            {
+              "code": "kh_id",
+              "type": "number",
+              "required": true,
+              "desc": "客户 id",
+              "example": "2"
+            },
+            {
+              "code": "ywy_id",
+              "type": "number",
+              "required": true,
+              "desc": "业务员 id",
+              "example": "1"
+            },
+            {
+              "code": "order_lylx",
+              "type": "number",
+              "required": true,
+              "desc": "订单来源类型 关联订单的来源类型,参考订单获取接口",
+              "example": "1"
+            },
+            {
+              "code": "is_order",
+              "type": "string",
+              "required": true,
+              "desc": "订单 1，退单 0",
+              "example": "1"
+            },
+            {
+              "code": "je",
+              "type": "number",
+              "required": true,
+              "desc": "应收结算金额",
+              "example": "12"
+            },
+            {
+              "code": "je1",
+              "type": "number",
+              "required": true,
+              "desc": "实际收款金额",
+              "example": "12"
+            },
+            {
+              "code": "je2",
+              "type": "number",
+              "required": true,
+              "desc": "未收结算金额",
+              "example": "0"
+            },
+            {
+              "code": "je3",
+              "type": "number",
+              "required": true,
+              "desc": "调整金额",
+              "example": "0"
+            },
+            {
+              "code": "tzr",
+              "type": "string",
+              "required": true,
+              "desc": "调整人",
+              "example": "lee"
+            },
+            {
+              "code": "tz_reson",
+              "type": "string",
+              "required": false,
+              "desc": "调整原因",
+              "example": "12"
+            },
+            {
+              "code": "bcje",
+              "type": "number",
+              "required": true,
+              "desc": "补差金额",
+              "example": "2"
+            },
+            {
+              "code": "yf",
+              "type": "number",
+              "required": true,
+              "desc": "运费",
+              "example": "1"
+            },
+            {
+              "code": "dtjyh",
+              "type": "string",
+              "required": true,
+              "desc": "订退单交易号",
+              "example": "123123"
+            },
+            {
+              "code": "dtdh",
+              "type": "string",
+              "required": true,
+              "desc": "订(退)单号",
+              "example": "3242"
+            },
+            {
+              "code": "is_hand",
+              "type": "string",
+              "required": true,
+              "desc": "0 不是手工，1 手工单",
+              "example": "1"
+            },
+            {
+              "code": "pay_id",
+              "type": "number",
+              "required": true,
+              "desc": "支付方式id",
+              "example": "1"
+            },
+            {
+              "code": "user_id",
+              "type": "number",
+              "required": true,
+              "desc": "会员id",
+              "example": "2"
+            },
+            {
+              "code": "return_account",
+              "type": "string",
+              "required": true,
+              "desc": "退款帐号",
+              "example": "12"
+            },
+            {
+              "code": "pay_account",
+              "type": "string",
+              "required": true,
+              "desc": "付款账号",
+              "example": "32"
+            },
+            {
+              "code": "pay_bank",
+              "type": "string",
+              "required": true,
+              "desc": "付款银行",
+              "example": "112"
+            },
+            {
+              "code": "receive_account",
+              "type": "string",
+              "required": false,
+              "desc": "收款账号",
+              "example": "12"
+            },
+            {
+              "code": "receive_bank",
+              "type": "string",
+              "required": false,
+              "desc": "收款银行",
+              "example": "12"
+            },
+            {
+              "code": "gltdbh",
+              "type": "string",
+              "required": false,
+              "desc": "关联退单编号",
+              "example": "123"
+            },
+            {
+              "code": "zdr",
+              "type": "string",
+              "required": true,
+              "desc": "制单人",
+              "example": "lee"
+            },
+            {
+              "code": "zdrq",
+              "type": "number",
+              "required": true,
+              "desc": "制单日期（时间戳）",
+              "example": "1547455490"
+            },
+            {
+              "code": "jz",
+              "type": "number",
+              "required": true,
+              "desc": "记账 0未记账，1已记账",
+              "example": "0"
+            },
+            {
+              "code": "jzr",
+              "type": "string",
+              "required": true,
+              "desc": "记账人",
+              "example": "lee"
+            },
+            {
+              "code": "jzrq",
+              "type": "number",
+              "required": true,
+              "desc": "制单日期（时间戳）",
+              "example": "1547455490"
+            },
+            {
+              "code": "js",
+              "type": "string",
+              "required": true,
+              "desc": "结算 0未结算，1已结算",
+              "example": "1"
+            },
+            {
+              "code": "jsr",
+              "type": "string",
+              "required": true,
+              "desc": "结算人",
+              "example": "lee"
+            },
+            {
+              "code": "jsrq",
+              "type": "number",
+              "required": true,
+              "desc": "结算日期",
+              "example": "1547455490"
+            },
+            {
+              "code": "zf",
+              "type": "string",
+              "required": false,
+              "desc": "作废 0未作废，1已作废",
+              "example": "1"
+            },
+            {
+              "code": "zfr",
+              "type": "string",
+              "required": false,
+              "desc": "作废人",
+              "example": "lee"
+            },
+            {
+              "code": "zfrq",
+              "type": "number",
+              "required": false,
+              "desc": "作废日期",
+              "example": "1547455490"
+            },
+            {
+              "code": "sp",
+              "type": "string",
+              "required": true,
+              "desc": "审批 0未审批，1已审批",
+              "example": "1"
+            },
+            {
+              "code": "spr",
+              "type": "string",
+              "required": true,
+              "desc": "审批人",
+              "example": "lee"
+            },
+            {
+              "code": "sprq",
+              "type": "number",
+              "required": true,
+              "desc": "审批日期",
+              "example": "1547455490"
+            },
+            {
+              "code": "djzt",
+              "type": "number",
+              "required": false,
+              "desc": "单据状态 0 未审批，1 审批，2 记帐，3 结算,4 作废",
+              "example": "1"
+            },
+            {
+              "code": "bz",
+              "type": "string",
+              "required": true,
+              "desc": "备注",
+              "example": "123"
+            },
+            {
+              "code": "is_wait_fkd",
+              "type": "number",
+              "required": true,
+              "desc": "是否付款单付款中 0否,1是",
+              "example": "1"
+            },
+            {
+              "code": "is_print",
+              "type": "number",
+              "required": true,
+              "desc": "是否打印  0否,1是",
+              "example": "1"
+            },
+            {
+              "code": "dyr",
+              "type": "string",
+              "required": true,
+              "desc": "打印人",
+              "example": "lee"
+            },
+            {
+              "code": "dyrq",
+              "type": "number",
+              "required": true,
+              "desc": "打印日期",
+              "example": "1547455490"
+            },
+            {
+              "code": "is_use",
+              "type": "string",
+              "required": true,
+              "desc": "是否被使用 0否,1是",
+              "example": "1"
+            },
+            {
+              "code": "sync_status",
+              "type": "string",
+              "required": true,
+              "desc": "接口同步状态 0 未同步，1 同步成功",
+              "example": "1"
+            },
+            {
+              "code": "sync_msg",
+              "type": "string",
+              "required": true,
+              "desc": "接口返回信息",
+              "example": "123123"
+            },
+            {
+              "code": "tkfs",
+              "type": "number",
+              "required": true,
+              "desc": "退款方式",
+              "example": "12"
+            },
+            {
+              "code": "sync_time",
+              "type": "number",
+              "required": true,
+              "desc": "同步时间",
+              "example": "1547455490"
+            },
+            {
+              "code": "is_alipay",
+              "type": "number",
+              "required": false,
+              "desc": "是否在taobao_alipay_details表中生成过数据(这个字段只对补差收款类型的有用) 0否,1是",
+              "example": ""
+            },
+            {
+              "code": "is_bj",
+              "type": "number",
+              "required": true,
+              "desc": "是否标记 0否,1是",
+              "example": "1"
+            },
+            {
+              "code": "bj_content",
+              "type": "string",
+              "required": false,
+              "desc": "标记内容",
+              "example": "123"
+            },
+            {
+              "code": "modified",
+              "type": "datetime",
+              "required": true,
+              "desc": "更新状态时间",
+              "example": "2019-01-18 14:17:06"
+            },
+            {
+              "code": "sync_wms_status",
+              "type": "number",
+              "required": true,
+              "desc": "关联 wms 状态",
+              "example": "12"
+            },
+            {
+              "code": "sync_wms_msg",
+              "type": "string",
+              "required": true,
+              "desc": "wms 返回信息",
+              "example": "1231"
+            },
+            {
+              "code": "return_buyer_status",
+              "type": "string",
+              "required": true,
+              "desc": "退单入库状态(默认值-1)",
+              "example": "1"
+            },
+            {
+              "code": "bjr",
+              "type": "string",
+              "required": true,
+              "desc": "标记人",
+              "example": "lee"
+            },
+            {
+              "code": "bjrq",
+              "type": "number",
+              "required": true,
+              "desc": "标记日期",
+              "example": "1547455490"
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "ext.refund.get"
+    }
+  },
+  "message": "success"
+}

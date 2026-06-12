@@ -1,0 +1,335 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.cangku.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "仓库获取接口",
+      "desc": "仓库获取接口",
+      "method": "e3oms.base.cangku.get",
+      "request_params": [
+        {
+          "code": "ckdm",
+          "type": "string",
+          "required": false,
+          "desc": "仓库代码",
+          "example": "2013"
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100 ",
+          "example": "20"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "ckListGet",
+              "type": "array[object]",
+              "desc": "仓库信息列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "address",
+                  "type": "string",
+                  "required": true,
+                  "desc": "地址",
+                  "example": "金融港"
+                },
+                {
+                  "code": "biaoshi",
+                  "type": "string",
+                  "required": true,
+                  "desc": "标识",
+                  "example": "标识"
+                },
+                {
+                  "code": "bz",
+                  "type": "string",
+                  "required": true,
+                  "desc": "备注",
+                  "example": "备注"
+                },
+                {
+                  "code": "ckdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库代码",
+                  "example": "001"
+                },
+                {
+                  "code": "ckmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库名称",
+                  "example": "总仓"
+                },
+                {
+                  "code": "ckxz",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库性质",
+                  "example": "2"
+                },
+                {
+                  "code": "id",
+                  "type": "number",
+                  "required": true,
+                  "desc": "仓库id",
+                  "example": "1"
+                },
+                {
+                  "code": "is_delete",
+                  "type": "number",
+                  "required": true,
+                  "desc": "软删除,0 否,1 是软删除了",
+                  "example": "0"
+                },
+                {
+                  "code": "is_share",
+                  "type": "number",
+                  "required": true,
+                  "desc": "是否允许共享 1共享 0不共享",
+                  "example": "0"
+                },
+                {
+                  "code": "is_stc",
+                  "type": "number",
+                  "required": true,
+                  "desc": "是否是 stc 生成仓 1是 0不是",
+                  "example": "0"
+                },
+                {
+                  "code": "lb_id",
+                  "type": "number",
+                  "required": true,
+                  "desc": "类别id",
+                  "example": "1"
+                },
+                {
+                  "code": "lxr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "联系人",
+                  "example": "张三"
+                },
+                {
+                  "code": "outer_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "外部编码",
+                  "example": ""
+                },
+                {
+                  "code": "p_ck",
+                  "type": "string",
+                  "required": true,
+                  "desc": "宿主仓库",
+                  "example": "0"
+                },
+                {
+                  "code": "p_ck_kw",
+                  "type": "string",
+                  "required": true,
+                  "desc": "宿主仓库库位,默认为ID=1 的默认库位",
+                  "example": "0"
+                },
+                {
+                  "code": "qd_id",
+                  "type": "number",
+                  "required": true,
+                  "desc": "渠道id",
+                  "example": "1"
+                },
+                {
+                  "code": "qy_id",
+                  "type": "number",
+                  "required": true,
+                  "desc": "区域id",
+                  "example": "1"
+                },
+                {
+                  "code": "tel",
+                  "type": "string",
+                  "required": true,
+                  "desc": "联系电话",
+                  "example": "1245124"
+                },
+                {
+                  "code": "ty",
+                  "type": "number",
+                  "required": true,
+                  "desc": "是否停用(0-未停用 1-停用)",
+                  "example": "0"
+                }
+              ]
+            },
+            {
+              "code": "page",
+              "type": "array[object]",
+              "desc": "分页信息",
+              "children": [
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": "20"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": "1"
+                },
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": "1"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "cangku.get"
+    }
+  },
+  "message": "success"
+}

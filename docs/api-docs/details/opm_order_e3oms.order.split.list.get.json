@@ -1,0 +1,3312 @@
+{
+  "code": "e3oms.order.split.list.get",
+  "name": "获取拆分订单列表",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "获取拆分订单列表，可调用此API",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "startModified",
+      "name": "startModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间：2011-09-01 00:00:00",
+      "_parent_node": null
+    },
+    {
+      "field": "endModified",
+      "name": "endModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询结束时间：2000-11-30 23:59:59",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100",
+      "_parent_node": null
+    },
+    {
+      "field": "fields",
+      "name": "fields",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支持的传入字段order_sn,deal_code,lylx,user_name,total_amount,shipping_fee,pay_time,order_msg,sd_id_name, shipping_code,stfhck_id_name,fhck_id_name,ck_id_name,receiver_name,receiver_zip,receiver_tel,receiver_mobile,receiver_province_name,receiver_city_name,receiver_district_name,receiver_address",
+      "_parent_node": null
+    },
+    {
+      "field": "order_status",
+      "name": "order_status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单状态",
+      "_parent_node": null
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单号",
+      "_parent_node": null
+    },
+    {
+      "field": "deal_code",
+      "name": "deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "交易号",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "orderSplitListGet",
+      "name": "orderSplitListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "订单信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "deal_code",
+      "name": "deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "网店交易号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ori_deal_code",
+      "name": "ori_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "换货原始交易号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ori_order_sn",
+      "name": "ori_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "换货原始订单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_pos_order",
+      "name": "wms_pos_order",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "pos（回传的posID加入订单列表）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "parent_deal_code",
+      "name": "parent_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "父交易号（京东拆分新单的原交易号）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tbfx_id",
+      "name": "tbfx_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "淘宝分销采购单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tbfx_fenxiao_id",
+      "name": "tbfx_fenxiao_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "淘宝分销交易号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "alipay_no",
+      "name": "alipay_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支付宝交易号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sd_id",
+      "name": "sd_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单所属商店ID，Id of kehu and xzdm=3",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ghs_id",
+      "name": "ghs_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "供货商",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cgzt",
+      "name": "cgzt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0-无意义 1-待采购 2-采购中",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "lylx",
+      "name": "lylx",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单来源类型：0:后台1:淘宝2:拍拍3:OS主站4:分销商5:新浪6:SHOPEX7:ECSHOP8:当当9:邮乐购",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "qd_id",
+      "name": "qd_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "渠道ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "user_id",
+      "name": "user_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "(user_id of users)会员ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "vip_no",
+      "name": "vip_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "会员编号(艾格定制开发）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "user_name",
+      "name": "user_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "会员昵称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "distributor_id",
+      "name": "distributor_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分销商ID(关联 encm_discount_user)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "distributor_username",
+      "name": "distributor_username",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "分销商名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_status",
+      "name": "order_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单状态。\\r\\n0-未确认；\\r\\n1-已确认； \\r\\n3-已作废；5-已完成",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_status",
+      "name": "shipping_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "配送状态。0-初始1-预分配缺货处理中 2-已完成预分配 3-已通知配货4-拣货中(已分配拣货任务) 5-已完成拣货 6-已发货 7-已出库 9-取消",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_complete",
+      "name": "is_complete",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否完成（客户是否确认收货）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "complete_time",
+      "name": "complete_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "客户确认收货（完成）时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ck_id",
+      "name": "ck_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "商店仓库id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fhck_id",
+      "name": "fhck_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "实际发货仓库id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fhck_kw_id",
+      "name": "fhck_kw_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发货仓库库位",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "stfhck_id",
+      "name": "stfhck_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "实体发货仓库",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "stfhck_kw_id",
+      "name": "stfhck_kw_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "实体发货仓库库位",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_id",
+      "name": "pay_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "付款方式ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_name",
+      "name": "pay_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "付款方式名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_code",
+      "name": "pay_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支付方式代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_status",
+      "name": "pay_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "付款状态[0:未付款;1:付款中(部分付款);2:已付款]",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_name",
+      "name": "receiver_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_country",
+      "name": "receiver_country",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "收获人国家",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_province",
+      "name": "receiver_province",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "收货人身份",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_city",
+      "name": "receiver_city",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "收货人城市",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_district",
+      "name": "receiver_district",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "收货人所属县",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_street",
+      "name": "receiver_street",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "收货人所在街道",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_address",
+      "name": "receiver_address",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人地址",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_addr",
+      "name": "receiver_addr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人地址",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_zip",
+      "name": "receiver_zip",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人邮编",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_tel",
+      "name": "receiver_tel",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人电话",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_mobile",
+      "name": "receiver_mobile",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人手机",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "receiver_email",
+      "name": "receiver_email",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人email",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_id",
+      "name": "shipping_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "物流方式ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_code",
+      "name": "shipping_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "配送方式代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_name",
+      "name": "shipping_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "物流方式名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_time_tzph",
+      "name": "shipping_time_tzph",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "通知配货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_time_jh",
+      "name": "shipping_time_jh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "配货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_time_fh",
+      "name": "shipping_time_fh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_time_ck",
+      "name": "shipping_time_ck",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单出库时间也即是完成时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_time_ck_real",
+      "name": "shipping_time_ck_real",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "真实仓库出库时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fh_priority",
+      "name": "fh_priority",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发货优先级(0-9)数值越大 优先级越高",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_problem",
+      "name": "is_problem",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为问题单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_jz_status",
+      "name": "o2o_jz_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "记账状态 0 未记账；1 部分记账；2记账 ",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_jz_je",
+      "name": "o2o_jz_je",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "记账金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_lrjz_status",
+      "name": "o2o_lrjz_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "记账状态 0 未记账；1 部分记账；2记账 ",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_lrfcjz_status",
+      "name": "o2o_lrfcjz_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "记账状态 0 未记账；1 部分记账；2记账 ",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_lrfcjz_je",
+      "name": "o2o_lrfcjz_je",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "记账金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "customs",
+      "name": "customs",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "京东全球购 保税区信息 ",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "customs_model",
+      "name": "customs_model",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "京东全球购 保税模型：直邮，保税集货，保税备货",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_paiqi",
+      "name": "is_paiqi",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为排期订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "problem_desc",
+      "name": "problem_desc",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "问题单描述",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "total_amount",
+      "name": "total_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单总金额[商品总金额goods_amount+运费shipping_fee+手续费cod_fee]",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "market_goods_amount",
+      "name": "market_goods_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "商品金额（市场价之和）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shop_goods_amount",
+      "name": "shop_goods_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "实际应付商品总金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_fee",
+      "name": "shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "快递费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cod_fee",
+      "name": "cod_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "物流额外手续费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "bjje",
+      "name": "bjje",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "快递保价金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "payment",
+      "name": "payment",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "已付金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sd_payment",
+      "name": "sd_payment",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "sd已付金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_amount",
+      "name": "order_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家应付金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "discount_fee",
+      "name": "discount_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单商品折让",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "other_discount_fee",
+      "name": "other_discount_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单其他折让(整单折让)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "integral",
+      "name": "integral",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单消费积分",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "add_time",
+      "name": "add_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "下单时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "confirm_time",
+      "name": "confirm_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单确认时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "trans_time",
+      "name": "trans_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单转入时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_time",
+      "name": "pay_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "付款时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "buy_msg",
+      "name": "buy_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "买家留言",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "seller_msg",
+      "name": "seller_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商家留言",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "seller_flag",
+      "name": "seller_flag",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "卖家备注旗帜（与淘宝网上订单的卖家备注旗帜对应，只有卖家才能查看该字段）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "status_qh",
+      "name": "status_qh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": " 实物缺货状态（0-不缺 1-部分缺 2-全部缺）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "status_yfp_qh",
+      "name": "status_yfp_qh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "预分配缺货状态（0-不缺 1-部分缺 2-全部缺 3-可移仓缺货",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fms_jsrq",
+      "name": "fms_jsrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "结算单记账日期",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_lock",
+      "name": "is_lock",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否被锁定",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "lock_admin_id",
+      "name": "lock_admin_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单锁定人(Id of admin_user)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_sn",
+      "name": "shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "物流单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sf_son_shipping_sn",
+      "name": "sf_son_shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "顺风子运单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_msg",
+      "name": "pay_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支付留言",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_type",
+      "name": "invoice_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票类型",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_content",
+      "name": "invoice_content",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票内容",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_pay",
+      "name": "invoice_pay",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票支付方式",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_title",
+      "name": "invoice_title",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票抬头",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_amount",
+      "name": "invoice_amount",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_number",
+      "name": "invoice_number",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "goods_count",
+      "name": "goods_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "sku种类数量(2件上衣，3件裤子，则goods_count为2，sku_count为5)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sku_count",
+      "name": "sku_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "sku数量",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_weigh",
+      "name": "is_weigh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否称重",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "weigh_time",
+      "name": "weigh_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "称重时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "weigh",
+      "name": "weigh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "总重量(单位KG)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "timeout_time",
+      "name": "timeout_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "承诺买家最次发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_combine_new",
+      "name": "is_combine_new",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为合并产生的新订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_combine",
+      "name": "is_combine",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否被合并",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_split_new",
+      "name": "is_split_new",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为拆分产生的新订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_split",
+      "name": "is_split",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为被拆分订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_copy",
+      "name": "is_copy",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是复制订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_msg",
+      "name": "order_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单备注",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "error_msg",
+      "name": "error_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单操作过程中的一些提示信息，仅限程序使用",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "kf_xs_id",
+      "name": "kf_xs_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "销售客服员工id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "kf_order_id",
+      "name": "kf_order_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单客服员工id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "guider_id",
+      "name": "guider_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "导购id[接收m6的导购ID字段]",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "kf_order_priv_id",
+      "name": "kf_order_priv_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单客服权限员工id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "write_back_count",
+      "name": "write_back_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "回写次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "write_back_errmsg",
+      "name": "write_back_errmsg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "网单回写失败原因",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_write_back",
+      "name": "is_write_back",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "回写状态(0-未回写 1-回写成功 2-回写失败 3-强制回写成功 4-手工回写）此状态与fhckd_dd表中的write_back_status字段相同",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "write_back_time",
+      "name": "write_back_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单回写时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "logistics_resend",
+      "name": "logistics_resend",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "物流是否需要重新回写",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_write_back_status",
+      "name": "pay_write_back_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "支付状态回写",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "status_th",
+      "name": "status_th",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "退货状态：0正常1退款2退货",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_return_rk",
+      "name": "is_return_rk",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "退货单是否已入库完成",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_o2o",
+      "name": "is_o2o",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "O2O流程订单标识",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o",
+      "name": "o2o",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "O2O交易来源",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pos_code",
+      "name": "pos_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "ipos终端代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_ipos",
+      "name": "is_ipos",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "门店订单标识，0 为非门店订单 ；1为门店订单，不在回传ipos",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_delivery",
+      "name": "o2o_delivery",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "导购宝提货方式，inshop：店内提货，online：线上发货",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_handup",
+      "name": "is_handup",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否挂起：0正常1挂起",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_cod",
+      "name": "is_cod",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是货到付款单{0:否;1:是}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_hh",
+      "name": "is_hh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "换货单{0:否;1:是}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "hh_td_id",
+      "name": "hh_td_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发起该换货单的退单ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_shougong",
+      "name": "is_shougong",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否手工单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_wait_fms",
+      "name": "is_wait_fms",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否需要等待财务操作",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_from",
+      "name": "order_from",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "网站联盟推广账号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_lock",
+      "name": "sync_lock",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "业务锁定",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_status",
+      "name": "sync_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0-未同步  1-已同步 2-处理中 10-已同步到erp",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_sync_to_wms",
+      "name": "is_sync_to_wms",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否同步到WMS 0未同步 1已同步",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_time",
+      "name": "sync_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "同步时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_invoice",
+      "name": "is_invoice",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否需要开发票",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_error_count",
+      "name": "sync_error_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "同步失败次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "err_num",
+      "name": "err_num",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "同步到erp错误次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "err_msg",
+      "name": "err_msg",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "同步到erp错误原因",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "problem_type",
+      "name": "problem_type",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "问题单类型{0:正常单;1:商品信息错误;3:客服备注问题单;4:黑名单会员;5:客服设置问题单;6:补差订单;18:销售价格控制，低于比对销售价（售价4）;19:价格异常，商品售价低于参考价;20:苏宁自营供货价异常}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_yfp",
+      "name": "is_yfp",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否已经预分配库存{0:未预分配;1:已预分配}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "status_kc",
+      "name": "status_kc",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "库存状态：0-未占用 1-确认锁定 2-配货锁定 3-已扣减实际库存",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "combine_orders",
+      "name": "combine_orders",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "被合并的订单id字符串，逗号分隔（is_combine_new=1的时候有效）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "combine_new_orders",
+      "name": "combine_new_orders",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "合并之后的新订单id（is_combine=1的时候有效）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "split_orders",
+      "name": "split_orders",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "被拆分的订单id（is_split_new=1的时候有效）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "split_new_orders",
+      "name": "split_new_orders",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "拆分之后的订单id字符串，逗号分隔（is_split=1的时候有效）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "copy_from",
+      "name": "copy_from",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "复制的原单id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cancel_time",
+      "name": "cancel_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "业务级触发取消时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cancel_success_num",
+      "name": "cancel_success_num",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "取消发货成功次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "lastchanged",
+      "name": "lastchanged",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单修改时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tariff_fee",
+      "name": "tariff_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "关税",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "increment_fee",
+      "name": "increment_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "增值税额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tax_fee",
+      "name": "tax_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "消费税额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "composite_fee",
+      "name": "composite_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "关税税额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_time_cancel",
+      "name": "sync_time_cancel",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "实际发出取消请求时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "zf_reason",
+      "name": "zf_reason",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单作废原因",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "zf_time",
+      "name": "zf_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "作废时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "zfr",
+      "name": "zfr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废人",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "stc_js",
+      "name": "stc_js",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "stc结算状态 0-未 1-已拉取",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "weigh_shipping_fee",
+      "name": "weigh_shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "称重后计算的快递费用",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_ck_status",
+      "name": "wms_ck_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "物流强制发货状态{0:正常;1:物流已经强制发货}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "refund_status",
+      "name": "refund_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "退款申请状态{空为全部0无1退款中2退款成功3退款关闭}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_refund",
+      "name": "is_refund",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是不是有额外退款（0为否，1为是）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "erp_djbh",
+      "name": "erp_djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "ERP通知单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "erp_table",
+      "name": "erp_table",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "erp表名",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tz_flag",
+      "name": "tz_flag",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "erp通知单标记",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "dj_flag",
+      "name": "dj_flag",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "erp单据标记",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "edit_shipping_time",
+      "name": "edit_shipping_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "配送方式修改时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_yugou",
+      "name": "is_yugou",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否预购",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "yg_fhrq",
+      "name": "yg_fhrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "预售发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "yugou_id",
+      "name": "yugou_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "预购活动Id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "storage_message",
+      "name": "storage_message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库留言",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "delay_time",
+      "name": "delay_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "延迟发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_shipping_check",
+      "name": "is_shipping_check",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否快递分拣(0-未快递分捡、1-已快递分捡)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_check_time",
+      "name": "shipping_check_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分拣时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_checker",
+      "name": "shipping_checker",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "分拣人",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_order_sign",
+      "name": "wms_order_sign",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "wms订单标志",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_order_sn",
+      "name": "wms_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "wms订单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_cancel_count",
+      "name": "wms_cancel_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "WMS取消次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "promotion_info",
+      "name": "promotion_info",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "优惠信息",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ewtk",
+      "name": "ewtk",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "额外退款金额回写字段",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ncm_buyer_shop_goods_amount",
+      "name": "ncm_buyer_shop_goods_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "卖家网上标价商品总金额(网上标价*数量之和)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ncm_buyer_trade_goods_amount",
+      "name": "ncm_buyer_trade_goods_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家成交价(应付)商品总金额(成交价*数量之和)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ncm_buyer_payment",
+      "name": "ncm_buyer_payment",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家已付总额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ncm_buyer_other_discount_fee",
+      "name": "ncm_buyer_other_discount_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家订单其他折让(整单结算折让)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ncm_buyer_shipping_fee",
+      "name": "ncm_buyer_shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家运费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_status_to_icrm",
+      "name": "sync_status_to_icrm",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否同步到iCRM 0未同步 1已同步",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "marks_id",
+      "name": "marks_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "标记档案id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "marks_name",
+      "name": "marks_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标记档案名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "qh_skus",
+      "name": "qh_skus",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "预分配缺货以及实物拣货缺货的SKU",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_cuxiao",
+      "name": "is_cuxiao",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否促销订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "source",
+      "name": "source",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单来源",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sub_source",
+      "name": "sub_source",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单子来源",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "short_address",
+      "name": "short_address",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "物流宝返回的大头笔数据",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "package_center_code",
+      "name": "package_center_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "集包地代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "package_center_name",
+      "name": "package_center_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "集包地名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wlb_waybill",
+      "name": "wlb_waybill",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "云栈面单信息",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_jj",
+      "name": "is_jj",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是加急单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_center_id",
+      "name": "order_center_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "oc发货单单据号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "delivery_order_id",
+      "name": "delivery_order_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟物流单LBX号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "origincode",
+      "name": "origincode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原寄地代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "destcode",
+      "name": "destcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "派件地代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "express_type",
+      "name": "express_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "寄件类型",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pay_sn",
+      "name": "pay_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支付流水号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "transaction_type",
+      "name": "transaction_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "交易类型",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "shipping_type",
+      "name": "shipping_type",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "创建交易时的物流方式",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "allocation_status",
+      "name": "allocation_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "调货状态（0：初始，1：适配成功，2：调货完成）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_overseas",
+      "name": "is_overseas",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否外海购{0为不是外海购,1为是外海购}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "buyers_name",
+      "name": "buyers_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "买家姓名",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "id_card",
+      "name": "id_card",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "身份证号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fxs_order_amount",
+      "name": "fxs_order_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分销商应付款",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fxs_payment",
+      "name": "fxs_payment",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分销商已付总额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fxs_market_goods_amount",
+      "name": "fxs_market_goods_amount",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分销商品总额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "service_money",
+      "name": "service_money",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "服务费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "store_money",
+      "name": "store_money",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "仓储费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "unpacking_fee",
+      "name": "unpacking_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "拆包费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "fxs_shipping_fee",
+      "name": "fxs_shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "分销运费",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_sh_ship",
+      "name": "is_sh_ship",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟仓发货标记：0不是，1是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_electronic",
+      "name": "is_electronic",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是电子凭证订单，0不是，1是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "qingguan_status",
+      "name": "qingguan_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "清关状态，0：清关前 1：清关中 2：清关成功 3：清关失败",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_packaging",
+      "name": "is_packaging",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "包装回写状态，0：未包装 1：已包装",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_qingguan_reback",
+      "name": "is_qingguan_reback",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否全链路回写清关状态 0未回写 1已回写",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_sync_status",
+      "name": "wms_sync_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "WMS回传E3发货状态（0：未处理，1：成功，2：失败）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "wms_fh_status",
+      "name": "wms_fh_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "e3接收发货状态更新",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "bzc_brand_zwx",
+      "name": "bzc_brand_zwx",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "按店铺不支持品牌拆分，不支持品牌的子订单置无效标记(0-不需要置无效，1-需要置无效)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cloud_print_data",
+      "name": "cloud_print_data",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "模板内容,",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cloud_object_id",
+      "name": "cloud_object_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "云打印面单请求id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_bstyle",
+      "name": "sync_bstyle",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0:未同步 1:已同步",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_express_out",
+      "name": "is_express_out",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "快递是否交接",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_express_out_time",
+      "name": "is_express_out_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "快递交接时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_edit_shipping",
+      "name": "is_edit_shipping",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "快递是否变更过 0:未变更 1：已变更",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_edit_shipping_id",
+      "name": "is_edit_shipping_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "变更前的快递Id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_edit_shipping_before",
+      "name": "is_edit_shipping_before",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "变更前的快递代码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_edit_shipping_before_no",
+      "name": "is_edit_shipping_before_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "变更前的物流单号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_taobao_o2o",
+      "name": "is_taobao_o2o",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "淘宝o2o订单，0:不是 1:是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_qb_refund",
+      "name": "is_qb_refund",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否整单退货 -1表示非退货单 0-部分退货 1-整单退货",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "relating_created",
+      "name": "relating_created",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "关联退单退款申请时间。格式:yyyy-MM-dd HH:mm:ss",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "split_sub_deal_code",
+      "name": "split_sub_deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "拆分新单 子交易号集合",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "refund_version",
+      "name": "refund_version",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "淘宝退单版本号（时间戳）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_auto_jg",
+      "name": "is_auto_jg",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "退单下载订单自动解挂标记(跟refund_version结合使用）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "ipos_qrrq",
+      "name": "ipos_qrrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "ipos确认订单时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_urgent",
+      "name": "is_urgent",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否为加急订单{0:正常订单;1:加急订单(当接单超时系统二次分配、或拒单系统二次分配)}",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_rank",
+      "name": "is_rank",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "排名标识",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pos_try_num",
+      "name": "pos_try_num",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "POS推送次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cfd_qr",
+      "name": "cfd_qr",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否确认处方单：0=不，1=是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_show_price",
+      "name": "is_show_price",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否显示价格：0=不显示，1=显示",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_custom_type",
+      "name": "order_custom_type",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "定制类型",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "card_content",
+      "name": "card_content",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "心意卡内容",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sync_status_to_sms",
+      "name": "sync_status_to_sms",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否同步到iCRM 0未同步 1已同步",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_store_order",
+      "name": "is_store_order",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "京东云仓订单，0:不是 1:是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_reject",
+      "name": "is_reject",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "门店驳回订单标识",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "est_con_time",
+      "name": "est_con_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商家的预计发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_taocan",
+      "name": "is_taocan",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "套餐订单 1是 0不是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_status",
+      "name": "invoice_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发票状态",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_print_status",
+      "name": "invoice_print_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "发票打印状态：0:未打印 1:已打印",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_tyfh",
+      "name": "is_tyfh",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "淘宝换货单是否同意发货，0不同意，1同意",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_tax_no",
+      "name": "invoice_tax_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "购买方企业税号，对企业开电子发票时需要该字段",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_kind",
+      "name": "invoice_kind",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "电子发票相关，发票类型（0 不开电子发票 1 开电子发票 2 换成纸质发票 ）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_ljdd",
+      "name": "is_ljdd",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0 默认 1 拦截订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pos_status",
+      "name": "pos_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "克徕帝珠宝pos状态 1已回传 0没有回传",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_cn_service",
+      "name": "cnlm_cn_service",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟联盟的服务表达会在记录到此字段中，有多个服务标，多个服务标通过\"_\"分割，如：83_50。80：菜鸟联盟当日达; 81：菜鸟联盟次日达; 82：预计时效表达; 83：菜鸟联盟预约配送; 84：菜鸟联盟多日达 ",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_os_date",
+      "name": "cnlm_os_date",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "预约配送时，消费者选择的配送日期，格式\"2016-06-20\"",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_os_range",
+      "name": "cnlm_os_range",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "预约配送时，消费者选择的配送时间段，格式09:00-19:00",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_es_date",
+      "name": "cnlm_es_date",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟联盟的当日达、次日达和预约配送时，承诺或表达给消费者的送达日期，格式\"2016-06-20\"",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_es_range",
+      "name": "cnlm_es_range",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟联盟的当日达、次日达和预约配送时，承诺或表达给消费者的送达时间范围，值为空，表达无时间段要求，格式09:00-19:00",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_push_time",
+      "name": "cnlm_push_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "有时效服务表达的订单，为了仓库能及时出库，需要ERP在指定的时间前将订单下发到仓库。",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_store_code",
+      "name": "cnlm_store_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "有时效服务表达的订单，为了仓库能及时出库，需要ERP在指定的时间前将订单下发到仓库。",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "hbdd_error",
+      "name": "hbdd_error",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "计划任务合并订单错误",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_complete_pos",
+      "name": "is_complete_pos",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "确认收货单据推送IPOS状态 0:未推送，1推送成功",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "refresh_qh_status",
+      "name": "refresh_qh_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否已经刷新缺货状态0:未刷新1:已刷新",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_tuan",
+      "name": "is_tuan",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是团购订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "guding_money",
+      "name": "guding_money",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "固定费用",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "tm_hh_id",
+      "name": "tm_hh_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "淘宝换货单id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "service_order_fee",
+      "name": "service_order_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "服务订单总费用",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_fd",
+      "name": "is_fd",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "福袋订单 1是 0不是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sf_no",
+      "name": "sf_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "员工编号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sf_name",
+      "name": "sf_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "员工姓名",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_accept_status",
+      "name": "order_accept_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单接单状态默认0,未接单;1,已接单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_accept_time",
+      "name": "order_accept_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "订单接单时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "app_number",
+      "name": "app_number",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "o2o订单编码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_version",
+      "name": "order_version",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "版本号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_tmall_delivery",
+      "name": "cnlm_tmall_delivery",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "天猫直送",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_3pl_timing",
+      "name": "cnlm_3pl_timing",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "3PL有时效订单标",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_cutoff_minutes",
+      "name": "cnlm_cutoff_minutes",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "截单时间到分钟",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_es_time",
+      "name": "cnlm_es_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "相对时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_delivery_time",
+      "name": "cnlm_delivery_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最晚发货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_collect_time",
+      "name": "cnlm_collect_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最晚缆收时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_send_time",
+      "name": "cnlm_send_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最晚派送时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_sign_time",
+      "name": "cnlm_sign_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最晚签收时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_delivery_cps",
+      "name": "cnlm_delivery_cps",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "应派送cp",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_gather_last_center",
+      "name": "cnlm_gather_last_center",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "聚单目的中心",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cnlm_gather_station",
+      "name": "cnlm_gather_station",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "聚单目的网点",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "operation_reason_id",
+      "name": "operation_reason_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "操作理由id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "jy_fhck_id",
+      "name": "jy_fhck_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "建议发货仓库",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "jd_waybill_data",
+      "name": "jd_waybill_data",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "京东面单打印内容",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "activityid",
+      "name": "activityid",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "爱库存活动id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_cz_order",
+      "name": "is_cz_order",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是重置单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_hb_restore_order",
+      "name": "is_hb_restore_order",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是合并后的还原单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "first_qh_time",
+      "name": "first_qh_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "首次缺货时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "last_adapt_time",
+      "name": "last_adapt_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "最后适配时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "sj_payment",
+      "name": "sj_payment",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "买家实际支付金额（去掉平台优惠）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_ckjt",
+      "name": "is_ckjt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "出库截停标记",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_hold",
+      "name": "is_hold",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是HOLD单：0否1是",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_bank",
+      "name": "invoice_bank",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票开户行",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_account",
+      "name": "invoice_account",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票开户账号",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_addr",
+      "name": "invoice_addr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票地址",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_phone",
+      "name": "invoice_phone",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票电话",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "invoice_count",
+      "name": "invoice_count",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发票数量",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_cloud_shop",
+      "name": "is_cloud_shop",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0 非云店 1 云店",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "pos_shipping_fee",
+      "name": "pos_shipping_fee",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "pos+快递费用",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_shop_id",
+      "name": "o2o_shop_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "云店ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_guide_id",
+      "name": "o2o_guide_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "导购员ID",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_shop_name",
+      "name": "o2o_shop_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "云店名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_guide_name",
+      "name": "o2o_guide_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "导购员名称",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "platform_subsidy_fee",
+      "name": "platform_subsidy_fee",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "需要开票给天猫的券金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "recharge_fee",
+      "name": "recharge_fee",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "个人红包金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "paid_coupon_fee",
+      "name": "paid_coupon_fee",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "满返红包",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "coupon_fee",
+      "name": "coupon_fee",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "红包总金额",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cn_order_id",
+      "name": "cn_order_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "记录订单通知配货推送到菜鸟后回传的订单id",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "user_split",
+      "name": "user_split",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是人工手动拆分订单",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "modify_addr",
+      "name": "modify_addr",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "0初始 3失败,1成功",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "logisticsAreaCode",
+      "name": "logisticsAreaCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "快递区域编码(参数通过|符号来拼接)",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_service",
+      "name": "is_service",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否是安装服务订单 0：是 1：否",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "parent_order_sn",
+      "name": "parent_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "父订单号（中台拆分新单的原交易号）",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "handover_time",
+      "name": "handover_time",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "与快递交接时间",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_holdup",
+      "name": "is_holdup",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否拦截，0不拦截，1拦截",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cl_sync_status",
+      "name": "cl_sync_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "[策略接口]单据同步状态",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "cl_sync_num",
+      "name": "cl_sync_num",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "[策略接口]单据同步次数",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "store_order_code",
+      "name": "store_order_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "菜鸟仓库作业编码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "is_create_o2o_yjjsd",
+      "name": "is_create_o2o_yjjsd",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否已生成o2o业绩结算单，0未生成，1已生成",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "o2o_yjjs_status",
+      "name": "o2o_yjjs_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "结算状态，0未结算，1已结算",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "rec_name",
+      "name": "rec_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "用戶名检索码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "rec_mobile",
+      "name": "rec_mobile",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "手机号检索码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "rec_address",
+      "name": "rec_address",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "地址检索码",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "oaid",
+      "name": "oaid",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "订单oaid,加密信息唯一标识",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_goods",
+      "name": "order_goods",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "订单商品信息",
+      "_parent_node": "orderSplitListGet"
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订单编号",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "deal_code",
+      "name": "deal_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易号",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "sub_deal_c ode",
+      "name": "sub_deal_c ode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "子交易号",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "goods_name",
+      "name": "goods_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品名称",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品货号",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "goods_number",
+      "name": "goods_number",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品数量",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "goods_price",
+      "name": "goods_price",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品金额",
+      "_parent_node": "order_goods"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品 SKU",
+      "_parent_node": "order_goods"
+    }
+  ],
+  "error_codes": []
+}

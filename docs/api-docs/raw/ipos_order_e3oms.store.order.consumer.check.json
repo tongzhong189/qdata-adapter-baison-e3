@@ -1,0 +1,200 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.store.order.consumer.check"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "全渠道门店自提核销订单(新)",
+      "desc": "全渠道门店自提核销订单(新)",
+      "method": "e3oms.store.order.consumer.check",
+      "request_params": [
+        {
+          "code": "code",
+          "type": "string",
+          "required": true,
+          "desc": "核销码",
+          "example": ""
+        },
+        {
+          "code": "lylx",
+          "type": "string",
+          "required": true,
+          "desc": "来源类型",
+          "example": ""
+        },
+        {
+          "code": "main_order_id",
+          "type": "string",
+          "required": true,
+          "desc": "主订单ID（交易号）",
+          "example": ""
+        },
+        {
+          "code": "code_type",
+          "type": "string",
+          "required": false,
+          "desc": "京东订单传此值，京东验证码类型，0表示京东生成码，1表示商家生成码",
+          "example": ""
+        },
+        {
+          "code": "operatorid",
+          "type": "string",
+          "required": false,
+          "desc": "淘宝订单，必填，核销方的ID，如果是普通码商必须传入机具ID,如果是私有码商家（即原有的信任商家）可默认传入私有码商ID",
+          "example": ""
+        },
+        {
+          "code": "serial_num",
+          "type": "string",
+          "required": false,
+          "desc": "淘宝订单，必填，自定义核销流水号，需要小于等于100个字符",
+          "example": ""
+        },
+        {
+          "code": "consume_num",
+          "type": "string",
+          "required": false,
+          "desc": "淘宝订单，必填，核销份数",
+          "example": ""
+        },
+        {
+          "code": "operator",
+          "type": "string",
+          "required": false,
+          "desc": "核销人名称",
+          "example": ""
+        },
+        {
+          "code": "storeId",
+          "type": "string",
+          "required": false,
+          "desc": "酷客多,京东订单门店id",
+          "example": ""
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.consumer.check"
+    }
+  },
+  "message": "success"
+}

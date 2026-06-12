@@ -1,0 +1,252 @@
+{
+  "code": "e3oms.base.shipping.list.get",
+  "name": "获得快递列表",
+  "category": "基础API/shipping",
+  "method": "GET/POST",
+  "description": "获得快递列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "startModified",
+      "name": "startModified",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间2020-09-01 00:00:00",
+      "_parent_node": null
+    },
+    {
+      "field": "endModified",
+      "name": "endModified",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "查询内结束时间2020-10-01 00:00:00",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100 ",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "shippingListGet",
+      "name": "shippingListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "快递列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "modified",
+      "name": "modified",
+      "type": "datetime",
+      "length": "",
+      "required": "是",
+      "description": "修改时间",
+      "_parent_node": "shippingListGet"
+    },
+    {
+      "field": "shippingCode",
+      "name": "shippingCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "代码",
+      "_parent_node": "shippingListGet"
+    },
+    {
+      "field": "shippingName",
+      "name": "shippingName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "名称",
+      "_parent_node": "shippingListGet"
+    },
+    {
+      "field": "shippingNote",
+      "name": "shippingNote",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "shippingListGet"
+    },
+    {
+      "field": "shippingTel",
+      "name": "shippingTel",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "电话",
+      "_parent_node": "shippingListGet"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    }
+  ],
+  "error_codes": []
+}

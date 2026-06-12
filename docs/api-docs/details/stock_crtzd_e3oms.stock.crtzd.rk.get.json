@@ -1,0 +1,891 @@
+{
+  "code": "e3oms.stock.crtzd.rk.get",
+  "name": "其他(出入)库单获取",
+  "category": "库存API/crtzd",
+  "method": "GET/POST",
+  "description": "其他(出入)库单获取",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "rq_start",
+      "name": "rq_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开始日期，单据创建日期",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_end",
+      "name": "rq_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "结束日期，单据创建日期",
+      "_parent_node": null
+    },
+    {
+      "field": "ys_start_time",
+      "name": "ys_start_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据验收开始日期",
+      "_parent_node": null
+    },
+    {
+      "field": "ys_end_time",
+      "name": "ys_end_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据验收结束日期",
+      "_parent_node": null
+    },
+    {
+      "field": "ghsdm",
+      "name": "ghsdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "供货商代码",
+      "_parent_node": null
+    },
+    {
+      "field": "lxdj",
+      "name": "lxdj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原单据号",
+      "_parent_node": null
+    },
+    {
+      "field": "qd_code",
+      "name": "qd_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道代码",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页数查询",
+      "_parent_node": null
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "department_type_code",
+      "name": "department_type_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "部门代码",
+      "_parent_node": null
+    },
+    {
+      "field": "cr_lx",
+      "name": "cr_lx",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据类型0:出库1:入库 默认出库",
+      "_parent_node": null
+    },
+    {
+      "field": "kh_code",
+      "name": "kh_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": null
+    },
+    {
+      "field": "shipping_sn",
+      "name": "shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "快递单号",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "状态码",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "返回消息结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "ghsdm",
+      "name": "ghsdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "供货商代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lxdj",
+      "name": "lxdj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原单据号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "qd_code",
+      "name": "qd_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页数查询",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tzlx_code",
+      "name": "tzlx_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "调整类型代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tzlx_name",
+      "name": "tzlx_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "调整类型名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "department_type_code",
+      "name": "department_type_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "部门代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "kh_code",
+      "name": "kh_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "kh_id_name",
+      "name": "kh_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商店",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_id",
+      "name": "shipping_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "配送方式ID",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_code",
+      "name": "shipping_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "配送方式代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_name",
+      "name": "shipping_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "配送方式名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ysrq",
+      "name": "ysrq",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "验收时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zzrq",
+      "name": "zzrq",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "终止时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zfrq",
+      "name": "zfrq",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "作废时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sprq",
+      "name": "sprq",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "审批时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "备注",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ysrq",
+      "name": "ysrq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收日期",
+      "_parent_node": "data"
+    },
+    {
+      "field": "custom_fields",
+      "name": "custom_fields",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ck_custom_fields1",
+      "name": "ck_custom_fields1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields2",
+      "name": "ck_custom_fields2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields3",
+      "name": "ck_custom_fields3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields4",
+      "name": "ck_custom_fields4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields5",
+      "name": "ck_custom_fields5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields6",
+      "name": "ck_custom_fields6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields7",
+      "name": "ck_custom_fields7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields8",
+      "name": "ck_custom_fields8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields9",
+      "name": "ck_custom_fields9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields10",
+      "name": "ck_custom_fields10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields1",
+      "name": "rk_custom_fields1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields2",
+      "name": "rk_custom_fields2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields3",
+      "name": "rk_custom_fields3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields4",
+      "name": "rk_custom_fields4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields5",
+      "name": "rk_custom_fields5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields6",
+      "name": "rk_custom_fields6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields7",
+      "name": "rk_custom_fields7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields8",
+      "name": "rk_custom_fields8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields9",
+      "name": "rk_custom_fields9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields10",
+      "name": "rk_custom_fields10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "mx_list",
+      "name": "mx_list",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "明细",
+      "_parent_node": "data"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "货号",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "sku",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "sl",
+      "name": "sl",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "应入数量",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "qr_sl",
+      "name": "qr_sl",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "实际数量",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "diff_sl",
+      "name": "diff_sl",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "差异数",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "bzj",
+      "name": "bzj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准价",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "dj",
+      "name": "dj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单价",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "je1",
+      "name": "je1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准金额",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "je",
+      "name": "je",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "实际金额",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "custom_fields",
+      "name": "custom_fields",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "明细自定义字段",
+      "_parent_node": "mx_list"
+    },
+    {
+      "field": "ck_custom_fields1",
+      "name": "ck_custom_fields1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields2",
+      "name": "ck_custom_fields2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields3",
+      "name": "ck_custom_fields3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields4",
+      "name": "ck_custom_fields4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields5",
+      "name": "ck_custom_fields5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields6",
+      "name": "ck_custom_fields6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields7",
+      "name": "ck_custom_fields7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields8",
+      "name": "ck_custom_fields8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields9",
+      "name": "ck_custom_fields9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "ck_custom_fields10",
+      "name": "ck_custom_fields10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields1",
+      "name": "rk_custom_fields1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段1",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields2",
+      "name": "rk_custom_fields2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段2",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields3",
+      "name": "rk_custom_fields3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段3",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields4",
+      "name": "rk_custom_fields4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段4",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields5",
+      "name": "rk_custom_fields5",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段5",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields6",
+      "name": "rk_custom_fields6",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段6",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields7",
+      "name": "rk_custom_fields7",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段7",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields8",
+      "name": "rk_custom_fields8",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段8",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields9",
+      "name": "rk_custom_fields9",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段9",
+      "_parent_node": "custom_fields"
+    },
+    {
+      "field": "rk_custom_fields10",
+      "name": "rk_custom_fields10",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "自定义字段10",
+      "_parent_node": "custom_fields"
+    }
+  ],
+  "error_codes": []
+}

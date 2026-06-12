@@ -1,0 +1,333 @@
+{
+  "code": "e3oms.order.openshop.return.add",
+  "name": "主站部分退",
+  "category": "订单API/order_refund",
+  "method": "GET/POST",
+  "description": "主站退单部分退",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "returns_order_sn",
+      "name": "returns_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单编号",
+      "_parent_node": null
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易号",
+      "_parent_node": null
+    },
+    {
+      "field": "shop_code",
+      "name": "shop_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "店铺code",
+      "_parent_node": null
+    },
+    {
+      "field": "oid",
+      "name": "oid",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "子订单号",
+      "_parent_node": null
+    },
+    {
+      "field": "total_fee",
+      "name": "total_fee",
+      "type": "float",
+      "length": "",
+      "required": "是",
+      "description": "交易总金额",
+      "_parent_node": null
+    },
+    {
+      "field": "user_id",
+      "name": "user_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "用户id",
+      "_parent_node": null
+    },
+    {
+      "field": "consignee",
+      "name": "consignee",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人姓名",
+      "_parent_node": null
+    },
+    {
+      "field": "receiver_address",
+      "name": "receiver_address",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人详细地址",
+      "_parent_node": null
+    },
+    {
+      "field": "zipcode",
+      "name": "zipcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人邮编",
+      "_parent_node": null
+    },
+    {
+      "field": "tel",
+      "name": "tel",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人电话",
+      "_parent_node": null
+    },
+    {
+      "field": "mobile",
+      "name": "mobile",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "收货人手机",
+      "_parent_node": null
+    },
+    {
+      "field": "email",
+      "name": "email",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收货人邮箱",
+      "_parent_node": null
+    },
+    {
+      "field": "best_time",
+      "name": "best_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "送货最佳时间",
+      "_parent_node": null
+    },
+    {
+      "field": "return_desc",
+      "name": "return_desc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "申请信息描述",
+      "_parent_node": null
+    },
+    {
+      "field": "order_status",
+      "name": "order_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退款对应的订单交易状态",
+      "_parent_node": null
+    },
+    {
+      "field": "returns_status",
+      "name": "returns_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退款状态（申请状态0：取消；1：提交；2：受理3：完成)",
+      "_parent_node": null
+    },
+    {
+      "field": "source",
+      "name": "source",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单来源平台",
+      "_parent_node": null
+    },
+    {
+      "field": "return_type",
+      "name": "return_type",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退单类型：[1:退货/2:换货/3:拒收]",
+      "_parent_node": null
+    },
+    {
+      "field": "apply_time",
+      "name": "apply_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退款申请时间(秒级时间戳)",
+      "_parent_node": null
+    },
+    {
+      "field": "return_shipping_sn",
+      "name": "return_shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退货快递物流单号",
+      "_parent_node": null
+    },
+    {
+      "field": "return_shipping_name",
+      "name": "return_shipping_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退货快递公司名称",
+      "_parent_node": null
+    },
+    {
+      "field": "is_openapi",
+      "name": "is_openapi",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否是来源于openapi：0-否，1-是",
+      "_parent_node": null
+    },
+    {
+      "field": "return_shipping_fee",
+      "name": "return_shipping_fee",
+      "type": "float",
+      "length": "",
+      "required": "是",
+      "description": "退单运费",
+      "_parent_node": null
+    },
+    {
+      "field": "refund_goods",
+      "name": "refund_goods",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "退单商品信息",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "返回信息",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

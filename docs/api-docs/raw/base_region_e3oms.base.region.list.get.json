@@ -1,0 +1,251 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.region.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取区域列表",
+      "desc": "获取区域列表",
+      "method": "e3oms.base.region.list.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; ",
+          "example": "20"
+        },
+        {
+          "code": "startModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询起始时间",
+          "example": "2015-07-15 00:00:01"
+        },
+        {
+          "code": "endModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "结束时间",
+          "example": "2015-07-15 23:59:59"
+        },
+        {
+          "code": "fields",
+          "type": "string",
+          "required": false,
+          "desc": "支持的传入字段region_id,parent_id,region_name,region_type,lastchanged",
+          "example": "region_id,parent_id,region_name"
+        },
+        {
+          "code": "regionType",
+          "type": "number",
+          "required": false,
+          "desc": "区域类型 1:省 2:市 3:区,如不需要不要传此字段",
+          "example": "1"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "desc": "分页信息",
+              "children": [
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": "20"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": ""
+                },
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "regionListGet",
+              "type": "array[object]",
+              "desc": "区域信息列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "regionCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "区域代码",
+                  "example": ""
+                },
+                {
+                  "code": "regionName",
+                  "type": "string",
+                  "required": true,
+                  "desc": "区域名称",
+                  "example": ""
+                },
+                {
+                  "code": "regionNote",
+                  "type": "string",
+                  "required": true,
+                  "desc": "备注",
+                  "example": ""
+                },
+                {
+                  "code": "pregionCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "上级代码",
+                  "example": ""
+                },
+                {
+                  "code": "regionType",
+                  "type": "number",
+                  "required": true,
+                  "desc": "区域类型 1:省 2:市 3:区",
+                  "example": ""
+                },
+                {
+                  "code": "modified",
+                  "type": "string",
+                  "required": true,
+                  "desc": "修改时间",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "region.list.get"
+    }
+  },
+  "message": "success"
+}

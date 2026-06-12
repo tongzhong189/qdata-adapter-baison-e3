@@ -1,0 +1,201 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.reissue.copy"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "创建补发复制单",
+      "desc": "第三方要向E3创建补发复制单",
+      "method": "e3oms.order.reissue.copy",
+      "request_params": [
+        {
+          "code": "order_sn",
+          "type": "string",
+          "required": false,
+          "desc": "原订单编号，交易号 必传一个",
+          "example": "12313131"
+        },
+        {
+          "code": "deal_code",
+          "type": "string",
+          "required": false,
+          "desc": "交易号 查到多个订单会报错",
+          "example": "12313131"
+        },
+        {
+          "code": "copy_type",
+          "type": "string",
+          "required": false,
+          "desc": "复制类型 1:普通复制 2：补发复制 3：补发复制(无商品限制) 默认2",
+          "example": "2"
+        },
+        {
+          "code": "items",
+          "type": "array[object]",
+          "required": true,
+          "desc": "商品信息",
+          "example": "",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "SKU",
+              "example": "sku11"
+            },
+            {
+              "code": "goods_price",
+              "type": "number",
+              "required": true,
+              "desc": "商品单价",
+              "example": "88"
+            },
+            {
+              "code": "shop_price",
+              "type": "number",
+              "required": true,
+              "desc": "平台售价",
+              "example": "88"
+            },
+            {
+              "code": "goods_number",
+              "type": "number",
+              "required": true,
+              "desc": "数量",
+              "example": "2"
+            },
+            {
+              "code": "is_gift",
+              "type": "number",
+              "required": false,
+              "desc": "是否礼品：0否，1是",
+              "example": "0"
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "reissue.copy"
+    }
+  },
+  "message": "success"
+}

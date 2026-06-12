@@ -1,0 +1,360 @@
+{
+  "code": "e3oms.finance.dzdfee.get",
+  "name": "对账费用单获取接口",
+  "category": "财务API/bill",
+  "method": "GET/POST",
+  "description": "对账费用单获取接口",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "startTime",
+      "name": "startTime",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "创建开始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "endTime",
+      "name": "endTime",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "创建结束时间",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数;默认值:20;最大值:1000",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "dzdfeeGet",
+      "name": "dzdfeeGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "对账费用单列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lypt",
+      "name": "lypt",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "来源平台",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "sd_id",
+      "name": "sd_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商店ID",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "sd_id_name",
+      "name": "sd_id_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商店名称",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "create_time",
+      "name": "create_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "创建时间",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "dzd_type_name",
+      "name": "dzd_type_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "费用类型",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "category",
+      "name": "category",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "所属类别",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "accounts_no",
+      "name": "accounts_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账务流水号",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "order_no",
+      "name": "order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务流水号",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "merchant_order_no",
+      "name": "merchant_order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商户订单号",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "goods_name",
+      "name": "goods_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品名称",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "self_user_id",
+      "name": "self_user_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商户账号",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "opt_user_id",
+      "name": "opt_user_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "对方账号",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "balance",
+      "name": "balance",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账户余额",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "fee_amount",
+      "name": "fee_amount",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "金额",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账单备注",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "import_time",
+      "name": "import_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "导入时间",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "is_shougong",
+      "name": "is_shougong",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "手工单（0：否；1：是）",
+      "_parent_node": "dzdfeeGet"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    }
+  ],
+  "error_codes": []
+}

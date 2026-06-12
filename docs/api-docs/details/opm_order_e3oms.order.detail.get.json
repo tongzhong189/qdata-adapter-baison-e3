@@ -1,0 +1,387 @@
+{
+  "code": "e3oms.order.detail.get",
+  "name": "获取订单/详细信息",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "第三方要向系统获取订单级详细信息，可调用此API",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "e3_order_sn",
+      "name": "e3_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3订单号",
+      "_parent_node": null
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易号",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "e3_order_sn",
+      "name": "e3_order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订单号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "order_status",
+      "name": "order_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "订单状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_status",
+      "name": "shipping_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "订单配送状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_code",
+      "name": "shipping_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "快递编码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "shipping_sn",
+      "name": "shipping_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "快递单号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "fhck",
+      "name": "fhck",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "实际发货仓库代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "fhckmc",
+      "name": "fhckmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lylx_name",
+      "name": "lylx_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "来源类型",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ncm_buyer_payment",
+      "name": "ncm_buyer_payment",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "买家已付总额",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zf_time",
+      "name": "zf_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "作废时间戳",
+      "_parent_node": "data"
+    },
+    {
+      "field": "bj_je",
+      "name": "bj_je",
+      "type": "float",
+      "length": "",
+      "required": "是",
+      "description": "保价金额",
+      "_parent_node": "data"
+    },
+    {
+      "field": "is_bj_order",
+      "name": "is_bj_order",
+      "type": "boolean",
+      "length": "",
+      "required": "是",
+      "description": "是否保价订单",
+      "_parent_node": "data"
+    },
+    {
+      "field": "status_th",
+      "name": "status_th",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退货状态：0正常1退款2退货",
+      "_parent_node": "data"
+    },
+    {
+      "field": "is_hh",
+      "name": "is_hh",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否换货单",
+      "_parent_node": "data"
+    },
+    {
+      "field": "skuList",
+      "name": "skuList",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "是",
+      "description": "商品明细",
+      "_parent_node": "data"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "货号",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品sku",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "tc_sku",
+      "name": "tc_sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "套餐SKU",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "barcode",
+      "name": "barcode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品条码",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "goods_number",
+      "name": "goods_number",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "商品数量",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "shipping_type",
+      "name": "shipping_type",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "买家指定物流",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "market_price",
+      "name": "market_price",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "市场价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "share_price",
+      "name": "share_price",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "均摊价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "shop_price",
+      "name": "shop_price",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "店铺售价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "num_iid",
+      "name": "num_iid",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "平台商品ID",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "outer_goods_sku_id",
+      "name": "outer_goods_sku_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "平台商品SKUID",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "is_refund_goods",
+      "name": "is_refund_goods",
+      "type": "boolean",
+      "length": "",
+      "required": "是",
+      "description": "是否退款商品",
+      "_parent_node": "skuList"
+    }
+  ],
+  "error_codes": []
+}

@@ -1,0 +1,356 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.sd.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取商店列表/详情",
+      "desc": "获取商店列表/详情",
+      "method": "e3oms.base.sd.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; ",
+          "example": "20"
+        },
+        {
+          "code": "sddm",
+          "type": "string",
+          "required": false,
+          "desc": "商店代码",
+          "example": "CS_ISHOP"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "desc": "分页信息",
+              "children": [
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": ""
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": "20"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": ""
+                },
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "sdListGet",
+              "type": "array[object]",
+              "desc": "商店列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商店id",
+                  "example": ""
+                },
+                {
+                  "code": "khdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商店代码",
+                  "example": ""
+                },
+                {
+                  "code": "khmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商店名称",
+                  "example": ""
+                },
+                {
+                  "code": "lxr",
+                  "type": "string",
+                  "required": false,
+                  "desc": "联系人",
+                  "example": ""
+                },
+                {
+                  "code": "email",
+                  "type": "string",
+                  "required": false,
+                  "desc": "Email 邮箱",
+                  "example": ""
+                },
+                {
+                  "code": "sj",
+                  "type": "string",
+                  "required": false,
+                  "desc": "手机号",
+                  "example": ""
+                },
+                {
+                  "code": "dz",
+                  "type": "string",
+                  "required": false,
+                  "desc": "地址",
+                  "example": ""
+                },
+                {
+                  "code": "fax",
+                  "type": "string",
+                  "required": false,
+                  "desc": "传真",
+                  "example": ""
+                },
+                {
+                  "code": "yb",
+                  "type": "string",
+                  "required": false,
+                  "desc": "邮编",
+                  "example": ""
+                },
+                {
+                  "code": "khh",
+                  "type": "string",
+                  "required": false,
+                  "desc": "开户行",
+                  "example": ""
+                },
+                {
+                  "code": "hm",
+                  "type": "string",
+                  "required": false,
+                  "desc": "户名",
+                  "example": ""
+                },
+                {
+                  "code": "yhzh",
+                  "type": "string",
+                  "required": false,
+                  "desc": "银行账户",
+                  "example": ""
+                },
+                {
+                  "code": "frdb",
+                  "type": "string",
+                  "required": false,
+                  "desc": "法人代表",
+                  "example": ""
+                },
+                {
+                  "code": "bz",
+                  "type": "string",
+                  "required": false,
+                  "desc": "备注",
+                  "example": ""
+                },
+                {
+                  "code": "sd_kehu_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "客户id",
+                  "example": ""
+                },
+                {
+                  "code": "sd_khdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "客户代码",
+                  "example": ""
+                },
+                {
+                  "code": "sd_khmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "客户名称",
+                  "example": ""
+                },
+                {
+                  "code": "qddm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "渠道编码",
+                  "example": ""
+                },
+                {
+                  "code": "lbdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "类别编码",
+                  "example": ""
+                },
+                {
+                  "code": "qy_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "区域编号",
+                  "example": ""
+                },
+                {
+                  "code": "ckdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "客户代码",
+                  "example": ""
+                },
+                {
+                  "code": "sf_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "操作用户编号",
+                  "example": ""
+                },
+                {
+                  "code": "erp_outer_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "对接ERP商店编码",
+                  "example": ""
+                },
+                {
+                  "code": "sdlx",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商店类型",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "sd.get"
+    }
+  },
+  "message": "success"
+}

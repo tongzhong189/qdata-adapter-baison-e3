@@ -1,0 +1,819 @@
+{
+  "code": "e3oms.goods.detail.get",
+  "name": "获得商品详细信息",
+  "category": "商品API/goods_info",
+  "method": "GET/POST",
+  "description": "获得商品详细信息",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "goodsSn",
+      "name": "goodsSn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品货号",
+      "_parent_node": null
+    },
+    {
+      "field": "fields",
+      "name": "fields",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支持的传入字段goodsSn,goodsName,sizeRangeCode,sizeRangeName,brandCode,brandName,catCode,catName,topCatCode,topCatName,seriesCode,seriesName,yearCode,yearName,seasonCode,seasonName,dwCode,dwName,goodsWeight,marketPrice,shopPrice,cbj,ckj,qdtjd,qdtjd_start_time,qdtjd_end_time,ghsCode,ghsName,goodsDesc,created,modified,is_delete,shelf_life,is_combo,is_hs",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "goodsDetailGet",
+      "name": "goodsDetailGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "商品列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "goodsSn",
+      "name": "goodsSn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goodsName",
+      "name": "goodsName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sizeRangeCode",
+      "name": "sizeRangeCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "尺码范围代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sizeRangeName",
+      "name": "sizeRangeName",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "尺码范围名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "brandCode",
+      "name": "brandCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "品牌代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "brandName",
+      "name": "brandName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "品牌名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "catCode",
+      "name": "catCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "分类代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "catName",
+      "name": "catName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "分类名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "topCatCode",
+      "name": "topCatCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品大类代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "topCatName",
+      "name": "topCatName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品大类名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "seriesCode",
+      "name": "seriesCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "系列代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "seriesName",
+      "name": "seriesName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "系列名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "yearCode",
+      "name": "yearCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "年度代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "yearName",
+      "name": "yearName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "年度名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "seasonCode",
+      "name": "seasonCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "季节代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "seasonName",
+      "name": "seasonName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "季节名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "dwCode",
+      "name": "dwCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单位代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "dwName",
+      "name": "dwName",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单位名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goodsWeight",
+      "name": "goodsWeight",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品重量",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "marketPricePrice",
+      "name": "marketPricePrice",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "市场价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "shopPrice",
+      "name": "shopPrice",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "售价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "cbj",
+      "name": "cbj",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "成本价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "ckj",
+      "name": "ckj",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参考价调价单价格",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "qdtjd",
+      "name": "qdtjd",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "调价单号",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "qdtjd_start_time",
+      "name": "qdtjd_start_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道调价单开始时间",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "qdtjd_end_time",
+      "name": "qdtjd_end_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道调价单结束时间",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "ghsCode",
+      "name": "ghsCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "供货商代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "ghsName",
+      "name": "ghsName",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "供货商名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goodsDesc",
+      "name": "goodsDesc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品描述",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "created",
+      "name": "created",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品创建时间",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "modified",
+      "name": "modified",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "最后修改时间",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "is_delete",
+      "name": "is_delete",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "是否删除",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "shelf_life",
+      "name": "shelf_life",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "保质期单位：天",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "is_combo",
+      "name": "is_combo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否是组装商品",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "is_hs",
+      "name": "is_hs",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否混色",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "fjsx1Code",
+      "name": "fjsx1Code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "附加属性 1 代码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "fjsx1Name",
+      "name": "fjsx1Name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "附加属性 1 名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goodssname",
+      "name": "goodssname",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品简称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "zjf",
+      "name": "zjf",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "助记符",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "english_name",
+      "name": "english_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "英文名称",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "tmdzm",
+      "name": "tmdzm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "条码对照码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "outer_goods_sn",
+      "name": "outer_goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "外部编码",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goods_desc",
+      "name": "goods_desc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品备注",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "market_sj",
+      "name": "market_sj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "市场价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "bzsj",
+      "name": "bzsj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准售价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sj1",
+      "name": "sj1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价1",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sj2",
+      "name": "sj2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价2",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sj3",
+      "name": "sj3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价3",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "sj4",
+      "name": "sj4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价4",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "bzjj",
+      "name": "bzjj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准进价",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "jj1",
+      "name": "jj1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价1",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "jj2",
+      "name": "jj2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价2",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "jj3",
+      "name": "jj3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价3",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "jj4",
+      "name": "jj4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价4",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "skuList",
+      "name": "skuList",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "商品SKU",
+      "_parent_node": "goodsDetailGet"
+    },
+    {
+      "field": "goodsSn",
+      "name": "goodsSn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品编号",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品 SKU",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "colorCode",
+      "name": "colorCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "颜色代码",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "colorName",
+      "name": "colorName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "颜色名称",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sizeCode",
+      "name": "sizeCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "尺码代码",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sizeName",
+      "name": "sizeName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "颜色名称",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "is_delete",
+      "name": "is_delete",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "是否删除",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "goods_img",
+      "name": "goods_img",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品大图",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "goods_thumb",
+      "name": "goods_thumb",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品缩略图",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "market_sj",
+      "name": "market_sj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "市场价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "bzsj",
+      "name": "bzsj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准售价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sj1",
+      "name": "sj1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价1",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sj2",
+      "name": "sj2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价2",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sj3",
+      "name": "sj3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价3",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "sj4",
+      "name": "sj4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价4",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "bzjj",
+      "name": "bzjj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准进价",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "jj1",
+      "name": "jj1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价1",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "jj2",
+      "name": "jj2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价2",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "jj3",
+      "name": "jj3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价3",
+      "_parent_node": "skuList"
+    },
+    {
+      "field": "jj4",
+      "name": "jj4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "进价4",
+      "_parent_node": "skuList"
+    }
+  ],
+  "error_codes": []
+}
