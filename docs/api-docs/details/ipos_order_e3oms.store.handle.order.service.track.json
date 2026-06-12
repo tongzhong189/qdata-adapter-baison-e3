@@ -1,0 +1,225 @@
+{
+  "code": "e3oms.store.handle.order.service.track",
+  "name": "处理售后事务跟踪单",
+  "category": "门店API/order",
+  "method": "GET/POST",
+  "description": "处理售后事务跟踪单",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "type",
+      "name": "type",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "处理类型:add:新增 edit:编辑 cancel:取消",
+      "_parent_node": null
+    },
+    {
+      "field": "order_sn",
+      "name": "order_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "E3订单编号(type:add时必填)",
+      "_parent_node": null
+    },
+    {
+      "field": "zrf_dm",
+      "name": "zrf_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "责任方代码(type:add时必填)",
+      "_parent_node": null
+    },
+    {
+      "field": "swlx_dm",
+      "name": "swlx_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "事务类型代码(type:add时必填)",
+      "_parent_node": null
+    },
+    {
+      "field": "content",
+      "name": "content",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "事务内容(type:add时必填)",
+      "_parent_node": null
+    },
+    {
+      "field": "track_id",
+      "name": "track_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "事务跟踪单id(type:edit、type:cancel时必填)",
+      "_parent_node": null
+    },
+    {
+      "field": "zrfgs_dm",
+      "name": "zrfgs_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "责任方公司代码",
+      "_parent_node": null
+    },
+    {
+      "field": "zrbm_dm",
+      "name": "zrbm_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "责任部门代码",
+      "_parent_node": null
+    },
+    {
+      "field": "zrry_dm",
+      "name": "zrry_dm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "责任人员代码",
+      "_parent_node": null
+    },
+    {
+      "field": "jh_ypj",
+      "name": "jh_ypj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "事务类型代码=service_track_for_parts时选填 1或者0",
+      "_parent_node": null
+    },
+    {
+      "field": "jh_ysp",
+      "name": "jh_ysp",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "事务类型代码=service_track_for_sku时选填 1或者0",
+      "_parent_node": null
+    },
+    {
+      "field": "remark",
+      "name": "remark",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "备注",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "返回信息",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

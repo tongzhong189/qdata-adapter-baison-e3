@@ -1,0 +1,756 @@
+{
+  "code": "e3oms.order.ext.refund.get",
+  "name": "根据商品货号查询商品订单",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "根据商品货号查询商品订单",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "startModified",
+      "name": "startModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "endModified",
+      "name": "endModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询结束时间",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数;默认值",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+      "_parent_node": null
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "结算单状态",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "返回信息",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "refundListGet",
+      "name": "refundListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "零售结算单列表(refundListGet)",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "单据编号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "rq",
+      "name": "rq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "日期（时间戳）",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "ydjh",
+      "name": "ydjh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "原单编号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bcdd",
+      "name": "bcdd",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "补差订单编号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bcdh",
+      "name": "bcdh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "补差结算单号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "djlx",
+      "name": "djlx",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "单据类型:1=>普通订单收款,2=>货到付款,3=>补差收款,4=>差价补拍收款,5=>订单退款,6=>退单退款,7=>无效单退款,8=>仅额外退款中的退款,9=>分销订单收款,10=>分销退单退款,11=>仅退款",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "qd_id",
+      "name": "qd_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "渠道 id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sd_id",
+      "name": "sd_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "商店 id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "kh_id",
+      "name": "kh_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "客户 id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "ywy_id",
+      "name": "ywy_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "业务员 id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "order_lylx",
+      "name": "order_lylx",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "订单来源类型 关联订单的来源类型,参考订单获取接口",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_order",
+      "name": "is_order",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订单 1，退单 0",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "je",
+      "name": "je",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "应收结算金额",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "je1",
+      "name": "je1",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "实际收款金额",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "je2",
+      "name": "je2",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "未收结算金额",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "je3",
+      "name": "je3",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "调整金额",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "tzr",
+      "name": "tzr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "调整人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "tz_reson",
+      "name": "tz_reson",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "调整原因",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bcje",
+      "name": "bcje",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "补差金额",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "yf",
+      "name": "yf",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "运费",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "dtjyh",
+      "name": "dtjyh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订退单交易号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "dtdh",
+      "name": "dtdh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "订(退)单号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_hand",
+      "name": "is_hand",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "0 不是手工，1 手工单",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "pay_id",
+      "name": "pay_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "支付方式id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "user_id",
+      "name": "user_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "会员id",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "return_account",
+      "name": "return_account",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退款帐号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "pay_account",
+      "name": "pay_account",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "付款账号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "pay_bank",
+      "name": "pay_bank",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "付款银行",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "receive_account",
+      "name": "receive_account",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收款账号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "receive_bank",
+      "name": "receive_bank",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "收款银行",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "gltdbh",
+      "name": "gltdbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "关联退单编号",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "制单人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "zdrq",
+      "name": "zdrq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "制单日期（时间戳）",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "jz",
+      "name": "jz",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "记账 0未记账，1已记账",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "jzr",
+      "name": "jzr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "记账人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "jzrq",
+      "name": "jzrq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "制单日期（时间戳）",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "js",
+      "name": "js",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "结算 0未结算，1已结算",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "jsr",
+      "name": "jsr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "结算人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "jsrq",
+      "name": "jsrq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "结算日期",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "zf",
+      "name": "zf",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废 0未作废，1已作废",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "zfr",
+      "name": "zfr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "zfrq",
+      "name": "zfrq",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "作废日期",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sp",
+      "name": "sp",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批 0未审批，1已审批",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "spr",
+      "name": "spr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sprq",
+      "name": "sprq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "审批日期",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据状态 0 未审批，1 审批，2 记帐，3 结算,4 作废",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_wait_fkd",
+      "name": "is_wait_fkd",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否付款单付款中 0否,1是",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_print",
+      "name": "is_print",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否打印  0否,1是",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "dyr",
+      "name": "dyr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "打印人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "dyrq",
+      "name": "dyrq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "打印日期",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_use",
+      "name": "is_use",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "是否被使用 0否,1是",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sync_status",
+      "name": "sync_status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "接口同步状态 0 未同步，1 同步成功",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sync_msg",
+      "name": "sync_msg",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "接口返回信息",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "tkfs",
+      "name": "tkfs",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "退款方式",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sync_time",
+      "name": "sync_time",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "同步时间",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_alipay",
+      "name": "is_alipay",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否在taobao_alipay_details表中生成过数据(这个字段只对补差收款类型的有用) 0否,1是",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "is_bj",
+      "name": "is_bj",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否标记 0否,1是",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bj_content",
+      "name": "bj_content",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标记内容",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "modified",
+      "name": "modified",
+      "type": "datetime",
+      "length": "",
+      "required": "是",
+      "description": "更新状态时间",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sync_wms_status",
+      "name": "sync_wms_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "关联 wms 状态",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "sync_wms_msg",
+      "name": "sync_wms_msg",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "wms 返回信息",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "return_buyer_status",
+      "name": "return_buyer_status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "退单入库状态(默认值-1)",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bjr",
+      "name": "bjr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "标记人",
+      "_parent_node": "refundListGet"
+    },
+    {
+      "field": "bjrq",
+      "name": "bjrq",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "标记日期",
+      "_parent_node": "refundListGet"
+    }
+  ],
+  "error_codes": []
+}

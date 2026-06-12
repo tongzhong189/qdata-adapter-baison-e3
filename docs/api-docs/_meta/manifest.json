@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "platform_code": "Baison",
+  "platform_name": "百胜E3",
+  "extracted_at": "2026-06-12T07:42:09.933198Z",
+  "crawler_info": {
+    "crawler_name": "baison_crawler",
+    "crawler_version": "1.0.0",
+    "crawl_started_at": "2026-06-12T07:42:09.933207Z",
+    "crawl_finished_at": "2026-06-12T07:42:09.933208Z",
+    "login_mode": "no_login",
+    "login_note": "通过公开 API 直接采集，无需登录"
+  },
+  "file_count": 156,
+  "source_urls": [
+    "http://e3oms.open.baison.net/#/doc"
+  ],
+  "format_version": "1.0"
+}

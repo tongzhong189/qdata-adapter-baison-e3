@@ -1,0 +1,261 @@
+{
+  "code": "e3oms.base.cangku.add",
+  "name": "仓库添加",
+  "category": "基础API/cangku",
+  "method": "GET/POST",
+  "description": "仓库添加",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "ckmc",
+      "name": "ckmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库名称",
+      "_parent_node": null
+    },
+    {
+      "field": "qd_dm",
+      "name": "qd_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道代码",
+      "_parent_node": null
+    },
+    {
+      "field": "qy_dm",
+      "name": "qy_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域代码",
+      "_parent_node": null
+    },
+    {
+      "field": "ckxz",
+      "name": "ckxz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库性质",
+      "_parent_node": null
+    },
+    {
+      "field": "lb_dm",
+      "name": "lb_dm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "类别代码",
+      "_parent_node": null
+    },
+    {
+      "field": "qy",
+      "name": "qy",
+      "type": "boolean",
+      "length": "",
+      "required": "是",
+      "description": "是否启用",
+      "_parent_node": null
+    },
+    {
+      "field": "oxo_shop_code",
+      "name": "oxo_shop_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "OXO门店编码",
+      "_parent_node": null
+    },
+    {
+      "field": "outer_code",
+      "name": "outer_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商店外部编码",
+      "_parent_node": null
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": null
+    },
+    {
+      "field": "erp_outer_code",
+      "name": "erp_outer_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商店外部编码（对接ERP专用）",
+      "_parent_node": null
+    },
+    {
+      "field": "sap_ckdm",
+      "name": "sap_ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "SAP仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "outer_kw_code",
+      "name": "outer_kw_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "外部库位编码",
+      "_parent_node": null
+    },
+    {
+      "field": "mdzk",
+      "name": "mdzk",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "门店折扣",
+      "_parent_node": null
+    },
+    {
+      "field": "adapt_order_count",
+      "name": "adapt_order_count",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "每日适配订单数",
+      "_parent_node": null
+    },
+    {
+      "field": "is_erp_stock",
+      "name": "is_erp_stock",
+      "type": "boolean",
+      "length": "",
+      "required": "是",
+      "description": "是否同步库存",
+      "_parent_node": null
+    },
+    {
+      "field": "ipos_start_time",
+      "name": "ipos_start_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "门店开始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "ipos_end_time",
+      "name": "ipos_end_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "门店结束时间",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

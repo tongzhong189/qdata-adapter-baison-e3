@@ -1,0 +1,531 @@
+{
+  "code": "e3oms.order.dzd.list.get",
+  "name": "获取对账单列表",
+  "category": "订单API/order",
+  "method": "GET/POST",
+  "description": "获取对账单列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "create_time_start",
+      "name": "create_time_start",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "开始创建时间",
+      "_parent_node": null
+    },
+    {
+      "field": "create_time_end",
+      "name": "create_time_end",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "结束创建时间",
+      "_parent_node": null
+    },
+    {
+      "field": "sd_id",
+      "name": "sd_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "商店id",
+      "_parent_node": null
+    },
+    {
+      "field": "merchant_order_no",
+      "name": "merchant_order_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商户订单号",
+      "_parent_node": null
+    },
+    {
+      "field": "deal_code",
+      "name": "deal_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "交易号",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "每页数量",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页数",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "返回页码信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总条数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "每页条数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "dzdListGets",
+      "name": "dzdListGets",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "是",
+      "description": "对账单列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sd_id",
+      "name": "sd_id",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "商店id",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "complete_time",
+      "name": "complete_time",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "导入时间",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "create_time",
+      "name": "create_time",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "创建时间",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "type",
+      "name": "type",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务类型",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "business_type",
+      "name": "business_type",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "子业务类型",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "goods_name",
+      "name": "goods_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品名称",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "channel",
+      "name": "channel",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易渠道",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "balance",
+      "name": "balance",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "账户余额",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "in_amount",
+      "name": "in_amount",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "收入金额",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "out_amount",
+      "name": "out_amount",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "支出金额",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "order_no",
+      "name": "order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务流水号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "merchant_order_no",
+      "name": "merchant_order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商户订单号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "self_user_id",
+      "name": "self_user_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商户账号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "opt_user_id",
+      "name": "opt_user_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "对方账号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "memo",
+      "name": "memo",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账单备注",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "dzd_type_name",
+      "name": "dzd_type_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账单类型",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "dzd_category",
+      "name": "dzd_category",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "账单所属类型",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "deal_code",
+      "name": "deal_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "交易号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "状态",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "status_msg",
+      "name": "status_msg",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "状态说明",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "check_status",
+      "name": "check_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "是否对账",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "lastchanged",
+      "name": "lastchanged",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "更新时间",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "cl_sync_status",
+      "name": "cl_sync_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "[策略接口]单据同步状态",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "cl_sync_num",
+      "name": "cl_sync_num",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "[策略接口]单据同步次数",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "cl_sync_time",
+      "name": "cl_sync_time",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "[策略接口]单据同步成功时间戳",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "js_time",
+      "name": "js_time",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "账单结算时间",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "sync_time_success",
+      "name": "sync_time_success",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "[策略接口]单据同步成功时间",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "business_desc",
+      "name": "business_desc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务描述",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "business_from",
+      "name": "business_from",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务账单来源",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "business_base_order_no",
+      "name": "business_base_order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务基础订单号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "business_order_no",
+      "name": "business_order_no",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "业务订单号",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "qr_status",
+      "name": "qr_status",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "确认状态",
+      "_parent_node": "dzdListGets"
+    },
+    {
+      "field": "plat_bill_date",
+      "name": "plat_bill_date",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "平台账单日期",
+      "_parent_node": "dzdListGets"
+    }
+  ],
+  "error_codes": []
+}

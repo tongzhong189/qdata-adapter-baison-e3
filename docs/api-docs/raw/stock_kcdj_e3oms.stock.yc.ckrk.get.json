@@ -1,0 +1,629 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.yc.ckrk.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "移仓出/入库单查询",
+      "desc": "移仓出/入库单查询",
+      "method": "e3oms.stock.yc.ckrk.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别当前页码",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "单据级别每页最大数量",
+          "example": "1"
+        },
+        {
+          "code": "yc_type",
+          "type": "string",
+          "required": false,
+          "desc": "获取类型 值为(ck|rk)对应(出库|入库)",
+          "example": "ck"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号",
+          "example": "(YCRKD|YCTZD)2021052000001"
+        },
+        {
+          "code": "lxdj",
+          "type": "string",
+          "required": false,
+          "desc": "原单据",
+          "example": ""
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": false,
+          "desc": "开始日期",
+          "example": "2020-01-01 22:00:15"
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": false,
+          "desc": "结束日期",
+          "example": "2020-01-31 22:00:15"
+        },
+        {
+          "code": "yrrq_start",
+          "type": "string",
+          "required": false,
+          "desc": "验入方验收日期开始",
+          "example": "2020-01-01 22:00:15"
+        },
+        {
+          "code": "yrrq_end",
+          "type": "string",
+          "required": false,
+          "desc": "验入方验收日期结束",
+          "example": "2020-01-31 22:00:15"
+        },
+        {
+          "code": "sp",
+          "type": "number",
+          "required": false,
+          "desc": "是否审批 1已审批 0未审批",
+          "example": "1"
+        },
+        {
+          "code": "zf",
+          "type": "number",
+          "required": false,
+          "desc": "是否作废 1已作废 0未作废",
+          "example": "1"
+        },
+        {
+          "code": "yrck_code",
+          "type": "string",
+          "required": false,
+          "desc": "移入仓库的编码",
+          "example": "000"
+        },
+        {
+          "code": "ycck_code",
+          "type": "string",
+          "required": false,
+          "desc": "移出仓库的编码",
+          "example": "000"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "result={\"status\":\"api-success\",\"message\":\"success\",\"data\":{\"page\":{\"totalResult\":1,\"pageSize\":20,\"pageNo\":1,\"pageTotal\":1},\"ycList\":[{\"id\":\"3\",\"djbh\":\"YCTZD2021061000003\",\"rq\":\"2021-06-10 17:31:39\",\"lxdj\":\"\",\"qd_id\":\"1\",\"djxz\":\"2\",\"ycck_id\":\"1\",\"ycckkw_id\":\"1\",\"stck_id\":\"0\",\"stckkw_id\":\"1\",\"yrqd_id\":\"1\",\"yrck_id\":\"2\",\"yrckkw_id\":\"1\",\"lydj_id\":null,\"lydj\":\"\",\"fhlx\":\"0\",\"jglx\":null,\"hz_id\":\"0\",\"zk\":\"1.00\",\"sl\":\"0\",\"sl1\":\"1\",\"sl2\":\"0\",\"je\":\"0.00\",\"zdr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"zdrq\":\"2021-06-10 17:31:39\",\"sp\":\"0\",\"spr\":\"\",\"sprq\":\"1970-01-01 08:00:00\",\"fs\":\"0\",\"fsr\":null,\"fsrq\":null,\"yc\":\"0\",\"ycr\":null,\"ycrq\":\"1970-01-01 08:00:00\",\"yr\":\"0\",\"yrr\":null,\"yrrq\":\"1970-01-01 08:00:00\",\"zf\":\"0\",\"zfr\":null,\"zfrq\":null,\"zx\":\"1\",\"zxr\":\"\\u7cfb\\u7edf\\u7ba1\\u7406\\u5458\",\"zxrq\":\"1623319966\",\"zz\":null,\"zzr\":null,\"zzrq\":null,\"bz\":\"\",\"status\":\"3\",\"sync_status\":\"0\",\"err_num\":\"0\",\"err_msg\":null,\"sync_msg\":\"[qmwms]\\u63a5\\u53e3\\u8fd4\\u56de\\u6570\\u636e\\u5f02\\u5e38:flag:failure|code:TOP68|message:qimen route error\",\"ywy_id\":\"0\",\"xc_ycd_id\":\"0\",\"sc_ycd_id\":\"0\",\"source\":\"0\",\"sm_sl\":\"0\",\"eclp_no\":\"\",\"ycck_wms_order_sn\":\"\",\"shipping_id\":\"20\",\"shipping_sn\":\"YT5520407597727\",\"shipping_fee\":\"0.00\",\"bmlx_id\":\"0\",\"jgsd\":\"1\",\"is_delete\":\"0\",\"lxr_person\":\"\\u4e0d\\u4e0d\\u4e0d\",\"lxr_tel\":\"13995513936\",\"lxr_address\":\"\\u6e56\\u5317\\u7701\\u6b66\\u6c49\\u5e02\\u6c5f\\u590f\\u533aB20\",\"province_id\":\"420000\",\"city_id\":\"420100\",\"district\":\"420115\",\"is_pre_sd_kc\":\"0\",\"sdd_djbh\":\"\",\"pay_type\":null,\"weight\":null,\"volume\":null,\"box_gauge\":null,\"urgency\":\"0\",\"yrck_code\":\"BJC\",\"yrck_name\":\"\\u5317\\u4eac\\u4ed3\",\"ycck_code\":\"000\",\"ycck_name\":\"\\u603b\\u4ed3\",\"ycqd_name\":\"\\u603b\\u90e8\",\"yrqd_name\":\"\\u603b\\u90e8\",\"mx_list\":[{\"id\":\"1\",\"p_id\":null,\"dj_id\":\"3\",\"djbh\":\"YCTZD2021061000003\",\"sku\":\"A004\",\"sku_id\":\"32\",\"goods_id\":\"20\",\"goods_sn\":\"A004\",\"color_id\":\"1\",\"color_code\":\"000\",\"size_id\":\"1\",\"size_code\":\"000\",\"sl\":\"0\",\"sl1\":\"1\",\"sl2\":\"0\",\"ckj\":null,\"cbj\":\"0.0000\",\"zk\":\"0.00\",\"dj\":\"0.00\",\"dj2\":null,\"je\":\"0.00\",\"je2\":\"0.00\",\"je3\":null,\"je4\":null,\"lastchanged\":\"2021-06-10 17:31:39\",\"batch_no\":\"\",\"create_date\":null,\"safedays\":\"0\",\"expiration_date\":null,\"threshold_date\":null,\"bzj\":\"0.00\"}]}]}}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "success"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "页码信息",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计结果数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "合计页数",
+                      "example": "20"
+                    }
+                  ]
+                },
+                {
+                  "code": "ycList",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "id",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据ID",
+                      "example": "3"
+                    },
+                    {
+                      "code": "djbh",
+                      "type": "string",
+                      "required": false,
+                      "desc": "单据编号",
+                      "example": "YCTZD2021061000003"
+                    },
+                    {
+                      "code": "rq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "日期",
+                      "example": "2021-06-10 17:31:39"
+                    },
+                    {
+                      "code": "lxdj",
+                      "type": "float",
+                      "required": false,
+                      "desc": "原单据号",
+                      "example": "LXDJ\r\n                                00001"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": false,
+                      "desc": "备注",
+                      "example": "备注"
+                    },
+                    {
+                      "code": "zdr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "制单人",
+                      "example": "系统管理员"
+                    },
+                    {
+                      "code": "zdrq",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "更新时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "sp",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否审批",
+                      "example": "1"
+                    },
+                    {
+                      "code": "spr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "审批人",
+                      "example": "审批人"
+                    },
+                    {
+                      "code": "sprq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "审批日期",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "zf",
+                      "type": "number",
+                      "required": false,
+                      "desc": "作废",
+                      "example": "1"
+                    },
+                    {
+                      "code": "zfr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "作废人",
+                      "example": "作废人"
+                    },
+                    {
+                      "code": "zfrq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "作废日期",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "zz",
+                      "type": "number",
+                      "required": false,
+                      "desc": "是否终止",
+                      "example": "1"
+                    },
+                    {
+                      "code": "zzr",
+                      "type": "string",
+                      "required": false,
+                      "desc": "终止人",
+                      "example": "终止人"
+                    },
+                    {
+                      "code": "zzrq",
+                      "type": "string",
+                      "required": false,
+                      "desc": "终止日期",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "status",
+                      "type": "number",
+                      "required": false,
+                      "desc": "单据状态",
+                      "example": ""
+                    },
+                    {
+                      "code": "sl",
+                      "type": "number",
+                      "required": false,
+                      "desc": "实际数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "sl1",
+                      "type": "number",
+                      "required": false,
+                      "desc": "通知数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "sl2",
+                      "type": "number",
+                      "required": false,
+                      "desc": "执行数量",
+                      "example": "20"
+                    },
+                    {
+                      "code": "je",
+                      "type": "number",
+                      "required": false,
+                      "desc": "金额",
+                      "example": "20.00"
+                    },
+                    {
+                      "code": "yrck_code",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移入仓库编码",
+                      "example": "BJC"
+                    },
+                    {
+                      "code": "yrck_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移入仓库名称",
+                      "example": "北京仓"
+                    },
+                    {
+                      "code": "ycck_code",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移出仓库编码",
+                      "example": "000"
+                    },
+                    {
+                      "code": "ycck_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移出仓库名称",
+                      "example": "总仓"
+                    },
+                    {
+                      "code": "ycqd_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移出渠道",
+                      "example": "总部"
+                    },
+                    {
+                      "code": "yrqd_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "移入渠道",
+                      "example": "总部"
+                    },
+                    {
+                      "code": "ckrq",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "出库时间",
+                      "example": "2022-04-08 17:02:35"
+                    },
+                    {
+                      "code": "rkrq",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "入库时间",
+                      "example": "2022-04-08 17:02:35"
+                    },
+                    {
+                      "code": "mx_list",
+                      "type": "array[array[object]]",
+                      "required": false,
+                      "desc": "明细列表",
+                      "example": "[]",
+                      "children": [
+                        {
+                          "code": "dj_id",
+                          "type": "number",
+                          "required": false,
+                          "desc": "单据主键",
+                          "example": "1"
+                        },
+                        {
+                          "code": "djbh",
+                          "type": "number",
+                          "required": false,
+                          "desc": "单据编号",
+                          "example": "YCTZD2021061000003"
+                        },
+                        {
+                          "code": "sku",
+                          "type": "number",
+                          "required": false,
+                          "desc": "sku",
+                          "example": "A004"
+                        },
+                        {
+                          "code": "sku_id",
+                          "type": "number",
+                          "required": false,
+                          "desc": "sku_id",
+                          "example": "1"
+                        },
+                        {
+                          "code": "goods_id",
+                          "type": "number",
+                          "required": false,
+                          "desc": "商品ID",
+                          "example": "1"
+                        },
+                        {
+                          "code": "goods_sn",
+                          "type": "number",
+                          "required": false,
+                          "desc": "商品编码",
+                          "example": "000"
+                        },
+                        {
+                          "code": "color_id",
+                          "type": "number",
+                          "required": false,
+                          "desc": "颜色ID",
+                          "example": "1"
+                        },
+                        {
+                          "code": "color_code",
+                          "type": "number",
+                          "required": false,
+                          "desc": "颜色代码",
+                          "example": "000"
+                        },
+                        {
+                          "code": "size_id",
+                          "type": "number",
+                          "required": false,
+                          "desc": "尺码ID",
+                          "example": "20"
+                        },
+                        {
+                          "code": "size_code",
+                          "type": "number",
+                          "required": false,
+                          "desc": "尺码代码",
+                          "example": "20"
+                        },
+                        {
+                          "code": "sl",
+                          "type": "number",
+                          "required": false,
+                          "desc": "实际数量",
+                          "example": "20"
+                        },
+                        {
+                          "code": "sl1",
+                          "type": "number",
+                          "required": false,
+                          "desc": "通知数量",
+                          "example": "20"
+                        },
+                        {
+                          "code": "sl2",
+                          "type": "number",
+                          "required": false,
+                          "desc": "执行数量",
+                          "example": "20"
+                        },
+                        {
+                          "code": "je",
+                          "type": "number",
+                          "required": false,
+                          "desc": "金额",
+                          "example": "20.00"
+                        },
+                        {
+                          "code": "je2",
+                          "type": "number",
+                          "required": false,
+                          "desc": "金额",
+                          "example": "20.00"
+                        },
+                        {
+                          "code": "lastchanged",
+                          "type": "number",
+                          "required": false,
+                          "desc": "最后变化时间",
+                          "example": "2021-06-10 17:31:39"
+                        },
+                        {
+                          "code": "create_date",
+                          "type": "number",
+                          "required": false,
+                          "desc": "创建时间",
+                          "example": ""
+                        },
+                        {
+                          "code": "bzj",
+                          "type": "number",
+                          "required": false,
+                          "desc": "标准价",
+                          "example": "20"
+                        },
+                        {
+                          "code": "scrq",
+                          "type": "string",
+                          "required": false,
+                          "desc": "生产日期",
+                          "example": "2021-06-10"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "yc.ckrk.get"
+    }
+  },
+  "message": "success"
+}

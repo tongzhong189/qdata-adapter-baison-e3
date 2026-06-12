@@ -1,0 +1,520 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.stock.crtzd.rk.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "其他(出/入)库单添加",
+      "desc": "其他(出/入)库单添加",
+      "method": "e3oms.stock.crtzd.rk.add",
+      "request_params": [
+        {
+          "code": "ghsdm",
+          "type": "string",
+          "required": true,
+          "desc": "供货商代码",
+          "example": "wode"
+        },
+        {
+          "code": "lxdj",
+          "type": "string",
+          "required": true,
+          "desc": "原单据号",
+          "example": "ORQ12312"
+        },
+        {
+          "code": "qd_code",
+          "type": "string",
+          "required": true,
+          "desc": "渠道代码",
+          "example": "000"
+        },
+        {
+          "code": "ckdm",
+          "type": "string",
+          "required": true,
+          "desc": "仓库代码",
+          "example": "000"
+        },
+        {
+          "code": "department_type_code",
+          "type": "string",
+          "required": true,
+          "desc": "部门类型",
+          "example": "BM1"
+        },
+        {
+          "code": "tzlx_code",
+          "type": "string",
+          "required": true,
+          "desc": "其他出入库类型代码",
+          "example": "02"
+        },
+        {
+          "code": "jgsd",
+          "type": "string",
+          "required": true,
+          "desc": "价格设定",
+          "example": "bzsj"
+        },
+        {
+          "code": "cr_lx",
+          "type": "number",
+          "required": true,
+          "desc": "单据类型0:出库1:入库",
+          "example": "1"
+        },
+        {
+          "code": "sd_code",
+          "type": "string",
+          "required": false,
+          "desc": "客户代码",
+          "example": "taobao01"
+        },
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": false,
+          "desc": "单据编号，不传默认E3生成",
+          "example": ""
+        },
+        {
+          "code": "bz",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": ""
+        },
+        {
+          "code": "is_sp",
+          "type": "number",
+          "required": false,
+          "desc": "是否审批0:否1:是,不传默认不审批",
+          "example": ""
+        },
+        {
+          "code": "is_ys",
+          "type": "number",
+          "required": false,
+          "desc": "是否审批并验收0:否1:是,不传默认不审批验收",
+          "example": ""
+        },
+        {
+          "code": "no_check_lxdj",
+          "type": "number",
+          "required": false,
+          "desc": "是否校验原单号 默认校验,1:不校验,0:校验",
+          "example": ""
+        },
+        {
+          "code": "fhlx_code",
+          "type": "string",
+          "required": false,
+          "desc": "发货类型",
+          "example": ""
+        },
+        {
+          "code": "items",
+          "type": "array[object]",
+          "required": true,
+          "desc": "商品信息",
+          "example": "",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "Sku编码",
+              "example": "2020111900066"
+            },
+            {
+              "code": "unique_code",
+              "type": "array[object]",
+              "required": false,
+              "desc": "唯一码",
+              "example": "[\"2020111900066\",\"2020111900067\"]"
+            },
+            {
+              "code": "dj",
+              "type": "string",
+              "required": false,
+              "desc": "单价",
+              "example": "150"
+            },
+            {
+              "code": "sl",
+              "type": "string",
+              "required": false,
+              "desc": "数量",
+              "example": "1"
+            },
+            {
+              "code": "custom_fields",
+              "type": "array[object]",
+              "required": false,
+              "desc": "自定义信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "custom_fields1",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段1",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields2",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段2",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields3",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段3",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields4",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段4",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields5",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段5",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields6",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段6",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields7",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段7",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields8",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段8",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields9",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段9",
+                  "example": ""
+                },
+                {
+                  "code": "custom_fields10",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段10",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "logistics_info",
+          "type": "array[object]",
+          "required": false,
+          "desc": "物流信息",
+          "example": "",
+          "children": [
+            {
+              "code": "province",
+              "type": "string",
+              "required": false,
+              "desc": "省",
+              "example": "湖北"
+            },
+            {
+              "code": "city",
+              "type": "string",
+              "required": false,
+              "desc": "市",
+              "example": "武汉"
+            },
+            {
+              "code": "district",
+              "type": "string",
+              "required": false,
+              "desc": "区",
+              "example": "江夏区"
+            },
+            {
+              "code": "street",
+              "type": "string",
+              "required": false,
+              "desc": "街道",
+              "example": "东城街道"
+            },
+            {
+              "code": "shdz_address",
+              "type": "string",
+              "required": false,
+              "desc": "详细地址",
+              "example": "光谷大道"
+            },
+            {
+              "code": "shdz_lxr",
+              "type": "string",
+              "required": false,
+              "desc": "联系人",
+              "example": "xxx"
+            },
+            {
+              "code": "shdz_tel",
+              "type": "string",
+              "required": false,
+              "desc": "电话",
+              "example": "021-1240120"
+            },
+            {
+              "code": "shdz_phone",
+              "type": "string",
+              "required": false,
+              "desc": "手机号",
+              "example": "15701542141"
+            },
+            {
+              "code": "shipping_sn",
+              "type": "string",
+              "required": false,
+              "desc": "快递单号",
+              "example": "541248015"
+            },
+            {
+              "code": "psfs",
+              "type": "string",
+              "required": false,
+              "desc": "快递方式代码",
+              "example": "ems"
+            },
+            {
+              "code": "zip_code",
+              "type": "string",
+              "required": false,
+              "desc": "邮编",
+              "example": "431701"
+            }
+          ]
+        },
+        {
+          "code": "custom_fields",
+          "type": "array[object]",
+          "required": false,
+          "desc": "自定义信息",
+          "example": "",
+          "children": [
+            {
+              "code": "custom_fields1",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段1",
+              "example": ""
+            },
+            {
+              "code": "custom_fields2",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段2",
+              "example": ""
+            },
+            {
+              "code": "custom_fields3",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段3",
+              "example": ""
+            },
+            {
+              "code": "custom_fields4",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段4",
+              "example": ""
+            },
+            {
+              "code": "custom_fields5",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段5",
+              "example": ""
+            },
+            {
+              "code": "custom_fields6",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段6",
+              "example": ""
+            },
+            {
+              "code": "custom_fields7",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段7",
+              "example": ""
+            },
+            {
+              "code": "custom_fields8",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段8",
+              "example": ""
+            },
+            {
+              "code": "custom_fields9",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段9",
+              "example": ""
+            },
+            {
+              "code": "custom_fields10",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段10",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "desc": "状态码",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "desc": "响应数据",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "返回消息结果",
+          "example": "成功"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "crtzd.rk.add"
+    }
+  },
+  "message": "success"
+}

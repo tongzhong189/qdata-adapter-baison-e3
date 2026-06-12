@@ -1,0 +1,279 @@
+{
+  "code": "e3oms.stock.crtzd.rk.add",
+  "name": "其他(出/入)库单添加",
+  "category": "库存API/crtzd",
+  "method": "GET/POST",
+  "description": "其他(出/入)库单添加",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "ghsdm",
+      "name": "ghsdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "供货商代码",
+      "_parent_node": null
+    },
+    {
+      "field": "lxdj",
+      "name": "lxdj",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "原单据号",
+      "_parent_node": null
+    },
+    {
+      "field": "qd_code",
+      "name": "qd_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道代码",
+      "_parent_node": null
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库代码",
+      "_parent_node": null
+    },
+    {
+      "field": "department_type_code",
+      "name": "department_type_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "部门类型",
+      "_parent_node": null
+    },
+    {
+      "field": "tzlx_code",
+      "name": "tzlx_code",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "其他出入库类型代码",
+      "_parent_node": null
+    },
+    {
+      "field": "jgsd",
+      "name": "jgsd",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "价格设定",
+      "_parent_node": null
+    },
+    {
+      "field": "cr_lx",
+      "name": "cr_lx",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "单据类型0:出库1:入库",
+      "_parent_node": null
+    },
+    {
+      "field": "sd_code",
+      "name": "sd_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号，不传默认E3生成",
+      "_parent_node": null
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "备注",
+      "_parent_node": null
+    },
+    {
+      "field": "is_sp",
+      "name": "is_sp",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否审批0:否1:是,不传默认不审批",
+      "_parent_node": null
+    },
+    {
+      "field": "is_ys",
+      "name": "is_ys",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否审批并验收0:否1:是,不传默认不审批验收",
+      "_parent_node": null
+    },
+    {
+      "field": "no_check_lxdj",
+      "name": "no_check_lxdj",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否校验原单号 默认校验,1:不校验,0:校验",
+      "_parent_node": null
+    },
+    {
+      "field": "fhlx_code",
+      "name": "fhlx_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "发货类型",
+      "_parent_node": null
+    },
+    {
+      "field": "items",
+      "name": "items",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "商品信息",
+      "_parent_node": null
+    },
+    {
+      "field": "logistics_info",
+      "name": "logistics_info",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "物流信息",
+      "_parent_node": null
+    },
+    {
+      "field": "custom_fields",
+      "name": "custom_fields",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "自定义信息",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "状态码",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "返回消息结果",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

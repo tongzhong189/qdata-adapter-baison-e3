@@ -1,0 +1,180 @@
+{
+  "code": "e3oms.stock.crtzd.rk.update",
+  "name": "其他(出/入)库单编辑审核",
+  "category": "库存API/crtzd",
+  "method": "GET/POST",
+  "description": "其他(出/入)库单编辑审核",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": null
+    },
+    {
+      "field": "is_sp",
+      "name": "is_sp",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "审批",
+      "_parent_node": null
+    },
+    {
+      "field": "is_ys",
+      "name": "is_ys",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收",
+      "_parent_node": null
+    },
+    {
+      "field": "project_code",
+      "name": "project_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "项目编码",
+      "_parent_node": null
+    },
+    {
+      "field": "cr_lx",
+      "name": "cr_lx",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "单据类型0:出库1:入库",
+      "_parent_node": null
+    },
+    {
+      "field": "custom_fields",
+      "name": "custom_fields",
+      "type": "object",
+      "length": "",
+      "required": "否",
+      "description": "自定义信息",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "状态码",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "返回消息结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "dj_id",
+      "name": "dj_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据ID",
+      "_parent_node": "data"
+    }
+  ],
+  "error_codes": []
+}

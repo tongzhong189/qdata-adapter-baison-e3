@@ -1,0 +1,1035 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.detail.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "销售订单添加",
+      "desc": "第三方要向系统添加销售订单，可调用此API（数据保存在OS中间表）",
+      "method": "e3oms.order.detail.add",
+      "request_params": [
+        {
+          "code": "add_time",
+          "type": "datetime",
+          "required": true,
+          "desc": "添加时间",
+          "example": "2021-07-10 13:10:06"
+        },
+        {
+          "code": "order_sn",
+          "type": "string",
+          "required": true,
+          "desc": "订单编号",
+          "example": "12313131"
+        },
+        {
+          "code": "sd_code",
+          "type": "string",
+          "required": true,
+          "desc": "店铺代码",
+          "example": "sd001"
+        },
+        {
+          "code": "order_status",
+          "type": "number",
+          "required": true,
+          "desc": "订单状态(0，未确认；1，已确认； 2，已取消；3，无效；4，退货；5，锁定；6，解锁；7，完成；8，拒收；9，已合并；10，已拆分；)",
+          "example": "1"
+        },
+        {
+          "code": "pay_status",
+          "type": "string",
+          "required": false,
+          "desc": "付款状态(0，未付款；1，付款中；2，已付款；3，已结算)",
+          "example": "2"
+        },
+        {
+          "code": "consignee",
+          "type": "string",
+          "required": true,
+          "desc": "收货人",
+          "example": "lee"
+        },
+        {
+          "code": "province_name",
+          "type": "string",
+          "required": true,
+          "desc": "省",
+          "example": "湖北省"
+        },
+        {
+          "code": "city_name",
+          "type": "string",
+          "required": true,
+          "desc": "市",
+          "example": "武汉市"
+        },
+        {
+          "code": "district_name",
+          "type": "string",
+          "required": true,
+          "desc": "区",
+          "example": "洪山区"
+        },
+        {
+          "code": "street_name",
+          "type": "string",
+          "required": false,
+          "desc": "收货人街道",
+          "example": "东城街道"
+        },
+        {
+          "code": "address",
+          "type": "string",
+          "required": true,
+          "desc": "详细地址",
+          "example": "光谷软件园"
+        },
+        {
+          "code": "user_name",
+          "type": "string",
+          "required": false,
+          "desc": "会员名",
+          "example": "lee"
+        },
+        {
+          "code": "email",
+          "type": "string",
+          "required": false,
+          "desc": "电子邮件",
+          "example": "lee@gmai.com"
+        },
+        {
+          "code": "mobile",
+          "type": "string",
+          "required": true,
+          "desc": "手机号码",
+          "example": "19827364578"
+        },
+        {
+          "code": "tel",
+          "type": "string",
+          "required": false,
+          "desc": "电话号码",
+          "example": "027-1238384"
+        },
+        {
+          "code": "zipcode",
+          "type": "string",
+          "required": false,
+          "desc": "邮政编码",
+          "example": "123121"
+        },
+        {
+          "code": "pos_code",
+          "type": "string",
+          "required": false,
+          "desc": "O2O 门店代码",
+          "example": "12312"
+        },
+        {
+          "code": "saleShopCode",
+          "type": "string",
+          "required": false,
+          "desc": "下单门店代码",
+          "example": "1231"
+        },
+        {
+          "code": "salerEmployeeNo",
+          "type": "string",
+          "required": false,
+          "desc": "下单店员编号",
+          "example": "123"
+        },
+        {
+          "code": "pay_code",
+          "type": "string",
+          "required": true,
+          "desc": "支付方式代码:bank:银行汇款/转帐，balance:余额支付，alipay:支付宝，tenpay:财付通，chinabank:网银在线，cod:货到付款，kuaiqian:快钱人民币网关，paypal:paypal，paypalcn:贝宝，yeepay:YeePay易宝，xpay:易付通，cash:现金支付，xsptzf:销售平台支付，flkzf:返利款支付，yez_flk:余额帐+返利款支付，alipay_surety:支付宝担保交易，alipay_chain:分账交易，prepay:预存款，immediately:即时到账，weixin:微信支付，peerpay:代付，baidupay:百度钱包支付，dinpay:智惠支付",
+          "example": "alipay"
+        },
+        {
+          "code": "vip_no",
+          "type": "string",
+          "required": false,
+          "desc": "会员编号",
+          "example": "12"
+        },
+        {
+          "code": "shipping_code",
+          "type": "string",
+          "required": false,
+          "desc": "快递公司代码",
+          "example": "sf"
+        },
+        {
+          "code": "shipping_fee",
+          "type": "number",
+          "required": false,
+          "desc": "运费",
+          "example": "12"
+        },
+        {
+          "code": "order_amount",
+          "type": "number",
+          "required": true,
+          "desc": "买家应付金额",
+          "example": "1"
+        },
+        {
+          "code": "payment",
+          "type": "number",
+          "required": true,
+          "desc": "买家已付金额",
+          "example": "13"
+        },
+        {
+          "code": "receiver_tel",
+          "type": "string",
+          "required": true,
+          "desc": "收货人电话",
+          "example": "12345678932"
+        },
+        {
+          "code": "receiver_zip",
+          "type": "string",
+          "required": false,
+          "desc": "收货邮政编码",
+          "example": "12"
+        },
+        {
+          "code": "os_user_id",
+          "type": "string",
+          "required": false,
+          "desc": "分销商账号",
+          "example": "1231"
+        },
+        {
+          "code": "inv_kind",
+          "type": "string",
+          "required": false,
+          "desc": "开票类型 电子发票相关，发票类型(0 不开电子发票 1 开电子发票 2 换成纸质发票 )",
+          "example": "1"
+        },
+        {
+          "code": "inv_bank",
+          "type": "string",
+          "required": false,
+          "desc": "发票开户行",
+          "example": ""
+        },
+        {
+          "code": "inv_account",
+          "type": "string",
+          "required": false,
+          "desc": "发票开户账号",
+          "example": "123"
+        },
+        {
+          "code": "inv_addr",
+          "type": "string",
+          "required": false,
+          "desc": "发票地址",
+          "example": ""
+        },
+        {
+          "code": "inv_phone",
+          "type": "string",
+          "required": false,
+          "desc": "发票电话",
+          "example": "12345678345"
+        },
+        {
+          "code": "inv_count",
+          "type": "string",
+          "required": false,
+          "desc": "发票数量",
+          "example": "1"
+        },
+        {
+          "code": "inv_number",
+          "type": "string",
+          "required": false,
+          "desc": "发票号",
+          "example": "1231"
+        },
+        {
+          "code": "inv_payee",
+          "type": "string",
+          "required": false,
+          "desc": "开票抬头",
+          "example": "百胜软件"
+        },
+        {
+          "code": "inv_tax_no",
+          "type": "string",
+          "required": false,
+          "desc": "税号",
+          "example": "1112233311234"
+        },
+        {
+          "code": "inv_email",
+          "type": "string",
+          "required": false,
+          "desc": "开票邮箱",
+          "example": "1112233311234"
+        },
+        {
+          "code": "invoice_lxr_tel",
+          "type": "string",
+          "required": false,
+          "desc": "发票联系人电话",
+          "example": "021-88888888"
+        },
+        {
+          "code": "invoice_lxr_mobile",
+          "type": "string",
+          "required": false,
+          "desc": "发票联系人手机",
+          "example": "13888888888"
+        },
+        {
+          "code": "seller_msg",
+          "type": "string",
+          "required": false,
+          "desc": "商家备注",
+          "example": "msg"
+        },
+        {
+          "code": "storage_message",
+          "type": "string",
+          "required": false,
+          "desc": "仓库留言",
+          "example": "msg"
+        },
+        {
+          "code": "order_msg",
+          "type": "string",
+          "required": false,
+          "desc": "订单备注",
+          "example": "msg"
+        },
+        {
+          "code": "postscript",
+          "type": "string",
+          "required": false,
+          "desc": "买家留言",
+          "example": "msg"
+        },
+        {
+          "code": "md_name",
+          "type": "string",
+          "required": false,
+          "desc": "门店名称",
+          "example": "msg"
+        },
+        {
+          "code": "dg_name",
+          "type": "string",
+          "required": false,
+          "desc": "导购名称",
+          "example": "msg"
+        },
+        {
+          "code": "default_ck_code",
+          "type": "string",
+          "required": false,
+          "desc": "默认仓库编码",
+          "example": "msg"
+        },
+        {
+          "code": "fahuo_ck_code",
+          "type": "string",
+          "required": false,
+          "desc": "发货仓库编码",
+          "example": "msg"
+        },
+        {
+          "code": "seller_flag",
+          "type": "number",
+          "required": false,
+          "desc": "订单旗帜",
+          "example": "0"
+        },
+        {
+          "code": "order_pay_sn",
+          "type": "string",
+          "required": false,
+          "desc": "支付单号",
+          "example": "asdasdasd"
+        },
+        {
+          "code": "id_card",
+          "type": "string",
+          "required": false,
+          "desc": "证件号",
+          "example": "420001199911121234"
+        },
+        {
+          "code": "card_type",
+          "type": "string",
+          "required": false,
+          "desc": "证件类型0身份证,1护照,2其他",
+          "example": "0"
+        },
+        {
+          "code": "buyer_name",
+          "type": "string",
+          "required": false,
+          "desc": "买家姓名",
+          "example": "msg"
+        },
+        {
+          "code": "currency",
+          "type": "string",
+          "required": false,
+          "desc": "本位币种",
+          "example": "CNY"
+        },
+        {
+          "code": "shipping_type",
+          "type": "string",
+          "required": false,
+          "desc": "用户指定的配送方式code",
+          "example": "EMS"
+        },
+        {
+          "code": "xskf_code",
+          "type": "string",
+          "required": false,
+          "desc": "销售客服编码",
+          "example": "KF_00001"
+        },
+        {
+          "code": "cs_number",
+          "type": "string",
+          "required": false,
+          "desc": "订单客服编码",
+          "example": "KF_00001"
+        },
+        {
+          "code": "is_pre_sell",
+          "type": "number",
+          "required": false,
+          "desc": "预售阶段",
+          "example": "0表示正常订单，1表示已付定金未付尾款，2标识已付订单和尾款"
+        },
+        {
+          "code": "est_con_time",
+          "type": "string",
+          "required": false,
+          "desc": "预计发货时间",
+          "example": ""
+        },
+        {
+          "code": "auto_trans",
+          "type": "string",
+          "required": false,
+          "desc": "是否立即转入到OMS销售订单",
+          "example": "1：表示添加后，立即转入到OMS销售订单"
+        },
+        {
+          "code": "order_type",
+          "type": "string",
+          "required": false,
+          "desc": "零售订单类型",
+          "example": "BFFZ"
+        },
+        {
+          "code": "tags_code",
+          "type": "string",
+          "required": false,
+          "desc": "订单标签code,多个英文逗号分割",
+          "example": "preheat,same_city_distribution"
+        },
+        {
+          "code": "global_info",
+          "type": "array[object]",
+          "required": false,
+          "desc": "跨境信息",
+          "example": "",
+          "children": [
+            {
+              "code": "kj_shipping_code",
+              "type": "string",
+              "required": false,
+              "desc": "跨境配送方式code",
+              "example": "yw56"
+            },
+            {
+              "code": "country",
+              "type": "string",
+              "required": false,
+              "desc": "国际简码",
+              "example": "CN"
+            },
+            {
+              "code": "province",
+              "type": "string",
+              "required": false,
+              "desc": "省名称",
+              "example": "hubei"
+            },
+            {
+              "code": "city",
+              "type": "string",
+              "required": false,
+              "desc": "市名称",
+              "example": "wuhan"
+            },
+            {
+              "code": "district",
+              "type": "string",
+              "required": false,
+              "desc": "区名称",
+              "example": "1"
+            },
+            {
+              "code": "address",
+              "type": "string",
+              "required": false,
+              "desc": "跨境详细地址",
+              "example": "1"
+            }
+          ]
+        },
+        {
+          "code": "items",
+          "type": "array[object]",
+          "required": true,
+          "desc": "商品信息",
+          "example": "",
+          "children": [
+            {
+              "code": "sku_sn",
+              "type": "string",
+              "required": true,
+              "desc": "Sku",
+              "example": "sku11"
+            },
+            {
+              "code": "goods_name",
+              "type": "string",
+              "required": false,
+              "desc": "商品名称",
+              "example": "goods_name"
+            },
+            {
+              "code": "goods_price",
+              "type": "number",
+              "required": true,
+              "desc": "平台售价",
+              "example": "12.0"
+            },
+            {
+              "code": "transaction_price",
+              "type": "number",
+              "required": true,
+              "desc": "实际售价",
+              "example": "10.0"
+            },
+            {
+              "code": "discount",
+              "type": "number",
+              "required": false,
+              "desc": "折扣",
+              "example": "3"
+            },
+            {
+              "code": "goods_number",
+              "type": "number",
+              "required": true,
+              "desc": "数量",
+              "example": "2"
+            },
+            {
+              "code": "is_gift",
+              "type": "number",
+              "required": false,
+              "desc": "是否礼品：0否，1是",
+              "example": "1"
+            },
+            {
+              "code": "is_yugou",
+              "type": "string",
+              "required": true,
+              "desc": "是否预购商品:0fou,1是",
+              "example": "0"
+            },
+            {
+              "code": "remark",
+              "type": "string",
+              "required": false,
+              "desc": "备注",
+              "example": "备注"
+            },
+            {
+              "code": "shipping_type",
+              "type": "string",
+              "required": false,
+              "desc": "用户指定的配送方式code",
+              "example": "EMS"
+            },
+            {
+              "code": "line_no",
+              "type": "string",
+              "required": true,
+              "desc": "子交易号或商品行号",
+              "example": "12313131111"
+            },
+            {
+              "code": "custom_fields",
+              "type": "array[object]",
+              "required": false,
+              "desc": "自定义字段信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "custom_field_1",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段1",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_2",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段2",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_3",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段3",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_4",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段4",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_5",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段5",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_6",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段6",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_7",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段7",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_8",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段8",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_9",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段9",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_10",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段10",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_11",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段11",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_12",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段12",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_13",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段13",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_14",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段14",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_15",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段15",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_16",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段16",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_17",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段17",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_18",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段18",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_19",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段19",
+                  "example": ""
+                },
+                {
+                  "code": "custom_field_20",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段20",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "promotions",
+          "type": "array[object]",
+          "required": false,
+          "desc": "优惠信息",
+          "example": "",
+          "children": [
+            {
+              "code": "promotion_name",
+              "type": "string",
+              "required": false,
+              "desc": "优惠信息的名称",
+              "example": "112"
+            },
+            {
+              "code": "discount_fee",
+              "type": "string",
+              "required": false,
+              "desc": "优惠金额",
+              "example": "12"
+            },
+            {
+              "code": "promotion_desc",
+              "type": "string",
+              "required": false,
+              "desc": "优惠活动的描述",
+              "example": "优惠卷"
+            }
+          ]
+        },
+        {
+          "code": "custom_fields",
+          "type": "array[object]",
+          "required": false,
+          "desc": "自定义字段信息",
+          "example": "",
+          "children": [
+            {
+              "code": "custom_field_1",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段1",
+              "example": ""
+            },
+            {
+              "code": "custom_field_2",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段2",
+              "example": ""
+            },
+            {
+              "code": "custom_field_3",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段3",
+              "example": ""
+            },
+            {
+              "code": "custom_field_4",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段4",
+              "example": ""
+            },
+            {
+              "code": "custom_field_5",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段5",
+              "example": ""
+            },
+            {
+              "code": "custom_field_6",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段6",
+              "example": ""
+            },
+            {
+              "code": "custom_field_7",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段7",
+              "example": ""
+            },
+            {
+              "code": "custom_field_8",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段8",
+              "example": ""
+            },
+            {
+              "code": "custom_field_9",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段9",
+              "example": ""
+            },
+            {
+              "code": "custom_field_10",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段10",
+              "example": ""
+            },
+            {
+              "code": "custom_field_11",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段11",
+              "example": ""
+            },
+            {
+              "code": "custom_field_12",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段12",
+              "example": ""
+            },
+            {
+              "code": "custom_field_13",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段13",
+              "example": ""
+            },
+            {
+              "code": "custom_field_14",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段14",
+              "example": ""
+            },
+            {
+              "code": "custom_field_15",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段15",
+              "example": ""
+            },
+            {
+              "code": "custom_field_16",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段16",
+              "example": ""
+            },
+            {
+              "code": "custom_field_17",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段17",
+              "example": ""
+            },
+            {
+              "code": "custom_field_18",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段18",
+              "example": ""
+            },
+            {
+              "code": "custom_field_19",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段19",
+              "example": ""
+            },
+            {
+              "code": "custom_field_20",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段20",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.detail.add"
+    }
+  },
+  "message": "success"
+}

@@ -1,0 +1,242 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.season.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获得季节列表",
+      "desc": "获得季节列表",
+      "method": "e3oms.goods.season.list.get",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "开始时间",
+          "example": "2021-01-09 17:18:10"
+        },
+        {
+          "code": "endModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询内结束时间：2021-11-30 23:59:59",
+          "example": ""
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": ""
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+          "example": ""
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": false,
+          "desc": "参见操作状态码说明",
+          "example": "api-server-exception"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": "描述"
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "required": false,
+          "desc": "返回信息，包括：（1）分页信息（2）季节列表",
+          "example": "{\r\n                        \"status\": \"api-success\", \"message\": \"success\",\r\n                        \"data\": {\r\n                        \"page\": { \"totalResult\": 5,\r\n                        \"pageSize\": 1,\r\n                        \"pageNo\": 1,\r\n                        \"pageTotal\": 5\r\n                        },\r\n                        \"seasonListGet\": [\r\n                        {\r\n                        \"seasonCode\": \"spring\",\r\n                        \"seasonName\": \"春\",\r\n                        \"seasonNote\": \"\",\r\n                        \"modified\": \"2017-02-21 16:09:09\"\r\n                        }\r\n                        ]\r\n                        }\r\n                        }\r\n                        ",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "required": false,
+              "desc": "分页信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总记录数",
+                  "example": ""
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前分页大小",
+                  "example": ""
+                },
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "当前页数",
+                  "example": ""
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "seasonListGet",
+              "type": "array[array[object]]",
+              "required": false,
+              "desc": "季节列表",
+              "example": "[]",
+              "children": [
+                {
+                  "code": "seasonCode",
+                  "type": "string",
+                  "required": true,
+                  "desc": "代码",
+                  "example": ""
+                },
+                {
+                  "code": "seasonName",
+                  "type": "string",
+                  "required": true,
+                  "desc": "名称",
+                  "example": ""
+                },
+                {
+                  "code": "seasonNote",
+                  "type": "string",
+                  "required": false,
+                  "desc": "备注",
+                  "example": ""
+                },
+                {
+                  "code": "modified",
+                  "type": "string",
+                  "required": false,
+                  "desc": "修改时间",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "season.list.get"
+    }
+  },
+  "message": "success"
+}

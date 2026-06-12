@@ -8,8 +8,7 @@
 - **Python 包名**: qdata-adapter-baison-e3
 - **主类名**: BaisonE3Adapter
 - **模块名**: qdata_adapter_baison_e3
-- 
-- **接口模式**: 单接口
+- **接口模式**: 单接口（standard）
 
 ---
 
@@ -17,30 +16,35 @@
 
 ### 官方文档
 
-- **官方文档地址**: [请填写官方文档 URL]
-- **API 参考**: [请填写 API 参考 URL]
-- **开发者中心**: [请填写开发者中心 URL]
+- **官方文档中心**: <https://openapi.baison.net/index.html#/doc>
+- **本目录接口清单**: `api-docs/apis_list.json`
+- **开发者中心**: 百胜E3 开放平台后台（由客户/实施人员提供账号）
 
 ### 本地资源
 
 ```
 项目根目录/
-├── api-docs/                    # API 文档目录
-│   ├── README.md               # 文档索引（请先阅读）
-│   ├── openapi.yaml           # OpenAPI 定义（如有）
-│   └── apis_list.json         # 接口清单（优先参考）
-├── .env.example                # 环境变量模板（含两套环境配置）
-├── .old-php/                   # 旧版 PHP 实现参考（仅作逻辑参考）
-│   └── sdk/                    # PHP SDK 调用示例
-├── src/qdata_adapter_baison_e3/    # 适配器源码目录
-└── tests/                      # 测试目录
+├── api-docs/                    # API 文档入口
+│   ├── README.md
+│   ├── apis_list.json           # 156 个接口清单
+│   ├── README.md                # 文档入口（含错误码参考）
+│   ├── postman-collection.json
+│   └── postman-pre-request-script.js
+├── docs/                        # 项目文档
+│   ├── prompt.md                # 本文件
+│   ├── auth-guide.md            # 认证与签名指南
+│   └── connector.md             # 连接器基本信息
+├── .env.example                 # 环境变量模板
+├── src/qdata_adapter_baison_e3/ # 适配器源码目录
+└── tests/                       # 测试目录
 ```
 
 ### 关键参考文件
 
-1. **接口清单**: `api-docs/apis_list.json` - 完整的接口定义和参数
-2. **环境配置**: `.env.example` - 包含沙箱/生产两套环境的测试配置
-3. **PHP 参考**: `.old-php/sdk/` - 旧版调用逻辑参考（注意：仅参考逻辑，需按 Python 规范重写）
+1. **接口清单**: `api-docs/apis_list.json` - 完整的 156 个接口定义和参数
+2. **环境配置**: `.env.example` - 测试配置模板
+3. **认证与签名**: `docs/auth-guide.md` - 已验证的签名算法
+4. **认证与连接**: `docs/auth-guide.md` - 平台代码、认证方式、响应格式
 
 ---
 
@@ -52,17 +56,16 @@
 
 ```python
 from qdata_adapter import BaseAppAdapter, ConnectorContext
-from qdata_adapter.interfaces import StandardInterface, QimenInterface
 
 class BaisonE3Adapter(BaseAppAdapter):
     """baison-e3 平台适配器"""
 
     # 平台标识
-    app_software_code = "baison_e3"
+    app_code = "baison_e3"
 
-    # 接口映射
+    # 单一接口实现
     INTERFACE_MAP = {
-        "standard": StandardInterface,
+        "standard": BaisonE3AdapterStandardInterface,
     }
 ```
 
@@ -75,34 +78,73 @@ src/qdata_adapter_baison_e3/
 ├── __init__.py           # 导出主类
 ├── adapter.py            # 主适配器实现
 ├── exceptions.py         # 自定义异常
-├── auth.py               # 认证处理（如需要）
-├── constants.py          # 常量定义
 ├── interfaces/           # 接口实现
 │   ├── __init__.py
 │   ├── base.py           # 接口基类
-│   ├── standard.py    # 主接口
-│
-└── models/               # 数据模型（如需要）
-    └── __init__.py
+│   └── standard.py       # standard 接口（AppKey + MD5 签名）
+└── py.typed
 ```
 
 ### 3. 接口规范
 
-#### 双接口适配器要求
+#### 认证方式
 
-- 根据 `settings.interface` 参数动态选择接口实现
-- 每个接口独立处理认证、请求、响应解析
-- 接口间共享基础配置（base_url, auth_config）
+百胜E3 使用 **AppKey + AppSecret + MD5 签名** 认证，不是 OAuth2：
+
+```python
+auth_config = {
+    "app_key": "你的 AppKey",
+    "app_secret": "你的 AppSecret",
+    # 兼容别名：key / secret / client_id / client_secret
+}
+```
+
+签名规则（参考 PHP BaisonSDK）：
+
+1. 参数：`key`、`requestTime`、`secret`、`version=3.0`、`serviceType`、`data`
+2. 签名时先移除 `data`
+3. `urlencode` 编码剩余参数
+4. 拼接 `"&data="` + 原始 JSON 字符串
+5. MD5，结果转**小写**
+6. 最终请求中**不发送** `secret`
+
+#### 请求格式
+
+```
+GET {base_url}/?app_act=api/ec&app_mode=func
+    &serviceType=e3oms.base.sd.get
+    &key=APP_KEY
+    &requestTime=yyyyMMddHHmmss
+    &version=3.0
+    &data=JSON_STRING
+    &sign=MD5_LOWERCASE
+```
+
+#### 响应格式
+
+```json
+{
+  "status": 1,
+  "message": "success",
+  "data": [...],
+  "requestid": "xxx"
+}
+```
+
+- `status == 1` 或 `"api-success"`：成功
+- `status == -1` 或其他值：失败
+- 错误信息包含"签名"或 `sign`：认证错误
+- 错误信息包含"IP" + "授权"：IP 白名单错误
 
 #### 标准方法实现
 
 必须实现以下核心方法：
 
 ```python
-async def authenticate(self) -> AuthToken:
-    """获取/刷新认证 Token"""
+async def authenticate(self) -> dict:
+    """验证 AppKey/AppSecret 是否有效"""
 
-async def test_connection(self) -> ConnectionResult:
+async def test_connection(self) -> TestConnectionResult:
     """测试连接可用性"""
 
 async def list_objects(
@@ -115,7 +157,23 @@ async def list_objects(
 
 async def get_object(self, object_type: str, object_id: str) -> dict:
     """单条查询"""
+
+async def create_object(self, object_type: str, data: dict) -> dict:
+    """创建对象"""
+
+async def invoke(
+    self,
+    method: str,
+    object_type: str,
+    data: dict | None = None,
+    params: dict | None = None
+) -> dict:
+    """灵活调用任意 serviceType"""
 ```
+
+#### 对象类型别名
+
+适配器内置 `object_type -> serviceType` 映射，支持 `shop`、`goods`、`orders` 等别名。未内置的接口可直接传入完整 `serviceType` 调用 `invoke()`。完整映射表参见 `api-docs/README.md`。
 
 ---
 
@@ -129,17 +187,22 @@ async def get_object(self, object_type: str, object_id: str) -> dict:
 
 ### 测试环境配置
 
-复制 `.env.example` 为 `.env`，填入两套环境的凭据：
+复制 `.env.example` 为 `.env`，填入凭据：
 
 ```bash
 # 沙箱环境
-BAISON_E3_BASE_URL=https://sandbox-api.example.com
-BAISON_E3_CLIENT_ID=sandbox-client-id
-BAISON_E3_CLIENT_SECRET=sandbox-secret
+BAISON_E3_BASE_URL=https://your-sandbox-domain/webopm/web/
+BAISON_E3_APP_KEY=your-app-key
+BAISON_E3_APP_SECRET=your-app-secret
+BAISON_E3_ENVIRONMENT=sandbox
 
 # 生产环境（谨慎使用）
-# BAISON_E3_BASE_URL=https://api.example.com
+# BAISON_E3_BASE_URL=https://your-production-domain/webopm/web/
+# BAISON_E3_APP_KEY=your-app-key
+# BAISON_E3_APP_SECRET=your-app-secret
 ```
+
+> `base_url`、`AppKey`、`AppSecret` 请咨询百胜E3 技术支持或实施人员获取，**不要提交到 Git**。
 
 ### 测试命令
 
@@ -152,66 +215,66 @@ USE_REAL_API=true BAISON_E3_ENVIRONMENT=sandbox make test
 
 # 录制 HTTP 流量（用于调试）
 RECORD_HTTP_TRAFFIC=true make test
+
+# 代码检查
+make check
+
+# 格式化
+make format
 ```
 
 ### 测试文件结构
 
 ```
 tests/
-├── __init__.py
-├── conftest.py              # pytest 配置和 fixtures
-├── test_adapter.py          # 主适配器测试
-├── test_auth.py             # 认证测试
-├── test_interfaces/         # 接口测试
-│   ├── __init__.py
-│   ├── test_standard.py
-│
-└── data/                    # 测试数据
-    ├── fixtures/            # 静态测试数据
-    └── recordings/          # HTTP 录制（gitignore）
+├── conftest.py          # pytest 配置和 fixtures
+├── test_adapter.py      # 主适配器测试
+└── data/                # 测试数据
+    ├── fixtures/        # 静态测试数据
+    └── recordings/      # HTTP 录制（gitignore）
 ```
 
 ---
 
 ## 📝 开发步骤
 
-### Phase 1: 分析设计（第 1 步）
+### Phase 1: 分析设计
 
 1. 阅读 `api-docs/apis_list.json` 理解接口清单
-2. 阅读 `.env.example` 了解认证方式和环境配置
-3. 参考 `.old-php/sdk/` 理解旧版调用逻辑
+2. 阅读 `docs/auth-guide.md` 掌握签名算法
+3. 阅读 `.env.example` 了解环境配置
 4. 设计适配器架构：
-    - 认证方式（OAuth2/API Key/HMAC/Session）
-    - 接口划分（单接口/双接口）
+    - 认证方式：AppKey + AppSecret + MD5 签名
+    - 接口划分：单接口 standard
     - 核心方法映射
 
-### Phase 2: 核心实现（第 2-3 步）
+### Phase 2: 核心实现
 
 1. **接口层实现**:
     - 实现 `interfaces/base.py` 定义接口基类
-    - 实现 `interfaces/standard.py` 主接口
+    - 实现 `interfaces/standard.py` standard 接口（签名、请求构建、响应解析、分页）
 
 2. **认证层实现**:
-    - 根据 API 文档实现 Token 获取/刷新逻辑
-    - 处理 Token 过期自动刷新
+    - 在 standard 接口中实现 MD5 签名
+    - 通过调用查询接口验证 AppKey/AppSecret 有效性
 
 3. **适配器主类**:
     - 实现 `adapter.py` 主类
-    - 实现标准方法（test_connection, list_objects, get_object）
-    - 接口动态路由逻辑
+    - 实现标准方法（`test_connection`、`list_objects`、`get_object`、`create_object`、`invoke`）
 
-### Phase 3: 测试验证（第 4 步）
+### Phase 3: 测试验证
 
 1. 编写 Mock 测试用例
 2. 配置 `.env` 进行沙箱环境测试
 3. 验证所有查询类接口
 4. 检查代码覆盖率（>80%）
 
-### Phase 4: 文档完善（第 5 步）
+### Phase 4: 文档完善
 
 1. 完善 `README.md` 使用示例
 2. 更新 `api-docs/README.md` 接口说明
-3. 编写 `examples/quickstart.py` 完整示例
+3. 编写/更新 `examples/quickstart.py` 完整示例
+4. 更新 `docs/prompt.md` 开发规范
 
 ---
 
@@ -258,17 +321,33 @@ tests/
 ### 从 PHP 迁移的注意事项
 
 1. **数组 vs Dict**: PHP 数组对应 Python dict，注意嵌套结构
-2. **JSON 处理**: Python 使用 `json.dumps()` / `json.loads()`
+2. **JSON 处理**: Python 使用 `json.dumps()` / `json.loads()`，签名时注意 `ensure_ascii=False, separators=(",", ":")`
 3. **异步调用**: 必须使用 `async/await`，不可使用同步 HTTP 库
 4. **类型注解**: 添加完整的类型提示，特别是接口返回数据
+5. **签名细节**: `secret` 只参与签名，不发送到服务端；MD5 结果必须转**小写**
 
 ### 常见问题
 
 **Q: 如何处理分页？**
-A: 在 `list_objects()` 中使用 `AsyncIterator`，内部自动处理翻页
+A: 在 `list_objects()` 中使用 `AsyncIterator`，内部读取响应中的 `page` 字段（`pageNo`、`pageSize`、`pageTotal`、`totalResult`）自动翻页。
 
 **Q: Token 过期如何处理？**
-A: 在 `authenticate()` 中实现刷新逻辑，配合 `is_token_expired()` 检查
+A: 百胜E3 没有 Token 机制，而是每次请求带时间戳和 MD5 签名。`authenticate()` 仅用于验证配置有效性。
 
-**Q: 双接口如何切换？**
-A: 通过 `context.settings["interface"]` 读取配置，在 `INTERFACE_MAP` 中映射
+**Q: 如何调用未在别名表中的接口？**
+A: 直接使用 `invoke()` 并传入完整 `serviceType`，例如：
+
+```python
+await adapter.invoke(
+    "query",
+    "e3oms.order.info.through.goods.sn.get",
+    params={"goodsSn": "SN001"}
+)
+```
+
+**Q: 为什么签名失败？**
+A: 常见原因：
+1. 请求中误带了 `format` 或 `sign_method` 参数
+2. MD5 结果没有转小写
+3. `data` 字段不是原始 JSON 字符串
+4. 时间戳 `requestTime` 与服务器时间误差超过 10 分钟

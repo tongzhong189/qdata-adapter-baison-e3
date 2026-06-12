@@ -1,0 +1,349 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.openshop.return.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "主站部分退",
+      "desc": "主站退单部分退",
+      "method": "e3oms.order.openshop.return.add",
+      "request_params": [
+        {
+          "code": "returns_order_sn",
+          "type": "string",
+          "required": true,
+          "desc": "退单编号",
+          "example": "1212312312"
+        },
+        {
+          "code": "order_sn",
+          "type": "string",
+          "required": true,
+          "desc": "交易号",
+          "example": "53454665437"
+        },
+        {
+          "code": "shop_code",
+          "type": "string",
+          "required": true,
+          "desc": "店铺code",
+          "example": "sd001"
+        },
+        {
+          "code": "oid",
+          "type": "string",
+          "required": true,
+          "desc": "子订单号",
+          "example": ""
+        },
+        {
+          "code": "total_fee",
+          "type": "float",
+          "required": true,
+          "desc": "交易总金额",
+          "example": ""
+        },
+        {
+          "code": "user_id",
+          "type": "string",
+          "required": true,
+          "desc": "用户id",
+          "example": ""
+        },
+        {
+          "code": "consignee",
+          "type": "string",
+          "required": true,
+          "desc": "收货人姓名",
+          "example": ""
+        },
+        {
+          "code": "receiver_address",
+          "type": "string",
+          "required": true,
+          "desc": "收货人详细地址",
+          "example": ""
+        },
+        {
+          "code": "zipcode",
+          "type": "string",
+          "required": false,
+          "desc": "收货人邮编",
+          "example": ""
+        },
+        {
+          "code": "tel",
+          "type": "string",
+          "required": true,
+          "desc": "收货人电话",
+          "example": ""
+        },
+        {
+          "code": "mobile",
+          "type": "string",
+          "required": true,
+          "desc": "收货人手机",
+          "example": ""
+        },
+        {
+          "code": "email",
+          "type": "string",
+          "required": false,
+          "desc": "收货人邮箱",
+          "example": ""
+        },
+        {
+          "code": "best_time",
+          "type": "string",
+          "required": false,
+          "desc": "送货最佳时间",
+          "example": ""
+        },
+        {
+          "code": "return_desc",
+          "type": "string",
+          "required": true,
+          "desc": "申请信息描述",
+          "example": ""
+        },
+        {
+          "code": "order_status",
+          "type": "number",
+          "required": true,
+          "desc": "退款对应的订单交易状态",
+          "example": ""
+        },
+        {
+          "code": "returns_status",
+          "type": "number",
+          "required": true,
+          "desc": "退款状态（申请状态0：取消；1：提交；2：受理3：完成)",
+          "example": ""
+        },
+        {
+          "code": "source",
+          "type": "string",
+          "required": true,
+          "desc": "退单来源平台",
+          "example": ""
+        },
+        {
+          "code": "return_type",
+          "type": "number",
+          "required": true,
+          "desc": "退单类型：[1:退货/2:换货/3:拒收]",
+          "example": ""
+        },
+        {
+          "code": "apply_time",
+          "type": "string",
+          "required": true,
+          "desc": "退款申请时间(秒级时间戳)",
+          "example": "1531465823"
+        },
+        {
+          "code": "return_shipping_sn",
+          "type": "string",
+          "required": true,
+          "desc": "退货快递物流单号",
+          "example": ""
+        },
+        {
+          "code": "return_shipping_name",
+          "type": "string",
+          "required": true,
+          "desc": "退货快递公司名称",
+          "example": ""
+        },
+        {
+          "code": "is_openapi",
+          "type": "number",
+          "required": true,
+          "desc": "是否是来源于openapi：0-否，1-是",
+          "example": ""
+        },
+        {
+          "code": "return_shipping_fee",
+          "type": "float",
+          "required": true,
+          "desc": "退单运费",
+          "example": ""
+        },
+        {
+          "code": "refund_goods",
+          "type": "array[object]",
+          "required": false,
+          "desc": "退单商品信息",
+          "example": "",
+          "children": [
+            {
+              "code": "barcode",
+              "type": "string",
+              "required": true,
+              "desc": "barcode",
+              "example": ""
+            },
+            {
+              "code": "goods_price",
+              "type": "string",
+              "required": true,
+              "desc": "商品价格",
+              "example": ""
+            },
+            {
+              "code": "shop_price",
+              "type": "string",
+              "required": true,
+              "desc": "原价/划线价",
+              "example": ""
+            },
+            {
+              "code": "goods_number",
+              "type": "string",
+              "required": true,
+              "desc": "数量",
+              "example": ""
+            },
+            {
+              "code": "reason",
+              "type": "string",
+              "required": false,
+              "desc": "原因",
+              "example": ""
+            },
+            {
+              "code": "deal_code",
+              "type": "string",
+              "required": true,
+              "desc": "订单号",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "required": true,
+          "desc": "返回信息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "openshop.return.add"
+    }
+  },
+  "message": "success"
+}

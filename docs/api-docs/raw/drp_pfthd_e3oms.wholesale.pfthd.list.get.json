@@ -1,0 +1,705 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.wholesale.pfthd.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取批发退货单列表/详情",
+      "desc": "获取批发退货单列表/详情",
+      "method": "e3oms.wholesale.pfthd.list.get",
+      "request_params": [
+        {
+          "code": "djbh",
+          "type": "string",
+          "required": true,
+          "desc": "单号",
+          "example": ""
+        },
+        {
+          "code": "djzt",
+          "type": "string",
+          "required": false,
+          "desc": "单据状态(0-未确认,1-已确认,4-已验收,9-已作废);多个状态用英文逗号分隔，不填默认为4",
+          "example": ""
+        },
+        {
+          "code": "rq_start",
+          "type": "string",
+          "required": true,
+          "desc": "开始时间",
+          "example": ""
+        },
+        {
+          "code": "rq_end",
+          "type": "string",
+          "required": true,
+          "desc": "结束时间",
+          "example": ""
+        },
+        {
+          "code": "qd_code",
+          "type": "string",
+          "required": true,
+          "desc": "渠道代码",
+          "example": ""
+        },
+        {
+          "code": "kh_code",
+          "type": "string",
+          "required": true,
+          "desc": "客户代码",
+          "example": ""
+        },
+        {
+          "code": "pfthtzd_djbh",
+          "type": "string",
+          "required": false,
+          "desc": "批发退货通知单-单据号",
+          "example": ""
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": false,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "page",
+          "type": "array[object]",
+          "required": false,
+          "desc": "分页信息(page)",
+          "example": "",
+          "children": [
+            {
+              "code": "totalResult",
+              "type": "string",
+              "required": false,
+              "desc": "总记录数",
+              "example": ""
+            },
+            {
+              "code": "pageSize",
+              "type": "string",
+              "required": false,
+              "desc": "当前分页大小",
+              "example": ""
+            },
+            {
+              "code": "pageNo",
+              "type": "string",
+              "required": false,
+              "desc": "当前页数",
+              "example": ""
+            },
+            {
+              "code": "pageTotal",
+              "type": "string",
+              "required": false,
+              "desc": "总页数",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "code": "mx_list",
+          "type": "array[object]",
+          "required": false,
+          "desc": "批发退货单列表(mx_list)",
+          "example": "",
+          "children": [
+            {
+              "code": "djbh",
+              "type": "string",
+              "required": false,
+              "desc": "单据编号",
+              "example": ""
+            },
+            {
+              "code": "id",
+              "type": "number",
+              "required": false,
+              "desc": "单据 id",
+              "example": ""
+            },
+            {
+              "code": "po_no",
+              "type": "string",
+              "required": false,
+              "desc": "PO 单号",
+              "example": ""
+            },
+            {
+              "code": "ghs_id",
+              "type": "string",
+              "required": false,
+              "desc": "供货商 id",
+              "example": ""
+            },
+            {
+              "code": "rq",
+              "type": "number",
+              "required": false,
+              "desc": "日期",
+              "example": ""
+            },
+            {
+              "code": "ydjh",
+              "type": "string",
+              "required": false,
+              "desc": "原单号",
+              "example": ""
+            },
+            {
+              "code": "zdy_sn",
+              "type": "string",
+              "required": false,
+              "desc": "自定义订单号",
+              "example": ""
+            },
+            {
+              "code": "pftzd_djbh",
+              "type": "string",
+              "required": false,
+              "desc": "通知单号",
+              "example": ""
+            },
+            {
+              "code": "zk",
+              "type": "string",
+              "required": false,
+              "desc": "折扣",
+              "example": ""
+            },
+            {
+              "code": "jgsd",
+              "type": "string",
+              "required": false,
+              "desc": "价格设定(1标准进价 2进价1 3进价2)",
+              "example": ""
+            },
+            {
+              "code": "sl",
+              "type": "number",
+              "required": false,
+              "desc": "执行数量，初始为通知执行的数量",
+              "example": ""
+            },
+            {
+              "code": "sl1",
+              "type": "number",
+              "required": false,
+              "desc": "通知数量",
+              "example": ""
+            },
+            {
+              "code": "sl2",
+              "type": "number",
+              "required": false,
+              "desc": "终止数",
+              "example": ""
+            },
+            {
+              "code": "sl3",
+              "type": "number",
+              "required": false,
+              "desc": "差异数",
+              "example": ""
+            },
+            {
+              "code": "bjz",
+              "type": "string",
+              "required": false,
+              "desc": "标准价",
+              "example": ""
+            },
+            {
+              "code": "dj",
+              "type": "string",
+              "required": false,
+              "desc": "单价",
+              "example": ""
+            },
+            {
+              "code": "je",
+              "type": "string",
+              "required": false,
+              "desc": "金额",
+              "example": ""
+            },
+            {
+              "code": "je1",
+              "type": "string",
+              "required": false,
+              "desc": "合计标准金额",
+              "example": ""
+            },
+            {
+              "code": "zdr",
+              "type": "string",
+              "required": false,
+              "desc": "制单人",
+              "example": ""
+            },
+            {
+              "code": "zdrq",
+              "type": "number",
+              "required": false,
+              "desc": "制单日期",
+              "example": ""
+            },
+            {
+              "code": "qr",
+              "type": "string",
+              "required": false,
+              "desc": "确认",
+              "example": ""
+            },
+            {
+              "code": "qrr",
+              "type": "string",
+              "required": false,
+              "desc": "确认人",
+              "example": ""
+            },
+            {
+              "code": "ys",
+              "type": "string",
+              "required": false,
+              "desc": "验收",
+              "example": ""
+            },
+            {
+              "code": "ysr",
+              "type": "string",
+              "required": false,
+              "desc": "验收人",
+              "example": ""
+            },
+            {
+              "code": "djzt",
+              "type": "string",
+              "required": false,
+              "desc": "单据状态(0-未确认,1-已确认,4-已验收,9-已作废)",
+              "example": ""
+            },
+            {
+              "code": "pick_no",
+              "type": "string",
+              "required": false,
+              "desc": "jit 拣货单编号",
+              "example": ""
+            },
+            {
+              "code": "pfthdDetailGet",
+              "type": "array[object]",
+              "required": false,
+              "desc": "商品详情(pfthdDetailGet)",
+              "example": "",
+              "children": [
+                {
+                  "code": "goods_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "varchar",
+                  "example": ""
+                },
+                {
+                  "code": "sku",
+                  "type": "string",
+                  "required": false,
+                  "desc": "varchar",
+                  "example": ""
+                },
+                {
+                  "code": "color_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "varchar",
+                  "example": ""
+                },
+                {
+                  "code": "size_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "varchar",
+                  "example": ""
+                },
+                {
+                  "code": "box_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "箱码",
+                  "example": ""
+                },
+                {
+                  "code": "sl",
+                  "type": "number",
+                  "required": false,
+                  "desc": "执行数量，初始为通知执行的数量",
+                  "example": ""
+                },
+                {
+                  "code": "sl1",
+                  "type": "number",
+                  "required": false,
+                  "desc": "通知数量",
+                  "example": ""
+                },
+                {
+                  "code": "sl2",
+                  "type": "number",
+                  "required": false,
+                  "desc": "终止数",
+                  "example": ""
+                },
+                {
+                  "code": "sl3",
+                  "type": "number",
+                  "required": false,
+                  "desc": "差异数",
+                  "example": ""
+                },
+                {
+                  "code": "sl4",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实收数",
+                  "example": ""
+                },
+                {
+                  "code": "bzj",
+                  "type": "string",
+                  "required": false,
+                  "desc": "标准价",
+                  "example": ""
+                },
+                {
+                  "code": "cbj",
+                  "type": "string",
+                  "required": false,
+                  "desc": "成本价",
+                  "example": ""
+                },
+                {
+                  "code": "zk",
+                  "type": "string",
+                  "required": false,
+                  "desc": "折扣",
+                  "example": ""
+                },
+                {
+                  "code": "dj",
+                  "type": "string",
+                  "required": false,
+                  "desc": "单价",
+                  "example": ""
+                },
+                {
+                  "code": "je",
+                  "type": "string",
+                  "required": false,
+                  "desc": "金额",
+                  "example": ""
+                },
+                {
+                  "code": "je1",
+                  "type": "string",
+                  "required": false,
+                  "desc": "标准金额",
+                  "example": ""
+                },
+                {
+                  "code": "je2",
+                  "type": "string",
+                  "required": false,
+                  "desc": "decimal",
+                  "example": ""
+                },
+                {
+                  "code": "bz",
+                  "type": "string",
+                  "required": false,
+                  "desc": "备注",
+                  "example": ""
+                },
+                {
+                  "code": "po_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "PO 单号",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "xm_mx_list",
+          "type": "array[object]",
+          "required": false,
+          "desc": "批发退货单箱码明细列表(xm_mx_list)",
+          "example": "",
+          "children": [
+            {
+              "code": "djbh",
+              "type": "string",
+              "required": false,
+              "desc": "单据编号",
+              "example": ""
+            },
+            {
+              "code": "goods_sn",
+              "type": "string",
+              "required": false,
+              "desc": "varchar",
+              "example": ""
+            },
+            {
+              "code": "sku",
+              "type": "string",
+              "required": false,
+              "desc": "varchar",
+              "example": ""
+            },
+            {
+              "code": "color_code",
+              "type": "string",
+              "required": false,
+              "desc": "varchar",
+              "example": ""
+            },
+            {
+              "code": "size_code",
+              "type": "string",
+              "required": false,
+              "desc": "varchar",
+              "example": ""
+            },
+            {
+              "code": "box_no",
+              "type": "string",
+              "required": false,
+              "desc": "箱码",
+              "example": ""
+            },
+            {
+              "code": "sl",
+              "type": "number",
+              "required": false,
+              "desc": "执行数量，初始为通知执行的数量",
+              "example": ""
+            },
+            {
+              "code": "sl1",
+              "type": "number",
+              "required": false,
+              "desc": "通知数量",
+              "example": ""
+            },
+            {
+              "code": "sl2",
+              "type": "number",
+              "required": false,
+              "desc": "终止数",
+              "example": ""
+            },
+            {
+              "code": "sl3",
+              "type": "number",
+              "required": false,
+              "desc": "差异数",
+              "example": ""
+            },
+            {
+              "code": "sl4",
+              "type": "number",
+              "required": false,
+              "desc": "实收数",
+              "example": ""
+            },
+            {
+              "code": "bzj",
+              "type": "string",
+              "required": false,
+              "desc": "标准价",
+              "example": ""
+            },
+            {
+              "code": "cbj",
+              "type": "string",
+              "required": false,
+              "desc": "成本价",
+              "example": ""
+            },
+            {
+              "code": "zk",
+              "type": "string",
+              "required": false,
+              "desc": "折扣",
+              "example": ""
+            },
+            {
+              "code": "dj",
+              "type": "string",
+              "required": false,
+              "desc": "单价",
+              "example": ""
+            },
+            {
+              "code": "je",
+              "type": "string",
+              "required": false,
+              "desc": "金额",
+              "example": ""
+            },
+            {
+              "code": "je1",
+              "type": "string",
+              "required": false,
+              "desc": "标准金额",
+              "example": ""
+            },
+            {
+              "code": "je2",
+              "type": "string",
+              "required": false,
+              "desc": "decimal",
+              "example": ""
+            },
+            {
+              "code": "bz",
+              "type": "string",
+              "required": false,
+              "desc": "备注",
+              "example": ""
+            },
+            {
+              "code": "po_no",
+              "type": "string",
+              "required": false,
+              "desc": "PO 单号",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "pfthd.list.get"
+    }
+  },
+  "message": "success"
+}

@@ -1,0 +1,918 @@
+{
+  "code": "e3oms.stock.kctzd.list.get",
+  "name": "库存",
+  "category": "库存API/kcdj",
+  "method": "GET/POST",
+  "description": "库存调整单查询",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "page",
+      "name": "page",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据级别当前页码",
+      "_parent_node": null
+    },
+    {
+      "field": "page_size",
+      "name": "page_size",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据级别每页最大数量",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": null
+    },
+    {
+      "field": "lxdj",
+      "name": "lxdj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "原单据",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_start",
+      "name": "rq_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "开始日期",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_end",
+      "name": "rq_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "结束日期",
+      "_parent_node": null
+    },
+    {
+      "field": "ysrq_start",
+      "name": "ysrq_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收日期开始",
+      "_parent_node": null
+    },
+    {
+      "field": "ysrq_end",
+      "name": "ysrq_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收日期结束",
+      "_parent_node": null
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据状态",
+      "_parent_node": null
+    },
+    {
+      "field": "tzxz",
+      "name": "tzxz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据调整类型",
+      "_parent_node": null
+    },
+    {
+      "field": "qd_code",
+      "name": "qd_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "渠道编码",
+      "_parent_node": null
+    },
+    {
+      "field": "sd_id_search",
+      "name": "sd_id_search",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商店编码",
+      "_parent_node": null
+    },
+    {
+      "field": "ck_id_view",
+      "name": "ck_id_view",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库编码",
+      "_parent_node": null
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "sku",
+      "_parent_node": null
+    },
+    {
+      "field": "keywords",
+      "name": "keywords",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "关键字",
+      "_parent_node": null
+    },
+    {
+      "field": "brand_code",
+      "name": "brand_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "品牌编码",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品编码",
+      "_parent_node": null
+    },
+    {
+      "field": "has_tags",
+      "name": "has_tags",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否标记",
+      "_parent_node": null
+    },
+    {
+      "field": "tag_code",
+      "name": "tag_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标签编码",
+      "_parent_node": null
+    },
+    {
+      "field": "sync_status",
+      "name": "sync_status",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "同步状态0未同步；1已同步",
+      "_parent_node": null
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "制单人",
+      "_parent_node": null
+    },
+    {
+      "field": "sku_page_size",
+      "name": "sku_page_size",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "SKU级别每页最大数量 不超过100",
+      "_parent_node": null
+    },
+    {
+      "field": "sku_page",
+      "name": "sku_page",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "sku级别当前页码",
+      "_parent_node": null
+    },
+    {
+      "field": "from_wms",
+      "name": "from_wms",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否来源wms 如果不需要是否wms单据不要传，0 否；1：是",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "描述",
+      "_parent_node": "data"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "否",
+      "description": "返回值",
+      "_parent_node": "data"
+    },
+    {
+      "field": "filter",
+      "name": "filter",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "查询条件",
+      "_parent_node": "data"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "当前页码",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "has_tags",
+      "name": "has_tags",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是有标记",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "制单人",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "page_size",
+      "name": "page_size",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页数量",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "page_count",
+      "name": "page_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计页数",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "record_count",
+      "name": "record_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计结果数量",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "数据结果",
+      "_parent_node": "data"
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "rq",
+      "name": "rq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "下单日期",
+      "_parent_node": "data"
+    },
+    {
+      "field": "lxdj",
+      "name": "lxdj",
+      "type": "float",
+      "length": "",
+      "required": "否",
+      "description": "原单据号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "描述",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "制单人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zdrq",
+      "name": "zdrq",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "制单时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sp",
+      "name": "sp",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否审批",
+      "_parent_node": "data"
+    },
+    {
+      "field": "spr",
+      "name": "spr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "审批人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sprq",
+      "name": "sprq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "审核时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ys",
+      "name": "ys",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否验收",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ysr",
+      "name": "ysr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ysrq",
+      "name": "ysrq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "验收时间",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zf",
+      "name": "zf",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "作废",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zfr",
+      "name": "zfr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zfrq",
+      "name": "zfrq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "作废日期",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zz",
+      "name": "zz",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "是否终止",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zzr",
+      "name": "zzr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "终止人",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zzrq",
+      "name": "zzrq",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "终止日期",
+      "_parent_node": "data"
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据状态",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ckdm",
+      "name": "ckdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库代码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zk",
+      "name": "zk",
+      "type": "float",
+      "length": "",
+      "required": "否",
+      "description": "折扣",
+      "_parent_node": "data"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "备注",
+      "_parent_node": "data"
+    },
+    {
+      "field": "ckmc",
+      "name": "ckmc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tzxz",
+      "name": "tzxz",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据类型",
+      "_parent_node": "data"
+    },
+    {
+      "field": "tzxz_name",
+      "name": "tzxz_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据类型名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sku_list",
+      "name": "sku_list",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "列表",
+      "_parent_node": "sku_list"
+    },
+    {
+      "field": "filter",
+      "name": "filter",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "查询条件内含分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "dj_id",
+      "name": "dj_id",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "单据主键",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "当前页码",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "page_size",
+      "name": "page_size",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页数量",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "page_count",
+      "name": "page_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计页数",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "record_count",
+      "name": "record_count",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "合计数量",
+      "_parent_node": "filter"
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "否",
+      "description": "sku级别数据",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "SKU",
+      "_parent_node": "data"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "货号",
+      "_parent_node": "data"
+    },
+    {
+      "field": "barcode",
+      "name": "barcode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品条码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "six_nine_code",
+      "name": "six_nine_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品69码",
+      "_parent_node": "data"
+    },
+    {
+      "field": "color_id_name",
+      "name": "color_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "颜色名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "size_id_name",
+      "name": "size_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "规格名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "goods_id_name",
+      "name": "goods_id_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品名称",
+      "_parent_node": "data"
+    },
+    {
+      "field": "kysl",
+      "name": "kysl",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "可用数量",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sl",
+      "name": "sl",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "数量",
+      "_parent_node": "data"
+    },
+    {
+      "field": "zk",
+      "name": "zk",
+      "type": "float",
+      "length": "",
+      "required": "否",
+      "description": "折扣",
+      "_parent_node": "data"
+    },
+    {
+      "field": "dj",
+      "name": "dj",
+      "type": "float",
+      "length": "",
+      "required": "否",
+      "description": "单价",
+      "_parent_node": "data"
+    },
+    {
+      "field": "je",
+      "name": "je",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "金额",
+      "_parent_node": "data"
+    },
+    {
+      "field": "batchs",
+      "name": "batchs",
+      "type": "array[object]",
+      "length": "",
+      "required": "否",
+      "description": "批次信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sl",
+      "name": "sl",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "批次数量",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "SKU",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品货号",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "batch_no",
+      "name": "batch_no",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "批次号",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "safedays",
+      "name": "safedays",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "有效期",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "create_date",
+      "name": "create_date",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "生成日期",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "expiration_date",
+      "name": "expiration_date",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "到期日",
+      "_parent_node": "batchs"
+    },
+    {
+      "field": "threshold_date",
+      "name": "threshold_date",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "临期日",
+      "_parent_node": "batchs"
+    }
+  ],
+  "error_codes": []
+}

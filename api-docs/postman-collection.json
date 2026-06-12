@@ -1,0 +1,99 @@
+{
+  "info": {
+    "_postman_id": "baison-e3-test",
+    "name": "百胜E3 接口测试",
+    "description": "百胜E3 适配器测试集合 - 使用 PHP BaisonSDK 签名算法",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "查询商店列表",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://your-baison-e3-domain/webopm/web/?app_act=api/ec&app_mode=func",
+          "protocol": "http",
+          "host": [
+            "your",
+            "baison",
+            "e3",
+            "domain"
+          ],
+          "path": [
+            "webopm",
+            "web",
+            ""
+          ],
+          "query": [
+            {
+              "key": "app_act",
+              "value": "api/ec"
+            },
+            {
+              "key": "app_mode",
+              "value": "func"
+            }
+          ]
+        }
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "var APP_KEY = \"YOUR_APP_KEY\";",
+              "var APP_SECRET = \"YOUR_APP_SECRET\";",
+              "",
+              "function getRequestTime() {",
+              "    var now = new Date();",
+              "    var pad = function(n) { return n < 10 ? '0' + n : n; };",
+              "    return '' + now.getFullYear() + pad(now.getMonth() + 1) + pad(now.getDate()) +",
+              "           pad(now.getHours()) + pad(now.getMinutes()) + pad(now.getSeconds());",
+              "}",
+              "",
+              "function md5(string) {",
+              "    return CryptoJS.MD5(string).toString();",
+              "}",
+              "",
+              "var api = pm.environment.get(\"baison_api\") || \"e3oms.base.sd.get\";",
+              "var dataValue = pm.environment.get(\"baison_data\") || '{\"pageNo\":1,\"pageSize\":5}';",
+              "",
+              "var signParams = {",
+              "    key: APP_KEY,",
+              "    requestTime: getRequestTime(),",
+              "    secret: APP_SECRET,",
+              "    version: \"3.0\",",
+              "    serviceType: api",
+              "};",
+              "",
+              "var sortedKeys = Object.keys(signParams).sort();",
+              "var queryStr = \"\";",
+              "sortedKeys.forEach(function(key, index) {",
+              "    if (index > 0) queryStr += \"&\";",
+              "    queryStr += key + \"=\" + signParams[key];",
+              "});",
+              "queryStr += \"&data=\" + dataValue;",
+              "",
+              "var sign = md5(queryStr);",
+              "",
+              "pm.request.url.addQueryParams([",
+              "    { key: \"serviceType\", value: api },",
+              "    { key: \"key\", value: APP_KEY },",
+              "    { key: \"requestTime\", value: signParams.requestTime },",
+              "    { key: \"version\", value: \"3.0\" },",
+              "    { key: \"data\", value: dataValue },",
+              "    { key: \"sign\", value: sign }",
+              "]);",
+              "",
+              "console.log(\"API:\", api);",
+              "console.log(\"RequestTime:\", signParams.requestTime);",
+              "console.log(\"Sign:\", sign);"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ]
+}

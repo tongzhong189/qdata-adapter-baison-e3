@@ -1,0 +1,261 @@
+{
+  "code": "e3oms.base.region.list.get",
+  "name": "获取区域列表",
+  "category": "基础API/region",
+  "method": "GET/POST",
+  "description": "获取区域列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数; ",
+      "_parent_node": null
+    },
+    {
+      "field": "startModified",
+      "name": "startModified",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间",
+      "_parent_node": null
+    },
+    {
+      "field": "endModified",
+      "name": "endModified",
+      "type": "datetime",
+      "length": "",
+      "required": "否",
+      "description": "结束时间",
+      "_parent_node": null
+    },
+    {
+      "field": "fields",
+      "name": "fields",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "支持的传入字段region_id,parent_id,region_name,region_type,lastchanged",
+      "_parent_node": null
+    },
+    {
+      "field": "regionType",
+      "name": "regionType",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "区域类型 1:省 2:市 3:区,如不需要不要传此字段",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "regionListGet",
+      "name": "regionListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "区域信息列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "regionCode",
+      "name": "regionCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域代码",
+      "_parent_node": "regionListGet"
+    },
+    {
+      "field": "regionName",
+      "name": "regionName",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "区域名称",
+      "_parent_node": "regionListGet"
+    },
+    {
+      "field": "regionNote",
+      "name": "regionNote",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "regionListGet"
+    },
+    {
+      "field": "pregionCode",
+      "name": "pregionCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "上级代码",
+      "_parent_node": "regionListGet"
+    },
+    {
+      "field": "regionType",
+      "name": "regionType",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "区域类型 1:省 2:市 3:区",
+      "_parent_node": "regionListGet"
+    },
+    {
+      "field": "modified",
+      "name": "modified",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "修改时间",
+      "_parent_node": "regionListGet"
+    }
+  ],
+  "error_codes": []
+}

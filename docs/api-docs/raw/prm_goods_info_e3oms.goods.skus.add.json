@@ -1,0 +1,249 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.skus.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "商品SKU档案添加",
+      "desc": "商品SKU档案添加",
+      "method": "e3oms.goods.skus.add",
+      "request_params": [
+        {
+          "code": "goods_sn",
+          "type": "string",
+          "required": true,
+          "desc": "商品编码",
+          "example": ""
+        },
+        {
+          "code": "color_code",
+          "type": "string",
+          "required": true,
+          "desc": "颜色代码",
+          "example": ""
+        },
+        {
+          "code": "color_name",
+          "type": "string",
+          "required": false,
+          "desc": "颜色名称",
+          "example": ""
+        },
+        {
+          "code": "size_code",
+          "type": "string",
+          "required": true,
+          "desc": "尺码代码",
+          "example": ""
+        },
+        {
+          "code": "size_name",
+          "type": "string",
+          "required": false,
+          "desc": "尺码名称",
+          "example": ""
+        },
+        {
+          "code": "sku",
+          "type": "string",
+          "required": true,
+          "desc": "商品 SKU",
+          "example": ""
+        },
+        {
+          "code": "barcode",
+          "type": "string",
+          "required": false,
+          "desc": "条码多条码用逗号分隔",
+          "example": ""
+        },
+        {
+          "code": "sta_barcode",
+          "type": "string",
+          "required": false,
+          "desc": "国标码多国标码用逗号分隔",
+          "example": ""
+        },
+        {
+          "code": "market_price",
+          "type": "string",
+          "required": false,
+          "desc": "市场价",
+          "example": ""
+        },
+        {
+          "code": "six_nine_code",
+          "type": "string",
+          "required": false,
+          "desc": "69码69码传入时作为条码的属性",
+          "example": ""
+        },
+        {
+          "code": "bzsj",
+          "type": "string",
+          "required": false,
+          "desc": "标准售价",
+          "example": ""
+        },
+        {
+          "code": "cbj",
+          "type": "string",
+          "required": false,
+          "desc": "成本价",
+          "example": ""
+        },
+        {
+          "code": "zjf",
+          "type": "string",
+          "required": false,
+          "desc": "助记符",
+          "example": ""
+        },
+        {
+          "code": "sj_mxs",
+          "type": "array[object]",
+          "desc": "散件明细",
+          "example": "[]",
+          "children": [
+            {
+              "code": "sku",
+              "type": "string",
+              "required": true,
+              "desc": "散件明细SKU",
+              "example": ""
+            },
+            {
+              "code": "sl",
+              "type": "string",
+              "required": true,
+              "desc": "散件明细数量",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array",
+          "desc": "响应数据",
+          "example": "[]"
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "skus.add"
+    }
+  },
+  "message": "success"
+}

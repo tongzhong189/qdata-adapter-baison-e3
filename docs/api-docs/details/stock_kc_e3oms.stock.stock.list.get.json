@@ -1,0 +1,297 @@
+{
+  "code": "e3oms.stock.stock.list.get",
+  "name": "获得仓库库存列表",
+  "category": "库存API/kc",
+  "method": "GET/POST",
+  "description": "获得仓库库存列表",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "startModified",
+      "name": "startModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询起始时间：2011-09-01 00:00:00",
+      "_parent_node": null
+    },
+    {
+      "field": "endModified",
+      "name": "endModified",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "查询内结束时间： 2000-11-30 23:59:59",
+      "_parent_node": null
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数; 默认值:20;最大值:100",
+      "_parent_node": null
+    },
+    {
+      "field": "warehouseCode",
+      "name": "warehouseCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库外部编码(传多个时以逗号间隔)",
+      "_parent_node": null
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品 SKU(传多个时以逗号间隔)",
+      "_parent_node": null
+    },
+    {
+      "field": "ckCode",
+      "name": "ckCode",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "仓库代码(传多个时以逗号间隔)",
+      "_parent_node": null
+    },
+    {
+      "field": "kyslGt",
+      "name": "kyslGt",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "可用库存大于X",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "分页信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "当前分页大小",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总记录数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "stockListGet",
+      "name": "stockListGet",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "仓库库存列表(stockListGet)",
+      "_parent_node": "data"
+    },
+    {
+      "field": "sku",
+      "name": "sku",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品 SKU",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "sl",
+      "name": "sl",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "在库数量",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "sl2",
+      "name": "sl2",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "锁定数量",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "sl7",
+      "name": "sl7",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "预警库存",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "kysl",
+      "name": "kysl",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "可用数量",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "ckCode",
+      "name": "ckCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库代码",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "warehouseCode",
+      "name": "warehouseCode",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "仓库外部编码",
+      "_parent_node": "stockListGet"
+    },
+    {
+      "field": "lastchanged",
+      "name": "lastchanged",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "最后更新时间",
+      "_parent_node": "stockListGet"
+    }
+  ],
+  "error_codes": []
+}

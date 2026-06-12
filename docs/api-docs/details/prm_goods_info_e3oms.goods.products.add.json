@@ -1,0 +1,603 @@
+{
+  "code": "e3oms.goods.products.add",
+  "name": "商品档案添加",
+  "category": "商品API/goods_info",
+  "method": "GET/POST",
+  "description": "商品档案添加",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "is_on_sale",
+      "name": "is_on_sale",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否在售1或0，默认：0",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_id",
+      "name": "goods_id",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品 ID",
+      "_parent_node": null
+    },
+    {
+      "field": "disable",
+      "name": "disable",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否显示1或0，默认：0",
+      "_parent_node": null
+    },
+    {
+      "field": "add_time",
+      "name": "add_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "添加时间",
+      "_parent_node": null
+    },
+    {
+      "field": "creator",
+      "name": "creator",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "创建人",
+      "_parent_node": null
+    },
+    {
+      "field": "modifier",
+      "name": "modifier",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "修改人",
+      "_parent_node": null
+    },
+    {
+      "field": "last_update",
+      "name": "last_update",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最后更新时间",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_sn",
+      "name": "goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品编号",
+      "_parent_node": null
+    },
+    {
+      "field": "outer_goods_sn",
+      "name": "outer_goods_sn",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "外部编码",
+      "_parent_node": null
+    },
+    {
+      "field": "tax_rate",
+      "name": "tax_rate",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "消费税率",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_name",
+      "name": "goods_name",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品名称",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_sname",
+      "name": "goods_sname",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品简称",
+      "_parent_node": null
+    },
+    {
+      "field": "cat_code",
+      "name": "cat_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "分类代码",
+      "_parent_node": null
+    },
+    {
+      "field": "brand_code",
+      "name": "brand_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "品牌代码",
+      "_parent_node": null
+    },
+    {
+      "field": "year_code",
+      "name": "year_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "年份代码",
+      "_parent_node": null
+    },
+    {
+      "field": "season_code",
+      "name": "season_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "季节代码",
+      "_parent_node": null
+    },
+    {
+      "field": "series_code",
+      "name": "series_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "系列代码",
+      "_parent_node": null
+    },
+    {
+      "field": "market_price",
+      "name": "market_price",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "市场价",
+      "_parent_node": null
+    },
+    {
+      "field": "cbj",
+      "name": "cbj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "成本价",
+      "_parent_node": null
+    },
+    {
+      "field": "bzsj",
+      "name": "bzsj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准售价",
+      "_parent_node": null
+    },
+    {
+      "field": "bzjj",
+      "name": "bzjj",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "标准进价",
+      "_parent_node": null
+    },
+    {
+      "field": "ghsdm",
+      "name": "ghsdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "供货商代码",
+      "_parent_node": null
+    },
+    {
+      "field": "sj1",
+      "name": "sj1",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价 1",
+      "_parent_node": null
+    },
+    {
+      "field": "sj2",
+      "name": "sj2",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价 2",
+      "_parent_node": null
+    },
+    {
+      "field": "sj3",
+      "name": "sj3",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价 3",
+      "_parent_node": null
+    },
+    {
+      "field": "Sj4",
+      "name": "Sj4",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "售价 4",
+      "_parent_node": null
+    },
+    {
+      "field": "is_on_sale",
+      "name": "is_on_sale",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否在售",
+      "_parent_node": null
+    },
+    {
+      "field": "disable",
+      "name": "disable",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否显示",
+      "_parent_node": null
+    },
+    {
+      "field": "modifier",
+      "name": "modifier",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最后编辑人",
+      "_parent_node": null
+    },
+    {
+      "field": "last_update",
+      "name": "last_update",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "最后更新时间E3时间",
+      "_parent_node": null
+    },
+    {
+      "field": "sp",
+      "name": "sp",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "审批0未审批，1审批,-1停用",
+      "_parent_node": null
+    },
+    {
+      "field": "spr",
+      "name": "spr",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "审批人",
+      "_parent_node": null
+    },
+    {
+      "field": "sprq",
+      "name": "sprq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批日期",
+      "_parent_node": null
+    },
+    {
+      "field": "is_distribute",
+      "name": "is_distribute",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否分销商品",
+      "_parent_node": null
+    },
+    {
+      "field": "top_cat_name",
+      "name": "top_cat_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "大类名称",
+      "_parent_node": null
+    },
+    {
+      "field": "sex",
+      "name": "sex",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "性别，默认：20男性，1女性，2保密",
+      "_parent_node": null
+    },
+    {
+      "field": "weight",
+      "name": "weight",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品重量 单位kg",
+      "_parent_node": null
+    },
+    {
+      "field": "is_batch",
+      "name": "is_batch",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "是否启用批次(0不启用，1启用)",
+      "_parent_node": null
+    },
+    {
+      "field": "safedays",
+      "name": "safedays",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "批次有效期单位：天，启用批次时必传",
+      "_parent_node": null
+    },
+    {
+      "field": "threshold",
+      "name": "threshold",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "批次临期阈值(天/分数，例如1/3或30，启用批次时必传)",
+      "_parent_node": null
+    },
+    {
+      "field": "cl_code",
+      "name": "cl_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "批次策略代码(该商品使用的E3批次策略代码，如果系统中只有1条批次策略，则不传入改字段时使用该条策略)",
+      "_parent_node": null
+    },
+    {
+      "field": "is_combo",
+      "name": "is_combo",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "是否是组装商品 0否 1是",
+      "_parent_node": null
+    },
+    {
+      "field": "length",
+      "name": "length",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "长单位cm默认0",
+      "_parent_node": null
+    },
+    {
+      "field": "width",
+      "name": "width",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "宽单位cm默认0",
+      "_parent_node": null
+    },
+    {
+      "field": "height",
+      "name": "height",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "高单位cm默认0",
+      "_parent_node": null
+    },
+    {
+      "field": "goodscj",
+      "name": "goodscj",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "商品材积",
+      "_parent_node": null
+    },
+    {
+      "field": "bzxs",
+      "name": "bzxs",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "包装系数",
+      "_parent_node": null
+    },
+    {
+      "field": "enable",
+      "name": "enable",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "是否启用1启用,2停用,默认启用",
+      "_parent_node": null
+    },
+    {
+      "field": "fjsx_list",
+      "name": "fjsx_list",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "附加属性信息",
+      "_parent_node": null
+    },
+    {
+      "field": "market_time",
+      "name": "market_time",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "上市时间",
+      "_parent_node": null
+    },
+    {
+      "field": "mlxx",
+      "name": "mlxx",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "面料信息",
+      "_parent_node": null
+    },
+    {
+      "field": "english_name",
+      "name": "english_name",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品英文名称",
+      "_parent_node": null
+    },
+    {
+      "field": "dw_code",
+      "name": "dw_code",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品单位",
+      "_parent_node": null
+    },
+    {
+      "field": "goods_desc",
+      "name": "goods_desc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "商品备注",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    }
+  ],
+  "error_codes": []
+}

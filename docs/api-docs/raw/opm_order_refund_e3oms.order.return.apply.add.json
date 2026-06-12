@@ -1,0 +1,358 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.return.apply.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "退货包裹单添加",
+      "desc": "退货包裹单添加",
+      "method": "e3oms.order.return.apply.add",
+      "request_params": [
+        {
+          "code": "warehouseCode",
+          "type": "string",
+          "required": true,
+          "desc": "仓库编码, string (50)，必填",
+          "example": "CK01"
+        },
+        {
+          "code": "orderCode",
+          "type": "string",
+          "required": true,
+          "desc": "ERP的发货单编码, string (50) , 必填",
+          "example": "15455486548654"
+        },
+        {
+          "code": "orderId",
+          "type": "string",
+          "required": true,
+          "desc": "仓库系统的发货单编码, string (50) , 条件必填",
+          "example": "15455486548654"
+        },
+        {
+          "code": "createDate",
+          "type": "string",
+          "required": true,
+          "desc": "缺货回告创建时间, string (19) , 必填",
+          "example": "2025-09-01 00:00:00"
+        },
+        {
+          "code": "createEmp",
+          "type": "string",
+          "required": false,
+          "desc": "创建人",
+          "example": "创建人"
+        },
+        {
+          "code": "logisticsCode",
+          "type": "string",
+          "required": false,
+          "desc": "物流公司编码, string (50) , ",
+          "example": "SF=顺丰、EMS=标准快递、EYB=经济快件、ZJS=宅急送、YTO=圆通 、ZTO=中通 (ZTO) 、HTKY=百世汇通、BSKY=百世快运、UC=优速、STO=申通、TTKDEX=天天快递 、QFKD=全峰、FAST=快捷、POSTB=邮政小包 、GTO=国通、YUNDA=韵达、JD=京东配送、DD=当当宅配、AMAZON=亚马逊物流、DBWL=德邦物流、DBKD=德邦快递、DBKY=德邦快运、RRS=日日顺、OTHER=其他，必填, (只传英文编码)"
+        },
+        {
+          "code": "logisticsName",
+          "type": "string",
+          "required": false,
+          "desc": "物流公司名称",
+          "example": "顺丰"
+        },
+        {
+          "code": "expressCode",
+          "type": "string",
+          "required": false,
+          "desc": "运单号",
+          "example": "SF1111"
+        },
+        {
+          "code": "extendProps",
+          "type": "array[object]",
+          "required": false,
+          "desc": "扩展信息",
+          "example": ""
+        },
+        {
+          "code": "remark",
+          "type": "string",
+          "required": false,
+          "desc": "备注",
+          "example": "备注"
+        },
+        {
+          "code": "receiverInfo",
+          "type": "object",
+          "required": false,
+          "desc": "\t收货人信息",
+          "example": "\t收货人信息",
+          "children": [
+            {
+              "code": "name",
+              "type": "string",
+              "required": false,
+              "desc": "姓名",
+              "example": "姓名"
+            },
+            {
+              "code": "zipCode",
+              "type": "string",
+              "required": false,
+              "desc": "邮编",
+              "example": "10001"
+            },
+            {
+              "code": "tel",
+              "type": "string",
+              "required": false,
+              "desc": "固定电话,",
+              "example": ""
+            },
+            {
+              "code": "mobile",
+              "type": "string",
+              "required": false,
+              "desc": "移动电话",
+              "example": ""
+            },
+            {
+              "code": "countryCode",
+              "type": "string",
+              "required": false,
+              "desc": "国家二字码",
+              "example": ""
+            },
+            {
+              "code": "province",
+              "type": "string",
+              "required": false,
+              "desc": "省份",
+              "example": "湖北省"
+            },
+            {
+              "code": "city",
+              "type": "string",
+              "required": false,
+              "desc": "城市",
+              "example": "武汉市"
+            },
+            {
+              "code": "area",
+              "type": "string",
+              "required": false,
+              "desc": "区域",
+              "example": "江夏区"
+            },
+            {
+              "code": "town",
+              "type": "string",
+              "required": false,
+              "desc": "村镇",
+              "example": ""
+            },
+            {
+              "code": "detailAddress",
+              "type": "string",
+              "required": false,
+              "desc": "详细地址",
+              "example": ""
+            }
+          ]
+        },
+        {
+          "code": "items",
+          "type": "array",
+          "required": true,
+          "desc": "商品列表",
+          "example": "",
+          "children": [
+            {
+              "code": "itemCode",
+              "type": "string",
+              "required": true,
+              "desc": "商品编码",
+              "example": "SKU1"
+            },
+            {
+              "code": "itemId",
+              "type": "string",
+              "required": true,
+              "desc": "仓储系统商品编码",
+              "example": "S001"
+            },
+            {
+              "code": "inventoryType",
+              "type": "string",
+              "required": true,
+              "desc": "库存类型",
+              "example": "ZP=正品, CC=残次,JS=机损, XS= 箱损, ZT=在途库存，DJ=冻结，DJ=冻结"
+            },
+            {
+              "code": "batchCode",
+              "type": "string",
+              "required": false,
+              "desc": "批次编码",
+              "example": ""
+            },
+            {
+              "code": "productDate",
+              "type": "string",
+              "required": false,
+              "desc": "商品生产日期",
+              "example": ""
+            },
+            {
+              "code": "expireDate",
+              "type": "string",
+              "required": false,
+              "desc": "商品过期日期",
+              "example": ""
+            },
+            {
+              "code": "produceCode",
+              "type": "string",
+              "required": false,
+              "desc": "生产批号",
+              "example": ""
+            },
+            {
+              "code": "planQty",
+              "type": "string",
+              "required": false,
+              "desc": "商品数量",
+              "example": "1"
+            },
+            {
+              "code": "extendProps",
+              "type": "array[object]",
+              "required": false,
+              "desc": "扩展属性",
+              "example": ""
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.return.apply.add"
+    }
+  },
+  "message": "success"
+}

@@ -1,0 +1,649 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.base.kehu.detail.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取客户详情",
+      "desc": "获取客户详情",
+      "method": "e3oms.base.kehu.detail.get",
+      "request_params": [
+        {
+          "code": "khdm",
+          "type": "string",
+          "required": true,
+          "desc": "客户代码",
+          "example": "kehu001"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "[]",
+          "children": [
+            {
+              "code": "id",
+              "type": "string",
+              "required": true,
+              "desc": "客户id",
+              "example": ""
+            },
+            {
+              "code": "khdm",
+              "type": "string",
+              "required": true,
+              "desc": "代码",
+              "example": ""
+            },
+            {
+              "code": "khmc",
+              "type": "string",
+              "required": true,
+              "desc": "名称",
+              "example": ""
+            },
+            {
+              "code": "ydm",
+              "type": "string",
+              "required": true,
+              "desc": "原代码",
+              "example": ""
+            },
+            {
+              "code": "ywy_id",
+              "type": "string",
+              "required": true,
+              "desc": "业务员ID",
+              "example": ""
+            },
+            {
+              "code": "ywy",
+              "type": "string",
+              "required": true,
+              "desc": "业务员",
+              "example": ""
+            },
+            {
+              "code": "lb_id",
+              "type": "string",
+              "required": true,
+              "desc": "客户类别ID",
+              "example": ""
+            },
+            {
+              "code": "khlb",
+              "type": "string",
+              "required": true,
+              "desc": "客户类别",
+              "example": ""
+            },
+            {
+              "code": "xsms",
+              "type": "string",
+              "required": true,
+              "desc": "性质代码",
+              "example": ""
+            },
+            {
+              "code": "xz",
+              "type": "string",
+              "required": true,
+              "desc": "性质",
+              "example": ""
+            },
+            {
+              "code": "qd_id",
+              "type": "string",
+              "required": true,
+              "desc": "渠道ID",
+              "example": ""
+            },
+            {
+              "code": "qd_mc",
+              "type": "string",
+              "required": true,
+              "desc": "渠道名称",
+              "example": ""
+            },
+            {
+              "code": "qd_dm",
+              "type": "string",
+              "required": true,
+              "desc": "渠道代码",
+              "example": ""
+            },
+            {
+              "code": "khck",
+              "type": "string",
+              "required": true,
+              "desc": "客户仓库",
+              "example": ""
+            },
+            {
+              "code": "kh_ckmc",
+              "type": "string",
+              "required": true,
+              "desc": "客户仓库名称",
+              "example": ""
+            },
+            {
+              "code": "kh_ckdm",
+              "type": "string",
+              "required": true,
+              "desc": "客户仓库代码",
+              "example": ""
+            },
+            {
+              "code": "qy_id",
+              "type": "string",
+              "required": true,
+              "desc": "区域ID",
+              "example": ""
+            },
+            {
+              "code": "qy_mc",
+              "type": "string",
+              "required": true,
+              "desc": "区域名称",
+              "example": ""
+            },
+            {
+              "code": "jsxz",
+              "type": "string",
+              "required": true,
+              "desc": "结算性质",
+              "example": ""
+            },
+            {
+              "code": "is_ty",
+              "type": "string",
+              "required": true,
+              "desc": "停止使用",
+              "example": ""
+            },
+            {
+              "code": "zq",
+              "type": "string",
+              "required": true,
+              "desc": "账期",
+              "example": ""
+            },
+            {
+              "code": "brand_id",
+              "type": "string",
+              "required": true,
+              "desc": "品牌id",
+              "example": ""
+            },
+            {
+              "code": "brand_name",
+              "type": "string",
+              "required": true,
+              "desc": "品牌",
+              "example": ""
+            },
+            {
+              "code": "distributor",
+              "type": "string",
+              "required": true,
+              "desc": "经销商",
+              "example": ""
+            },
+            {
+              "code": "jzrq",
+              "type": "string",
+              "required": true,
+              "desc": "业务截止日期",
+              "example": ""
+            },
+            {
+              "code": "wbbm",
+              "type": "string",
+              "required": true,
+              "desc": "外部编码",
+              "example": ""
+            },
+            {
+              "code": "bmlx_id",
+              "type": "string",
+              "required": true,
+              "desc": "部门类型ID",
+              "example": ""
+            },
+            {
+              "code": "bmlx",
+              "type": "string",
+              "required": true,
+              "desc": "部门类型",
+              "example": ""
+            },
+            {
+              "code": "split_order",
+              "type": "string",
+              "required": true,
+              "desc": "是否拆单：1启用",
+              "example": ""
+            },
+            {
+              "code": "jgsd2",
+              "type": "string",
+              "required": true,
+              "desc": "发货价格设定",
+              "example": ""
+            },
+            {
+              "code": "jgsd1",
+              "type": "string",
+              "required": true,
+              "desc": "退货价格设定",
+              "example": ""
+            },
+            {
+              "code": "zk",
+              "type": "string",
+              "required": true,
+              "desc": "折扣",
+              "example": ""
+            },
+            {
+              "code": "not_sync_pfdj",
+              "type": "string",
+              "required": true,
+              "desc": "不同步批发单据至ERP（内部API）",
+              "example": ""
+            },
+            {
+              "code": "bz",
+              "type": "string",
+              "required": true,
+              "desc": "备注",
+              "example": ""
+            },
+            {
+              "code": "contact",
+              "type": "array[object]",
+              "desc": "联系方式",
+              "children": [
+                {
+                  "code": "lxr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "联系人",
+                  "example": ""
+                },
+                {
+                  "code": "sj",
+                  "type": "string",
+                  "required": true,
+                  "desc": "手机",
+                  "example": ""
+                },
+                {
+                  "code": "dh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "电话",
+                  "example": ""
+                },
+                {
+                  "code": "yb",
+                  "type": "string",
+                  "required": true,
+                  "desc": "邮编",
+                  "example": ""
+                },
+                {
+                  "code": "fax",
+                  "type": "string",
+                  "required": true,
+                  "desc": "传真",
+                  "example": ""
+                },
+                {
+                  "code": "email",
+                  "type": "string",
+                  "required": true,
+                  "desc": "email",
+                  "example": ""
+                },
+                {
+                  "code": "dz",
+                  "type": "string",
+                  "required": true,
+                  "desc": "地址",
+                  "example": ""
+                },
+                {
+                  "code": "web",
+                  "type": "string",
+                  "required": true,
+                  "desc": "web",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "bank_account",
+              "type": "array[object]",
+              "desc": "银行账号",
+              "children": [
+                {
+                  "code": "frdb",
+                  "type": "string",
+                  "required": true,
+                  "desc": "法人代表",
+                  "example": ""
+                },
+                {
+                  "code": "sh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "税号",
+                  "example": ""
+                },
+                {
+                  "code": "khh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "开户行",
+                  "example": ""
+                },
+                {
+                  "code": "yhzh",
+                  "type": "string",
+                  "required": true,
+                  "desc": "银行账号",
+                  "example": ""
+                },
+                {
+                  "code": "kjkm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "会计科目",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "brand",
+              "type": "array[object]",
+              "desc": "经营品牌",
+              "children": [
+                {
+                  "code": "brand_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "品牌ID",
+                  "example": ""
+                },
+                {
+                  "code": "brand_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "品牌代码",
+                  "example": ""
+                },
+                {
+                  "code": "brand_name",
+                  "type": "string",
+                  "required": true,
+                  "desc": "品牌名称",
+                  "example": ""
+                },
+                {
+                  "code": "is_default",
+                  "type": "string",
+                  "required": true,
+                  "desc": "是否默认:0-非默认 1-默认",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "delivery_address",
+              "type": "array[object]",
+              "desc": "送货地址",
+              "children": [
+                {
+                  "code": "address",
+                  "type": "string",
+                  "required": true,
+                  "desc": "地址名称",
+                  "example": ""
+                },
+                {
+                  "code": "cyfs",
+                  "type": "string",
+                  "required": true,
+                  "desc": "承运方式",
+                  "example": ""
+                },
+                {
+                  "code": "lxr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "联系人",
+                  "example": ""
+                },
+                {
+                  "code": "tel",
+                  "type": "string",
+                  "required": true,
+                  "desc": "电话",
+                  "example": ""
+                },
+                {
+                  "code": "phone",
+                  "type": "string",
+                  "required": true,
+                  "desc": "手机",
+                  "example": ""
+                },
+                {
+                  "code": "ckdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "关联仓库代码",
+                  "example": ""
+                },
+                {
+                  "code": "ckmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "关联仓库名称",
+                  "example": ""
+                },
+                {
+                  "code": "is_default",
+                  "type": "string",
+                  "required": true,
+                  "desc": "是否默认:0-非默认 1-默认",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "sap_info",
+              "type": "array[object]",
+              "desc": "SAP信息",
+              "children": [
+                {
+                  "code": "zvkorg",
+                  "type": "string",
+                  "required": true,
+                  "desc": "销售组织",
+                  "example": ""
+                },
+                {
+                  "code": "zwerks",
+                  "type": "string",
+                  "required": true,
+                  "desc": "工厂",
+                  "example": ""
+                },
+                {
+                  "code": "zkunag",
+                  "type": "string",
+                  "required": true,
+                  "desc": "售达方",
+                  "example": ""
+                },
+                {
+                  "code": "zkunnr",
+                  "type": "string",
+                  "required": true,
+                  "desc": "送达方",
+                  "example": ""
+                },
+                {
+                  "code": "sap_vendor_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "Licensees SAP Vendor Code",
+                  "example": ""
+                },
+                {
+                  "code": "sap_customer_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "Licensees SAP Customer Code",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "fhck",
+              "type": "array[object]",
+              "desc": "发货仓库",
+              "children": [
+                {
+                  "code": "ckdm",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库代码",
+                  "example": ""
+                },
+                {
+                  "code": "ckmc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "仓库名称",
+                  "example": ""
+                },
+                {
+                  "code": "sort_order",
+                  "type": "string",
+                  "required": true,
+                  "desc": "序号",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": ""
+    }
+  },
+  "message": "success"
+}

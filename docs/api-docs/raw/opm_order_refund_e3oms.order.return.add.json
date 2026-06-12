@@ -1,0 +1,509 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.return.add"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "销售退单添加",
+      "desc": "销售退单添加",
+      "method": "e3oms.order.return.add",
+      "request_params": [
+        {
+          "code": "sell_return_record",
+          "type": "array[object]",
+          "required": false,
+          "desc": "退单信息",
+          "example": "",
+          "children": [
+            {
+              "code": "order_sn",
+              "type": "string",
+              "required": true,
+              "desc": "订单编号(交易单号二选一)",
+              "example": "1654456153215"
+            },
+            {
+              "code": "return_ck_code",
+              "type": "string",
+              "required": true,
+              "desc": "退货仓库代码",
+              "example": "ck001"
+            },
+            {
+              "code": "return_kw_code",
+              "type": "string",
+              "required": true,
+              "desc": "退货库位代码",
+              "example": "001"
+            },
+            {
+              "code": "return_type",
+              "type": "number",
+              "required": true,
+              "desc": "退单类型(1 退货 2 追件 3 拒收 8回收)",
+              "example": "1"
+            },
+            {
+              "code": "return_shipping_id",
+              "type": "string",
+              "required": false,
+              "desc": "退货快递公司id",
+              "example": "1"
+            },
+            {
+              "code": "return_shipping_sn",
+              "type": "string",
+              "required": false,
+              "desc": "退货快递物流单号",
+              "example": ""
+            },
+            {
+              "code": "refund_code",
+              "type": "string",
+              "required": false,
+              "desc": "退单编号（平台上面的退单编号）",
+              "example": ""
+            },
+            {
+              "code": "shipping_name",
+              "type": "string",
+              "required": false,
+              "desc": "退货快递公司",
+              "example": ""
+            },
+            {
+              "code": "shipping_sn",
+              "type": "string",
+              "required": false,
+              "desc": "退货物流单号",
+              "example": ""
+            },
+            {
+              "code": "shipping_code",
+              "type": "string",
+              "required": false,
+              "desc": "退货快递公司编码",
+              "example": ""
+            },
+            {
+              "code": "return_mode",
+              "type": "string",
+              "required": false,
+              "desc": "退运费方式[九牧定制]",
+              "example": "gkjf"
+            },
+            {
+              "code": "wms_is_stop",
+              "type": "string",
+              "required": false,
+              "desc": "推送EWM是否拦截[九牧定制]",
+              "example": "0"
+            },
+            {
+              "code": "zdy_zd1",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段1,所有自定义字段需提前配置自定义字段才可用",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd2",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段2",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd3",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段3",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd4",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段4",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd5",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段5",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd6",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段6",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd7",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段7",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd8",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段8",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd9",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段9",
+              "example": ""
+            },
+            {
+              "code": "zdy_zd10",
+              "type": "string",
+              "required": false,
+              "desc": "自定义字段10",
+              "example": ""
+            },
+            {
+              "code": "order_return_goods",
+              "type": "array[object]",
+              "required": false,
+              "desc": "退单商品信息(order_return_goods)",
+              "example": "",
+              "children": [
+                {
+                  "code": "sku",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品 SKU",
+                  "example": "sku001"
+                },
+                {
+                  "code": "tc_sku",
+                  "type": "string",
+                  "required": false,
+                  "desc": "套餐SKU，此处填写套餐sku表示仅退套餐内的指定商品sku(20220730后版本支持)",
+                  "example": "sku001"
+                },
+                {
+                  "code": "goods_number",
+                  "type": "number",
+                  "required": true,
+                  "desc": "商品数量",
+                  "example": "1"
+                },
+                {
+                  "code": "market_price",
+                  "type": "float",
+                  "required": false,
+                  "desc": "商品吊牌价",
+                  "example": "100"
+                },
+                {
+                  "code": "shop_price",
+                  "type": "float",
+                  "required": true,
+                  "desc": "商品售价",
+                  "example": "100"
+                },
+                {
+                  "code": "goods_price",
+                  "type": "float",
+                  "required": false,
+                  "desc": "商品实际成交价,如果该字段不传则取退单的订单数据，否则按照入参参数生成退单",
+                  "example": "100"
+                },
+                {
+                  "code": "return_reason",
+                  "type": "string",
+                  "required": true,
+                  "desc": "退货原因（一级）[九牧定制]",
+                  "example": ""
+                },
+                {
+                  "code": "return_reason_ex",
+                  "type": "string",
+                  "required": true,
+                  "desc": "退货原因（二级）[九牧定制]",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd1",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段1",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd2",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段2",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd3",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段3",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd4",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段4",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd5",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段5",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd6",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段6",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd7",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段7",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd8",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段8",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd9",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段9",
+                  "example": ""
+                },
+                {
+                  "code": "zdy_mx_zd10",
+                  "type": "string",
+                  "required": false,
+                  "desc": "自定义字段10",
+                  "example": ""
+                }
+              ]
+            },
+            {
+              "code": "order_return_goods_batch",
+              "type": "array[object]",
+              "required": false,
+              "desc": "批次信息(order_return_goods_batch)",
+              "example": "",
+              "children": [
+                {
+                  "code": "sku",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品 SKU",
+                  "example": "sku001"
+                },
+                {
+                  "code": "batch_no",
+                  "type": "string",
+                  "required": true,
+                  "desc": "批次号",
+                  "example": "2021065"
+                },
+                {
+                  "code": "sl",
+                  "type": "number",
+                  "required": true,
+                  "desc": "批次数量",
+                  "example": "2"
+                }
+              ]
+            },
+            {
+              "code": "order_resend_goods",
+              "type": "array[object]",
+              "required": false,
+              "desc": "追单商品换货配合return_type=2生成换货单",
+              "example": "",
+              "children": [
+                {
+                  "code": "sku",
+                  "type": "string",
+                  "required": true,
+                  "desc": "追单商品 SKU",
+                  "example": "sku001"
+                },
+                {
+                  "code": "goods_number",
+                  "type": "number",
+                  "required": true,
+                  "desc": "追单商品数量",
+                  "example": "1"
+                },
+                {
+                  "code": "market_price",
+                  "type": "float",
+                  "required": true,
+                  "desc": "市场价",
+                  "example": "20.00"
+                },
+                {
+                  "code": "shop_price",
+                  "type": "float",
+                  "required": true,
+                  "desc": "商品网店在售价格",
+                  "example": "20.00"
+                },
+                {
+                  "code": "goods_price",
+                  "type": "float",
+                  "required": false,
+                  "desc": "商品单价",
+                  "example": "20.00"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "required": false,
+          "desc": "返回信息",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": false,
+          "desc": "操作消息",
+          "example": ""
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.return.add"
+    }
+  },
+  "message": "success"
+}

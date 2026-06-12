@@ -1,0 +1,1199 @@
+{
+  "status": 1,
+  "data": {
+    "menu": {
+      "name": "E3电商标准API接口文档",
+      "children": [
+        {
+          "name": "基础API",
+          "path": "base",
+          "children": [
+            {
+              "name": "客户档案",
+              "path": "base/shop",
+              "children": [
+                {
+                  "name": "获取商店列表/详情",
+                  "path": "base/shop/e3oms.base.sd.get",
+                  "alias": "sd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取客户列表",
+                  "path": "base/shop/e3oms.base.kehu.list.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取客户详情",
+                  "path": "base/shop/e3oms.base.kehu.detail.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加客户",
+                  "path": "base/shop/e3oms.base.kehu.add",
+                  "alias": "kehu_add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加分销商店",
+                  "path": "base/shop/e3oms.base.fenxiao.kehu.add",
+                  "alias": "",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "区域档案",
+              "path": "base/region",
+              "children": [
+                {
+                  "name": "获取区域列表",
+                  "path": "base/region/e3oms.base.region.list.get",
+                  "alias": "region.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "仓库档案",
+              "path": "base/cangku",
+              "children": [
+                {
+                  "name": "获取仓库档案",
+                  "path": "base/cangku/e3oms.base.cangku.get",
+                  "alias": "cangku.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加仓库档案",
+                  "path": "base/cangku/e3oms.base.cangku.add",
+                  "alias": "cangku.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加储位",
+                  "path": "base/cangku/e3oms.base.cw.add",
+                  "alias": "add.chuwei",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加sku储位",
+                  "path": "base/cangku/e3oms.base.skucw.add",
+                  "alias": "add.skucw",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "快递档案",
+              "path": "base/shipping",
+              "children": [
+                {
+                  "name": "获得快递列表",
+                  "path": "base/shipping/e3oms.base.shipping.list.get",
+                  "alias": "shipping.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "供应商档案",
+              "path": "base/suppliers",
+              "children": [
+                {
+                  "name": "供应商档案添加",
+                  "path": "base/suppliers/e3oms.base.suppliers.add",
+                  "alias": "suppliers.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "分销商档案",
+              "path": "base/fxs",
+              "children": [
+                {
+                  "name": "添加分销商余额调整单接口",
+                  "path": "base/fxs/e3oms.base.qudao.yetzd.add",
+                  "alias": "qudao.yetzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加分销商账户额度调整单接口",
+                  "path": "base/fxs/e3oms.base.fms.xyedtzd.add",
+                  "alias": "fms.xyedtzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取分销商余额调整单接口",
+                  "path": "base/fxs/e3oms.base.qudao.yetzd.get",
+                  "alias": "qudao.yetzd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取分销商账户额度调整单接口",
+                  "path": "base/fxs/e3oms.base.fms.xyedtzd.get",
+                  "alias": "fms.xyedtzd.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "渠道档案",
+              "path": "base/qudao",
+              "children": [
+                {
+                  "name": "获取渠道列表/详情",
+                  "path": "base/qudao/e3oms.base.qd.get",
+                  "alias": "qd.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "会员档案",
+              "path": "base/user",
+              "children": [
+                {
+                  "name": "获取会员列表",
+                  "path": "base/user/e3oms.base.user.list.get",
+                  "alias": "user.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "商品API",
+          "path": "prm",
+          "children": [
+            {
+              "name": "商品信息",
+              "path": "prm/goods_info",
+              "children": [
+                {
+                  "name": "获得商品列表",
+                  "path": "prm/goods_info/e3oms.goods.list.get",
+                  "alias": "goods.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得商品详细信息",
+                  "path": "prm/goods_info/e3oms.goods.detail.get",
+                  "alias": "goods.detail.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "商品SKU档案添加",
+                  "path": "prm/goods_info/e3oms.goods.skus.add",
+                  "alias": "skus.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得商品sku列表",
+                  "path": "prm/goods_info/e3oms.goods.sku.list.get",
+                  "alias": "sku.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "商品档案添加",
+                  "path": "prm/goods_info/e3oms.goods.products.add",
+                  "alias": "products.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "基本属性",
+              "path": "prm/basic",
+              "children": [
+                {
+                  "name": "获取颜色列表",
+                  "path": "prm/basic/e3oms.goods.color.list.get",
+                  "alias": "color.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得尺码列表",
+                  "path": "prm/basic/e3oms.goods.size.list.get",
+                  "alias": "size.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得季节列表",
+                  "path": "prm/basic/e3oms.goods.season.list.get",
+                  "alias": "season.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得年度列表",
+                  "path": "prm/basic/e3oms.goods.year.list.get",
+                  "alias": "year.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得系列列表",
+                  "path": "prm/basic/e3oms.goods.series.list.get",
+                  "alias": "series.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得品牌列表",
+                  "path": "prm/basic/e3oms.goods.brand.list.get",
+                  "alias": "brand.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得分类列表",
+                  "path": "prm/basic/e3oms.goods.cat.list.get",
+                  "alias": "cat.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得附加属性列表",
+                  "path": "prm/basic/e3oms.goods.fjsx.list.get",
+                  "alias": "fjsx.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "颜色档案添加",
+                  "path": "prm/basic/e3oms.goods.colors.add",
+                  "alias": "colors.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "尺码档案添加",
+                  "path": "prm/basic/e3oms.goods.sizes.add",
+                  "alias": "sizes.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "品牌档案添加",
+                  "path": "prm/basic/e3oms.goods.brands.add",
+                  "alias": "brands.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "季节档案添加",
+                  "path": "prm/basic/e3oms.goods.seasons.add",
+                  "alias": "seasons.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "年度档案添加",
+                  "path": "prm/basic/e3oms.goods.years.add",
+                  "alias": "years.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "系列档案添加",
+                  "path": "prm/basic/e3oms.goods.series.add",
+                  "alias": "series.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "分类档案添加",
+                  "path": "prm/basic/e3oms.goods.cats.add",
+                  "alias": "cats.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "附加属性档案添加",
+                  "path": "prm/basic/e3oms.goods.fjsxs.add",
+                  "alias": "fjsxs.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取包装单位列表",
+                  "path": "prm/basic/e3oms.goods.bzdw.list.get",
+                  "alias": "bzdw.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取 sku 级附加属性列表",
+                  "path": "prm/basic/e3oms.goods.sku.fjsx.list.get",
+                  "alias": "sku.fjsx.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "获取平台商品列表",
+              "path": "prm/platform_goods",
+              "children": [
+                {
+                  "name": "获取平台商品列表",
+                  "path": "prm/platform_goods/e3oms.goods.outer.sku.list.get",
+                  "alias": "outer.sku.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "套餐",
+              "path": "prm/taocan",
+              "children": [
+                {
+                  "name": "获取套餐列表",
+                  "path": "prm/taocan/e3oms.goods.taocan.list.get",
+                  "alias": "taocan.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加套餐",
+                  "path": "prm/taocan/e3oms.goods.taocan.add",
+                  "alias": "taocan.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "条码录入",
+              "path": "prm/barcode",
+              "children": [
+                {
+                  "name": "条码录入",
+                  "path": "prm/barcode/e3oms.goods.barcodes.add",
+                  "alias": "barcodes.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "唯一码",
+              "path": "prm/uniquecode",
+              "children": [
+                {
+                  "name": "唯一码存入",
+                  "path": "prm/uniquecode/e3oms.goods.unique.code.add",
+                  "alias": "save.unique.code",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取唯一码档案列表",
+                  "path": "prm/uniquecode/e3oms.goods.uniquecode.detail.get",
+                  "alias": "uniquecode.detail.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "采购API",
+          "path": "pms",
+          "children": [
+            {
+              "name": "采购订单",
+              "path": "pms/cgjrd",
+              "children": [
+                {
+                  "name": "采购订单列表",
+                  "path": "pms/cgjrd/e3oms.purchase.cgjrd.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "采购订单添加",
+                  "path": "pms/cgjrd/e3oms.purchase.cgjrd.add",
+                  "alias": "cgjrd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "采购订单终止",
+                  "path": "pms/cgjrd/e3oms.purchase.cgjrd.cancel",
+                  "alias": "cgjrd.cancel",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "采购通知单",
+              "path": "pms/cgtzd",
+              "children": [
+                {
+                  "name": "采购通知单添加",
+                  "path": "pms/cgtzd/e3oms.purchase.cgtzd.add",
+                  "alias": "cgtzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取采购通知单列表/详情",
+                  "path": "pms/cgtzd/e3oms.purchase.cgtzd.get",
+                  "alias": "cgtzd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "采购通知单取消",
+                  "path": "pms/cgtzd/e3oms.purchase.cgtzd.cancel",
+                  "alias": "cgtzd.cancel",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "采购退货通知单",
+              "path": "pms/cgthtzd",
+              "children": [
+                {
+                  "name": "采购退货通知单添加",
+                  "path": "pms/cgthtzd/e3oms.purchase.cgthtzd.add",
+                  "alias": "cgthtzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取采购退货通知单列表/详情",
+                  "path": "pms/cgthtzd/e3oms.purchase.cgthtzd.get",
+                  "alias": "cgthtzd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "采购退货通知单终止",
+                  "path": "pms/cgthtzd/e3oms.purchase.cgthtzd.cancel",
+                  "alias": "cgthtzd.cancel",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "采购退货申请单",
+              "path": "pms/cgthjrd",
+              "children": [
+                {
+                  "name": "采购退货申请单添加",
+                  "path": "pms/cgthjrd/e3oms.purchase.cgthjrd.add",
+                  "alias": "cgthjrd.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "采购入库单",
+              "path": "pms/spjhd",
+              "children": [
+                {
+                  "name": "采购入库单添加",
+                  "path": "pms/spjhd/e3oms.purchase.spjhd.add",
+                  "alias": "spjhd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取采购入库单列表/详情",
+                  "path": "pms/spjhd/e3oms.purchase.spjhd.get",
+                  "alias": "spjhd.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "采购退货单",
+              "path": "pms/cktcd",
+              "children": [
+                {
+                  "name": "采购退货单添加",
+                  "path": "pms/cktcd/e3oms.purchase.cktcd.add",
+                  "alias": "cktcd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取采购退货单列表/详情",
+                  "path": "pms/cktcd/e3oms.purchase.cktcd.get",
+                  "alias": "cktcd.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "批发API",
+          "path": "drp",
+          "children": [
+            {
+              "name": "批发通知单",
+              "path": "drp/pftzd",
+              "children": [
+                {
+                  "name": "批发通知单添加",
+                  "path": "drp/pftzd/e3oms.wholesale.pftzd.add",
+                  "alias": "pftzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "批发通知单终止",
+                  "path": "drp/pftzd/e3oms.wholesale.pftzd.cancel",
+                  "alias": "pftzd.cancel",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取批发通知单列表/详情",
+                  "path": "drp/pftzd/e3oms.wholesale.pftzd.get",
+                  "alias": "pftzd.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "批发销货单",
+              "path": "drp/pfxhd",
+              "children": [
+                {
+                  "name": "批发销货单列表",
+                  "path": "drp/pfxhd/e3oms.wholesale.pfxhd.list.get",
+                  "alias": "pfxhd.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "批发销货单列表",
+                  "path": "drp/pfxhd/e3oms.wholesale.pfxhd.add",
+                  "alias": "pfxhd.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "批发退货通知单",
+              "path": "drp/pfthtzd",
+              "children": [
+                {
+                  "name": "批发退货通知单添加",
+                  "path": "drp/pfthtzd/e3oms.wholesale.pfthtzd.add",
+                  "alias": "pfthtzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取批发退货通知单列表/详情",
+                  "path": "drp/pfthtzd/e3oms.wholesale.pfthtzd.get",
+                  "alias": "pfthtzd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "批发退货通知单终止",
+                  "path": "drp/pfthtzd/e3oms.wholesale.pfthtzd.cancel",
+                  "alias": "pfthtzd.cancel",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "批发退货单",
+              "path": "drp/pfthd",
+              "children": [
+                {
+                  "name": "批发退货单添加",
+                  "path": "drp/pfthd/e3oms.wholesale.pfthd.add",
+                  "alias": "pfthd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取批发退货单列表/详情",
+                  "path": "drp/pfthd/e3oms.wholesale.pfthd.list.get",
+                  "alias": "pfthd.list.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "订单API",
+          "path": "opm",
+          "children": [
+            {
+              "name": "订单",
+              "path": "opm/order",
+              "children": [
+                {
+                  "name": "根据商品货号查询商品订单",
+                  "path": "opm/order/e3oms.order.info.through.goods.sn.get",
+                  "alias": "get.order.info.through.goods.sn",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "根据商品货号查询商品销量，商品在淘宝上的商品ID",
+                  "path": "opm/order/e3oms.order.taobao.info.through.goods.sn.get",
+                  "alias": "get.taobao.info.through.goods.sn",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "批量修改发货仓库接口",
+                  "path": "opm/order/e3oms.order.ck.change",
+                  "alias": "order.ck.change",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取零售结算单列表",
+                  "path": "opm/order/e3oms.order.ext.refund.get",
+                  "alias": "ext.refund.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "拆分订单被动接口",
+                  "path": "opm/order/e3oms.order.split.interface",
+                  "alias": "order.split.interface",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取拆分订单列表",
+                  "path": "opm/order/e3oms.order.split.list.get",
+                  "alias": "order.split.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取拆分订单",
+                  "path": "opm/order/e3oms.order.split.deal",
+                  "alias": "order.split.deal",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取订单",
+                  "path": "opm/order/e3oms.order.list.get",
+                  "alias": "order.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单挂起",
+                  "path": "opm/order/e3oms.order.handup",
+                  "alias": "order.handup",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "释放订单库存",
+                  "path": "opm/order/e3oms.order.adapt.unlock",
+                  "alias": "OrderAdaptUnlock",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单发货出库",
+                  "path": "opm/order/e3oms.order.fhck",
+                  "alias": "order.fhck",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单置无效",
+                  "path": "opm/order/e3oms.order.zwx",
+                  "alias": "order.zwx",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "订单取消发货",
+                  "path": "opm/order/e3oms.order.delivery.cancel",
+                  "alias": "order.cancel.delivery",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取订单/详细信息",
+                  "path": "opm/order/e3oms.order.detail.get",
+                  "alias": "order.detail.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单添加",
+                  "path": "opm/order/e3oms.order.detail.add",
+                  "alias": "order.detail.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取订单缺货列表",
+                  "path": "opm/order/e3oms.order.qh.list.get",
+                  "alias": "order.qh.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存流水账",
+                  "path": "opm/order/e3oms.order.cklsz.list.get",
+                  "alias": "get.cklsz.list",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "退单置无效",
+                  "path": "opm/order/e3oms.order.return.zwx",
+                  "alias": "order.return.zwx",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "订单通知配货完成",
+                  "path": "opm/order/e3oms.order.tzph.status",
+                  "alias": "order.tzph.status",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单业务处理",
+                  "path": "opm/order/e3oms.order.status.modify",
+                  "alias": "order.status.modify",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "订单确认",
+                  "path": "opm/order/e3oms.order.qr",
+                  "alias": "order.qr",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "订单解挂",
+                  "path": "opm/order/e3oms.order.unhandup",
+                  "alias": "order.unhandup",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "主站订单地址修改",
+                  "path": "opm/order/e3oms.order.openshop.address.modify",
+                  "alias": "openshop.address.modify",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取对账单列表",
+                  "path": "opm/order/e3oms.order.dzd.list.get",
+                  "alias": "get.dzd.list",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "订单信息变更",
+                  "path": "opm/order/e3oms.order.info.change",
+                  "alias": "order.info.change",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "创建补发复制单",
+                  "path": "opm/order/e3oms.order.reissue.copy",
+                  "alias": "reissue.copy",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "拣货单查询",
+                  "path": "opm/order/e3oms.order.jhd.get",
+                  "alias": "order.jhd.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "拣货单强制验收",
+                  "path": "opm/order/e3oms.order.jhd.update",
+                  "alias": "order.jhd.update",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单分销结算",
+                  "path": "opm/order/e3oms.order.fxjs",
+                  "alias": "order.fxjs",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "拣货单取消",
+                  "path": "opm/order/e3oms.order.jhd.cancel",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "添加/删除销售订单商品",
+                  "path": "opm/order/e3oms.order.goods.change",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售订单自定义字段更新",
+                  "path": "opm/order/e3oms.order.custom.field.update",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "淘宝订单虚拟号延期",
+                  "path": "opm/order/e3oms.order.top.secret.extend",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "退单自定义字段更新",
+                  "path": "opm/order/e3oms.order.return.custom.field.update",
+                  "alias": "",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "退单",
+              "path": "opm/order_refund",
+              "children": [
+                {
+                  "name": "退单进行快速入库",
+                  "path": "opm/order_refund/e3oms.order.return.ksrk",
+                  "alias": "order.return.ksrk",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "销售退单添加",
+                  "path": "opm/order_refund/e3oms.order.return.add",
+                  "alias": "order.return.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取退单详细信息",
+                  "path": "opm/order_refund/e3oms.order.return.detail.get",
+                  "alias": "return.detail.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取退单列表信息",
+                  "path": "opm/order_refund/e3oms.order.return.list.get",
+                  "alias": "return.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获取淘宝退单中间表信息",
+                  "path": "opm/order_refund/e3oms.order.tb.refund.get",
+                  "alias": "tb.refund.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "更新退单状态",
+                  "path": "opm/order_refund/e3oms.order.return.status.modify",
+                  "alias": "order.return.status.modify",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "更新退单物流信息",
+                  "path": "opm/order_refund/e3oms.order.return.shipping.modify",
+                  "alias": "order.return.shipping.modify",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "更新退单退货原因",
+                  "path": "opm/order_refund/e3oms.order.return.reason.modify",
+                  "alias": "order.return.reason.modify",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "主站部分退",
+                  "path": "opm/order_refund/e3oms.order.openshop.return.add",
+                  "alias": "openshop.return.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "主站退款被动接口",
+                  "path": "opm/order_refund/e3oms.order.return.trade.add",
+                  "alias": "order.return.trade.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "退单进行入库",
+                  "path": "opm/order_refund/e3oms.order.return.rk",
+                  "alias": "order.return.rk",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "退货包裹单添加",
+                  "path": "opm/order_refund/e3oms.order.return.apply.add",
+                  "alias": "order.return.apply.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "退单确认入库",
+                  "path": "opm/order_refund/e3oms.order.return.confirm",
+                  "alias": "order.return.confirm",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "门店API",
+          "path": "ipos",
+          "children": [
+            {
+              "name": "档案",
+              "path": "ipos/cangku",
+              "children": [
+                {
+                  "name": "启用仓库档案",
+                  "path": "ipos/cangku/e3oms.store.cangku.qy",
+                  "alias": "cangku.qy",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "停用仓库档案",
+                  "path": "ipos/cangku/e3oms.store.cangku.zz",
+                  "alias": "cangku.zz",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "获取门店仓库档案",
+                  "path": "ipos/cangku/e3oms.store.md.cangku.get",
+                  "alias": "md.cangku.get",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "获取用户权限仓库及店铺",
+                  "path": "ipos/cangku/e3oms.store.user.cangku.get",
+                  "alias": "get.user.cangku",
+                  "api_path": "api/iposplus"
+                }
+              ]
+            },
+            {
+              "name": "库存",
+              "path": "ipos/kc",
+              "children": [
+                {
+                  "name": "同步商品库存",
+                  "path": "ipos/kc/e3oms.store.kc.sync",
+                  "alias": "syncKc",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "获取商品库存",
+                  "path": "ipos/kc/e3oms.store.kc.get",
+                  "alias": "getKc",
+                  "api_path": "api/iposplus"
+                }
+              ]
+            },
+            {
+              "name": "订单",
+              "path": "ipos/order",
+              "children": [
+                {
+                  "name": "更新销售订单发货状态",
+                  "path": "ipos/order/e3oms.store.sales.order.update",
+                  "alias": "UpdateSalesOrder",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "更新销售订单付款状态",
+                  "path": "ipos/order/e3oms.store.pay.status.update",
+                  "alias": "UpdatePayStatus",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "作废销售订单",
+                  "path": "ipos/order/e3oms.store.wx.order.update",
+                  "alias": "UpdateWxOrder",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "更新销售退单入库状态",
+                  "path": "ipos/order/e3oms.store.sales.refund.update",
+                  "alias": "UpdateSalesRefund",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "作废销售退单",
+                  "path": "ipos/order/e3oms.store.wx.refund.update",
+                  "alias": "UpdateWxRefund",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "IPOS反馈菜鸟面单可以发货",
+                  "path": "ipos/order/e3oms.store.order.consign.delivery",
+                  "alias": "deliveryOrderConsign",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "IPOS退货成功后调用EC生成退单",
+                  "path": "ipos/order/e3oms.store.order.to.refund",
+                  "alias": "Order2Refund",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "新增退款任务",
+                  "path": "ipos/order/e3oms.store.refund.order.task.add",
+                  "alias": "add.refund.order.task",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "IPOS获取拒单原因",
+                  "path": "ipos/order/e3oms.store.cancel.reason.list.get",
+                  "alias": "cancel.reason.list.get",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "全渠道门店自提根据核销码查询订单",
+                  "path": "ipos/order/e3oms.store.order.consumer.query",
+                  "alias": "order.consumer.query",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "全渠道门店自提核销订单(新)",
+                  "path": "ipos/order/e3oms.store.order.consumer.check",
+                  "alias": "order.consumer.check",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "处理售后事务跟踪单",
+                  "path": "ipos/order/e3oms.store.handle.order.service.track",
+                  "alias": "handle.order.service.track",
+                  "api_path": "api/iposplus"
+                },
+                {
+                  "name": "外卖平台骑手信息获取",
+                  "path": "ipos/order/e3oms.store.delivery.get",
+                  "alias": "order_delivery_get",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "库存API",
+          "path": "stock",
+          "children": [
+            {
+              "name": "库存",
+              "path": "stock/kc",
+              "children": [
+                {
+                  "name": "获得仓库库存列表",
+                  "path": "stock/kc/e3oms.stock.stock.list.get",
+                  "alias": "stock.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "获得店铺商品可用库存",
+                  "path": "stock/kc/e3oms.stock.shop.stock.get",
+                  "alias": "get.shop.stock",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "商品批次库存列表",
+                  "path": "stock/kc/e3oms.stock.batch.kc.list",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "汇总仓库存列表",
+                  "path": "stock/kc/e3oms.stock.hz.total.get",
+                  "alias": "e3oms.stock.hz.total.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "汇总仓SKU级别库存列表",
+                  "path": "stock/kc/e3oms.stock.hz.sku.mx.total.get",
+                  "alias": "e3oms.stock.hz.sku.mx.total.get",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "库存单据",
+              "path": "stock/kcdj",
+              "children": [
+                {
+                  "name": "仓库移仓单新增",
+                  "path": "stock/kcdj/e3oms.stock.ckycd.add",
+                  "alias": "ckycd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "移仓出/入库单查询",
+                  "path": "stock/kcdj/e3oms.stock.yc.ckrk.get",
+                  "alias": "yc.ckrk.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存调整单新增",
+                  "path": "stock/kcdj/e3oms.stock.kctzd.add",
+                  "alias": "kctzd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存锁定单新增",
+                  "path": "stock/kcdj/e3oms.stock.kcsdd.add",
+                  "alias": "kcsdd.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存调整单查询",
+                  "path": "stock/kcdj/e3oms.stock.kctzd.list.get",
+                  "alias": "kctzd.list.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存锁定单查询",
+                  "path": "stock/kcdj/e3oms.stock.kcsdd.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "仓库移仓单查询",
+                  "path": "stock/kcdj/e3oms.stock.ckycd.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "库存锁定单释放",
+                  "path": "stock/kcdj/e3oms.stock.kcsdd.delock",
+                  "alias": "",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "其他(出/入)库单",
+              "path": "stock/crtzd",
+              "children": [
+                {
+                  "name": "其他(出/入)库单添加",
+                  "path": "stock/crtzd/e3oms.stock.crtzd.rk.add",
+                  "alias": "crtzd.rk.add",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "其他(出/入)库单获取",
+                  "path": "stock/crtzd/e3oms.stock.crtzd.rk.get",
+                  "alias": "crtzd.rk.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "其他(出/入)库单编辑审核",
+                  "path": "stock/crtzd/e3oms.stock.crtzd.rk.update",
+                  "alias": "crtzd.rk.update",
+                  "api_path": "api/ec"
+                }
+              ]
+            },
+            {
+              "name": "组装(拆卸)",
+              "path": "stock/zzcx",
+              "children": [
+                {
+                  "name": "组装(拆卸)查询接口",
+                  "path": "stock/zzcx/e3oms.stock.zzcx.get",
+                  "alias": "zzcx.get",
+                  "api_path": "api/ec"
+                },
+                {
+                  "name": "组装(拆卸)添加接口",
+                  "path": "stock/zzcx/e3oms.stock.zzcx.add",
+                  "alias": "zzcx.add",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "财务API",
+          "path": "finance",
+          "children": [
+            {
+              "name": "财务对账",
+              "path": "finance/bill",
+              "children": [
+                {
+                  "name": "获取对账费用单",
+                  "path": "finance/bill/e3oms.finance.dzdfee.get",
+                  "alias": "",
+                  "api_path": "api/ec"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "message": "success"
+}

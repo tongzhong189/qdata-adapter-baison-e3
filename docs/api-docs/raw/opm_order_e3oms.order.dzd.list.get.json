@@ -1,0 +1,464 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.dzd.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取对账单列表",
+      "desc": "获取对账单列表",
+      "method": "e3oms.order.dzd.list.get",
+      "request_params": [
+        {
+          "code": "create_time_start",
+          "type": "string",
+          "required": true,
+          "desc": "开始创建时间",
+          "example": "2001-01-01 00:00:00"
+        },
+        {
+          "code": "create_time_end",
+          "type": "string",
+          "required": true,
+          "desc": "结束创建时间",
+          "example": "2001-01-01 23:59:59"
+        },
+        {
+          "code": "sd_id",
+          "type": "number",
+          "required": false,
+          "desc": "商店id",
+          "example": "1"
+        },
+        {
+          "code": "merchant_order_no",
+          "type": "string",
+          "required": false,
+          "desc": "商户订单号",
+          "example": ""
+        },
+        {
+          "code": "deal_code",
+          "type": "string",
+          "required": false,
+          "desc": "交易号",
+          "example": "sku001"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": true,
+          "desc": "每页数量",
+          "example": "20"
+        },
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": true,
+          "desc": "页数",
+          "example": "1"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "page",
+              "type": "array[object]",
+              "required": true,
+              "desc": "返回页码信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "totalResult",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总条数",
+                  "example": "1000"
+                },
+                {
+                  "code": "pageSize",
+                  "type": "number",
+                  "required": true,
+                  "desc": "每页条数",
+                  "example": "100"
+                },
+                {
+                  "code": "pageNo",
+                  "type": "number",
+                  "required": true,
+                  "desc": "页码",
+                  "example": "1"
+                },
+                {
+                  "code": "pageTotal",
+                  "type": "number",
+                  "required": true,
+                  "desc": "总页数",
+                  "example": "10"
+                }
+              ]
+            },
+            {
+              "code": "dzdListGets",
+              "type": "array[array[object]]",
+              "required": true,
+              "desc": "对账单列表",
+              "example": "",
+              "children": [
+                {
+                  "code": "sd_id",
+                  "type": "number",
+                  "required": true,
+                  "desc": "商店id",
+                  "example": "1"
+                },
+                {
+                  "code": "complete_time",
+                  "type": "number",
+                  "required": true,
+                  "desc": "导入时间",
+                  "example": "2022-06-21 18:17:47"
+                },
+                {
+                  "code": "create_time",
+                  "type": "number",
+                  "required": true,
+                  "desc": "创建时间",
+                  "example": "2022-06-21 18:17:47"
+                },
+                {
+                  "code": "type",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务类型",
+                  "example": ""
+                },
+                {
+                  "code": "business_type",
+                  "type": "string",
+                  "required": true,
+                  "desc": "子业务类型",
+                  "example": ""
+                },
+                {
+                  "code": "goods_name",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商品名称",
+                  "example": ""
+                },
+                {
+                  "code": "channel",
+                  "type": "string",
+                  "required": true,
+                  "desc": "交易渠道",
+                  "example": ""
+                },
+                {
+                  "code": "balance",
+                  "type": "number",
+                  "required": true,
+                  "desc": "账户余额",
+                  "example": ""
+                },
+                {
+                  "code": "in_amount",
+                  "type": "number",
+                  "required": true,
+                  "desc": "收入金额",
+                  "example": ""
+                },
+                {
+                  "code": "out_amount",
+                  "type": "number",
+                  "required": true,
+                  "desc": "支出金额",
+                  "example": ""
+                },
+                {
+                  "code": "order_no",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务流水号",
+                  "example": "RE101002144266821169(转账手续费)"
+                },
+                {
+                  "code": "merchant_order_no",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商户订单号",
+                  "example": ""
+                },
+                {
+                  "code": "self_user_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "商户账号",
+                  "example": "3"
+                },
+                {
+                  "code": "opt_user_id",
+                  "type": "string",
+                  "required": true,
+                  "desc": "对方账号",
+                  "example": "3"
+                },
+                {
+                  "code": "memo",
+                  "type": "string",
+                  "required": true,
+                  "desc": "账单备注",
+                  "example": ""
+                },
+                {
+                  "code": "dzd_type_name",
+                  "type": "string",
+                  "required": true,
+                  "desc": "账单类型",
+                  "example": ""
+                },
+                {
+                  "code": "dzd_category",
+                  "type": "string",
+                  "required": true,
+                  "desc": "账单所属类型",
+                  "example": ""
+                },
+                {
+                  "code": "deal_code",
+                  "type": "string",
+                  "required": true,
+                  "desc": "交易号",
+                  "example": ""
+                },
+                {
+                  "code": "status",
+                  "type": "number",
+                  "required": true,
+                  "desc": "状态",
+                  "example": "0"
+                },
+                {
+                  "code": "status_msg",
+                  "type": "string",
+                  "required": true,
+                  "desc": "状态说明",
+                  "example": ""
+                },
+                {
+                  "code": "check_status",
+                  "type": "number",
+                  "required": true,
+                  "desc": "是否对账",
+                  "example": "（0-未对账;1-已对账）"
+                },
+                {
+                  "code": "lastchanged",
+                  "type": "number",
+                  "required": true,
+                  "desc": "更新时间",
+                  "example": "2022-06-21 18:17:47"
+                },
+                {
+                  "code": "cl_sync_status",
+                  "type": "number",
+                  "required": true,
+                  "desc": "[策略接口]单据同步状态",
+                  "example": "0"
+                },
+                {
+                  "code": "cl_sync_num",
+                  "type": "number",
+                  "required": true,
+                  "desc": "[策略接口]单据同步次数",
+                  "example": "0"
+                },
+                {
+                  "code": "cl_sync_time",
+                  "type": "number",
+                  "required": true,
+                  "desc": "[策略接口]单据同步成功时间戳",
+                  "example": ""
+                },
+                {
+                  "code": "js_time",
+                  "type": "number",
+                  "required": true,
+                  "desc": "账单结算时间",
+                  "example": "2022-06-21 18:17:47"
+                },
+                {
+                  "code": "sync_time_success",
+                  "type": "string",
+                  "required": true,
+                  "desc": "[策略接口]单据同步成功时间",
+                  "example": "2022-06-21 18:17:47"
+                },
+                {
+                  "code": "business_desc",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务描述",
+                  "example": ""
+                },
+                {
+                  "code": "business_from",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务账单来源",
+                  "example": ""
+                },
+                {
+                  "code": "business_base_order_no",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务基础订单号",
+                  "example": ""
+                },
+                {
+                  "code": "business_order_no",
+                  "type": "string",
+                  "required": true,
+                  "desc": "业务订单号",
+                  "example": ""
+                },
+                {
+                  "code": "qr_status",
+                  "type": "number",
+                  "required": true,
+                  "desc": "确认状态",
+                  "example": "1已确认 0未确认"
+                },
+                {
+                  "code": "plat_bill_date",
+                  "type": "number",
+                  "required": true,
+                  "desc": "平台账单日期",
+                  "example": ""
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "get.dzd.list"
+    }
+  },
+  "message": "success"
+}

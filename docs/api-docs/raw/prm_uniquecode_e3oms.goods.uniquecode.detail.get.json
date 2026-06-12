@@ -1,0 +1,749 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.good.uniquecode.detail.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取唯一码档案列表",
+      "desc": "获取唯一码档案列表",
+      "method": "e3oms.good.uniquecode.detail.get",
+      "request_params": [
+        {
+          "code": "pageNo",
+          "type": "number",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数; ",
+          "example": "20"
+        },
+        {
+          "code": "startModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "查询起始时间",
+          "example": "2020-07-15 00:00:01"
+        },
+        {
+          "code": "endModified",
+          "type": "datetime",
+          "required": false,
+          "desc": "结束时间",
+          "example": "2020-07-15 23:59:59"
+        },
+        {
+          "code": "goods_sn",
+          "type": "string",
+          "required": false,
+          "desc": "商品编码",
+          "example": "autotest_goods_001"
+        },
+        {
+          "code": "color_code",
+          "type": "string",
+          "required": false,
+          "desc": "颜色代码",
+          "example": "color002"
+        },
+        {
+          "code": "size_code",
+          "type": "string",
+          "required": false,
+          "desc": "尺码编码",
+          "example": "size002"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "{\"status\":\"api-success\",\"message\":\"success\",\"data\":{\"page\":{\"totalResult\":2,\"pageSize\":1,\"pageNo\":1,\"pageTotal\":2},\"bzdwListGet\":[{\"dwCode\":\"ge\",\"dwName\":\"\\u4e2a\",\"dwXs\":\"0\",\"dwBarcode\":\"\",\"dwNote\":\"\",\"modified\":\"2021-01-25 10:40:25\"}]}}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "描述"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "分页详情",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总数",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总页数",
+                      "example": "1"
+                    }
+                  ]
+                },
+                {
+                  "code": "uniqueListGet",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    [
+                      {
+                        "code": "unique_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "唯一码",
+                        "example": "originwym000202"
+                      },
+                      {
+                        "code": "ck_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "仓库主键",
+                        "example": "1"
+                      },
+                      {
+                        "code": "kw_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库位主键",
+                        "example": "2"
+                      },
+                      {
+                        "code": "sku",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品sku",
+                        "example": "sku0002"
+                      },
+                      {
+                        "code": "sku_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "sku主键",
+                        "example": "1"
+                      },
+                      {
+                        "code": "goods_sn",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品编码",
+                        "example": "autotest_goods_001"
+                      },
+                      {
+                        "code": "goods_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品名称",
+                        "example": "测试商品"
+                      },
+                      {
+                        "code": "kc_status",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库存状态 -1:全部，0:出库；1：在库；",
+                        "example": "1"
+                      },
+                      {
+                        "code": "kc_sl",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库存数量",
+                        "example": "98"
+                      },
+                      {
+                        "code": "fcode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "珠宝批次号",
+                        "example": "pc000001"
+                      },
+                      {
+                        "code": "fname",
+                        "type": "string",
+                        "required": false,
+                        "desc": "珠宝批次名称",
+                        "example": "批次名称"
+                      },
+                      {
+                        "code": "fkind",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金成色编码",
+                        "example": "999"
+                      },
+                      {
+                        "code": "fclasscode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "支付编码",
+                        "example": "支付编码"
+                      },
+                      {
+                        "code": "fclassname",
+                        "type": "string",
+                        "required": false,
+                        "desc": "大类名称",
+                        "example": "大类名称"
+                      },
+                      {
+                        "code": "fcatecode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "品类编码",
+                        "example": "pl00001"
+                      },
+                      {
+                        "code": "fcatename",
+                        "type": "string",
+                        "required": false,
+                        "desc": "品类名称",
+                        "example": "精品"
+                      },
+                      {
+                        "code": "fgoods_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "物料号 款式号",
+                        "example": "ks001"
+                      },
+                      {
+                        "code": "fgoods_names",
+                        "type": "string",
+                        "required": false,
+                        "desc": "物料描述 款式名称",
+                        "example": "秋款"
+                      },
+                      {
+                        "code": "fpurity",
+                        "type": "string",
+                        "required": false,
+                        "desc": "净度 净度名称",
+                        "example": "超纯净"
+                      },
+                      {
+                        "code": "fcolor",
+                        "type": "string",
+                        "required": false,
+                        "desc": "色度 色度名称",
+                        "example": "中国红"
+                      },
+                      {
+                        "code": "fspecifications",
+                        "type": "string",
+                        "required": false,
+                        "desc": "规格戒指圈号 项链尺寸",
+                        "example": "23号"
+                      },
+                      {
+                        "code": "fcertificate",
+                        "type": "string",
+                        "required": false,
+                        "desc": "证书号码",
+                        "example": "CP0000221123"
+                      },
+                      {
+                        "code": "fsupervisioncode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "监管号",
+                        "example": "CPC9998882123K"
+                      },
+                      {
+                        "code": "fweight_mainstone",
+                        "type": "string",
+                        "required": false,
+                        "desc": "主石重量",
+                        "example": "300"
+                      },
+                      {
+                        "code": "fweight_glod",
+                        "type": "float",
+                        "required": false,
+                        "desc": "金量",
+                        "example": "9999.999999"
+                      },
+                      {
+                        "code": "fweight_base",
+                        "type": "float",
+                        "required": false,
+                        "desc": "总重量",
+                        "example": "10000.999999"
+                      },
+                      {
+                        "code": "fprice_sale",
+                        "type": "float",
+                        "required": false,
+                        "desc": "标签价格",
+                        "example": "200.999999"
+                      },
+                      {
+                        "code": "fprice_buy",
+                        "type": "float",
+                        "required": false,
+                        "desc": "成本",
+                        "example": "1.999999"
+                      },
+                      {
+                        "code": "fcost",
+                        "type": "float",
+                        "required": false,
+                        "desc": "加工费",
+                        "example": "99.999999"
+                      },
+                      {
+                        "code": "fprice_kind",
+                        "type": "string",
+                        "required": false,
+                        "desc": "计价类型",
+                        "example": "11234"
+                      },
+                      {
+                        "code": "fgoldstone_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金石编码",
+                        "example": "G00001"
+                      },
+                      {
+                        "code": "fgoldstone_names",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金石名称",
+                        "example": "天然锆石"
+                      },
+                      {
+                        "code": "fsku_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "久批次号",
+                        "example": "old_pc_00001"
+                      },
+                      {
+                        "code": "lastchanged",
+                        "type": "datetime",
+                        "required": false,
+                        "desc": "套餐商店",
+                        "example": "2021-01-01 13:55:19"
+                      },
+                      {
+                        "code": "ck_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "仓库编码",
+                        "example": "ck_0000001"
+                      },
+                      {
+                        "code": "ck_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "仓库名称",
+                        "example": "华南仓"
+                      }
+                    ],
+                    [
+                      {
+                        "code": "unique_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "唯一码",
+                        "example": "originwym000202"
+                      },
+                      {
+                        "code": "ck_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "仓库主键",
+                        "example": "1"
+                      },
+                      {
+                        "code": "kw_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库位主键",
+                        "example": "2"
+                      },
+                      {
+                        "code": "sku",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品sku",
+                        "example": "sku0002"
+                      },
+                      {
+                        "code": "sku_id",
+                        "type": "number",
+                        "required": false,
+                        "desc": "sku主键",
+                        "example": "1"
+                      },
+                      {
+                        "code": "goods_sn",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品编码",
+                        "example": "autotest_goods_001"
+                      },
+                      {
+                        "code": "goods_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "商品名称",
+                        "example": "测试商品"
+                      },
+                      {
+                        "code": "kc_status",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库存状态 -1:全部，0:出库；1：在库；",
+                        "example": "1"
+                      },
+                      {
+                        "code": "kc_sl",
+                        "type": "number",
+                        "required": false,
+                        "desc": "库存数量",
+                        "example": "98"
+                      },
+                      {
+                        "code": "fcode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "珠宝批次号",
+                        "example": "pc000001"
+                      },
+                      {
+                        "code": "fname",
+                        "type": "string",
+                        "required": false,
+                        "desc": "珠宝批次名称",
+                        "example": "批次名称"
+                      },
+                      {
+                        "code": "fkind",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金成色编码",
+                        "example": "999"
+                      },
+                      {
+                        "code": "fclasscode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "支付编码",
+                        "example": "支付编码"
+                      },
+                      {
+                        "code": "fclassname",
+                        "type": "string",
+                        "required": false,
+                        "desc": "大类名称",
+                        "example": "大类名称"
+                      },
+                      {
+                        "code": "fcatecode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "品类编码",
+                        "example": "pl00001"
+                      },
+                      {
+                        "code": "fcatename",
+                        "type": "string",
+                        "required": false,
+                        "desc": "品类名称",
+                        "example": "精品"
+                      },
+                      {
+                        "code": "fgoods_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "物料号 款式号",
+                        "example": "ks001"
+                      },
+                      {
+                        "code": "fgoods_names",
+                        "type": "string",
+                        "required": false,
+                        "desc": "物料描述 款式名称",
+                        "example": "秋款"
+                      },
+                      {
+                        "code": "fpurity",
+                        "type": "string",
+                        "required": false,
+                        "desc": "净度 净度名称",
+                        "example": "超纯净"
+                      },
+                      {
+                        "code": "fcolor",
+                        "type": "string",
+                        "required": false,
+                        "desc": "色度 色度名称",
+                        "example": "中国红"
+                      },
+                      {
+                        "code": "fspecifications",
+                        "type": "string",
+                        "required": false,
+                        "desc": "规格戒指圈号 项链尺寸",
+                        "example": "23号"
+                      },
+                      {
+                        "code": "fcertificate",
+                        "type": "string",
+                        "required": false,
+                        "desc": "证书号码",
+                        "example": "CP0000221123"
+                      },
+                      {
+                        "code": "fsupervisioncode",
+                        "type": "string",
+                        "required": false,
+                        "desc": "监管号",
+                        "example": "CPC9998882123K"
+                      },
+                      {
+                        "code": "fweight_mainstone",
+                        "type": "string",
+                        "required": false,
+                        "desc": "主石重量",
+                        "example": "300"
+                      },
+                      {
+                        "code": "fweight_glod",
+                        "type": "float",
+                        "required": false,
+                        "desc": "金量",
+                        "example": "9999.999999"
+                      },
+                      {
+                        "code": "fweight_base",
+                        "type": "float",
+                        "required": false,
+                        "desc": "总重量",
+                        "example": "10000.999999"
+                      },
+                      {
+                        "code": "fprice_sale",
+                        "type": "float",
+                        "required": false,
+                        "desc": "标签价格",
+                        "example": "200.999999"
+                      },
+                      {
+                        "code": "fprice_buy",
+                        "type": "float",
+                        "required": false,
+                        "desc": "成本",
+                        "example": "1.999999"
+                      },
+                      {
+                        "code": "fcost",
+                        "type": "float",
+                        "required": false,
+                        "desc": "加工费",
+                        "example": "99.999999"
+                      },
+                      {
+                        "code": "fprice_kind",
+                        "type": "string",
+                        "required": false,
+                        "desc": "计价类型",
+                        "example": "11234"
+                      },
+                      {
+                        "code": "fgoldstone_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金石编码",
+                        "example": "G00001"
+                      },
+                      {
+                        "code": "fgoldstone_names",
+                        "type": "string",
+                        "required": false,
+                        "desc": "金石名称",
+                        "example": "天然锆石"
+                      },
+                      {
+                        "code": "fsku_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "久批次号",
+                        "example": "old_pc_00001"
+                      },
+                      {
+                        "code": "lastchanged",
+                        "type": "datetime",
+                        "required": false,
+                        "desc": "套餐商店",
+                        "example": "2021-01-01 13:55:19"
+                      },
+                      {
+                        "code": "ck_code",
+                        "type": "string",
+                        "required": false,
+                        "desc": "仓库编码",
+                        "example": "ck_0000001"
+                      },
+                      {
+                        "code": "ck_name",
+                        "type": "string",
+                        "required": false,
+                        "desc": "仓库名称",
+                        "example": "华南仓"
+                      }
+                    ]
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ]
+    }
+  },
+  "message": "success"
+}

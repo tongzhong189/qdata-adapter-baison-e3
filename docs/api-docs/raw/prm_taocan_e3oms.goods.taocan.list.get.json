@@ -1,0 +1,443 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.goods.taocan.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取套餐列表",
+      "desc": "获取套餐列表",
+      "method": "e3oms.goods.taocan.list.get",
+      "type": "array[array[object]]",
+      "request_params": [
+        {
+          "code": "sd_code",
+          "type": "string",
+          "required": false,
+          "desc": "商店代码",
+          "example": "lylx,goods_sku,goods_barcode,outer_goods_id,outer_goods_sku_id,outer_goods_name,outer_goods_url,outer_goods_je,outer_goods_sl,outer_goods_sku,outer_goods_sku_name,add_time"
+        },
+        {
+          "code": "tc_sn",
+          "type": "number",
+          "required": false,
+          "desc": "套餐码",
+          "example": "auto_taocan01"
+        },
+        {
+          "code": "pageSize",
+          "type": "number",
+          "required": false,
+          "desc": "20",
+          "example": "每页数量"
+        },
+        {
+          "code": "startModified",
+          "type": "number",
+          "required": false,
+          "desc": "20",
+          "example": "每页数量"
+        },
+        {
+          "code": "endModified",
+          "type": "number",
+          "required": false,
+          "desc": "20",
+          "example": "每页数量"
+        },
+        {
+          "code": "tc_sku",
+          "type": "number",
+          "required": false,
+          "desc": "20",
+          "example": "每页数量"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "data",
+          "type": "array[object]",
+          "desc": "响应数据",
+          "example": "{\"status\":\"api-success\",\"message\":\"success\",\"data\":{\"page\":{\"totalResult\":2,\"pageSize\":1,\"pageNo\":1,\"pageTotal\":2},\"taocanListGet\":[{\"tc_sn\":\"auto_taocan01\",\"tc_name\":\"测试套餐01\",\"price\":\"20.00\",\"bz\":\"\",\"status\":\"enabled\",\"lastchanged\":\"2021-03-01 15:48:27\",\"sd_id_set\":\"auto_sd_taobao001,auto_sd_jd001\",\"guige_list\":[{\"tc_sku\":\"auto_taocan01000000\",\"color_code\":\"000\",\"color_name\":\"通色\",\"size_code\":\"000\",\"size_name\":\"通码\",\"guige_goods_list\":[{\"tc_sku\":\"auto_taocan01000000\",\"sku\":\"sku0041\",\"goods_sn\":\"autotest_goods_009\",\"goods_name\":\"自动测试商品9\",\"color_code\":\"color001\",\"color_name\":\"自动测试颜色1\",\"size_code\":\"size001\",\"size_name\":\"自动测试尺码1\",\"sl\":\"1\",\"price\":\"10.00\"},{\"tc_sku\":\"auto_taocan01000000\",\"sku\":\"sku0042\",\"goods_sn\":\"autotest_goods_009\",\"goods_name\":\"自动测试商品9\",\"color_code\":\"color002\",\"color_name\":\"自动测试颜色2\",\"size_code\":\"size002\",\"size_name\":\"自动测试尺码2\",\"sl\":\"1\",\"price\":\"10.00\"}],\"total_price\":20,\"sl\":60}]}]}}",
+          "children": [
+            {
+              "code": "status",
+              "type": "string",
+              "required": false,
+              "desc": "状态",
+              "example": "api-server-exception"
+            },
+            {
+              "code": "message",
+              "type": "string",
+              "required": false,
+              "desc": "描述",
+              "example": "success"
+            },
+            {
+              "code": "data",
+              "type": "array",
+              "required": false,
+              "desc": "返回值",
+              "example": "",
+              "children": [
+                {
+                  "code": "page",
+                  "type": "array[object]",
+                  "required": false,
+                  "desc": "分页详情",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "totalResult",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总数",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageSize",
+                      "type": "number",
+                      "required": false,
+                      "desc": "每页数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageNo",
+                      "type": "number",
+                      "required": false,
+                      "desc": "当前页码",
+                      "example": "1"
+                    },
+                    {
+                      "code": "pageTotal",
+                      "type": "number",
+                      "required": false,
+                      "desc": "总页数",
+                      "example": "1"
+                    }
+                  ]
+                },
+                {
+                  "code": "taocanListGet",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "数据结果",
+                  "example": "[]",
+                  "children": [
+                    {
+                      "code": "tc_sn",
+                      "type": "string",
+                      "required": false,
+                      "desc": "套餐编码",
+                      "example": "auto_taocan01"
+                    },
+                    {
+                      "code": "tc_name",
+                      "type": "string",
+                      "required": false,
+                      "desc": "套餐名称",
+                      "example": "测试套餐"
+                    },
+                    {
+                      "code": "price",
+                      "type": "float",
+                      "required": false,
+                      "desc": "套餐价格",
+                      "example": "1.09"
+                    },
+                    {
+                      "code": "bz",
+                      "type": "string",
+                      "required": false,
+                      "desc": "备注",
+                      "example": "备注"
+                    },
+                    {
+                      "code": "status",
+                      "type": "string",
+                      "required": false,
+                      "desc": "套餐状态",
+                      "example": "enable可用  disabled 不可用"
+                    },
+                    {
+                      "code": "lastchanged",
+                      "type": "datetime",
+                      "required": false,
+                      "desc": "最后更新时间",
+                      "example": "2021-01-25 10:40:25"
+                    },
+                    {
+                      "code": "sd_id_set",
+                      "type": "string",
+                      "required": false,
+                      "desc": "套餐商店",
+                      "example": "auto_sd_taobao001,auto_sd_jd001"
+                    },
+                    {
+                      "code": "guige_list",
+                      "type": "array[array[object]]",
+                      "required": false,
+                      "desc": "列表",
+                      "example": "[]",
+                      "children": [
+                        {
+                          "code": "tc_sku",
+                          "type": "string",
+                          "required": false,
+                          "desc": "套餐编码",
+                          "example": "auto_taocan01"
+                        },
+                        {
+                          "code": "color_code",
+                          "type": "string",
+                          "required": false,
+                          "desc": "套餐名称",
+                          "example": "测试套餐"
+                        },
+                        {
+                          "code": "color_name",
+                          "type": "float",
+                          "required": false,
+                          "desc": "套餐价格",
+                          "example": "1.09"
+                        },
+                        {
+                          "code": "size_code",
+                          "type": "string",
+                          "required": false,
+                          "desc": "备注",
+                          "example": "备注"
+                        },
+                        {
+                          "code": "size_name",
+                          "type": "string",
+                          "required": false,
+                          "desc": "套餐状态",
+                          "example": "enable可用  disabled 不可用"
+                        },
+                        {
+                          "code": "outer_tc_sku",
+                          "type": "string",
+                          "required": false,
+                          "desc": "平台套餐SKU",
+                          "example": "平台套餐SKU"
+                        },
+                        {
+                          "code": "outer_tm_msg",
+                          "type": "string",
+                          "required": false,
+                          "desc": "外部贴码信息",
+                          "example": "外部贴码信息"
+                        },
+                        {
+                          "code": "guige_goods_list",
+                          "type": "array[array[object]]",
+                          "required": false,
+                          "desc": "列表",
+                          "example": "[]",
+                          "children": [
+                            {
+                              "code": "tc_sku",
+                              "type": "string",
+                              "required": false,
+                              "desc": "套餐sku",
+                              "example": "auto_taocan01000000"
+                            },
+                            {
+                              "code": "sku",
+                              "type": "string",
+                              "required": false,
+                              "desc": "sku",
+                              "example": "sku0041"
+                            },
+                            {
+                              "code": "goods_sn",
+                              "type": "string",
+                              "required": false,
+                              "desc": "商品编码",
+                              "example": "autotest_goods_009"
+                            },
+                            {
+                              "code": "goods_name",
+                              "type": "string",
+                              "required": false,
+                              "desc": "商品名称",
+                              "example": "自动测试商品9"
+                            },
+                            {
+                              "code": "color_code",
+                              "type": "string",
+                              "required": false,
+                              "desc": "颜色编码",
+                              "example": "color001"
+                            },
+                            {
+                              "code": "color_name",
+                              "type": "string",
+                              "required": false,
+                              "desc": "颜色名称",
+                              "example": "自动测试颜色1"
+                            },
+                            {
+                              "code": "size_code",
+                              "type": "string",
+                              "required": false,
+                              "desc": "size编码",
+                              "example": "size001"
+                            },
+                            {
+                              "code": "size_name",
+                              "type": "string",
+                              "required": false,
+                              "desc": "尺码名称",
+                              "example": "自动测试尺码1"
+                            },
+                            {
+                              "code": "sl",
+                              "type": "string",
+                              "required": false,
+                              "desc": "商品数量",
+                              "example": "1"
+                            },
+                            {
+                              "code": "price",
+                              "type": "float",
+                              "required": false,
+                              "desc": "商品价格",
+                              "example": "3.99"
+                            },
+                            {
+                              "code": "mx_bz",
+                              "type": "string",
+                              "required": false,
+                              "desc": "备注说明",
+                              "example": "备注说明"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "code": "total_price",
+                      "type": "float",
+                      "required": false,
+                      "desc": "总价",
+                      "example": "98.12"
+                    },
+                    {
+                      "code": "sl",
+                      "type": "number",
+                      "required": false,
+                      "desc": "数量",
+                      "example": "50"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "taocan.list.get"
+    }
+  },
+  "message": "success"
+}

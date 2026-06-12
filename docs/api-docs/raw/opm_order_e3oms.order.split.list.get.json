@@ -1,0 +1,2627 @@
+{
+  "status": 1,
+  "data": {
+    "common": {
+      "request_params": [
+        {
+          "code": "serviceType",
+          "type": "string",
+          "required": true,
+          "desc": "API接口名称",
+          "example": "e3oms.order.split.list.get"
+        },
+        {
+          "code": "format",
+          "type": "string",
+          "required": false,
+          "desc": "响应格式。默认为json格式，可选值：json。",
+          "example": "json"
+        },
+        {
+          "code": "key",
+          "type": "string",
+          "required": true,
+          "desc": "E3分配给应用的AppKey",
+          "example": ""
+        },
+        {
+          "code": "requestTime",
+          "type": "string",
+          "required": true,
+          "desc": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+          "example": "20200101120000"
+        },
+        {
+          "code": "version",
+          "type": "string",
+          "required": true,
+          "desc": "API协议版本，可选值：3.0",
+          "example": "3.0"
+        },
+        {
+          "code": "sign_method",
+          "type": "string",
+          "required": true,
+          "desc": "签名的摘要算法，可选值为：md5",
+          "example": "md5"
+        },
+        {
+          "code": "sign",
+          "type": "string",
+          "required": true,
+          "desc": "API输入参数签名结果",
+          "example": ""
+        },
+        {
+          "code": "data",
+          "type": "string",
+          "required": true,
+          "desc": "消息体，JSON格式化后的字符串",
+          "example": "{\"a\":123, \"b\": \"demo\"}"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "number",
+          "desc": "状态码",
+          "example": "1"
+        },
+        {
+          "code": "data",
+          "type": "object|array",
+          "desc": "数据体",
+          "example": ""
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "desc": "请求失败时返回的错误信息",
+          "example": ""
+        },
+        {
+          "code": "requestid",
+          "type": "number",
+          "desc": "每次请求访问的唯一标识",
+          "example": ""
+        }
+      ],
+      "response_status": [
+        {
+          "value": 1,
+          "desc": "操作成功"
+        },
+        {
+          "value": -1,
+          "desc": "操作失败"
+        }
+      ]
+    },
+    "detail": {
+      "name": "获取拆分订单列表",
+      "desc": "获取拆分订单列表，可调用此API",
+      "method": "e3oms.order.split.list.get",
+      "request_params": [
+        {
+          "code": "startModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询起始时间：2011-09-01 00:00:00",
+          "example": "2011-09-01 00:00:00"
+        },
+        {
+          "code": "endModified",
+          "type": "string",
+          "required": false,
+          "desc": "查询结束时间：2000-11-30 23:59:59",
+          "example": "2000-11-30 23:59:59"
+        },
+        {
+          "code": "pageNo",
+          "type": "string",
+          "required": false,
+          "desc": "页码:取值范围:大于零的整数; 默认值:1",
+          "example": "1"
+        },
+        {
+          "code": "pageSize",
+          "type": "string",
+          "required": false,
+          "desc": "每页条数。取值范围:大于零的整数;默认值:20;最大值:100",
+          "example": "100"
+        },
+        {
+          "code": "fields",
+          "type": "string",
+          "required": false,
+          "desc": "支持的传入字段order_sn,deal_code,lylx,user_name,total_amount,shipping_fee,pay_time,order_msg,sd_id_name, shipping_code,stfhck_id_name,fhck_id_name,ck_id_name,receiver_name,receiver_zip,receiver_tel,receiver_mobile,receiver_province_name,receiver_city_name,receiver_district_name,receiver_address",
+          "example": "receiver_address"
+        },
+        {
+          "code": "order_status",
+          "type": "string",
+          "required": false,
+          "desc": "订单状态",
+          "example": "订单状态。0-未确认；1-已确认； 3-已作废；5-已完成"
+        },
+        {
+          "code": "order_sn",
+          "type": "string",
+          "required": false,
+          "desc": "订单号",
+          "example": "1256895236572"
+        },
+        {
+          "code": "deal_code",
+          "type": "string",
+          "required": false,
+          "desc": "交易号",
+          "example": "695687521535898"
+        }
+      ],
+      "response_data": [
+        {
+          "code": "status",
+          "type": "string",
+          "required": true,
+          "desc": "参见操作状态码说明",
+          "example": "api-success"
+        },
+        {
+          "code": "message",
+          "type": "string",
+          "required": true,
+          "desc": "操作消息",
+          "example": "success"
+        },
+        {
+          "code": "data",
+          "type": "array[array[object]]",
+          "desc": "响应数据",
+          "example": "",
+          "children": [
+            {
+              "code": "orderSplitListGet",
+              "type": "array[object]",
+              "required": false,
+              "desc": "订单信息",
+              "example": "",
+              "children": [
+                {
+                  "code": "order_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单号",
+                  "example": ""
+                },
+                {
+                  "code": "deal_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "网店交易号",
+                  "example": ""
+                },
+                {
+                  "code": "ori_deal_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "换货原始交易号",
+                  "example": ""
+                },
+                {
+                  "code": "ori_order_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "换货原始订单号",
+                  "example": ""
+                },
+                {
+                  "code": "wms_pos_order",
+                  "type": "string",
+                  "required": false,
+                  "desc": "pos（回传的posID加入订单列表）",
+                  "example": ""
+                },
+                {
+                  "code": "parent_deal_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "父交易号（京东拆分新单的原交易号）",
+                  "example": ""
+                },
+                {
+                  "code": "tbfx_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "淘宝分销采购单号",
+                  "example": ""
+                },
+                {
+                  "code": "tbfx_fenxiao_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "淘宝分销交易号",
+                  "example": ""
+                },
+                {
+                  "code": "alipay_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "支付宝交易号",
+                  "example": ""
+                },
+                {
+                  "code": "sd_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单所属商店ID，Id of kehu and xzdm=3",
+                  "example": ""
+                },
+                {
+                  "code": "ghs_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "供货商",
+                  "example": ""
+                },
+                {
+                  "code": "cgzt",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0-无意义 1-待采购 2-采购中",
+                  "example": ""
+                },
+                {
+                  "code": "lylx",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单来源类型：0:后台1:淘宝2:拍拍3:OS主站4:分销商5:新浪6:SHOPEX7:ECSHOP8:当当9:邮乐购",
+                  "example": ""
+                },
+                {
+                  "code": "qd_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "渠道ID",
+                  "example": ""
+                },
+                {
+                  "code": "user_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "(user_id of users)会员ID",
+                  "example": ""
+                },
+                {
+                  "code": "vip_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "会员编号(艾格定制开发）",
+                  "example": ""
+                },
+                {
+                  "code": "user_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "会员昵称",
+                  "example": ""
+                },
+                {
+                  "code": "distributor_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分销商ID(关联 encm_discount_user)",
+                  "example": ""
+                },
+                {
+                  "code": "distributor_username",
+                  "type": "string",
+                  "required": false,
+                  "desc": "分销商名称",
+                  "example": ""
+                },
+                {
+                  "code": "order_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单状态。\\r\\n0-未确认；\\r\\n1-已确认； \\r\\n3-已作废；5-已完成",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "配送状态。0-初始1-预分配缺货处理中 2-已完成预分配 3-已通知配货4-拣货中(已分配拣货任务) 5-已完成拣货 6-已发货 7-已出库 9-取消",
+                  "example": ""
+                },
+                {
+                  "code": "is_complete",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否完成（客户是否确认收货）",
+                  "example": ""
+                },
+                {
+                  "code": "complete_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "客户确认收货（完成）时间",
+                  "example": ""
+                },
+                {
+                  "code": "ck_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "商店仓库id",
+                  "example": ""
+                },
+                {
+                  "code": "fhck_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实际发货仓库id",
+                  "example": ""
+                },
+                {
+                  "code": "fhck_kw_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发货仓库库位",
+                  "example": ""
+                },
+                {
+                  "code": "stfhck_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实体发货仓库",
+                  "example": ""
+                },
+                {
+                  "code": "stfhck_kw_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实体发货仓库库位",
+                  "example": ""
+                },
+                {
+                  "code": "pay_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "付款方式ID",
+                  "example": ""
+                },
+                {
+                  "code": "pay_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "付款方式名称",
+                  "example": ""
+                },
+                {
+                  "code": "pay_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "支付方式代码",
+                  "example": ""
+                },
+                {
+                  "code": "pay_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "付款状态[0:未付款;1:付款中(部分付款);2:已付款]",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_country",
+                  "type": "number",
+                  "required": false,
+                  "desc": "收获人国家",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_province",
+                  "type": "number",
+                  "required": false,
+                  "desc": "收货人身份",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_city",
+                  "type": "number",
+                  "required": false,
+                  "desc": "收货人城市",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_district",
+                  "type": "number",
+                  "required": false,
+                  "desc": "收货人所属县",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_street",
+                  "type": "number",
+                  "required": false,
+                  "desc": "收货人所在街道",
+                  "example": "东城街道"
+                },
+                {
+                  "code": "receiver_address",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人地址",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_addr",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人地址",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_zip",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人邮编",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_tel",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人电话",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_mobile",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人手机",
+                  "example": ""
+                },
+                {
+                  "code": "receiver_email",
+                  "type": "string",
+                  "required": false,
+                  "desc": "收货人email",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "物流方式ID",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "配送方式代码",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "物流方式名称",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_time_tzph",
+                  "type": "number",
+                  "required": false,
+                  "desc": "通知配货时间",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_time_jh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "配货时间",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_time_fh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_time_ck",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单出库时间也即是完成时间",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_time_ck_real",
+                  "type": "number",
+                  "required": false,
+                  "desc": "真实仓库出库时间",
+                  "example": ""
+                },
+                {
+                  "code": "fh_priority",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发货优先级(0-9)数值越大 优先级越高",
+                  "example": ""
+                },
+                {
+                  "code": "is_problem",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为问题单",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_jz_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "记账状态 0 未记账；1 部分记账；2记账 ",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_jz_je",
+                  "type": "number",
+                  "required": false,
+                  "desc": "记账金额",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_lrjz_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "记账状态 0 未记账；1 部分记账；2记账 ",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_lrfcjz_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "记账状态 0 未记账；1 部分记账；2记账 ",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_lrfcjz_je",
+                  "type": "number",
+                  "required": false,
+                  "desc": "记账金额",
+                  "example": ""
+                },
+                {
+                  "code": "customs",
+                  "type": "string",
+                  "required": false,
+                  "desc": "京东全球购 保税区信息 ",
+                  "example": ""
+                },
+                {
+                  "code": "customs_model",
+                  "type": "string",
+                  "required": false,
+                  "desc": "京东全球购 保税模型：直邮，保税集货，保税备货",
+                  "example": ""
+                },
+                {
+                  "code": "is_paiqi",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为排期订单",
+                  "example": ""
+                },
+                {
+                  "code": "problem_desc",
+                  "type": "number",
+                  "required": false,
+                  "desc": "问题单描述",
+                  "example": ""
+                },
+                {
+                  "code": "total_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单总金额[商品总金额goods_amount+运费shipping_fee+手续费cod_fee]",
+                  "example": ""
+                },
+                {
+                  "code": "market_goods_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "商品金额（市场价之和）",
+                  "example": ""
+                },
+                {
+                  "code": "shop_goods_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实际应付商品总金额",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "快递费",
+                  "example": ""
+                },
+                {
+                  "code": "cod_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "物流额外手续费",
+                  "example": ""
+                },
+                {
+                  "code": "bjje",
+                  "type": "number",
+                  "required": false,
+                  "desc": "快递保价金额",
+                  "example": ""
+                },
+                {
+                  "code": "payment",
+                  "type": "number",
+                  "required": false,
+                  "desc": "已付金额",
+                  "example": ""
+                },
+                {
+                  "code": "sd_payment",
+                  "type": "number",
+                  "required": false,
+                  "desc": "sd已付金额",
+                  "example": ""
+                },
+                {
+                  "code": "order_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家应付金额",
+                  "example": ""
+                },
+                {
+                  "code": "discount_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单商品折让",
+                  "example": ""
+                },
+                {
+                  "code": "other_discount_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单其他折让(整单折让)",
+                  "example": ""
+                },
+                {
+                  "code": "integral",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单消费积分",
+                  "example": ""
+                },
+                {
+                  "code": "add_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "下单时间",
+                  "example": ""
+                },
+                {
+                  "code": "confirm_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单确认时间",
+                  "example": ""
+                },
+                {
+                  "code": "trans_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单转入时间",
+                  "example": ""
+                },
+                {
+                  "code": "pay_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "付款时间",
+                  "example": ""
+                },
+                {
+                  "code": "buy_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "买家留言",
+                  "example": ""
+                },
+                {
+                  "code": "seller_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "商家留言",
+                  "example": ""
+                },
+                {
+                  "code": "seller_flag",
+                  "type": "number",
+                  "required": false,
+                  "desc": "卖家备注旗帜（与淘宝网上订单的卖家备注旗帜对应，只有卖家才能查看该字段）",
+                  "example": ""
+                },
+                {
+                  "code": "status_qh",
+                  "type": "number",
+                  "required": false,
+                  "desc": " 实物缺货状态（0-不缺 1-部分缺 2-全部缺）",
+                  "example": ""
+                },
+                {
+                  "code": "status_yfp_qh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "预分配缺货状态（0-不缺 1-部分缺 2-全部缺 3-可移仓缺货",
+                  "example": ""
+                },
+                {
+                  "code": "fms_jsrq",
+                  "type": "number",
+                  "required": false,
+                  "desc": "结算单记账日期",
+                  "example": ""
+                },
+                {
+                  "code": "is_lock",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否被锁定",
+                  "example": ""
+                },
+                {
+                  "code": "lock_admin_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单锁定人(Id of admin_user)",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "物流单号",
+                  "example": ""
+                },
+                {
+                  "code": "sf_son_shipping_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "顺风子运单号",
+                  "example": ""
+                },
+                {
+                  "code": "pay_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "支付留言",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_type",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票类型",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_content",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票内容",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_pay",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票支付方式",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_title",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票抬头",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_amount",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票金额",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_number",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票号",
+                  "example": ""
+                },
+                {
+                  "code": "goods_count",
+                  "type": "number",
+                  "required": false,
+                  "desc": "sku种类数量(2件上衣，3件裤子，则goods_count为2，sku_count为5)",
+                  "example": ""
+                },
+                {
+                  "code": "sku_count",
+                  "type": "number",
+                  "required": false,
+                  "desc": "sku数量",
+                  "example": ""
+                },
+                {
+                  "code": "is_weigh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否称重",
+                  "example": ""
+                },
+                {
+                  "code": "weigh_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "称重时间",
+                  "example": ""
+                },
+                {
+                  "code": "weigh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "总重量(单位KG)",
+                  "example": ""
+                },
+                {
+                  "code": "timeout_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "承诺买家最次发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_combine_new",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为合并产生的新订单",
+                  "example": ""
+                },
+                {
+                  "code": "is_combine",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否被合并",
+                  "example": ""
+                },
+                {
+                  "code": "is_split_new",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为拆分产生的新订单",
+                  "example": ""
+                },
+                {
+                  "code": "is_split",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为被拆分订单",
+                  "example": ""
+                },
+                {
+                  "code": "is_copy",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是复制订单",
+                  "example": ""
+                },
+                {
+                  "code": "order_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单备注",
+                  "example": ""
+                },
+                {
+                  "code": "error_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单操作过程中的一些提示信息，仅限程序使用",
+                  "example": ""
+                },
+                {
+                  "code": "kf_xs_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "销售客服员工id",
+                  "example": ""
+                },
+                {
+                  "code": "kf_order_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单客服员工id",
+                  "example": ""
+                },
+                {
+                  "code": "guider_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "导购id[接收m6的导购ID字段]",
+                  "example": ""
+                },
+                {
+                  "code": "kf_order_priv_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单客服权限员工id",
+                  "example": ""
+                },
+                {
+                  "code": "write_back_count",
+                  "type": "number",
+                  "required": false,
+                  "desc": "回写次数",
+                  "example": ""
+                },
+                {
+                  "code": "write_back_errmsg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "网单回写失败原因",
+                  "example": ""
+                },
+                {
+                  "code": "is_write_back",
+                  "type": "number",
+                  "required": false,
+                  "desc": "回写状态(0-未回写 1-回写成功 2-回写失败 3-强制回写成功 4-手工回写）此状态与fhckd_dd表中的write_back_status字段相同",
+                  "example": ""
+                },
+                {
+                  "code": "write_back_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单回写时间",
+                  "example": ""
+                },
+                {
+                  "code": "logistics_resend",
+                  "type": "number",
+                  "required": false,
+                  "desc": "物流是否需要重新回写",
+                  "example": ""
+                },
+                {
+                  "code": "pay_write_back_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "支付状态回写",
+                  "example": ""
+                },
+                {
+                  "code": "status_th",
+                  "type": "number",
+                  "required": false,
+                  "desc": "退货状态：0正常1退款2退货",
+                  "example": ""
+                },
+                {
+                  "code": "is_return_rk",
+                  "type": "number",
+                  "required": false,
+                  "desc": "退货单是否已入库完成",
+                  "example": ""
+                },
+                {
+                  "code": "is_o2o",
+                  "type": "number",
+                  "required": false,
+                  "desc": "O2O流程订单标识",
+                  "example": ""
+                },
+                {
+                  "code": "o2o",
+                  "type": "string",
+                  "required": false,
+                  "desc": "O2O交易来源",
+                  "example": ""
+                },
+                {
+                  "code": "pos_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "ipos终端代码",
+                  "example": ""
+                },
+                {
+                  "code": "is_ipos",
+                  "type": "number",
+                  "required": false,
+                  "desc": "门店订单标识，0 为非门店订单 ；1为门店订单，不在回传ipos",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_delivery",
+                  "type": "string",
+                  "required": false,
+                  "desc": "导购宝提货方式，inshop：店内提货，online：线上发货",
+                  "example": ""
+                },
+                {
+                  "code": "is_handup",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否挂起：0正常1挂起",
+                  "example": ""
+                },
+                {
+                  "code": "is_cod",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是货到付款单{0:否;1:是}",
+                  "example": ""
+                },
+                {
+                  "code": "is_hh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "换货单{0:否;1:是}",
+                  "example": ""
+                },
+                {
+                  "code": "hh_td_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发起该换货单的退单ID",
+                  "example": ""
+                },
+                {
+                  "code": "is_shougong",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否手工单",
+                  "example": ""
+                },
+                {
+                  "code": "is_wait_fms",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否需要等待财务操作",
+                  "example": ""
+                },
+                {
+                  "code": "order_from",
+                  "type": "string",
+                  "required": false,
+                  "desc": "网站联盟推广账号",
+                  "example": ""
+                },
+                {
+                  "code": "sync_lock",
+                  "type": "number",
+                  "required": false,
+                  "desc": "业务锁定",
+                  "example": ""
+                },
+                {
+                  "code": "sync_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0-未同步  1-已同步 2-处理中 10-已同步到erp",
+                  "example": ""
+                },
+                {
+                  "code": "is_sync_to_wms",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否同步到WMS 0未同步 1已同步",
+                  "example": ""
+                },
+                {
+                  "code": "sync_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "同步时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_invoice",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否需要开发票",
+                  "example": ""
+                },
+                {
+                  "code": "sync_error_count",
+                  "type": "number",
+                  "required": false,
+                  "desc": "同步失败次数",
+                  "example": ""
+                },
+                {
+                  "code": "err_num",
+                  "type": "number",
+                  "required": false,
+                  "desc": "同步到erp错误次数",
+                  "example": ""
+                },
+                {
+                  "code": "err_msg",
+                  "type": "string",
+                  "required": false,
+                  "desc": "同步到erp错误原因",
+                  "example": ""
+                },
+                {
+                  "code": "problem_type",
+                  "type": "number",
+                  "required": false,
+                  "desc": "问题单类型{0:正常单;1:商品信息错误;3:客服备注问题单;4:黑名单会员;5:客服设置问题单;6:补差订单;18:销售价格控制，低于比对销售价（售价4）;19:价格异常，商品售价低于参考价;20:苏宁自营供货价异常}",
+                  "example": ""
+                },
+                {
+                  "code": "is_yfp",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否已经预分配库存{0:未预分配;1:已预分配}",
+                  "example": ""
+                },
+                {
+                  "code": "status_kc",
+                  "type": "number",
+                  "required": false,
+                  "desc": "库存状态：0-未占用 1-确认锁定 2-配货锁定 3-已扣减实际库存",
+                  "example": ""
+                },
+                {
+                  "code": "combine_orders",
+                  "type": "string",
+                  "required": false,
+                  "desc": "被合并的订单id字符串，逗号分隔（is_combine_new=1的时候有效）",
+                  "example": ""
+                },
+                {
+                  "code": "combine_new_orders",
+                  "type": "string",
+                  "required": false,
+                  "desc": "合并之后的新订单id（is_combine=1的时候有效）",
+                  "example": ""
+                },
+                {
+                  "code": "split_orders",
+                  "type": "string",
+                  "required": false,
+                  "desc": "被拆分的订单id（is_split_new=1的时候有效）",
+                  "example": ""
+                },
+                {
+                  "code": "split_new_orders",
+                  "type": "string",
+                  "required": false,
+                  "desc": "拆分之后的订单id字符串，逗号分隔（is_split=1的时候有效）",
+                  "example": ""
+                },
+                {
+                  "code": "copy_from",
+                  "type": "number",
+                  "required": false,
+                  "desc": "复制的原单id",
+                  "example": ""
+                },
+                {
+                  "code": "cancel_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "业务级触发取消时间",
+                  "example": ""
+                },
+                {
+                  "code": "cancel_success_num",
+                  "type": "number",
+                  "required": false,
+                  "desc": "取消发货成功次数",
+                  "example": ""
+                },
+                {
+                  "code": "lastchanged",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单修改时间",
+                  "example": ""
+                },
+                {
+                  "code": "tariff_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "关税",
+                  "example": ""
+                },
+                {
+                  "code": "increment_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "增值税额",
+                  "example": ""
+                },
+                {
+                  "code": "tax_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "消费税额",
+                  "example": ""
+                },
+                {
+                  "code": "composite_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "关税税额",
+                  "example": ""
+                },
+                {
+                  "code": "sync_time_cancel",
+                  "type": "number",
+                  "required": false,
+                  "desc": "实际发出取消请求时间",
+                  "example": ""
+                },
+                {
+                  "code": "zf_reason",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单作废原因",
+                  "example": ""
+                },
+                {
+                  "code": "zf_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "作废时间",
+                  "example": ""
+                },
+                {
+                  "code": "zfr",
+                  "type": "string",
+                  "required": false,
+                  "desc": "作废人",
+                  "example": ""
+                },
+                {
+                  "code": "stc_js",
+                  "type": "number",
+                  "required": false,
+                  "desc": "stc结算状态 0-未 1-已拉取",
+                  "example": ""
+                },
+                {
+                  "code": "weigh_shipping_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "称重后计算的快递费用",
+                  "example": ""
+                },
+                {
+                  "code": "wms_ck_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "物流强制发货状态{0:正常;1:物流已经强制发货}",
+                  "example": ""
+                },
+                {
+                  "code": "refund_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "退款申请状态{空为全部0无1退款中2退款成功3退款关闭}",
+                  "example": ""
+                },
+                {
+                  "code": "is_refund",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是不是有额外退款（0为否，1为是）",
+                  "example": ""
+                },
+                {
+                  "code": "erp_djbh",
+                  "type": "string",
+                  "required": false,
+                  "desc": "ERP通知单号",
+                  "example": ""
+                },
+                {
+                  "code": "erp_table",
+                  "type": "string",
+                  "required": false,
+                  "desc": "erp表名",
+                  "example": ""
+                },
+                {
+                  "code": "tz_flag",
+                  "type": "string",
+                  "required": false,
+                  "desc": "erp通知单标记",
+                  "example": ""
+                },
+                {
+                  "code": "dj_flag",
+                  "type": "string",
+                  "required": false,
+                  "desc": "erp单据标记",
+                  "example": ""
+                },
+                {
+                  "code": "edit_shipping_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "配送方式修改时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_yugou",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否预购",
+                  "example": ""
+                },
+                {
+                  "code": "yg_fhrq",
+                  "type": "number",
+                  "required": false,
+                  "desc": "预售发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "yugou_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "预购活动Id",
+                  "example": ""
+                },
+                {
+                  "code": "storage_message",
+                  "type": "string",
+                  "required": false,
+                  "desc": "仓库留言",
+                  "example": ""
+                },
+                {
+                  "code": "delay_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "延迟发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_shipping_check",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否快递分拣(0-未快递分捡、1-已快递分捡)",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_check_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分拣时间",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_checker",
+                  "type": "string",
+                  "required": false,
+                  "desc": "分拣人",
+                  "example": ""
+                },
+                {
+                  "code": "wms_order_sign",
+                  "type": "string",
+                  "required": false,
+                  "desc": "wms订单标志",
+                  "example": ""
+                },
+                {
+                  "code": "wms_order_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "wms订单号",
+                  "example": ""
+                },
+                {
+                  "code": "wms_cancel_count",
+                  "type": "number",
+                  "required": false,
+                  "desc": "WMS取消次数",
+                  "example": ""
+                },
+                {
+                  "code": "promotion_info",
+                  "type": "string",
+                  "required": false,
+                  "desc": "优惠信息",
+                  "example": ""
+                },
+                {
+                  "code": "ewtk",
+                  "type": "number",
+                  "required": false,
+                  "desc": "额外退款金额回写字段",
+                  "example": ""
+                },
+                {
+                  "code": "ncm_buyer_shop_goods_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "卖家网上标价商品总金额(网上标价*数量之和)",
+                  "example": ""
+                },
+                {
+                  "code": "ncm_buyer_trade_goods_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家成交价(应付)商品总金额(成交价*数量之和)",
+                  "example": ""
+                },
+                {
+                  "code": "ncm_buyer_payment",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家已付总额",
+                  "example": ""
+                },
+                {
+                  "code": "ncm_buyer_other_discount_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家订单其他折让(整单结算折让)",
+                  "example": ""
+                },
+                {
+                  "code": "ncm_buyer_shipping_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家运费",
+                  "example": ""
+                },
+                {
+                  "code": "sync_status_to_icrm",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否同步到iCRM 0未同步 1已同步",
+                  "example": ""
+                },
+                {
+                  "code": "marks_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "标记档案id",
+                  "example": ""
+                },
+                {
+                  "code": "marks_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "标记档案名称",
+                  "example": ""
+                },
+                {
+                  "code": "qh_skus",
+                  "type": "string",
+                  "required": false,
+                  "desc": "预分配缺货以及实物拣货缺货的SKU",
+                  "example": ""
+                },
+                {
+                  "code": "is_cuxiao",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否促销订单",
+                  "example": ""
+                },
+                {
+                  "code": "source",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单来源",
+                  "example": ""
+                },
+                {
+                  "code": "sub_source",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单子来源",
+                  "example": ""
+                },
+                {
+                  "code": "short_address",
+                  "type": "string",
+                  "required": false,
+                  "desc": "物流宝返回的大头笔数据",
+                  "example": ""
+                },
+                {
+                  "code": "package_center_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "集包地代码",
+                  "example": ""
+                },
+                {
+                  "code": "package_center_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "集包地名称",
+                  "example": ""
+                },
+                {
+                  "code": "wlb_waybill",
+                  "type": "string",
+                  "required": false,
+                  "desc": "云栈面单信息",
+                  "example": ""
+                },
+                {
+                  "code": "is_jj",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是加急单",
+                  "example": ""
+                },
+                {
+                  "code": "order_center_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "oc发货单单据号",
+                  "example": ""
+                },
+                {
+                  "code": "delivery_order_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "菜鸟物流单LBX号",
+                  "example": ""
+                },
+                {
+                  "code": "origincode",
+                  "type": "string",
+                  "required": false,
+                  "desc": "原寄地代码",
+                  "example": ""
+                },
+                {
+                  "code": "destcode",
+                  "type": "string",
+                  "required": false,
+                  "desc": "派件地代码",
+                  "example": ""
+                },
+                {
+                  "code": "express_type",
+                  "type": "string",
+                  "required": false,
+                  "desc": "寄件类型",
+                  "example": ""
+                },
+                {
+                  "code": "pay_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "支付流水号",
+                  "example": ""
+                },
+                {
+                  "code": "transaction_type",
+                  "type": "string",
+                  "required": false,
+                  "desc": "交易类型",
+                  "example": ""
+                },
+                {
+                  "code": "shipping_type",
+                  "type": "string",
+                  "required": false,
+                  "desc": "创建交易时的物流方式",
+                  "example": ""
+                },
+                {
+                  "code": "allocation_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "调货状态（0：初始，1：适配成功，2：调货完成）",
+                  "example": ""
+                },
+                {
+                  "code": "is_overseas",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否外海购{0为不是外海购,1为是外海购}",
+                  "example": ""
+                },
+                {
+                  "code": "buyers_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "买家姓名",
+                  "example": ""
+                },
+                {
+                  "code": "id_card",
+                  "type": "string",
+                  "required": false,
+                  "desc": "身份证号",
+                  "example": ""
+                },
+                {
+                  "code": "fxs_order_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分销商应付款",
+                  "example": ""
+                },
+                {
+                  "code": "fxs_payment",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分销商已付总额",
+                  "example": ""
+                },
+                {
+                  "code": "fxs_market_goods_amount",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分销商品总额",
+                  "example": ""
+                },
+                {
+                  "code": "service_money",
+                  "type": "number",
+                  "required": false,
+                  "desc": "服务费",
+                  "example": ""
+                },
+                {
+                  "code": "store_money",
+                  "type": "number",
+                  "required": false,
+                  "desc": "仓储费",
+                  "example": ""
+                },
+                {
+                  "code": "unpacking_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "拆包费",
+                  "example": ""
+                },
+                {
+                  "code": "fxs_shipping_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "分销运费",
+                  "example": ""
+                },
+                {
+                  "code": "is_sh_ship",
+                  "type": "number",
+                  "required": false,
+                  "desc": "菜鸟仓发货标记：0不是，1是",
+                  "example": ""
+                },
+                {
+                  "code": "is_electronic",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是电子凭证订单，0不是，1是",
+                  "example": ""
+                },
+                {
+                  "code": "qingguan_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "清关状态，0：清关前 1：清关中 2：清关成功 3：清关失败",
+                  "example": ""
+                },
+                {
+                  "code": "is_packaging",
+                  "type": "number",
+                  "required": false,
+                  "desc": "包装回写状态，0：未包装 1：已包装",
+                  "example": ""
+                },
+                {
+                  "code": "is_qingguan_reback",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否全链路回写清关状态 0未回写 1已回写",
+                  "example": ""
+                },
+                {
+                  "code": "wms_sync_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "WMS回传E3发货状态（0：未处理，1：成功，2：失败）",
+                  "example": ""
+                },
+                {
+                  "code": "wms_fh_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "e3接收发货状态更新",
+                  "example": ""
+                },
+                {
+                  "code": "bzc_brand_zwx",
+                  "type": "number",
+                  "required": false,
+                  "desc": "按店铺不支持品牌拆分，不支持品牌的子订单置无效标记(0-不需要置无效，1-需要置无效)",
+                  "example": ""
+                },
+                {
+                  "code": "cloud_print_data",
+                  "type": "string",
+                  "required": false,
+                  "desc": "模板内容,",
+                  "example": ""
+                },
+                {
+                  "code": "cloud_object_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "云打印面单请求id",
+                  "example": ""
+                },
+                {
+                  "code": "sync_bstyle",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0:未同步 1:已同步",
+                  "example": ""
+                },
+                {
+                  "code": "is_express_out",
+                  "type": "number",
+                  "required": false,
+                  "desc": "快递是否交接",
+                  "example": ""
+                },
+                {
+                  "code": "is_express_out_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "快递交接时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_edit_shipping",
+                  "type": "number",
+                  "required": false,
+                  "desc": "快递是否变更过 0:未变更 1：已变更",
+                  "example": ""
+                },
+                {
+                  "code": "is_edit_shipping_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "变更前的快递Id",
+                  "example": ""
+                },
+                {
+                  "code": "is_edit_shipping_before",
+                  "type": "string",
+                  "required": false,
+                  "desc": "变更前的快递代码",
+                  "example": ""
+                },
+                {
+                  "code": "is_edit_shipping_before_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "变更前的物流单号",
+                  "example": ""
+                },
+                {
+                  "code": "is_taobao_o2o",
+                  "type": "number",
+                  "required": false,
+                  "desc": "淘宝o2o订单，0:不是 1:是",
+                  "example": ""
+                },
+                {
+                  "code": "is_qb_refund",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否整单退货 -1表示非退货单 0-部分退货 1-整单退货",
+                  "example": ""
+                },
+                {
+                  "code": "relating_created",
+                  "type": "string",
+                  "required": false,
+                  "desc": "关联退单退款申请时间。格式:yyyy-MM-dd HH:mm:ss",
+                  "example": ""
+                },
+                {
+                  "code": "split_sub_deal_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "拆分新单 子交易号集合",
+                  "example": ""
+                },
+                {
+                  "code": "refund_version",
+                  "type": "string",
+                  "required": false,
+                  "desc": "淘宝退单版本号（时间戳）",
+                  "example": ""
+                },
+                {
+                  "code": "is_auto_jg",
+                  "type": "number",
+                  "required": false,
+                  "desc": "退单下载订单自动解挂标记(跟refund_version结合使用）",
+                  "example": ""
+                },
+                {
+                  "code": "ipos_qrrq",
+                  "type": "number",
+                  "required": false,
+                  "desc": "ipos确认订单时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_urgent",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否为加急订单{0:正常订单;1:加急订单(当接单超时系统二次分配、或拒单系统二次分配)}",
+                  "example": ""
+                },
+                {
+                  "code": "is_rank",
+                  "type": "string",
+                  "required": false,
+                  "desc": "排名标识",
+                  "example": ""
+                },
+                {
+                  "code": "pos_try_num",
+                  "type": "number",
+                  "required": false,
+                  "desc": "POS推送次数",
+                  "example": ""
+                },
+                {
+                  "code": "cfd_qr",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否确认处方单：0=不，1=是",
+                  "example": ""
+                },
+                {
+                  "code": "is_show_price",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否显示价格：0=不显示，1=显示",
+                  "example": ""
+                },
+                {
+                  "code": "order_custom_type",
+                  "type": "number",
+                  "required": false,
+                  "desc": "定制类型",
+                  "example": ""
+                },
+                {
+                  "code": "card_content",
+                  "type": "string",
+                  "required": false,
+                  "desc": "心意卡内容",
+                  "example": ""
+                },
+                {
+                  "code": "sync_status_to_sms",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否同步到iCRM 0未同步 1已同步",
+                  "example": ""
+                },
+                {
+                  "code": "is_store_order",
+                  "type": "number",
+                  "required": false,
+                  "desc": "京东云仓订单，0:不是 1:是",
+                  "example": ""
+                },
+                {
+                  "code": "is_reject",
+                  "type": "number",
+                  "required": false,
+                  "desc": "门店驳回订单标识",
+                  "example": ""
+                },
+                {
+                  "code": "est_con_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "商家的预计发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_taocan",
+                  "type": "number",
+                  "required": false,
+                  "desc": "套餐订单 1是 0不是",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发票状态",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_print_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "发票打印状态：0:未打印 1:已打印",
+                  "example": ""
+                },
+                {
+                  "code": "is_tyfh",
+                  "type": "number",
+                  "required": false,
+                  "desc": "淘宝换货单是否同意发货，0不同意，1同意",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_tax_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "购买方企业税号，对企业开电子发票时需要该字段",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_kind",
+                  "type": "number",
+                  "required": false,
+                  "desc": "电子发票相关，发票类型（0 不开电子发票 1 开电子发票 2 换成纸质发票 ）",
+                  "example": ""
+                },
+                {
+                  "code": "is_ljdd",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0 默认 1 拦截订单",
+                  "example": ""
+                },
+                {
+                  "code": "pos_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "克徕帝珠宝pos状态 1已回传 0没有回传",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_cn_service",
+                  "type": "string",
+                  "required": false,
+                  "desc": "菜鸟联盟的服务表达会在记录到此字段中，有多个服务标，多个服务标通过\"_\"分割，如：83_50。80：菜鸟联盟当日达; 81：菜鸟联盟次日达; 82：预计时效表达; 83：菜鸟联盟预约配送; 84：菜鸟联盟多日达 ",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_os_date",
+                  "type": "string",
+                  "required": false,
+                  "desc": "预约配送时，消费者选择的配送日期，格式\"2016-06-20\"",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_os_range",
+                  "type": "string",
+                  "required": false,
+                  "desc": "预约配送时，消费者选择的配送时间段，格式09:00-19:00",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_es_date",
+                  "type": "string",
+                  "required": false,
+                  "desc": "菜鸟联盟的当日达、次日达和预约配送时，承诺或表达给消费者的送达日期，格式\"2016-06-20\"",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_es_range",
+                  "type": "string",
+                  "required": false,
+                  "desc": "菜鸟联盟的当日达、次日达和预约配送时，承诺或表达给消费者的送达时间范围，值为空，表达无时间段要求，格式09:00-19:00",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_push_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "有时效服务表达的订单，为了仓库能及时出库，需要ERP在指定的时间前将订单下发到仓库。",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_store_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "有时效服务表达的订单，为了仓库能及时出库，需要ERP在指定的时间前将订单下发到仓库。",
+                  "example": ""
+                },
+                {
+                  "code": "hbdd_error",
+                  "type": "number",
+                  "required": false,
+                  "desc": "计划任务合并订单错误",
+                  "example": ""
+                },
+                {
+                  "code": "is_complete_pos",
+                  "type": "number",
+                  "required": false,
+                  "desc": "确认收货单据推送IPOS状态 0:未推送，1推送成功",
+                  "example": ""
+                },
+                {
+                  "code": "refresh_qh_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否已经刷新缺货状态0:未刷新1:已刷新",
+                  "example": ""
+                },
+                {
+                  "code": "is_tuan",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是团购订单",
+                  "example": ""
+                },
+                {
+                  "code": "guding_money",
+                  "type": "number",
+                  "required": false,
+                  "desc": "固定费用",
+                  "example": ""
+                },
+                {
+                  "code": "tm_hh_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "淘宝换货单id",
+                  "example": ""
+                },
+                {
+                  "code": "service_order_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "服务订单总费用",
+                  "example": ""
+                },
+                {
+                  "code": "is_fd",
+                  "type": "number",
+                  "required": false,
+                  "desc": "福袋订单 1是 0不是",
+                  "example": ""
+                },
+                {
+                  "code": "sf_no",
+                  "type": "string",
+                  "required": false,
+                  "desc": "员工编号",
+                  "example": ""
+                },
+                {
+                  "code": "sf_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "员工姓名",
+                  "example": ""
+                },
+                {
+                  "code": "order_accept_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单接单状态默认0,未接单;1,已接单",
+                  "example": ""
+                },
+                {
+                  "code": "order_accept_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "订单接单时间",
+                  "example": ""
+                },
+                {
+                  "code": "app_number",
+                  "type": "string",
+                  "required": false,
+                  "desc": "o2o订单编码",
+                  "example": ""
+                },
+                {
+                  "code": "order_version",
+                  "type": "number",
+                  "required": false,
+                  "desc": "版本号",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_tmall_delivery",
+                  "type": "string",
+                  "required": false,
+                  "desc": "天猫直送",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_3pl_timing",
+                  "type": "string",
+                  "required": false,
+                  "desc": "3PL有时效订单标",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_cutoff_minutes",
+                  "type": "string",
+                  "required": false,
+                  "desc": "截单时间到分钟",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_es_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "相对时间",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_delivery_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "最晚发货时间",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_collect_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "最晚缆收时间",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_send_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "最晚派送时间",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_sign_time",
+                  "type": "string",
+                  "required": false,
+                  "desc": "最晚签收时间",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_delivery_cps",
+                  "type": "string",
+                  "required": false,
+                  "desc": "应派送cp",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_gather_last_center",
+                  "type": "string",
+                  "required": false,
+                  "desc": "聚单目的中心",
+                  "example": ""
+                },
+                {
+                  "code": "cnlm_gather_station",
+                  "type": "string",
+                  "required": false,
+                  "desc": "聚单目的网点",
+                  "example": ""
+                },
+                {
+                  "code": "operation_reason_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "操作理由id",
+                  "example": ""
+                },
+                {
+                  "code": "jy_fhck_id",
+                  "type": "number",
+                  "required": false,
+                  "desc": "建议发货仓库",
+                  "example": ""
+                },
+                {
+                  "code": "jd_waybill_data",
+                  "type": "string",
+                  "required": false,
+                  "desc": "京东面单打印内容",
+                  "example": ""
+                },
+                {
+                  "code": "activityid",
+                  "type": "string",
+                  "required": false,
+                  "desc": "爱库存活动id",
+                  "example": ""
+                },
+                {
+                  "code": "is_cz_order",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是重置单",
+                  "example": ""
+                },
+                {
+                  "code": "is_hb_restore_order",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是合并后的还原单",
+                  "example": ""
+                },
+                {
+                  "code": "first_qh_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "首次缺货时间",
+                  "example": ""
+                },
+                {
+                  "code": "last_adapt_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "最后适配时间",
+                  "example": ""
+                },
+                {
+                  "code": "sj_payment",
+                  "type": "number",
+                  "required": false,
+                  "desc": "买家实际支付金额（去掉平台优惠）",
+                  "example": ""
+                },
+                {
+                  "code": "is_ckjt",
+                  "type": "number",
+                  "required": false,
+                  "desc": "出库截停标记",
+                  "example": ""
+                },
+                {
+                  "code": "is_hold",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是HOLD单：0否1是",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_bank",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票开户行",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_account",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票开户账号",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_addr",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票地址",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_phone",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票电话",
+                  "example": ""
+                },
+                {
+                  "code": "invoice_count",
+                  "type": "string",
+                  "required": false,
+                  "desc": "发票数量",
+                  "example": ""
+                },
+                {
+                  "code": "is_cloud_shop",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0 非云店 1 云店",
+                  "example": ""
+                },
+                {
+                  "code": "pos_shipping_fee",
+                  "type": "number",
+                  "required": false,
+                  "desc": "pos+快递费用",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_shop_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "云店ID",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_guide_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "导购员ID",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_shop_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "云店名称",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_guide_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "导购员名称",
+                  "example": ""
+                },
+                {
+                  "code": "platform_subsidy_fee",
+                  "type": "string",
+                  "required": false,
+                  "desc": "需要开票给天猫的券金额",
+                  "example": ""
+                },
+                {
+                  "code": "recharge_fee",
+                  "type": "string",
+                  "required": false,
+                  "desc": "个人红包金额",
+                  "example": ""
+                },
+                {
+                  "code": "paid_coupon_fee",
+                  "type": "string",
+                  "required": false,
+                  "desc": "满返红包",
+                  "example": ""
+                },
+                {
+                  "code": "coupon_fee",
+                  "type": "string",
+                  "required": false,
+                  "desc": "红包总金额",
+                  "example": ""
+                },
+                {
+                  "code": "cn_order_id",
+                  "type": "string",
+                  "required": false,
+                  "desc": "记录订单通知配货推送到菜鸟后回传的订单id",
+                  "example": ""
+                },
+                {
+                  "code": "user_split",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是人工手动拆分订单",
+                  "example": ""
+                },
+                {
+                  "code": "modify_addr",
+                  "type": "number",
+                  "required": false,
+                  "desc": "0初始 3失败,1成功",
+                  "example": ""
+                },
+                {
+                  "code": "logisticsAreaCode",
+                  "type": "string",
+                  "required": false,
+                  "desc": "快递区域编码(参数通过|符号来拼接)",
+                  "example": ""
+                },
+                {
+                  "code": "is_service",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否是安装服务订单 0：是 1：否",
+                  "example": ""
+                },
+                {
+                  "code": "parent_order_sn",
+                  "type": "string",
+                  "required": false,
+                  "desc": "父订单号（中台拆分新单的原交易号）",
+                  "example": ""
+                },
+                {
+                  "code": "handover_time",
+                  "type": "number",
+                  "required": false,
+                  "desc": "与快递交接时间",
+                  "example": ""
+                },
+                {
+                  "code": "is_holdup",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否拦截，0不拦截，1拦截",
+                  "example": ""
+                },
+                {
+                  "code": "cl_sync_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "[策略接口]单据同步状态",
+                  "example": ""
+                },
+                {
+                  "code": "cl_sync_num",
+                  "type": "number",
+                  "required": false,
+                  "desc": "[策略接口]单据同步次数",
+                  "example": ""
+                },
+                {
+                  "code": "store_order_code",
+                  "type": "string",
+                  "required": false,
+                  "desc": "菜鸟仓库作业编码",
+                  "example": ""
+                },
+                {
+                  "code": "is_create_o2o_yjjsd",
+                  "type": "number",
+                  "required": false,
+                  "desc": "是否已生成o2o业绩结算单，0未生成，1已生成",
+                  "example": ""
+                },
+                {
+                  "code": "o2o_yjjs_status",
+                  "type": "number",
+                  "required": false,
+                  "desc": "结算状态，0未结算，1已结算",
+                  "example": ""
+                },
+                {
+                  "code": "rec_name",
+                  "type": "string",
+                  "required": false,
+                  "desc": "用戶名检索码",
+                  "example": ""
+                },
+                {
+                  "code": "rec_mobile",
+                  "type": "string",
+                  "required": false,
+                  "desc": "手机号检索码",
+                  "example": ""
+                },
+                {
+                  "code": "rec_address",
+                  "type": "string",
+                  "required": false,
+                  "desc": "地址检索码",
+                  "example": ""
+                },
+                {
+                  "code": "oaid",
+                  "type": "string",
+                  "required": false,
+                  "desc": "订单oaid,加密信息唯一标识",
+                  "example": ""
+                },
+                {
+                  "code": "order_goods",
+                  "type": "array[array[object]]",
+                  "required": false,
+                  "desc": "订单商品信息",
+                  "example": "",
+                  "children": [
+                    {
+                      "code": "order_sn",
+                      "type": "string",
+                      "required": true,
+                      "desc": "订单编号",
+                      "example": "123112"
+                    },
+                    {
+                      "code": "deal_code",
+                      "type": "string",
+                      "required": true,
+                      "desc": "交易号",
+                      "example": "123123"
+                    },
+                    {
+                      "code": "sub_deal_c ode",
+                      "type": "string",
+                      "required": false,
+                      "desc": "子交易号",
+                      "example": "21231"
+                    },
+                    {
+                      "code": "goods_name",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品名称",
+                      "example": "帽子"
+                    },
+                    {
+                      "code": "goods_sn",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品货号",
+                      "example": "xx001"
+                    },
+                    {
+                      "code": "goods_number",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品数量",
+                      "example": "1"
+                    },
+                    {
+                      "code": "goods_price",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品金额",
+                      "example": "12"
+                    },
+                    {
+                      "code": "sku",
+                      "type": "string",
+                      "required": true,
+                      "desc": "商品 SKU",
+                      "example": "sku001"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "request_method": [
+        "get",
+        "post"
+      ],
+      "alias": "order.split.list.get"
+    }
+  },
+  "message": "success"
+}

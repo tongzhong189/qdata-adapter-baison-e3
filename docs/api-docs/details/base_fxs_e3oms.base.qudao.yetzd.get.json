@@ -1,0 +1,486 @@
+{
+  "code": "e3oms.base.qudao.yetzd.get",
+  "name": "获取分销商余额调整单接口",
+  "category": "基础API/fxs",
+  "method": "GET/POST",
+  "description": "获取分销商余额调整单接口",
+  "endpoints": {
+    "sandbox": "",
+    "production": "https://openapi.baison.net/api/ec"
+  },
+  "common_params": [
+    {
+      "field": "serviceType",
+      "name": "serviceType",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API接口名称",
+      "_parent_node": null
+    },
+    {
+      "field": "format",
+      "name": "format",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "响应格式。默认为json格式，可选值：json。",
+      "_parent_node": null
+    },
+    {
+      "field": "key",
+      "name": "key",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "E3分配给应用的AppKey",
+      "_parent_node": null
+    },
+    {
+      "field": "requestTime",
+      "name": "requestTime",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "时间戳，格式为yyyyMMddHHmmss，时区为GMT+8，例如：20210101120000, E3服务端允许客户端请求最大时间误差为10分钟",
+      "_parent_node": null
+    },
+    {
+      "field": "version",
+      "name": "version",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API协议版本，可选值：3.0",
+      "_parent_node": null
+    },
+    {
+      "field": "sign_method",
+      "name": "sign_method",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "签名的摘要算法，可选值为：md5",
+      "_parent_node": null
+    },
+    {
+      "field": "sign",
+      "name": "sign",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "API输入参数签名结果",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "消息体，JSON格式化后的字符串",
+      "_parent_node": null
+    }
+  ],
+  "request_params": [
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "页码:取值范围:大于零的整数; 默认值:1",
+      "_parent_node": null
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "否",
+      "description": "每页条数。取值范围:大于零的整数; ",
+      "_parent_node": null
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据编号",
+      "_parent_node": null
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据状态",
+      "_parent_node": null
+    },
+    {
+      "field": "djlx",
+      "name": "djlx",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "单据类型",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_start",
+      "name": "rq_start",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "生效日期起",
+      "_parent_node": null
+    },
+    {
+      "field": "rq_end",
+      "name": "rq_end",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "生效日期止",
+      "_parent_node": null
+    },
+    {
+      "field": "khmc",
+      "name": "khmc",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户名称",
+      "_parent_node": null
+    },
+    {
+      "field": "khdm",
+      "name": "khdm",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "客户代码",
+      "_parent_node": null
+    }
+  ],
+  "response_params": [
+    {
+      "field": "status",
+      "name": "status",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "参见操作状态码说明",
+      "_parent_node": null
+    },
+    {
+      "field": "message",
+      "name": "message",
+      "type": "string",
+      "length": "",
+      "required": "否",
+      "description": "操作消息",
+      "_parent_node": null
+    },
+    {
+      "field": "data",
+      "name": "data",
+      "type": "array[object]",
+      "length": "",
+      "required": "",
+      "description": "响应数据",
+      "_parent_node": null
+    },
+    {
+      "field": "page",
+      "name": "page",
+      "type": "array[object]",
+      "length": "",
+      "required": "是",
+      "description": "返回页码信息",
+      "_parent_node": "data"
+    },
+    {
+      "field": "totalResult",
+      "name": "totalResult",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总条数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageSize",
+      "name": "pageSize",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "每页条数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageNo",
+      "name": "pageNo",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "页码",
+      "_parent_node": "page"
+    },
+    {
+      "field": "pageTotal",
+      "name": "pageTotal",
+      "type": "number",
+      "length": "",
+      "required": "是",
+      "description": "总页数",
+      "_parent_node": "page"
+    },
+    {
+      "field": "list",
+      "name": "list",
+      "type": "array[array[object]]",
+      "length": "",
+      "required": "是",
+      "description": "列表",
+      "_parent_node": "data"
+    },
+    {
+      "field": "id",
+      "name": "id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "ID",
+      "_parent_node": "list"
+    },
+    {
+      "field": "djbh",
+      "name": "djbh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "单据编号",
+      "_parent_node": "list"
+    },
+    {
+      "field": "ydh",
+      "name": "ydh",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "原单号",
+      "_parent_node": "list"
+    },
+    {
+      "field": "cj_time",
+      "name": "cj_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "创建时间",
+      "_parent_node": "list"
+    },
+    {
+      "field": "sx_time",
+      "name": "sx_time",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "生效时间",
+      "_parent_node": "list"
+    },
+    {
+      "field": "djlx",
+      "name": "djlx",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "单据类型",
+      "_parent_node": "list"
+    },
+    {
+      "field": "je",
+      "name": "je",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "调整金额",
+      "_parent_node": "list"
+    },
+    {
+      "field": "djzt",
+      "name": "djzt",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "单据状态",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zdr",
+      "name": "zdr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "制单人",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zdrq",
+      "name": "zdrq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "制单日期",
+      "_parent_node": "list"
+    },
+    {
+      "field": "sp",
+      "name": "sp",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批",
+      "_parent_node": "list"
+    },
+    {
+      "field": "spr",
+      "name": "spr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批人",
+      "_parent_node": "list"
+    },
+    {
+      "field": "sprq",
+      "name": "sprq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "审批日期",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zx",
+      "name": "zx",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "执行",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zxr",
+      "name": "zxr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "执行人",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zxrq",
+      "name": "zxrq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "执行日期",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zf",
+      "name": "zf",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "作废单据",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zfr",
+      "name": "zfr",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "作废单据操作人",
+      "_parent_node": "list"
+    },
+    {
+      "field": "zfrq",
+      "name": "zfrq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "作废单据日期",
+      "_parent_node": "list"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "list"
+    },
+    {
+      "field": "mx",
+      "name": "mx",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "明细",
+      "_parent_node": "list"
+    },
+    {
+      "field": "kh_id",
+      "name": "kh_id",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道Id",
+      "_parent_node": "mx"
+    },
+    {
+      "field": "khmc",
+      "name": "khmc",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道名称",
+      "_parent_node": "mx"
+    },
+    {
+      "field": "distributor_ye",
+      "name": "distributor_ye",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "渠道原始余额",
+      "_parent_node": "mx"
+    },
+    {
+      "field": "rq",
+      "name": "rq",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "日期",
+      "_parent_node": "mx"
+    },
+    {
+      "field": "bz",
+      "name": "bz",
+      "type": "string",
+      "length": "",
+      "required": "是",
+      "description": "备注",
+      "_parent_node": "mx"
+    }
+  ],
+  "error_codes": []
+}
